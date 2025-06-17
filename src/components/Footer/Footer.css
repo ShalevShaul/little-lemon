@@ -1,0 +1,36 @@
+footer {
+    margin: 0 10%;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer .footer-nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer ul li {
+    list-style-type: none;
+    font-size: 16px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+footer span.list-title {
+    cursor: default;
+    color: #393939;
+}
+
+footer .footer-nav li ul {
+    margin-top: 16px;
+    line-height: 25px;
+}
+
+footer .footer-nav > img {
+    width: 120px;
+}
