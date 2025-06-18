@@ -1,0 +1,25 @@
+
+article .title {
+    color: #F4CE14;
+    font-size: 58px;
+}
+
+article .sub-title {
+
+}
+
+article .description {
+
+}
+
+article button {
+
+}
+
+.hero-img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    margin: 20px;
+    border-radius: 16px;
+}

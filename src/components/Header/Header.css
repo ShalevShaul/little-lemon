@@ -1,0 +1,11 @@
+header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #4A5E57;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        grid-template-columns: 1fr;
+    }
+}

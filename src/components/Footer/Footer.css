@@ -1,14 +1,10 @@
-footer {
-    margin: 0 10%;
-}
-
 footer ul {
     padding: 0;
 }
 
 footer .footer-nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 footer ul li {
