@@ -1,0 +1,39 @@
+.testimonials h2 {
+    text-align: center;
+    font-size: 58px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.testimonials .reviews {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.testimonials .reviews .item {
+    background-color: #F3F3F3;
+    padding: 10px;
+    text-align: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.testimonials .reviews .item h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 40px 0;
+}
+
+.testimonials .reviews .item img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.25);
+}
+
+.testimonials .reviews .item .stars {
+    font-size: 24px;
+}
+
+.testimonials .reviews .item .description {
+    font-size: 16px;
+}
