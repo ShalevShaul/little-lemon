@@ -7,7 +7,7 @@ nav ul {
 
 nav ul li {
     list-style-type: none;
-    font-size: 1.5dvw;
+    font-size: 1.25dvw;
     font-weight: 500;
 }
 
@@ -17,5 +17,5 @@ nav ul li a {
 }
 
 nav ul .nav-logo {
-    width: 20dvw;
+    width: 15dvw;
 }
