@@ -8,16 +8,28 @@
     position: relative;
 }
 
+.about .photos:hover .image1 {
+    transform: translateX(-110%) translateY(-25.3%) scale(1.1);
+    box-shadow: -30px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.about .photos:hover .image2 {
+    transform: translateX(-25%) scale(1.1);
+    box-shadow: 30px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
 .about .photos .image1 {
     position: absolute;
     bottom: 0;
     left: 3%;
+    transition: 0.5s ease-in-out;
 }
 
 .about .photos .image2 {
     position: absolute;
     right: 0;
     top: 0;
+    transition: 0.5s ease-in-out;
 }
 
 .about .photos img {
@@ -32,7 +44,7 @@
     font-size: 58px;
     font-weight: 600;
     font-family: 'Times New Roman', Times, serif;
-    margin: 0;
+    margin: 10% 0 0 0;
 }
 
 .about .info .sub-title {
