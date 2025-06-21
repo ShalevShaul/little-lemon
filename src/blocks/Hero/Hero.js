@@ -3,7 +3,7 @@ import './Hero.css';
 function Hero() {
     return (
         <>
-            <article>
+            <article className='hero'>
                 <h1 className='title'>Little Lemon</h1>
                 <h2 className='sub-title'>Chicago</h2>
                 <div className='description'>Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</div>

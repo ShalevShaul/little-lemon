@@ -1,4 +1,4 @@
-article .title {
+.hero .title {
     color: #F4CE14;
     font-size: 58px;
     font-family: 'Times New Roman', Times, serif;
@@ -6,20 +6,20 @@ article .title {
     margin-top: 40px;
 }
 
-article .sub-title {
+.hero .sub-title {
     color: #EDEFEE;
     font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
 }
 
-article .description {
+.hero .description {
     color: #EDEFEE;
     font-size: 22px;
     margin: 10px 0;
 }
 
-article button {
+.hero button {
     background-color: #F4CE14;
     color: #000000;
     border: none;
@@ -33,7 +33,7 @@ article button {
     transition: 0.2s;
 }
 
-article button:hover {
+.hero button:hover {
     transform: scale(1.075);
 }
 
@@ -57,26 +57,26 @@ article button:hover {
         margin-bottom: 20px;
     }
 
-    article button {
+    .hero button {
         font-size: 18px;
         padding: 25px;
     }
 }
 
 @media screen and (max-width: 440px) {
-    article .title {
+    .hero .title {
         font-size: 46px;
     }
 
-    article .sub-title {
+    .hero .sub-title {
         font-size: 32px;
     }
 
-    article .description {
+    .hero .description {
         font-size: 16px;
     }
 
-    article button {
+    .hero button {
         font-size: 16px;
         padding: 20px;
         width: 100%;
