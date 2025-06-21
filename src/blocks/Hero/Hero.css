@@ -30,6 +30,11 @@ article button {
     margin-bottom: 40px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+article button:hover {
+    transform: scale(1.075);
 }
 
 .hero-img {
@@ -39,6 +44,11 @@ article button {
     margin: auto 0;
     border-radius: 16px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+}
+
+.hero-img:hover {
+    transform: rotate(5deg);
 }
 
 @media screen and (max-width: 768px) {
