@@ -37,3 +37,36 @@
 .testimonials .reviews .item .description {
     font-size: 16px;
 }
+
+@media screen and (max-width:768px) {
+    .testimonials h2 {
+        font-size: 40px;
+    }
+
+    .testimonials .reviews {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:440px) {
+    .testimonials .reviews {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials h2 {
+        font-size: 8dvw;
+    }
+
+    .testimonials .reviews .item h3 {
+        font-size: 6dvw;
+        margin: 0 0 20px 0;
+    }
+
+    .testimonials .reviews .item .stars {
+        font-size: 7dvw;
+    }
+
+    .testimonials .reviews .item .description {
+        font-size: 5dvw;
+    }
+}
