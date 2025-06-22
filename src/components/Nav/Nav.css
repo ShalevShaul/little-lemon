@@ -1,4 +1,21 @@
-nav ul {
+nav {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex: 1 4;
+}
+
+nav .nav-logo {
+    width: 15dvw;
+    padding: 20px 40px 20px 0;
+}
+
+nav .menu {
+    width: 100%;
+
+}
+
+nav .menu ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,6 +33,95 @@ nav ul li a {
     color: black;
 }
 
-nav ul .nav-logo {
-    width: 15dvw;
+nav :is(.mobile-menu, .hamburger) {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    nav {
+        justify-content: space-between;
+        position: relative;
+    }
+
+    nav .nav-logo {
+        width: 80%;
+        padding: 10px 10px 10px 0;
+    }
+
+    nav .menu ul {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: inline;
+        border: unset;
+        background: unset;
+        cursor: pointer;
+    }
+
+    nav .hamburger img {
+        width: 30px;
+    }
+
+    nav .mobile-menu {
+        display: inline;
+        position: absolute;
+        background-color: white;
+        border-top: 1px solid #4b5e57;
+        width: 100%;
+        top: 100%;
+        left: 0;
+    }
+
+    nav .mobile-menu.show {
+        animation: fadeIn 0.3s ease;
+        padding-top: 10px;
+    }
+
+    nav .mobile-menu ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        width: 76%;
+        margin: auto auto 20px auto;
+        text-align: center;
+    }
+
+    nav .mobile-menu ul li {
+        background-color: #4b5e57;
+        border-radius: 8px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        transition: 0.2s;
+        &:hover {
+            box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.5);
+            transform: scaleX(1.05);
+            letter-spacing: 1px;
+        }
+    }
+
+    nav .mobile-menu ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        color: white;
+    }
+}
+
+@media screen and (max-width:440px) {
+    nav .hamburger img {
+        width: 20px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
