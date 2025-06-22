@@ -30,3 +30,30 @@ footer .footer-nav li ul {
 footer .footer-nav > img {
     width: 120px;
 }
+
+
+@media screen and (max-width:768px) {
+    footer .footer-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+    }
+
+    footer ul li a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:440px) {
+    footer .footer-nav {
+        grid-template-columns: 1fr;
+    }
+
+    footer .footer-nav > img {
+        display: none;
+    }
+
+    footer .footer-nav li ul {
+        margin-top: 8px;
+    }
+}
