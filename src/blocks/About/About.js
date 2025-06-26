@@ -11,8 +11,8 @@ function About() {
                 </p>
             </article>
             <div className='photos'>
-                <img className='image1' src={require('../../assets/images/about/restaurant.jpg')} />
-                <img className='image2' src={require('../../assets/images/about/MarioAndAdrian.jpg')} />
+                <img className='image1' src={require('../../assets/images/about/restaurant.jpg')} alt='The outside of the restaurant' />
+                <img className='image2' src={require('../../assets/images/about/MarioAndAdrian.jpg')} alt='The chefs, Mario and Adrian' />
             </div>
         </section>
     )

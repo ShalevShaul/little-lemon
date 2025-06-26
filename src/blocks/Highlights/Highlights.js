@@ -9,7 +9,7 @@ function Highlights() {
             </div>
             <div className='specials-menu'>
                 <div className='menu-item'>
-                    <img src={require('../../assets/images/greek-salad.jpg')} />
+                    <img src={require('../../assets/images/greek-salad.jpg')} alt='Greek salad' />
                     <div className='details'>
                         <div className='title-price'>
                             <h3 className='item-title'>Greek Salad</h3>
@@ -21,7 +21,7 @@ function Highlights() {
                 </div>
 
                 <div className='menu-item'>
-                    <img src={require('../../assets/images/bruschetta.jpg')} />
+                    <img src={require('../../assets/images/bruschetta.jpg')} alt='Bruschetta' />
                     <div className='details'>
                         <div className='title-price'>
                             <h3 className='item-title'>bruschetta</h3>
@@ -33,7 +33,7 @@ function Highlights() {
                 </div>
 
                 <div className='menu-item'>
-                    <img src={require('../../assets/images/lemon-dessert.jpg')} />
+                    <img src={require('../../assets/images/lemon-dessert.jpg')} alt='Lemmon dessert' />
                     <div className='details'>
                         <div className='title-price'>
                             <h3 className='item-title'>Lemon Dessert</h3>

@@ -1,11 +1,19 @@
 import { useState } from 'react';
 import './Nav.css';
+import { Link } from 'react-router-dom';
 
 function Nav() {
     const [isOpen, setIsOpen] = useState(false);
 
     function openMenu() {
         setIsOpen(!isOpen);
+    }
+
+    function scrollToMain() {
+        setTimeout(() => {
+            document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+        }, 10)
+        openMenu();
     }
 
     return (
@@ -15,12 +23,11 @@ function Nav() {
             </a>
             <div className='menu'>
                 <ul>
-                    <li><a href='/home'>Home</a></li>
-                    <li><a href='/about'>About</a></li>
-                    <li><a href='/menu'>Menu</a></li>
-                    <li><a href='/reservations'>Reservations</a></li>
-                    <li><a href='/order'>Order Online</a></li>
-                    <li><a href='/login'>Login</a></li>
+                    <li><Link to={'/home'}>Home</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/highlights'}>Highlights</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/testimonials'}>Testimonials</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/about'}>About</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/all'}>Show All</Link></li>
                 </ul>
             </div>
 
@@ -29,12 +36,11 @@ function Nav() {
             </button>
             <div className={`mobile-menu ${isOpen ? 'show' : 'hide'}`}>
                 <ul style={{ display: isOpen ? 'flex' : 'none' }}>
-                    <li><a href='/home'>Home</a></li>
-                    <li><a href='/about'>About</a></li>
-                    <li><a href='/menu'>Menu</a></li>
-                    <li><a href='/reservations'>Reservations</a></li>
-                    <li><a href='/order'>Order Online</a></li>
-                    <li><a href='/login'>Login</a></li>
+                    <li onClick={openMenu}><Link to={'/home'}>Home</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/highlights'}>Highlights</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/testimonials'}>Testimonials</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/about'}>About</Link></li>
+                    <li onClick={scrollToMain}><Link to={'/all'}>Show All</Link></li>
                 </ul>
             </div>
         </nav>
