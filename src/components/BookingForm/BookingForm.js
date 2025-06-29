@@ -1,23 +1,30 @@
 import './BookingForm.css';
 
-function BookingForm({ formData, setFormData, availableTimes, initialFormData }) {
+function BookingForm({ formData, setFormData, availableTimes, dispatch }) {
 
     function submitData(e) {
         e.preventDefault();
         console.log(formData);
-        setFormData(initialFormData);
+        setFormData({
+            firstName: '',
+            lastName: '',
+            date: '',
+            time: '',
+            guests: 1,
+            occasion: ''
+        });
     }
 
     return (
         <>
-            <form className='table-form' onSubmit={submitData}>
+            <form className='table-form' onSubmit={submitData} role='form' aria-labelledby='booking-title'>
                 <fieldset>
                     <legend><strong>Personal Information</strong></legend>
 
                     {/* First name field */}
                     <div className='form-field'>
                         <label htmlFor='first-name'>First Name:</label>
-                        <input type='text' name='firstName' id='first-name' placeholder='First Name' required
+                        <input type='text' name='firstName' id='first-name' placeholder='First Name' required aria-required='true'
                             value={formData.firstName}
                             onChange={(e) => setFormData({
                                 ...formData,
@@ -28,7 +35,7 @@ function BookingForm({ formData, setFormData, availableTimes, initialFormData })
                     {/* Last name field */}
                     <div className='form-field'>
                         <label htmlFor='last-name'>Last Name:</label>
-                        <input type='text' name='lastName' id='last-name' placeholder='Last Name' required
+                        <input type='text' name='lastName' id='last-name' placeholder='Last Name' required aria-required='true'
                             value={formData.lastName}
                             onChange={(e) => setFormData({
                                 ...formData,
@@ -43,19 +50,25 @@ function BookingForm({ formData, setFormData, availableTimes, initialFormData })
                     {/* Date field */}
                     <div className='form-field'>
                         <label htmlFor='res-date'>Choose date:</label>
-                        <input type='date' name='date' id='res-date' required
+                        <input type='date' name='date' id='res-date' required aria-required='true'
                             value={formData.date}
                             min={new Date().toISOString().split('T')[0].toString()}
-                            onChange={(e) => setFormData({
-                                ...formData,
-                                date: e.target.value
-                            })} />
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    date: e.target.value
+                                });
+                                dispatch({
+                                    type: 'UPDATE_TIMES',
+                                    date: e.target.value
+                                });
+                            }} />
                     </div>
 
                     {/* Time field */}
                     <div className='form-field'>
                         <label htmlFor='res-time'>Choose time:</label>
-                        <select id='res-time' name='time' required
+                        <select id='res-time' name='time' required aria-required='true'
                             value={formData.time}
                             onChange={(e) => setFormData({
                                 ...formData,
@@ -71,7 +84,7 @@ function BookingForm({ formData, setFormData, availableTimes, initialFormData })
                     {/* Number of guests field */}
                     <div className='form-field'>
                         <label htmlFor='guests'>Number of guests:</label>
-                        <input type='number' name='guests' id='guests' placeholder='1' min={1} max={10} required
+                        <input type='number' name='guests' id='guests' placeholder='1' min={1} max={10} required aria-required='true'
                             value={formData.guests}
                             onChange={(e) => setFormData({
                                 ...formData,
@@ -82,7 +95,7 @@ function BookingForm({ formData, setFormData, availableTimes, initialFormData })
                     {/* Occasion field */}
                     <div className='form-field'>
                         <label htmlFor='occasion'>Occasion:</label>
-                        <select id='occasion' name='occasion' required
+                        <select id='occasion' name='occasion' required aria-required='true'
                             value={formData.occasion}
                             onChange={(e) => setFormData({
                                 ...formData,

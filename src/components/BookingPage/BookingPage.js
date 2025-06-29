@@ -3,7 +3,7 @@ import BookingForm from '../BookingForm/BookingForm';
 import Bookings from '../Bookings/Bookings';
 import './BookingPage.css';
 
-function BookingPage() {
+function BookingPage({ availableTimes, dispatch }) {
     const initialFormData = {
         firstName: '',
         lastName: '',
@@ -13,18 +13,16 @@ function BookingPage() {
         occasion: ''
     };
 
-    const [formData, setFormData] = useState(initialFormData);
-    const [availableTimes, setAvailableTimes] = useState([
-        '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-    ]);
+    const [formData, setFormData] = useState(initialFormData)
 
     function scrollToMain() {
-        document.querySelector('section.booking-content').scrollIntoView({behavior:'smooth'});
+        document.querySelector('main.booking-content').scrollIntoView({ behavior: 'smooth' });
     }
 
     return (
-        <section className='booking-page'>
-            <article className='booking-header'>
+        <>
+            {/* <section className='booking-page'> */}
+            <header className='booking-header'>
                 <div>
                     <h2 className='title'>Little Lemon</h2>
                     <h3 className='sub-title'>Reserve A Table</h3>
@@ -32,18 +30,19 @@ function BookingPage() {
                     <button onClick={scrollToMain}>Let's Start</button>
                 </div>
                 <img className='table-img' src={require('../../assets/images/table.jpg')} alt='Little Lemon signature bruschetta' />
-            </article>
-            <section className='booking-content'>
+            </header>
+            <main className='booking-content'>
                 <Bookings formData={formData} availableTimes={availableTimes} />
                 <BookingForm
                     initialFormData={initialFormData}
                     formData={formData}
                     setFormData={setFormData}
                     availableTimes={availableTimes}
-                    setAvailableTimes={setAvailableTimes}
+                    dispatch={dispatch}
                 />
-            </section>
-        </section>
+            </main>
+            {/* </section> */}
+        </>
     )
 }
 
