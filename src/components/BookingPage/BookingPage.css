@@ -1,0 +1,116 @@
+.booking-page .booking-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10%;
+    place-items: center;
+    background-color: #4A5E57;
+    padding: 0 12%;
+    margin-bottom: 36px;
+}
+
+.booking-page .booking-header>div .title {
+    color: #F4CE14;
+    font-size: 58px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    margin-top: 40px;
+}
+
+.booking-page .booking-header>div .sub-title {
+    color: #EDEFEE;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+.booking-page .booking-header>div .description {
+    color: #EDEFEE;
+    font-size: 1.5dvw;
+    margin: 10px 0;
+}
+
+.booking-page .booking-header>div button {
+    background-color: #F4CE14;
+    color: #000000;
+    border: none;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 35px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        transform: scale(1.075);
+    }
+}
+
+.booking-page .booking-header>img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    margin: auto 0;
+    border-radius: 16px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+
+    &:hover {
+        transform: rotate(5deg);
+    }
+}
+
+.booking-page .booking-content {
+    padding: 0 12%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: end;
+    gap: 10%;
+}
+
+.booking-page .booking-content>* {
+    flex: 1;
+}
+
+@media screen and (max-width:768px) {
+    .booking-page .booking-header {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding-bottom: 20px;
+    }
+
+    .booking-page .booking-header>div .title {
+        font-size: 12dvw;
+    }
+
+    .booking-page .booking-header>div .sub-title {
+        font-size: 8dvw;
+    }
+
+    .booking-page .booking-header>div .description {
+        font-size: 2dvw;
+    }
+
+    .booking-page .booking-header>div button {
+        font-size: 3dvw;
+        padding: 16px;
+    }
+
+    .booking-page .booking-header img {
+        width: 100%;
+        height: 250px;
+        margin-top: 0;
+    }
+
+    .booking-page .booking-content {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .booking-page .booking-header>div button {
+        margin: 16px 0;
+        width: 100%;
+    }
+}

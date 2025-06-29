@@ -1,0 +1,73 @@
+.table-form {
+    max-width: 400px;
+}
+
+.table-form fieldset {
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #4b5e57;
+}
+
+.table-form fieldset legend strong {
+    font-size: 22px;
+}
+
+.table-form .form-field {
+    margin: 15px 0;
+    padding: 8px;
+}
+
+.table-form .form-field label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.table-form .form-field :is(input, select) {
+    box-sizing: border-box;
+    width: 100%;
+    margin: auto;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(184, 184, 184, 0.7);
+    border: none;
+    border-left: 4px solid #4b5e57;
+    outline: none;
+    transition: 0.15s linear;
+}
+
+.table-form .form-field :is(input, select):focus {
+    border-bottom: 3px solid #709084;
+}
+
+.table-form .form-field :is(input, select):invalid {
+    border-left: 4px solid #641c1c;
+    &:focus {
+        border-bottom: 3px solid #a02d2d;
+    }
+}
+
+.table-form fieldset input[type='submit'] {
+    width: 96%;
+    margin: 8px;
+    padding: 12px 20px;
+    border: none;
+    background-color: #F4CE14;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 16px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.table-form fieldset input[type='submit']:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 440px) {
+    .table-form fieldset input[type='submit'] {
+        font-size: 4dvw;
+    }
+}

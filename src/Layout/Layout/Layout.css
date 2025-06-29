@@ -1,0 +1,13 @@
+body :is(header, main, section) {
+    animation: showUp 0.5s ease-in-out;
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0.5;
+        transform: scale(0.75);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
