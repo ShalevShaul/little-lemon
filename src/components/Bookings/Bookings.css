@@ -7,7 +7,7 @@
 
 .bookings-section h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
     color: #333;
 }
 
@@ -30,6 +30,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
     margin-bottom: 30px;
+    /* margin-top: 15px; */
 }
 
 .time-slot {
