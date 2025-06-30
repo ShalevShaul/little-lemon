@@ -7,11 +7,11 @@ import { useReducer } from 'react';
 import BookingPage from '../../components/BookingPage/BookingPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-function initializeTimes() {
+export function initializeTimes() {
     return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 }
 
-function updateTimes(state, action) {
+export function updateTimes(state, action) {
     switch (action.type) {
         case 'UPDATE_TIMES':
             const selectedDate = action.date;
