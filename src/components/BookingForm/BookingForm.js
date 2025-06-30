@@ -17,7 +17,7 @@ function BookingForm({ formData, setFormData, availableTimes, dispatch }) {
 
     return (
         <>
-            <form className='table-form' onSubmit={submitData} role='form' aria-labelledby='booking-title'>
+            <form className='table-form' onSubmit={submitData} aria-labelledby='booking-title'>
                 <h2 style={{textAlign:'center'}}>Reserve a table</h2>
                 <fieldset>
                     <legend><strong>Personal Information</strong></legend>
