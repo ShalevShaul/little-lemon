@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookingForm from '../BookingForm/BookingForm';
-import Bookings from '../Bookings/Bookings';
 import './BookingPage.css';
+import AvailableTimes from '../AvailableTimes/AvailableTimes';
 
 function BookingPage({ availableTimes, dispatch }) {
     const bookedTimes = ['18:00', '20:00', '20:30'];
@@ -34,7 +34,7 @@ function BookingPage({ availableTimes, dispatch }) {
                 <img className='table-img' src={require('../../assets/images/table.jpg')} alt='Little Lemon signature bruschetta' />
             </header>
             <main className='booking-content'>
-                <Bookings formData={formData} availableTimes={availableTimes} bookedTimes={bookedTimes} />
+                <AvailableTimes formData={formData} availableTimes={availableTimes} bookedTimes={bookedTimes} />
                 <BookingForm
                     initialFormData={initialFormData}
                     formData={formData}

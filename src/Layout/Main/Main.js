@@ -65,6 +65,7 @@ import { useEffect, useReducer } from 'react';
 import BookingPage from '../../components/BookingPage/BookingPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { fetchAPI } from '../../data/api';
+import BookingsList from '../../components/BookingsList/BookingsList';
 
 function Main() {
     function initializeTimes() {
@@ -105,12 +106,13 @@ function Main() {
                         </main>
                     </>
                 } />
-                <Route path='/booking' element={
+                <Route path='/reserve-a-table' element={
                     <BookingPage
                         availableTimes={availableTimes}
                         dispatch={dispatch}
                     />
                 } />
+                <Route path='/bookings' element={<BookingsList />} />
             </Routes>
         </>
     );

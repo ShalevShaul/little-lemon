@@ -1,6 +1,6 @@
-import './Bookings.css';
+import './AvailableTimes.css';
 
-function Bookings({ availableTimes, formData, bookedTimes }) {
+function AvailableTimes({ availableTimes, formData, bookedTimes }) {
     return (
         <section className="bookings-section">
             <h2>Reservation Status</h2>
@@ -43,4 +43,4 @@ function Bookings({ availableTimes, formData, bookedTimes }) {
     );
 }
 
-export default Bookings;
+export default AvailableTimes;

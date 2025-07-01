@@ -5,7 +5,7 @@ function Hero() {
     const navigate = useNavigate();
 
     function moveToBooking() {
-        navigate('/booking');
+        navigate('/reserve-a-table');
     }
 
     return (

@@ -17,7 +17,8 @@ function Nav() {
             <div className='menu'>
                 <ul>
                     <li><Link to={'/home'}>Home</Link></li>
-                    <li><Link to={'/booking'}>Booking</Link></li>
+                    <li><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li><Link to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
 
@@ -27,7 +28,8 @@ function Nav() {
             <div className={`mobile-menu ${isOpen ? 'show' : 'hide'}`}>
                 <ul style={{ display: isOpen ? 'flex' : 'none' }}>
                     <li onClick={toggleMenu}><Link to={'/home'}>Home</Link></li>
-                    <li onClick={toggleMenu}><Link to={'/booking'}>Booking</Link></li>
+                    <li onClick={toggleMenu}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={toggleMenu}><Link to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
         </nav>
