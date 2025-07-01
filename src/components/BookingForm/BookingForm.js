@@ -1,24 +1,31 @@
+import { submitAPI } from '../../data/api';
 import './BookingForm.css';
 
-function BookingForm({ formData, setFormData, availableTimes, dispatch }) {
+function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTimes }) {
 
     function submitData(e) {
         e.preventDefault();
-        console.log(formData);
-        setFormData({
-            firstName: '',
-            lastName: '',
-            date: '',
-            time: '',
-            guests: 1,
-            occasion: ''
-        });
+
+        const isSubmitted = submitAPI(formData);
+        if (isSubmitted) {
+            console.log('Booking submitted successfully!', formData);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                date: '',
+                time: '',
+                guests: 1,
+                occasion: ''
+            });
+        } else {
+            console.log('Booking submission failed');
+        }
     }
 
     return (
         <>
             <form className='table-form' onSubmit={submitData} aria-labelledby='booking-title'>
-                <h2 style={{textAlign:'center'}}>Reserve a table</h2>
+                <h2 style={{ textAlign: 'center' }}>Reserve a table</h2>
                 <fieldset>
                     <legend><strong>Personal Information</strong></legend>
 
@@ -76,9 +83,12 @@ function BookingForm({ formData, setFormData, availableTimes, dispatch }) {
                                 time: e.target.value
                             })}>
                             <option value=''>Select time</option>
-                            {availableTimes.map(time =>
-                                <option key={time} value={time}>{time}</option>
-                            )}
+                            {availableTimes.map(time => {
+                                if (bookedTimes.includes(time)) {
+                                    return null;
+                                }
+                                return <option key={time} value={time}>{time}</option>
+                            })}
                         </select>
                     </div>
 

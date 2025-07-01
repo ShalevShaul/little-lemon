@@ -4,6 +4,8 @@ import Bookings from '../Bookings/Bookings';
 import './BookingPage.css';
 
 function BookingPage({ availableTimes, dispatch }) {
+    const bookedTimes = ['18:00', '20:00', '20:30'];
+
     const initialFormData = {
         firstName: '',
         lastName: '',
@@ -32,13 +34,14 @@ function BookingPage({ availableTimes, dispatch }) {
                 <img className='table-img' src={require('../../assets/images/table.jpg')} alt='Little Lemon signature bruschetta' />
             </header>
             <main className='booking-content'>
-                <Bookings formData={formData} availableTimes={availableTimes} />
+                <Bookings formData={formData} availableTimes={availableTimes} bookedTimes={bookedTimes} />
                 <BookingForm
                     initialFormData={initialFormData}
                     formData={formData}
                     setFormData={setFormData}
                     availableTimes={availableTimes}
                     dispatch={dispatch}
+                    bookedTimes={bookedTimes}
                 />
             </main>
             {/* </section> */}

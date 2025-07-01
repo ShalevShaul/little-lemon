@@ -1,16 +1,13 @@
 import './Bookings.css';
 
-function Bookings({ availableTimes, formData }) {
-    // Booked times for example
-    const bookedTimes = ['18:00', '20:00'];
-
+function Bookings({ availableTimes, formData, bookedTimes }) {
     return (
         <section className="bookings-section">
             <h2>Reservation Status</h2>
 
             {formData.date && (
                 <div className="selected-date">
-                    <h3>Selected Date: {formData.date}</h3>
+                    <h3>Selected Date: {new Date(formData.date).toLocaleDateString('he-IL')}</h3>
                 </div>
             )}
 
@@ -32,17 +29,6 @@ function Bookings({ availableTimes, formData }) {
                         </div>
                     );
                 })}
-            </div>
-
-            <div className="booking-stats">
-                <div className="stat">
-                    <span className="stat-number">{availableTimes.length - bookedTimes.length}</span>
-                    <span className="stat-label">Available Slots</span>
-                </div>
-                <div className="stat">
-                    <span className="stat-number">{bookedTimes.length}</span>
-                    <span className="stat-label">Booked Slots</span>
-                </div>
             </div>
 
             <div className="booking-info">

@@ -1,6 +1,7 @@
 .table-form {
     max-width: 400px;
     padding: 20px;
+    margin: auto 0;
 }
 
 .table-form fieldset {
