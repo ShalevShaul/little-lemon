@@ -1,5 +1,6 @@
 import { submitAPI } from '../../data/api';
 import './BookingForm.css';
+import { bookingArray } from '../../data/bookingData';
 
 function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTimes }) {
 
@@ -8,6 +9,7 @@ function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTi
 
         const isSubmitted = submitAPI(formData);
         if (isSubmitted) {
+            bookingArray.push(formData);
             console.log('Booking submitted successfully!', formData);
             setFormData({
                 firstName: '',

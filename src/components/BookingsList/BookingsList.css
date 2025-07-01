@@ -53,12 +53,12 @@ header.bookingsList-header {
 }
 
 .bookingsList-main .bookings-grid .book {
-    /* border-bottom: 1px solid hwb(158 29% 63% / 0.5); */
     padding: 10px;
     text-align: center;
     padding-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    border-radius: 12px;
 }
 
 .bookingsList-main .bookings-grid .book:hover {
