@@ -6,7 +6,7 @@ function BookingPage({ submitForm, availableTimes, dispatch }) {
     const bookedTimes = ['18:00', '20:00', '20:30'];
 
     function scrollToMain() {
-        document.querySelector('main.booking-content').scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
     }
 
     return (

@@ -61,6 +61,18 @@ header.bookingsList-header {
     border-radius: 12px;
 }
 
+.bookingsList-main .bookings-grid .book .removeBtn {
+    width: 25px;
+    float: right;
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.bookingsList-main .bookings-grid .book:hover .removeBtn {
+    opacity: 1;
+}
+
 .bookingsList-main .bookings-grid .book:hover {
     transform: scale(1.025);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -110,6 +122,36 @@ header.bookingsList-header {
     cursor: default;
     display: block;
     margin: 10px;
+}
+
+.bookingsList-main .no-reservations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookingsList-main .no-reservations h2 {
+    text-align: center;
+    font-size: 38px;
+    }
+
+.bookingsList-main .no-reservations button {
+    background-color: #F4CE14;
+    color: #000000;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover{
+        transform: scale(1.075);
+    }
 }
 
 @media screen and (max-width: 768px) {

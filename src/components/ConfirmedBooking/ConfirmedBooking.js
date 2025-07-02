@@ -13,7 +13,7 @@ function ConfirmedBooking() {
     function goToReserve() {
         navigate('/reserve-a-table');
         setTimeout(() => {
-            document.querySelector('main.booking-content').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('form').scrollIntoView({ behavior: 'smooth' });
         }, 20);
     }
 
@@ -24,7 +24,7 @@ function ConfirmedBooking() {
                     <header className='confirmed-header'>
                         <span className='date-time'>{new Date(currentBooking.date).toLocaleDateString('he-IL')} - {currentBooking.time}</span>
                         <h1 className='title'>CONFIRMED!</h1>
-                        <img src={require('../../assets/icons/icons8-checkmark-500.png')} alt='Check circle' width={100} />
+                        <img src={require('../../assets/icons/checkmark.png')} alt='Check circle' width={100} />
                         <span className='restaurant'>Little Lemon Restaurant</span>
                     </header>
                     <section className='confirmed-main'>

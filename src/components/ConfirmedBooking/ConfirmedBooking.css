@@ -156,6 +156,7 @@
 /* Responsive */
 @media (max-width: 768px) {
     .ConfirmedBooking {
+        padding: 0;
         flex-direction: column;
         min-height: auto;
     }
@@ -167,10 +168,32 @@
 
     .ConfirmedBooking .confirmed-header {
         min-height: 300px;
+        justify-content: space-around;
+    }
+
+    .ConfirmedBooking .confirmed-header .date-time {
+        font-size: 18px;
     }
 
     .ConfirmedBooking .confirmed-header .title {
         font-size: 2rem;
+    }
+
+    .ConfirmedBooking .confirmed-header .restaurant {
+        font-size: 16px;
+    }
+
+    .ConfirmedBooking .confirmed-header img {
+        width: 150px;
+    }
+
+    .ConfirmedBooking .confirmed-main {
+        padding: 0 12%;
+        text-align: center;
+    }
+
+    .ConfirmedBooking .confirmed-main button {
+        margin: auto;
     }
 
     .ConfirmedBooking .confirmed-main .details .full-name {

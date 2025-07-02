@@ -21,6 +21,11 @@ function Main() {
 
         const isSubmitted = submitAPI(formData);
         if (isSubmitted) {
+            const existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            const newBooking = { ...formData, id: new Date().getTime() };
+            existingBookings.push(newBooking);
+            localStorage.setItem('bookings', JSON.stringify(existingBookings));
+
             bookingArray.push(formData);
             setCurrentBooking(formData);
             console.log('Booking submitted successfully!', formData);

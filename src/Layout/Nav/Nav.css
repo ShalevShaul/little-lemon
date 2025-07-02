@@ -40,7 +40,10 @@ nav :is(.mobile-menu, .hamburger) {
 @media screen and (max-width:768px) {
     nav {
         justify-content: space-between;
-        position: relative;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 999999;
     }
 
     nav .nav-logo {
