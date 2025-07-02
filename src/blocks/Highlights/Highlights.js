@@ -5,7 +5,6 @@ function Highlights() {
         <section className='highlights'>
             <div className='title-btn'>
                 <h2>Sepecials</h2>
-                <button>Online Menu</button>
             </div>
             <div className='specials-menu'>
                 <div className='menu-item'>

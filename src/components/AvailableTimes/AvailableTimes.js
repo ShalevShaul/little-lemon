@@ -3,7 +3,7 @@ import './AvailableTimes.css';
 function AvailableTimes({ availableTimes, formData, bookedTimes }) {
     return (
         <section className="bookings-section">
-            <h2>Reservation Status</h2>
+            <h2>{formData.date ? <></> : <span>Today's</span>} Reservation Status</h2>
 
             {formData.date && (
                 <div className="selected-date">

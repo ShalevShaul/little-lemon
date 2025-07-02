@@ -1,8 +1,10 @@
 import { submitAPI } from '../../data/api';
 import './BookingForm.css';
 import { bookingArray } from '../../data/bookingData';
+import { useNavigate } from 'react-router-dom';
 
 function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTimes }) {
+    const navigate = useNavigate();
 
     function submitData(e) {
         e.preventDefault();
@@ -11,6 +13,7 @@ function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTi
         if (isSubmitted) {
             bookingArray.push(formData);
             console.log('Booking submitted successfully!', formData);
+            navigate('/confirmed', { state: { formData } });
             setFormData({
                 firstName: '',
                 lastName: '',
