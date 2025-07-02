@@ -1,10 +1,10 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ConfirmedBooking.css';
+import { useBooking } from '../BookingContext';
 
 function ConfirmedBooking() {
     const navigate = useNavigate();
-    const location = useLocation();
-    const state = location.state;
+    const { currentBooking } = useBooking();
 
     function goHome() {
         navigate('/home');
@@ -19,20 +19,20 @@ function ConfirmedBooking() {
 
     return (
         <>
-            {state && state.formData ?
+            {currentBooking ?
                 <main className='ConfirmedBooking'>
                     <header className='confirmed-header'>
-                        <span className='date-time'>{new Date(state.formData.date).toLocaleDateString('he-IL')} - {state.formData.time}</span>
+                        <span className='date-time'>{new Date(currentBooking.date).toLocaleDateString('he-IL')} - {currentBooking.time}</span>
                         <h1 className='title'>CONFIRMED!</h1>
                         <img src={require('../../assets/icons/icons8-checkmark-500.png')} alt='Check circle' width={100} />
                         <span className='restaurant'>Little Lemon Restaurant</span>
                     </header>
                     <section className='confirmed-main'>
                         <div className='details'>
-                            <h2 className='full-name'>{state.formData.firstName} {state.formData.lastName}</h2>
-                            <h3 className='occasion'>{state.formData.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {state.formData.occasion}</h3>
-                            <span className='date'>📅 {new Date(state.formData.date).toLocaleDateString('he-IL')} - {state.formData.time}</span>
-                            <span className='guests'>👥 {state.formData.guests} guests</span>
+                            <h2 className='full-name'>{currentBooking.firstName} {currentBooking.lastName}</h2>
+                            <h3 className='occasion'>{currentBooking.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {currentBooking.occasion}</h3>
+                            <span className='date'>📅 {new Date(currentBooking.date).toLocaleDateString('he-IL')} - {currentBooking.time}</span>
+                            <span className='guests'>👥 {currentBooking.guests} guests</span>
                         </div>
                         <div className='additional'>
                             <h2>Additional information</h2>

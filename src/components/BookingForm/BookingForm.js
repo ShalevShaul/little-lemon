@@ -1,35 +1,12 @@
-import { submitAPI } from '../../data/api';
 import './BookingForm.css';
-import { bookingArray } from '../../data/bookingData';
-import { useNavigate } from 'react-router-dom';
+import { useBooking } from '../BookingContext';
 
-function BookingForm({ formData, setFormData, availableTimes, dispatch, bookedTimes }) {
-    const navigate = useNavigate();
-
-    function submitData(e) {
-        e.preventDefault();
-
-        const isSubmitted = submitAPI(formData);
-        if (isSubmitted) {
-            bookingArray.push(formData);
-            console.log('Booking submitted successfully!', formData);
-            navigate('/confirmed', { state: { formData } });
-            setFormData({
-                firstName: '',
-                lastName: '',
-                date: '',
-                time: '',
-                guests: 1,
-                occasion: ''
-            });
-        } else {
-            console.log('Booking submission failed');
-        }
-    }
+function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
+    const { formData, setFormData } = useBooking(); //
 
     return (
         <>
-            <form className='table-form' onSubmit={submitData} aria-labelledby='booking-title'>
+            <form className='table-form' onSubmit={onSubmit} aria-labelledby='booking-title'>
                 <h2 style={{ textAlign: 'center' }}>Reserve a table</h2>
                 <fieldset>
                     <legend><strong>Personal Information</strong></legend>

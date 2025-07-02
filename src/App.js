@@ -1,10 +1,13 @@
 import './App.css';
+import { BookingProvider } from './components/BookingContext';
 import Layout from './Layout/Layout/Layout';
 
 
 function App() {
   return (
-    <Layout />
+    <BookingProvider>
+      <Layout />
+    </BookingProvider>
   );
 }
 

@@ -5,12 +5,41 @@ import Header from '../Header/Header';
 import Highlights from '../../blocks/Highlights/Highlights';
 import { useEffect, useReducer } from 'react';
 import BookingPage from '../../components/BookingPage/BookingPage';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { fetchAPI } from '../../data/api';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { fetchAPI, submitAPI } from '../../data/api';
 import BookingsList from '../../components/BookingsList/BookingsList';
 import ConfirmedBooking from '../../components/ConfirmedBooking/ConfirmedBooking';
+import { useBooking } from '../../components/BookingContext';
+import { bookingArray } from '../../data/bookingData';
 
 function Main() {
+    const navigate = useNavigate();
+    const { formData, setFormData, setCurrentBooking } = useBooking();
+
+    function submitForm(e) {
+        e.preventDefault();
+
+        const isSubmitted = submitAPI(formData);
+        if (isSubmitted) {
+            bookingArray.push(formData);
+            setCurrentBooking(formData);
+            console.log('Booking submitted successfully!', formData);
+            navigate('/confirmed');
+            setFormData({
+                firstName: '',
+                lastName: '',
+                date: '',
+                time: '',
+                guests: 1,
+                occasion: ''
+            });
+            return true;
+        } else {
+            console.log('Booking submission failed');
+            return false;
+        }
+    }
+
     function initializeTimes() {
         return [];
     }
@@ -51,6 +80,7 @@ function Main() {
                 } />
                 <Route path='/reserve-a-table' element={
                     <BookingPage
+                        submitForm={submitForm}
                         availableTimes={availableTimes}
                         dispatch={dispatch}
                     />

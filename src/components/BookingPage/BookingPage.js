@@ -1,21 +1,9 @@
-import { useState } from 'react';
 import BookingForm from '../BookingForm/BookingForm';
 import './BookingPage.css';
 import AvailableTimes from '../AvailableTimes/AvailableTimes';
 
-function BookingPage({ availableTimes, dispatch }) {
+function BookingPage({ submitForm, availableTimes, dispatch }) {
     const bookedTimes = ['18:00', '20:00', '20:30'];
-
-    const initialFormData = {
-        firstName: '',
-        lastName: '',
-        date: '',
-        time: '',
-        guests: 1,
-        occasion: ''
-    };
-
-    const [formData, setFormData] = useState(initialFormData)
 
     function scrollToMain() {
         document.querySelector('main.booking-content').scrollIntoView({ behavior: 'smooth' });
@@ -23,7 +11,6 @@ function BookingPage({ availableTimes, dispatch }) {
 
     return (
         <>
-            {/* <section className='booking-page'> */}
             <header className='booking-header'>
                 <div>
                     <h1 className='title'>Reserve A Table</h1>
@@ -34,17 +21,14 @@ function BookingPage({ availableTimes, dispatch }) {
                 <img className='table-img' src={require('../../assets/images/table.jpg')} alt='Little Lemon signature bruschetta' />
             </header>
             <main className='booking-content'>
-                <AvailableTimes formData={formData} availableTimes={availableTimes} bookedTimes={bookedTimes} />
+                <AvailableTimes availableTimes={availableTimes} bookedTimes={bookedTimes} />
                 <BookingForm
-                    initialFormData={initialFormData}
-                    formData={formData}
-                    setFormData={setFormData}
+                    onSubmit={submitForm}
                     availableTimes={availableTimes}
                     dispatch={dispatch}
                     bookedTimes={bookedTimes}
                 />
             </main>
-            {/* </section> */}
         </>
     )
 }

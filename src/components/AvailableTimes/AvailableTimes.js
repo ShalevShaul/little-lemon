@@ -1,6 +1,9 @@
+import { useBooking } from '../BookingContext';
 import './AvailableTimes.css';
 
-function AvailableTimes({ availableTimes, formData, bookedTimes }) {
+function AvailableTimes({ availableTimes, bookedTimes }) {
+    const { formData } = useBooking();
+
     return (
         <section className="bookings-section">
             <h2>{formData.date ? <></> : <span>Today's</span>} Reservation Status</h2>
