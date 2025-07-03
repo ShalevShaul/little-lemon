@@ -1,8 +1,8 @@
 export const bookingArray = [
     {
         id: new Date('2025-08-01T17:00:00').getTime(),
-        firstName: 'Ori',
-        lastName: 'Grinfeld',
+        firstName: 'Or',
+        lastName: 'Biton',
         date: '2025-08-01',
         time: '17:00',
         guests: 6,

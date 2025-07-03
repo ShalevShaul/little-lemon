@@ -12,6 +12,23 @@ import ConfirmedBooking from '../../components/ConfirmedBooking/ConfirmedBooking
 import { useBooking } from '../../components/BookingContext';
 import { bookingArray } from '../../data/bookingData';
 
+export function initializeTimes() {
+    return fetchAPI(new Date());
+}
+
+export function updateTimes(state, action) {
+        switch (action.type) {
+            case 'UPDATE_TIMES':
+                const selectedDate = action.date;
+                if (selectedDate) {
+                    return fetchAPI(new Date(selectedDate));
+                }
+                return fetchAPI(new Date());
+            default:
+                return state;
+        }
+    }
+
 function Main() {
     const navigate = useNavigate();
     const { formData, setFormData, setCurrentBooking } = useBooking();
@@ -22,7 +39,7 @@ function Main() {
         const isSubmitted = submitAPI(formData);
         if (isSubmitted) {
             const existingBookings = JSON.parse(localStorage.getItem('bookings')) || [];
-            const newBooking = { ...formData, id: new Date().getTime() };
+            const newBooking = { ...formData, id: new Date(`${formData.date}T${formData.time}:00`).getTime() };
             existingBookings.push(newBooking);
             localStorage.setItem('bookings', JSON.stringify(existingBookings));
 
@@ -42,23 +59,6 @@ function Main() {
         } else {
             console.log('Booking submission failed');
             return false;
-        }
-    }
-
-    function initializeTimes() {
-        return [];
-    }
-
-    function updateTimes(state, action) {
-        switch (action.type) {
-            case 'UPDATE_TIMES':
-                const selectedDate = action.date;
-                if (selectedDate) {
-                    return fetchAPI(new Date(selectedDate));
-                }
-                return fetchAPI(new Date());
-            default:
-                return state;
         }
     }
 

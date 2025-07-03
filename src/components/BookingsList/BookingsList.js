@@ -35,7 +35,7 @@ function BookingsList() {
     }, []);
 
     function removeBooking(id) {
-        const newBookings = bookings.filter(book => book.id != id);
+        const newBookings = bookings.filter(book => book.id !== id);
         setBookings(newBookings);
 
         localStorage.setItem('bookings', JSON.stringify(newBookings));
@@ -66,7 +66,6 @@ function BookingsList() {
                         {bookings.map((book) =>
                             <div key={book.id} className={`book ${book.occasion.toLowerCase()}`}>
                                 <img className='removeBtn' onClick={() => removeBooking(book.id)} src={require('../../assets/icons/remove-button.png')} alt='remove button' />
-                                {/* <button className='removeBtn' onClick={() => removeBooking(book.id)}>X</button> */}
                                 <h2 className='full-name'>{book.firstName} {book.lastName}</h2>
                                 <h3 className='occasion'>{book.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {book.occasion}</h3>
                                 <span className='date'>📅 {new Date(book.date).toLocaleDateString('he-IL')} - {book.time}</span>
