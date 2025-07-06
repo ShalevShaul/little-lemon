@@ -9,6 +9,10 @@ function Nav() {
         setIsOpen(!isOpen);
     }
 
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
     return (
         <nav>
             <a href='/'>
@@ -16,9 +20,9 @@ function Nav() {
             </a>
             <div className='menu'>
                 <ul>
-                    <li><Link to={'/home'}>Home</Link></li>
-                    <li><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
-                    <li><Link to={'/bookings'}>Bookings</Link></li>
+                    <li onClick={scrollToTop}><Link to={'/home'}>Home</Link></li>
+                    <li onClick={scrollToTop}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={scrollToTop}><Link to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
 
@@ -27,9 +31,9 @@ function Nav() {
             </button>
             <div className={`mobile-menu ${isOpen ? 'show' : 'hide'}`}>
                 <ul style={{ display: isOpen ? 'flex' : 'none' }}>
-                    <li onClick={toggleMenu}><Link to={'/home'}>Home</Link></li>
-                    <li onClick={toggleMenu}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
-                    <li onClick={toggleMenu}><Link to={'/bookings'}>Bookings</Link></li>
+                    <li onClick={() => {toggleMenu(); scrollToTop()}}><Link to={'/home'}>Home</Link></li>
+                    <li onClick={() => {toggleMenu(); scrollToTop()}}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={() => {toggleMenu(); scrollToTop()}}><Link to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
         </nav>

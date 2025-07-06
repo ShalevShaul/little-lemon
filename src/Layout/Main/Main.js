@@ -17,17 +17,17 @@ export function initializeTimes() {
 }
 
 export function updateTimes(state, action) {
-        switch (action.type) {
-            case 'UPDATE_TIMES':
-                const selectedDate = action.date;
-                if (selectedDate) {
-                    return fetchAPI(new Date(selectedDate));
-                }
-                return fetchAPI(new Date());
-            default:
-                return state;
-        }
+    switch (action.type) {
+        case 'UPDATE_TIMES':
+            const selectedDate = action.date;
+            if (selectedDate) {
+                return fetchAPI(new Date(selectedDate));
+            }
+            return fetchAPI(new Date());
+        default:
+            return state;
     }
+}
 
 function Main() {
     const navigate = useNavigate();
@@ -55,6 +55,7 @@ function Main() {
                 guests: 1,
                 occasion: ''
             });
+            window.scrollTo({ top: 0 });
             return true;
         } else {
             console.log('Booking submission failed');

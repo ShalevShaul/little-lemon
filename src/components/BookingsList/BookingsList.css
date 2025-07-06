@@ -7,7 +7,7 @@ header.bookingsList-header {
 
 .bookingsList-header .title {
     color: #F4CE14;
-    font-size: 58px;
+    font-size: 4dvw;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
     margin-top: 40px;
@@ -34,7 +34,7 @@ header.bookingsList-header {
     width: 350px;
     height: 350px;
     object-fit: cover;
-    margin: 40px;
+    margin: 40px auto;
     border-radius: 16px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
     transition: 0.2s;
@@ -56,9 +56,11 @@ header.bookingsList-header {
     padding: 10px;
     text-align: center;
     padding-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px #4b5e577b;
     transition: all 0.3s ease;
     border-radius: 12px;
+    border-right: 4px solid #4b5e577b;
+    border-bottom: 4px solid #4b5e577b;
 }
 
 .bookingsList-main .bookings-grid .book .removeBtn {
@@ -70,20 +72,16 @@ header.bookingsList-header {
 }
 
 .bookingsList-main .bookings-grid .book:hover .removeBtn {
+    opacity: 0.5;
+}
+
+.bookingsList-main .bookings-grid .book .removeBtn:hover {
     opacity: 1;
 }
 
 .bookingsList-main .bookings-grid .book:hover {
     transform: scale(1.025);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.bookingsList-main .bookings-grid .birthday {
-    background: linear-gradient(135deg, #f4cf1457, #ffffff);
-}
-
-.bookingsList-main .bookings-grid .anniversary {
-    background: linear-gradient(135deg, #4b5e575e, #ffffff);
 }
 
 .bookingsList-main .bookings-grid .book .full-name {
@@ -158,6 +156,10 @@ header.bookingsList-header {
     .bookingsList-header {
         text-align: center;
         place-items: center;
+    }
+
+    .bookingsList-header .title {
+        font-size: 46px;
     }
 
     .bookingsList-header .header-stats {

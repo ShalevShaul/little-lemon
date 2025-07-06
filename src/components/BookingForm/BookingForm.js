@@ -1,8 +1,17 @@
 import './BookingForm.css';
 import { useBooking } from '../BookingContext';
+import { useState } from 'react';
 
 function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
     const { formData, setFormData } = useBooking(); //
+    const [isSubmitted, setIsSubmitted] = useState({
+        firstName: false,
+        lastName: false,
+        date: false,
+        time: false,
+        guests: false,
+        occasion: false,
+    });
 
     return (
         <>
@@ -14,23 +23,30 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                     {/* First name field */}
                     <div className='form-field'>
                         <label htmlFor='first-name'>First Name:</label>
-                        <input type='text' name='firstName' id='first-name' placeholder='First Name' required aria-required='true'
+                        <input type='text' name='firstName' id='first-name' placeholder='First Name' required aria-required='true' minLength={2}
                             value={formData.firstName}
                             onChange={(e) => setFormData({
                                 ...formData,
                                 firstName: e.target.value
-                            })} />
+                            })}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, firstName: true })} />
+                        {isSubmitted.firstName && <span className='errors' style={{ display: `${formData.firstName ? 'none' : 'inline'}` }}>* First Name is required</span>}
+                        {isSubmitted.firstName && <span className='errors' style={{ display: `${formData.firstName.length < 2 && formData.firstName.length > 0 ? 'inline' : 'none'}` }}>* First Name is too short</span>}
                     </div>
 
                     {/* Last name field */}
                     <div className='form-field'>
                         <label htmlFor='last-name'>Last Name:</label>
-                        <input type='text' name='lastName' id='last-name' placeholder='Last Name' required aria-required='true'
+                        <input type='text' name='lastName' id='last-name' placeholder='Last Name' required aria-required='true' minLength={2}
                             value={formData.lastName}
                             onChange={(e) => setFormData({
                                 ...formData,
                                 lastName: e.target.value
-                            })} />
+                            })}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, lastName: true })} />
+                        {isSubmitted.lastName && <span className='errors' style={{ display: `${formData.lastName ? 'none' : 'inline'}` }}>* Last Name is required</span>}
+                        {isSubmitted.lastName && <span className='errors' style={{ display: `${formData.lastName.length < 2 && formData.lastName.length > 0 ? 'inline' : 'none'}` }}>* Last Name is too short</span>}
+
                     </div>
                 </fieldset>
 
@@ -52,7 +68,10 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                                     type: 'UPDATE_TIMES',
                                     date: e.target.value
                                 });
-                            }} />
+                            }}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, date: true })} />
+                        {isSubmitted.date && <span className='errors' style={{ display: `${formData.date ? 'none' : 'inline'}` }}>* Date is required</span>}
+                        {isSubmitted.date && <span className='errors' style={{ display: `${formData.date && formData.date < (new Date().toISOString().split('T')[0].toString()) ? 'inline' : 'none'}` }}>* Past dates are not allowed</span>}
                     </div>
 
                     {/* Time field */}
@@ -63,7 +82,8 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                             onChange={(e) => setFormData({
                                 ...formData,
                                 time: e.target.value
-                            })}>
+                            })}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, time: true })}>
                             <option value=''>Select time</option>
                             {availableTimes.map(time => {
                                 if (bookedTimes.includes(time)) {
@@ -72,6 +92,7 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                                 return <option key={time} value={time}>{time}</option>
                             })}
                         </select>
+                        {isSubmitted.time && <span className='errors' style={{ display: `${formData.time ? 'none' : 'inline'}` }}>* Time is required</span>}
                     </div>
 
                     {/* Number of guests field */}
@@ -82,7 +103,11 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                             onChange={(e) => setFormData({
                                 ...formData,
                                 guests: e.target.value
-                            })} />
+                            })}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, guests: true })} />
+                        {isSubmitted.guests && <span className='errors' style={{ display: `${formData.guests ? 'none' : 'inline'}` }}>* Guests is required</span>}
+                        {isSubmitted.guests && <span className='errors' style={{ display: `${formData.guests && formData.guests < 1 ? 'inline' : 'none'}` }}>* Minimum guests is 1</span>}
+                        {isSubmitted.guests && <span className='errors' style={{ display: `${formData.guests && formData.guests > 10 ? 'inline' : 'none'}` }}>* Maximum guests is 10</span>}
                     </div>
 
                     {/* Occasion field */}
@@ -93,17 +118,25 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                             onChange={(e) => setFormData({
                                 ...formData,
                                 occasion: e.target.value
-                            })}>
+                            })}
+                            onBlur={() => setIsSubmitted({ ...isSubmitted, occasion: true })}>
                             <option value=''>Select occasion</option>
                             <option value='Birthday'>Birthday</option>
                             <option value='Anniversary'>Anniversary</option>
+                            <option value='Other'>Other</option>
                         </select>
+                        {isSubmitted.occasion && <span className='errors' style={{ display: `${formData.occasion ? 'none' : 'inline'}` }}>* Occasion is required</span>}
                     </div>
                 </fieldset>
 
                 <fieldset>
                     <legend><strong>Submit</strong></legend>
-                    <input type='submit' value='Make your reservation' />
+                    <input type='submit' value='Make your reservation'
+                        disabled={!formData.firstName || !formData.lastName || !formData.date ||
+                            !formData.time || !formData.guests || !formData.occasion} />
+                    {(!formData.firstName || !formData.lastName || !formData.date ||
+                        !formData.time || !formData.guests || !formData.occasion)
+                        && <span className='submit-error'>Please fill all required fields</span>}
                 </fieldset>
             </form>
         </>
