@@ -55,16 +55,14 @@ test('submit booking form with valid data', () => {
     expect(mockOnSubmit).toHaveBeenCalled();
 });
 
-
-const mockOnSubmit = jest.fn();
-const mockProps = {
-    onSubmit: mockOnSubmit,
-    availableTimes: ['17:00', '18:00', '19:00'],
-    dispatch: jest.fn(),
-    bookedTimes: ['18:00', '20:00', '20:30'],
-};
-
 describe('Error fields', () => {
+    const mockOnSubmit = jest.fn();
+    const mockProps = {
+        onSubmit: mockOnSubmit,
+        availableTimes: ['17:00', '18:00', '19:00'],
+        dispatch: jest.fn(),
+        bookedTimes: ['18:00', '20:00', '20:30'],
+    };
     test('show error for empty first name input', () => {
         render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
 
@@ -117,5 +115,79 @@ describe('Error fields', () => {
         fireEvent.change(occasionInput, { target: { value: '' } });
         fireEvent.blur(occasionInput);
         expect(screen.getByText('* Occasion is required')).toBeInTheDocument();
+    });
+});
+
+describe('Validation attributes', () => {
+    const mockProps = {
+        onSubmit: jest.fn(),
+        availableTimes: ['17:00', '18:00', '19:00'],
+        dispatch: jest.fn(),
+        bookedTimes: [],
+    };
+
+    test('first name input has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const firstNameInput = screen.getByLabelText('First Name:');
+
+        expect(firstNameInput).toHaveAttribute('required');
+        expect(firstNameInput).toHaveAttribute('aria-required', 'true');
+        expect(firstNameInput).toHaveAttribute('minLength', '2');
+        expect(firstNameInput).toHaveAttribute('type', 'text');
+    });
+
+    test('last name input has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const lastNameInput = screen.getByLabelText('Last Name:');
+
+        expect(lastNameInput).toHaveAttribute('required');
+        expect(lastNameInput).toHaveAttribute('aria-required', 'true');
+        expect(lastNameInput).toHaveAttribute('minLength', '2');
+        expect(lastNameInput).toHaveAttribute('type', 'text');
+    });
+
+    test('date input has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const dateInput = screen.getByLabelText('Choose date:');
+
+        expect(dateInput).toHaveAttribute('required');
+        expect(dateInput).toHaveAttribute('aria-required', 'true');
+        expect(dateInput).toHaveAttribute('type', 'date');
+        expect(dateInput).toHaveAttribute('min', new Date().toISOString().split('T')[0].toString());
+    });
+
+    test('time select input has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const timeInput = screen.getByLabelText('Choose time:');
+
+        expect(timeInput).toHaveAttribute('required');
+        expect(timeInput).toHaveAttribute('aria-required', 'true');
+        expect(timeInput).toHaveAttribute('name', 'time');
+    });
+
+    test('guests input has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const guestsInput = screen.getByLabelText('Number of guests:');
+
+        expect(guestsInput).toHaveAttribute('required');
+        expect(guestsInput).toHaveAttribute('aria-required', 'true');
+        expect(guestsInput).toHaveAttribute('type', 'number');
+        expect(guestsInput).toHaveAttribute('min', '1');
+        expect(guestsInput).toHaveAttribute('max', '10');
+    });
+
+    test('occasion select has correct validation attributes', () => {
+        render(<BookingProvider><BookingForm {...mockProps} /></BookingProvider>);
+
+        const occasionInput = screen.getByLabelText('Occasion:');
+
+        expect(occasionInput).toHaveAttribute('required');
+        expect(occasionInput).toHaveAttribute('aria-required', 'true');
+        expect(occasionInput).toHaveAttribute('name', 'occasion');
     });
 });
