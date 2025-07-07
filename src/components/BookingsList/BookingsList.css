@@ -22,7 +22,7 @@ header.bookingsList-header {
     box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.3);
 }
 
-.bookingsList-header .header-stats>span {
+.bookingsList-header .header-stats>p {
     display: block;
     color: white;
     margin-top: 12px;
@@ -63,19 +63,25 @@ header.bookingsList-header {
     border-bottom: 4px solid #4b5e577b;
 }
 
-.bookingsList-main .bookings-grid .book .removeBtn {
-    width: 25px;
+.bookingsList-main .bookings-grid .book button {
     float: right;
     opacity: 0;
     cursor: pointer;
     transition: 0.2s ease;
+    border: unset;
+    background: unset;
 }
 
-.bookingsList-main .bookings-grid .book:hover .removeBtn {
+.bookingsList-main .bookings-grid .book button>img {
+    width: 25px;
+}
+
+
+.bookingsList-main .bookings-grid .book:hover button {
     opacity: 0.5;
 }
 
-.bookingsList-main .bookings-grid .book .removeBtn:hover {
+.bookingsList-main .bookings-grid .book button:hover {
     opacity: 1;
 }
 
@@ -109,7 +115,7 @@ header.bookingsList-header {
     gap: 6px;
 }
 
-.bookingsList-main .bookings-grid .book span {
+.bookingsList-main .bookings-grid .book p {
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 14px;

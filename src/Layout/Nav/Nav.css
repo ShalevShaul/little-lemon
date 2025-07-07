@@ -26,6 +26,7 @@ nav ul li {
     list-style-type: none;
     font-size: 16px;
     font-weight: 500;
+    position: relative;
 }
 
 nav ul li a {
@@ -35,6 +36,26 @@ nav ul li a {
 
 nav :is(.mobile-menu, .hamburger) {
     display: none;
+}
+
+nav .menu .selected::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4b5e57;
+    animation: borderExpand 0.3s ease;
+    filter: drop-shadow(2px 2px 4px #4b5e57);
+}
+
+@keyframes borderExpand {
+    from {
+        transform: scaleX(0);
+    } to {
+        transform: scaleX(1);
+    }
 }
 
 @media screen and (max-width:768px) {

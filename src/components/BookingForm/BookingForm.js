@@ -15,7 +15,7 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
 
     return (
         <>
-            <form className='table-form' onSubmit={onSubmit} aria-labelledby='booking-title'>
+            <form className='table-form' onSubmit={onSubmit} aria-label="Table reservation form">
                 <h2 style={{ textAlign: 'center' }}>Reserve a table</h2>
                 <fieldset>
                     <legend><strong>Personal Information</strong></legend>
@@ -132,6 +132,7 @@ function BookingForm({ onSubmit, availableTimes, dispatch, bookedTimes }) {
                 <fieldset>
                     <legend><strong>Submit</strong></legend>
                     <input type='submit' value='Make your reservation'
+                        aria-label="On Click"
                         disabled={!formData.firstName || !formData.lastName || !formData.date ||
                             !formData.time || !formData.guests || !formData.occasion} />
                     {(!formData.firstName || !formData.lastName || !formData.date ||
