@@ -23,7 +23,7 @@ function BookingsList() {
             if (!exists) {
                 const bookingWithId = {
                     ...book,
-                    id: new Date(`${book.date}T${book.time}:00`).getTime()
+                    id: new Date(`${book.date}T${book.time}:00`).getTime() * Math.floor(Math.random() * 1000)
                 };
                 allBookings.push(bookingWithId);
             }

@@ -1,6 +1,6 @@
 export const bookingArray = [
     {
-        id: new Date('2025-08-01T17:00:00').getTime(),
+        id: 1,
         firstName: 'Or',
         lastName: 'Biton',
         date: '2025-08-01',
@@ -9,7 +9,7 @@ export const bookingArray = [
         occasion: 'Birthday'
     },
     {
-        id: new Date('2025-07-20T21:00:00').getTime(),
+        id: 2,
         firstName: 'Itay',
         lastName: 'Cohen',
         date: '2025-07-20',
@@ -18,7 +18,7 @@ export const bookingArray = [
         occasion: 'Anniversary'
     },
     {
-        id: new Date('2025-07-30T22:00:00').getTime(),
+        id: 3,
         firstName: 'Amir',
         lastName: 'Levy',
         date: '2025-07-30',
