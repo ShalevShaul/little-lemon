@@ -2,12 +2,15 @@ import './BookingsList.css';
 import { bookingArray } from '../../data/bookingData';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../Loader/Loader';
 
 function BookingsList() {
     const navigate = useNavigate();
     const [bookings, setBookings] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         const savedBookings = JSON.parse(localStorage.getItem('bookings')) || [];
 
         let allBookings = [...savedBookings];
@@ -32,6 +35,9 @@ function BookingsList() {
         localStorage.setItem('bookings', JSON.stringify(allBookings));
 
         setBookings(allBookings);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
     }, []);
 
     function removeBooking(id) {
@@ -61,26 +67,27 @@ function BookingsList() {
                 <img className='header-img' src={require('../../assets/images/restaurant-reservations.webp')} alt='Restaurant dining area with reserved tables' />
             </header>
             <main className='bookingsList-main' aria-label="Current reservations">
-                {bookings.length > 0 ?
-                    <div className='bookings-grid' role='grid' aria-label='Reservation cards'>
-                        {bookings.map((book) =>
-                            <article key={book.id} className={`book ${book.occasion.toLowerCase()}`} aria-label={`Reservation for ${book.firstName} ${book.lastName}`}>
-                                <button aria-label={`On Click Cancel reservation for ${book.firstName} ${book.lastName}`}
-                                    onClick={() => removeBooking(book.id)} title='Cancel reservation' >
-                                    <img className='removeBtn'
-                                        src={require('../../assets/icons/remove-button.png')} alt='remove button' />
-                                </button>
-                                <h2 className='full-name'>{book.firstName} {book.lastName}</h2>
-                                <h3 className='occasion'>{book.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {book.occasion}</h3>
-                                <p className='date'>📅 {new Date(book.date).toLocaleDateString('he-IL')} - {book.time}</p>
-                                <p className='guests'>👥 {book.guests} guests</p>
-                            </article>
-                        )}
-                    </div>
-                    : <div className='no-reservations' aria-label="No reservations found">
-                        <h2>No bookings at the moment 🍽️</h2>
-                        <button onClick={goToReserve} aria-label="On Click navigate to table reservation page">Reserve a table</button>
-                    </div>}
+                {isLoading ? <Loader /> :
+                    bookings.length > 0 ?
+                        <section className='bookings-grid' role='grid' aria-label='Reservation cards'>
+                            {bookings.map((book) =>
+                                <article key={book.id} className={`book ${book.occasion.toLowerCase()}`} aria-label={`Reservation for ${book.firstName} ${book.lastName}`}>
+                                    <button aria-label={`On Click Cancel reservation for ${book.firstName} ${book.lastName}`}
+                                        onClick={() => removeBooking(book.id)} title='Cancel reservation' >
+                                        <img className='removeBtn'
+                                            src={require('../../assets/icons/remove-button.png')} alt='remove button' />
+                                    </button>
+                                    <h2 className='full-name'>{book.firstName} {book.lastName}</h2>
+                                    <h3 className='occasion'>{book.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {book.occasion}</h3>
+                                    <p className='date'>📅 {new Date(book.date).toLocaleDateString('he-IL')} - {book.time}</p>
+                                    <p className='guests'>👥 {book.guests} guests</p>
+                                </article>
+                            )}
+                        </section>
+                        : <section className='no-reservations' aria-label="No reservations found">
+                            <h2>No bookings at the moment 🍽️</h2>
+                            <button onClick={goToReserve} aria-label="On Click navigate to table reservation page">Reserve a table</button>
+                        </section>}
             </main>
         </>
     )
