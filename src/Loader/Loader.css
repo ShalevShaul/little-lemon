@@ -3,8 +3,8 @@ div.Loader {
     height: 50px;
     margin: 50px auto;
     padding: 10px;
-    border: 10px solid #4b5e57;
-    border-top: 10px solid #82ad9d;
+    border: 12px solid #4b5e57;
+    border-top: 12px double #82ad9d;
     border-radius: 50%;
     animation: spin 0.75s linear infinite;
 }

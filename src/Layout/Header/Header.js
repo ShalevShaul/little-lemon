@@ -1,8 +1,11 @@
+import { useEffect } from 'react';
 import Hero from '../../blocks/Hero/Hero';
 import './Header.css';
 
 function Header() {
-    window.scrollTo({ top: 0 });
+    useEffect(() => {
+        window.scrollTo({ top: 0 });
+    }, [])
 
     return (
         <header>

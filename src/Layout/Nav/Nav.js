@@ -22,9 +22,9 @@ function Nav() {
             </a>
             <div className='menu'>
                 <ul role='menubar'>
-                    <li onClick={scrollToTop()} aria-label='On Click' className={`home ${path.includes('home') ? 'selected' : ''}`}><Link role='menuitem' to={'/home'}>Home</Link></li>
-                    <li onClick={scrollToTop()} aria-label='On Click' className={`reserve ${path.includes('reserve') ? 'selected' : ''}`}><Link role='menuitem' to={'/reserve-a-table'}>Reserve A Table</Link></li>
-                    <li onClick={scrollToTop()} aria-label='On Click' className={`bookings ${path.includes('bookings') ? 'selected' : ''}`}><Link role='menuitem' to={'/bookings'}>Bookings</Link></li>
+                    <li onClick={scrollToTop} aria-label='On Click' className={`home ${path.includes('home') ? 'selected' : ''}`}><Link role='menuitem' to={'/home'}>Home</Link></li>
+                    <li onClick={scrollToTop} aria-label='On Click' className={`reserve ${path.includes('reserve') ? 'selected' : ''}`}><Link role='menuitem' to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={scrollToTop} aria-label='On Click' className={`bookings ${path.includes('bookings') ? 'selected' : ''}`}><Link role='menuitem' to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
 
@@ -33,9 +33,9 @@ function Nav() {
             </button>
             <div className={`mobile-menu ${isOpen ? 'show' : 'hide'}`}>
                 <ul role='menubar' style={{ display: isOpen ? 'flex' : 'none' }}>
-                    <li onClick={() => { toggleMenu(); scrollToTop() }} aria-label='On Click'><Link role='menuitem' to={'/home'}>Home</Link></li>
-                    <li onClick={() => { toggleMenu(); scrollToTop() }} aria-label='On Click'><Link role='menuitem' to={'/reserve-a-table'}>Reserve A Table</Link></li>
-                    <li onClick={() => { toggleMenu(); scrollToTop() }} aria-label='On Click'><Link role='menuitem' to={'/bookings'}>Bookings</Link></li>
+                    <li onClick={() => { toggleMenu(); scrollToTop(); }} aria-label='On Click'><Link role='menuitem' to={'/home'}>Home</Link></li>
+                    <li onClick={() => { toggleMenu(); scrollToTop(); }} aria-label='On Click'><Link role='menuitem' to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={() => { toggleMenu(); scrollToTop(); }} aria-label='On Click'><Link role='menuitem' to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
         </nav>
