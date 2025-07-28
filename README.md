@@ -4,7 +4,7 @@ A modern Mediterranean restaurant website built with React, offering a seamless 
 ## About The Project
 
 Little Lemon is a modern Mediterranean restaurant specializing in fresh ingredients and authentic flavors. This project is a comprehensive restaurant website developed as a capstone project for a web development course, showcasing modern frontend development practices and responsive design principles.
-Live Demo: Coming Soon - GitHub Pages deployment
+Live Demo: https://shalevshaul.github.io/little-lemon
 
 
 ## Features
