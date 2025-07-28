@@ -37,6 +37,7 @@
 .highlights .specials-menu .menu-item {
     background-color: #F3F3F3;
     border-radius: 16px 16px 0 0;
+    transition: 0.5s ease;
 }
 
 .highlights .specials-menu .menu-item .details {
@@ -65,12 +66,16 @@
     margin: 0;
     font-size: 24px;
     font-weight: 600;
+    transition: 0.3s ease;
+
 }
 
 .highlights .specials-menu .menu-item .title-price .price {
     font-size: 24px;
     font-weight: 600;
     color: #FFAF83;
+    transition: 0.3s ease;
+
 }
 
 .highlights .specials-menu .menu-item .description {
@@ -84,7 +89,28 @@
     text-align: center;
     font-size: 22px;
     padding-top: 10px;
+    transition: 0.2s ease;
 }
+
+.highlights .specials-menu>.menu-item:hover {
+    transform: translateY(-10px) scale(1.025);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.highlights .specials-menu>.menu-item:hover .details .title-price :is(.item-title, .price) {
+    color: #ff8746;
+}
+
+.highlights .specials-menu>.menu-item:hover .order {
+    background-color: #ff8746;
+    padding-top: 0;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    color: white;
+    /* font-weight: bold; */
+}
+
 
 @media screen and (max-width:768px) {
     .highlights .specials-menu {

@@ -1,6 +1,17 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
+  function navigateTo(block) {
+    setTimeout(() => {
+      document.querySelector(`section.${block}`).scrollIntoView({ behavior: 'smooth' });
+    }, 10);
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0 });
+  }
+
   return (
     <footer>
       <ul className='footer-nav'>
@@ -8,29 +19,29 @@ function Footer() {
         <li className='doormat-list'>
           <span className='list-title'>Doormat<br /> Navigation</span>
           <ul>
-            <li><a href='/home'>Home</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href='/menu'>Menu</a></li>
-            <li><a href='/reservations'>Reservations</a></li>
-            <li><a href='/order'>Order Online</a></li>
-            <li><a href='/login'>Login</a></li>
+            <li><Link to={'/home'} onClick={scrollToTop}>Home</Link></li>
+            <li><Link to={'/reserve-a-table'} onClick={scrollToTop}>Reserve a table</Link></li>
+            <li><Link to={'/bookings'} onClick={scrollToTop}>Bookings</Link></li>
+            <li><Link to={'/home'} onClick={() => navigateTo('highlights')}>Menu</Link></li>
+            <li><Link to={'/home'} onClick={() => navigateTo('testimonials')}>Reviews</Link></li>
+            <li><Link to={'/home'} onClick={() => navigateTo('about')}>About</Link></li>
           </ul>
         </li>
 
         <li className='contact-list'>
           <span className='list-title'>Contact</span>
           <ul>
-            <li><a href='/address'>Address</a></li>
-            <li><a href='/phone'>Phone Number</a></li>
-            <li><a href='/email'>Email</a></li>
+            <li><a href='https://maps.app.goo.gl/LKWmGuEcgocPsHsK8'>Address</a></li>
+            <li><a href='tel:123-456-7890'>Phone Number</a></li>
+            <li><a href='mailto:littlelemon@example.com'>Email</a></li>
           </ul>
         </li>
 
         <li className='media-list'>
           <span className='list-title'>Social Media Links</span>
           <ul>
-            <li><a href='/facebook'>Facebook</a></li>
-            <li><a href='/instagram'>Instagram</a></li>
+            <li><a href='https://www.facebook.com/'>Facebook</a></li>
+            <li><a href='https://www.instagram.com/'>Instagram</a></li>
           </ul>
         </li>
       </ul>

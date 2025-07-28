@@ -30,7 +30,7 @@ function ConfirmedBooking() {
                     <section className='confirmed-main' aria-label="Reservation details">
                         <div className='details'>
                             <h2 className='full-name'>{currentBooking.firstName} {currentBooking.lastName}</h2>
-                            <h3 className='occasion'>{currentBooking.occasion === 'Anniversary' ? <>💕</> : 'Birthday' ? <>🎂</> : <>⭐</>} {currentBooking.occasion}</h3>
+                            <h3 className='occasion'>{currentBooking.occasion === 'Anniversary' ? <>💕</> : currentBooking.occasion === 'Birthday' ? <>🎂</> : <>🥂</>} {currentBooking.occasion}</h3>
                             <p className='date'>📅 {new Date(currentBooking.date).toLocaleDateString('he-IL')} - {currentBooking.time}</p>
                             <p className='guests'>👥 {currentBooking.guests} guests</p>
                         </div>

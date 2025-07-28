@@ -78,7 +78,7 @@ function BookingsList() {
                                             src={require('../../assets/icons/remove-button.png')} alt='remove button' />
                                     </button>
                                     <h2 className='full-name'>{book.firstName} {book.lastName}</h2>
-                                    <h3 className='occasion'>{book.occasion === 'Anniversary' ? <>💕</> : <>🎂</>} {book.occasion}</h3>
+                                    <h3 className='occasion'>{book.occasion === 'Anniversary' ? <>💕</> : book.occasion === 'Birthday' ? <>🎂</> : <>🥂</>} {book.occasion}</h3>
                                     <p className='date'>📅 {new Date(book.date).toLocaleDateString('he-IL')} - {book.time}</p>
                                     <p className='guests'>👥 {book.guests} guests</p>
                                 </article>

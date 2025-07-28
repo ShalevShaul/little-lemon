@@ -16,6 +16,7 @@
     padding: 10px;
     text-align: center;
     border-radius: 16px 16px 0 0;
+    transition: 0.5s ease;
 }
 
 .testimonials .reviews .item h3 {
@@ -34,9 +35,22 @@
     font-size: 24px;
 }
 
+.testimonials .reviews .item .stars .star {
+    display: inline-block;
+    transition: 0.4s ease;
+}
+
 .testimonials .reviews .item .description {
     font-size: 16px;
     margin: 10px;
+}
+
+.testimonials .reviews .item:hover {
+    transform: scale(1.05);
+}
+
+.testimonials .reviews .item:hover .stars .star {
+    transform: rotate(360deg) scale(1.5);
 }
 
 @media screen and (max-width:768px) {
