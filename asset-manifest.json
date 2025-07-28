@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/little-lemon-restaurant/static/css/main.7868195a.css",
+    "main.js": "/little-lemon-restaurant/static/js/main.2b75ea09.js",
+    "static/js/453.99c1801e.chunk.js": "/little-lemon-restaurant/static/js/453.99c1801e.chunk.js",
+    "static/media/MarioAndAdrian.jpg": "/little-lemon-restaurant/static/media/MarioAndAdrian.7f44c6d6e341a27d14b3.jpg",
+    "static/media/greek-salad.jpg": "/little-lemon-restaurant/static/media/greek-salad.bed423a1fab5b210e347.jpg",
+    "static/media/restauranfood.jpg": "/little-lemon-restaurant/static/media/restauranfood.e8abf5b772b6817189aa.jpg",
+    "static/media/restaurant.jpg": "/little-lemon-restaurant/static/media/restaurant.324d0f99bdf19400a0f7.jpg",
+    "static/media/confirmed.jpg": "/little-lemon-restaurant/static/media/confirmed.d15763b24a8905909ba9.jpg",
+    "static/media/restaurant-reservations.webp": "/little-lemon-restaurant/static/media/restaurant-reservations.996293240ddb4a381f39.webp",
+    "static/media/footer-logo.png": "/little-lemon-restaurant/static/media/footer-logo.2c859235d6c57bb54176.png",
+    "static/media/bruschetta.jpg": "/little-lemon-restaurant/static/media/bruschetta.969f0d4f21c907ca455a.jpg",
+    "static/media/table.jpg": "/little-lemon-restaurant/static/media/table.5bbb26155118916b84bf.jpg",
+    "static/media/Sarah.jpg": "/little-lemon-restaurant/static/media/Sarah.9da064065e941e811e4f.jpg",
+    "static/media/Emma.jpg": "/little-lemon-restaurant/static/media/Emma.4b2e4d3d9969c4add319.jpg",
+    "static/media/Michael.jpg": "/little-lemon-restaurant/static/media/Michael.7893417ab22ea286e906.jpg",
+    "static/media/David.jpg": "/little-lemon-restaurant/static/media/David.db135785eb0127d21cc1.jpg",
+    "static/media/nav-logo.png": "/little-lemon-restaurant/static/media/nav-logo.6c59584ed766238a570a.png",
+    "static/media/checkmark.png": "/little-lemon-restaurant/static/media/checkmark.3ee05aa2c150ffa4325b.png",
+    "static/media/remove-button.png": "/little-lemon-restaurant/static/media/remove-button.bb685b317dad5341aef9.png",
+    "index.html": "/little-lemon-restaurant/index.html",
+    "main.7868195a.css.map": "/little-lemon-restaurant/static/css/main.7868195a.css.map",
+    "main.2b75ea09.js.map": "/little-lemon-restaurant/static/js/main.2b75ea09.js.map",
+    "453.99c1801e.chunk.js.map": "/little-lemon-restaurant/static/js/453.99c1801e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7868195a.css",
+    "static/js/main.2b75ea09.js"
+  ]
+}
