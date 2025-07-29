@@ -2,10 +2,13 @@
 <html>
 <head>
   <script>
-    // GitHub Pages hack for SPAs
-    sessionStorage.redirect = location.href;
+    // Store the current path for React Router
+    const currentPath = window.location.pathname;
+    sessionStorage.redirect = window.location.href;
   </script>
-  <meta http-equiv="refresh" content="0;URL='/little-lemon'"></meta>
+  <meta http-equiv="refresh" content="0;URL='/little-lemon/'"></meta>
 </head>
-<body></body>
+<body>
+  <div>Redirecting...</div>
+</body>
 </html>
