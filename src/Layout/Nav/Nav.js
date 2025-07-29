@@ -17,9 +17,9 @@ function Nav() {
 
     return (
         <nav role='navigation'>
-            <a href='/' aria-label='On Click navigate to Little Lemon homepage'>
+            <Link to={'/home'} aria-label='On Click navigate to Little Lemon homepage'>
                 <img className='nav-logo' src={require('../../assets/images/nav-logo.png')} alt='little lemon nav logo' />
-            </a>
+            </Link>
             <div className='menu'>
                 <ul role='menubar'>
                     <li onClick={scrollToTop} aria-label='On Click' className={`home ${path.includes('home') ? 'selected' : ''}`}><Link role='menuitem' to={'/home'}>Home</Link></li>
