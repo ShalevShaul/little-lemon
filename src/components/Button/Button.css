@@ -8,6 +8,7 @@
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 40px;
+    margin-top: 25px;
     padding: 35px;
     transition: .2s;
 
@@ -17,5 +18,12 @@
 
     &:active {
         background-color: #d7b610;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .buttonComponent {
+        width: 100%;
+        font-size: 40px;
     }
 }

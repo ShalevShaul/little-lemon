@@ -1,9 +1,60 @@
+import { useLocation } from 'react-router';
 import './PageHeader.css';
+import homeHeader from '../../assets/images/home-header.webp';
+import reserveHeader from '../../assets/images/reserve-header.webp';
+import bookingsHeader from '../../assets/images/bookings-header.webp';
+import { useBooking } from '../../context/BookingContext';
+import type React from 'react';
+import Button from '../../components/Button/Button';
 
 function PageHeader() {
+    const location = useLocation();
+    const path = location.pathname;
+    const { bookings } = useBooking();
+
+    let title: string = '';
+    let subtitle: string | React.ReactNode = '';
+    let description: React.ReactNode;
+    let image = homeHeader;
+    let btnText: string = '';
+
+    if (path.includes('home')) {
+        title = 'Welcome to Little Lemon';
+        subtitle = 'The best Mediterranean restaurant in the city';
+        description = <p className='description'>
+            <span>📍 Address: 123 Main St, Chicago</span>
+            <span>📞 Phone: (123) 456-7890</span>
+            <span>🕒 Hours: Sun - Sat 6PM - 11PM</span>
+        </p>
+        image = homeHeader;
+        btnText = 'Reserve a table';
+    } else if (path.includes('reserve')) {
+        title = 'Reserve Your Table';
+        image = reserveHeader;
+        subtitle = 'Book your perfect dining experience';
+        description = <p className='description'>
+            <span>✓ Free cancellation up to 2 hours before</span>
+            <span>✓ Instant confirmation</span>
+            <span>✓ Table guaranteed for 2 hours</span>
+        </p>
+        btnText = "Let's start"
+    } else if (path.includes('bookings')) {
+        title = 'Your Reservations';
+        image = bookingsHeader;
+        subtitle = 'Manage your upcoming dining reservations';
+        description = <p className='description'><span>{bookings.length} active reservations</span></p>
+        btnText = '';
+    }
+
     return (
-        <header>
-            PageHeader
+        <header className='PageHeader'>
+            <section className='hero'>
+                <h1 className='header-title'>{title}</h1>
+                <h2 className='header-subtitle'>{subtitle}</h2>
+                <>{description}</>
+                {btnText && <Button paddingX={40} paddingY={40} text={btnText} />}
+            </section>
+            <img src={image} alt={`${path} header`} className='header-img' />
         </header>
     )
 }
