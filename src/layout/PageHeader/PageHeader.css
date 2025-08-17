@@ -28,7 +28,7 @@
     margin: 0;
 }
 
-.PageHeader .hero .description > span {
+.PageHeader .hero .description>span {
     display: block;
     font-size: 18px;
     color: white;
@@ -49,6 +49,17 @@
 .PageHeader .header-img:hover {
     transform: rotate(5deg);
 }
+
+.header-lemon-decoration {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    font-size: 6rem;
+    opacity: 0.1;
+    animation: float 3s ease-in-out infinite;
+    z-index: 1;
+}
+
 
 @media screen and (max-width: 768px) {
     .PageHeader {
@@ -85,7 +96,7 @@
         font-size: 8dvw;
     }
 
-    .PageHeader .hero .description > span {
+    .PageHeader .hero .description>span {
         font-size: 5dvw;
     }
 
@@ -100,5 +111,15 @@
         object-fit: cover;
         margin-bottom: 20px;
         border-radius: 16px;
+    }
+
+    .header-lemon-decoration {
+        position: absolute;
+        top: 20%;
+        left: 70%;
+        font-size: 20dvw;
+        opacity: 0.1;
+        animation: float 3s ease-in-out infinite;
+        z-index: 1;
     }
 }

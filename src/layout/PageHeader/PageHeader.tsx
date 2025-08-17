@@ -6,11 +6,19 @@ import bookingsHeader from '../../assets/images/bookings-header.webp';
 import { useBooking } from '../../context/BookingContext';
 import type React from 'react';
 import Button from '../../components/Button/Button';
+import { useEffect } from 'react';
 
 function PageHeader() {
     const location = useLocation();
     const path = location.pathname;
     const { bookings } = useBooking();
+
+    useEffect(() => {
+        [homeHeader, reserveHeader, bookingsHeader].forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
 
     let title: string = '';
     let subtitle: string | React.ReactNode = '';
@@ -54,7 +62,8 @@ function PageHeader() {
                 <>{description}</>
                 {btnText && <Button paddingX={40} paddingY={40} text={btnText} />}
             </section>
-            <img src={image} alt={`${path} header`} className='header-img' />
+            <img src={image} alt={`${path} header`} className='header-img' loading='lazy' />
+            <div className="header-lemon-decoration">🍋</div>
         </header>
     )
 }

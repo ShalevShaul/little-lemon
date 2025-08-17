@@ -60,6 +60,7 @@ function Specials() {
                     ))}
                 </div>
             </div>
+            <div className="leaf-decoration">🍃</div>
         </section>
     )
 }
