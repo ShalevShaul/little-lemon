@@ -8,13 +8,14 @@ interface BookingFormContextType {
     currentStep: number;
     updateField: (field: keyof FormData, value: string | number) => void;
     setCurrentStep: (step: number) => void;
+    resetForm: () => void;
+}
+
+interface BookingFormProviderProps {
+    children: React.ReactNode;
 }
 
 const BookingFormContext = createContext<BookingFormContextType | undefined>(undefined);
-
-interface BookingFormProviderProps {
-    children: React.ReactNode
-}
 
 export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ children }) => {
     const [currentStep, setCurrentStep] = useState(0);
@@ -34,11 +35,24 @@ export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ childr
         }));
     };
 
+    const resetForm = () => {
+        setFormData({
+            fullName: '',
+            phone: 0,
+            date: '',
+            time: '',
+            guests: 0,
+            event: ''
+        });
+        setCurrentStep(0);
+    };
+
     const value: BookingFormContextType = {
         formData,
         currentStep,
         updateField,
-        setCurrentStep
+        setCurrentStep,
+        resetForm
     };
 
     return (

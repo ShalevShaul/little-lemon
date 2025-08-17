@@ -25,9 +25,9 @@ function Nav() {
             </a>
             <div className="menu">
                 <ul>
-                    <li className={`${path.includes('home') ? 'selected' : ''}`}><Link to={'/home'}>Home</Link></li>
-                    <li className={`${path.includes('reserve') ? 'selected' : ''}`}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
-                    <li className={`${path.includes('bookings') ? 'selected' : ''}`}><Link to={'/bookings'}>Bookings</Link></li>
+                    <li onClick={scrollToTop} className={`${path.includes('home') ? 'selected' : ''}`}><Link to={'/home'}>Home</Link></li>
+                    <li onClick={scrollToTop} className={`${path.includes('reserve') ? 'selected' : ''}`}><Link to={'/reserve-a-table'}>Reserve A Table</Link></li>
+                    <li onClick={scrollToTop} className={`${path.includes('bookings') ? 'selected' : ''}`}><Link to={'/bookings'}>Bookings</Link></li>
                 </ul>
             </div>
 

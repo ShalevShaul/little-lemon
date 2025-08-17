@@ -5,6 +5,7 @@
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
+    animation: stepAdvanced 0.3s ease-out;
 }
 
 .date-time h2 {

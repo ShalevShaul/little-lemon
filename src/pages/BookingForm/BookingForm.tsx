@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useBookingForm } from '../../context/FormContext';
 import './BookingForm.css';
 import PersonalInfo from './steps/step1/PersonalInfo';
@@ -5,8 +6,12 @@ import DateTime from './steps/step2/DateTime';
 import EventDetails from './steps/step3/EventDetails';
 import Summary from './steps/step4/Summary';
 
-function MultiStepBookingForm() {
-    const { currentStep } = useBookingForm();
+function BookingForm() {
+    const { currentStep, resetForm } = useBookingForm();
+
+    useEffect(() => {
+        return () => resetForm();
+    }, []);
 
     const steps = [
         {
@@ -48,7 +53,7 @@ function MultiStepBookingForm() {
     };
 
     return (
-        <div className='booking-form' >
+        <div className='booking-form'>
             <div className='form-container'>
                 <div className='form-header'>
                     <h1>Table Reservation</h1>
@@ -59,7 +64,9 @@ function MultiStepBookingForm() {
 
                 <form onSubmit={(e) => e.preventDefault()}>
                     <div className='form-content'>
-                        {steps[currentStep]?.component}
+                        <div key={currentStep} className='step-wrapper'>
+                            {steps[currentStep]?.component}
+                        </div>
                     </div>
                 </form>
             </div>
@@ -67,4 +74,4 @@ function MultiStepBookingForm() {
     );
 }
 
-export default MultiStepBookingForm;
+export default BookingForm;

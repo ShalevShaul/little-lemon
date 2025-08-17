@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import './PageHeader.css';
 import homeHeader from '../../assets/images/home-header.webp';
 import reserveHeader from '../../assets/images/reserve-header.webp';
@@ -9,6 +9,7 @@ import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
 
 function PageHeader() {
+    const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname;
     const { bookings } = useBooking();
@@ -25,6 +26,7 @@ function PageHeader() {
     let description: React.ReactNode;
     let image = homeHeader;
     let btnText: string = '';
+    let btnAction = () => { };
 
     if (path.includes('home')) {
         title = 'Welcome to Little Lemon';
@@ -36,6 +38,7 @@ function PageHeader() {
         </p>
         image = homeHeader;
         btnText = 'Reserve a table';
+        btnAction = () => { navigate('/reserve-a-table'); window.scrollTo({ top: 0 }) }
     } else if (path.includes('reserve')) {
         title = 'Reserve Your Table';
         image = reserveHeader;
@@ -46,6 +49,7 @@ function PageHeader() {
             <span>✓ Table guaranteed for 2 hours</span>
         </p>
         btnText = "Let's start"
+        btnAction = () => document.querySelector('div.form-container')?.scrollIntoView({ behavior: 'smooth' });
     } else if (path.includes('bookings')) {
         title = 'Your Reservations';
         image = bookingsHeader;
@@ -60,7 +64,7 @@ function PageHeader() {
                 <h1 className='header-title'>{title}</h1>
                 <h2 className='header-subtitle'>{subtitle}</h2>
                 <>{description}</>
-                {btnText && <Button paddingX={40} paddingY={40} text={btnText} />}
+                {btnText && <Button paddingX={40} paddingY={40} text={btnText} onClick={btnAction} />}
             </section>
             <img src={image} alt={`${path} header`} className='header-img' loading='lazy' />
             <div className="header-lemon-decoration">🍋</div>
