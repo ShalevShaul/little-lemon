@@ -1,0 +1,211 @@
+.booking-form {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #4b5e57 0%, #212a26 100%);
+    padding: 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-form .form-container {
+    width: 100%;
+    max-width: 600px;
+}
+
+.booking-form .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form .form-header h1 {
+    color: #495E57;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.5px;
+}
+
+.booking-form .form-header p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.booking-form .progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    background: white;
+    position: relative;
+}
+
+.booking-form .progress-indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    right: 30px;
+    height: 3px;
+    background: #E8E8E8;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.booking-form .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+.booking-form .step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 3px solid #E8E8E8;
+    background: white;
+    color: #999;
+}
+
+.booking-form .progress-step.completed .step-number {
+    background: #F4CE14;
+    border-color: #F4CE14;
+    color: #495E57;
+    box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
+}
+
+.booking-form .progress-step.active .step-number {
+    background: #495E57;
+    border-color: #495E57;
+    color: white;
+    box-shadow: 0 4px 12px rgba(73, 94, 87, 0.3);
+    transform: scale(1.1);
+}
+
+.booking-form .step-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #999;
+    text-align: center;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.booking-form .progress-step.completed .step-title {
+    color: #F4CE14;
+    font-weight: 700;
+}
+
+.booking-form .progress-step.active .step-title {
+    color: #495E57;
+    font-weight: 700;
+}
+
+.booking-form .form-content {
+    background: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Progress Line Animation */
+.booking-form .progress-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, #F4CE14 0%, #E6BC0A 100%);
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: width 0.5s ease;
+    border-radius: 2px;
+}
+
+.booking-form .progress-indicator[data-step="0"]::after {
+    width: 0%;
+}
+
+.booking-form .progress-indicator[data-step="1"]::after {
+    width: 25%;
+}
+
+.booking-form .progress-indicator[data-step="2"]::after {
+    width: 50%;
+}
+
+.booking-form .progress-indicator[data-step="3"]::after {
+    width: 75%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .booking-form {
+        padding: 20px 10px;
+    }
+
+    .booking-form .form-header {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .booking-form .form-header h1 {
+        font-size: 2rem;
+    }
+
+    .booking-form .form-header p {
+        font-size: 1rem;
+    }
+
+    .booking-form .progress-indicator {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+
+    .booking-form .progress-indicator::before,
+    .booking-form .progress-indicator::after {
+        left: 15px;
+        right: 15px;
+    }
+
+    .booking-form .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .booking-form .step-title {
+        font-size: 0.8rem;
+    }
+
+    .booking-form .progress-step.active .step-number {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-form .step-title {
+        font-size: 0.7rem;
+        max-width: 80px;
+    }
+
+    .booking-form .progress-step {
+        gap: 8px;
+    }
+}

@@ -1,0 +1,217 @@
+.Summary {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
+}
+
+.Summary h2 {
+    color: #495E57;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.Summary .summary-card {
+    background: #FAFAFA;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 30px;
+    border: 2px solid #F0F0F0;
+}
+
+.Summary .summary-header {
+    margin-bottom: 24px;
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #E8E8E8;
+}
+
+.Summary .summary-header h3 {
+    color: #495E57;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.Summary .summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.Summary .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #E8E8E8;
+    transition: all 0.2s ease;
+}
+
+.Summary .detail-row:hover {
+    border-color: #F4CE14;
+    box-shadow: 0 2px 8px rgba(244, 206, 20, 0.1);
+}
+
+.Summary .detail-label {
+    font-weight: 600;
+    color: #495E57;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.Summary .detail-value {
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+    text-align: right;
+}
+
+.Summary .summary-note {
+    margin-top: 20px;
+    padding: 16px;
+    background: #FFF9E6;
+    border-radius: 12px;
+    border-left: 4px solid #F4CE14;
+}
+
+.Summary .summary-note p {
+    margin: 0;
+    color: #495E57;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.Summary .summary-note strong {
+    color: #495E57;
+    font-weight: 700;
+}
+
+.Summary .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.Summary .back-btn {
+    flex: 1;
+    padding: 16px 24px;
+    background: #E8E8E8;
+    color: #495E57;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.Summary .back-btn:hover {
+    background: #D0D0D0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Summary .confirm-btn {
+    flex: 2;
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #F4CE14 0%, #E6BC0A 100%);
+    color: #495E57;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.Summary .confirm-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.Summary .confirm-btn:hover::before {
+    left: 100%;
+}
+
+.Summary .confirm-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(244, 206, 20, 0.4);
+}
+
+.Summary .confirm-btn:disabled {
+    background: #CCCCCC;
+    color: #888;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.Summary .confirm-btn:disabled::before {
+    display: none;
+}
+
+.Summary .error {
+    color: #D73502;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .Summary {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .Summary h2 {
+        font-size: 1.6rem;
+    }
+
+    .Summary .summary-card {
+        padding: 20px;
+    }
+
+    .Summary .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        text-align: left;
+    }
+
+    .Summary .detail-value {
+        text-align: left;
+        font-weight: 600;
+        color: #495E57;
+    }
+
+    .Summary .button-group {
+        flex-direction: column;
+    }
+
+    .Summary .back-btn,
+    .Summary .confirm-btn {
+        flex: none;
+    }
+}

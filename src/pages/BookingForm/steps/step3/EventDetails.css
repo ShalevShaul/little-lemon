@@ -1,0 +1,225 @@
+.event-details {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
+}
+
+.event-details h2 {
+    color: #495E57;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.event-details .input-group {
+    margin-bottom: 30px;
+}
+
+.event-details .input-group .input-with-icon {
+    position: relative;
+    display: block;
+}
+
+.event-details .input-group .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 45%;
+    transform: translateY(-50%);
+    color: #999;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.event-details .input-group .input-with-icon input {
+    padding-left: 50px;
+}
+
+.event-details .input-group label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #495E57;
+    font-size: 1.1rem;
+}
+
+.event-details .input-group input {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+    box-sizing: border-box;
+}
+
+.event-details .input-group input:focus {
+    outline: none;
+    border-color: #F4CE14;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
+}
+
+.event-details .event-selection {
+    margin-bottom: 30px;
+}
+
+.event-details .event-selection>label {
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: #495E57;
+    font-size: 1.1rem;
+}
+
+.event-details .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.event-details .event-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    background: #FAFAFA;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    justify-content: center;
+}
+
+.event-details .event-option:hover {
+    border-color: #F4CE14;
+    background: #FFFEF0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(244, 206, 20, 0.2);
+}
+
+.event-details .event-option.selected {
+    border-color: #F4CE14;
+    background: #F4CE14;
+    color: #495E57;
+    box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
+}
+
+.event-details .event-emoji {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.event-details .event-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495E57;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.event-details .event-option.selected .event-text {
+    color: #495E57;
+    font-weight: 700;
+}
+
+.event-details .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.event-details .back-btn {
+    flex: 1;
+    padding: 16px 24px;
+    background: #E8E8E8;
+    color: #495E57;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.event-details .back-btn:hover {
+    background: #D0D0D0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-details .next-btn {
+    flex: 2;
+    padding: 16px 24px;
+    background: #F4CE14;
+    color: #495E57;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-details .next-btn:hover {
+    background: #E6BC0A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
+}
+
+.event-details .error {
+    color: #D73502;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-details {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .event-details h2 {
+        font-size: 1.6rem;
+    }
+
+    .event-details .event-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .event-details .event-option {
+        min-height: 70px;
+        padding: 12px 8px;
+    }
+
+    .event-details .event-emoji {
+        font-size: 1.5rem;
+    }
+
+    .event-details .event-text {
+        font-size: 0.8rem;
+    }
+
+    .event-details .button-group {
+        flex-direction: column;
+    }
+
+    .event-details .back-btn,
+    .event-details .next-btn {
+        flex: none;
+    }
+}
