@@ -49,7 +49,7 @@ function PageHeader() {
             <span>✓ Table guaranteed for 2 hours</span>
         </p>
         btnText = "Let's start"
-        btnAction = () => document.querySelector('div.form-container')?.scrollIntoView({ behavior: 'smooth' });
+        btnAction = () => document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth' });
     } else if (path.includes('bookings')) {
         title = 'Your Reservations';
         image = bookingsHeader;
@@ -59,7 +59,7 @@ function PageHeader() {
     }
 
     return (
-        <header className='PageHeader'>
+        <header className='PageHeader' style={{ display: `${path.includes('confirmed') ? 'none' : 'flex'}` }}>
             <section className='hero'>
                 <h1 className='header-title'>{title}</h1>
                 <h2 className='header-subtitle'>{subtitle}</h2>

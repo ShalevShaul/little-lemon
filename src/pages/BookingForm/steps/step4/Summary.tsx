@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './Summary.css';
+import { useNavigate } from 'react-router';
 
 function Summary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
     const { addBooking } = useBooking();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
 
     const formatDate = (dateString: string) => {
         if (!dateString) return '';
@@ -36,7 +38,8 @@ function Summary() {
             addBooking(formData);
 
             // הצג הודעת הצלחה או נווט לדף הבא
-            alert('Booking confirmed successfully!');
+            // alert('Booking confirmed successfully!');
+            navigate('/confirmed', {state: formData})
 
             // אפשר לאפס את הטופס או לנווט למקום אחר
             // resetForm();
