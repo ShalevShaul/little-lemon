@@ -70,6 +70,7 @@ function DateTime() {
             <div className='input-group'>
                 <label htmlFor="date">Select Date:</label>
                 <input
+                    className={errors.date && 'not-valid'}
                     type="date"
                     id='date'
                     value={formData.date}
@@ -88,7 +89,7 @@ function DateTime() {
                                 <button
                                     key={time}
                                     type="button"
-                                    className={`time-slot ${formData.time === time ? 'selected' : ''}`}
+                                    className={`time-slot ${formData.time === time ? 'selected' : ''} ${errors.time && 'not-valid'} `}
                                     onClick={() => handleTimeSelect(time)}
                                 >
                                     {time}
@@ -99,7 +100,7 @@ function DateTime() {
                         )}
                     </div>
                 ) : (
-                    <p className='select-date-first'>Please select a date first</p>
+                    <p className={`select-date-first ${errors.time && 'not-valid'}`}>Please select a date first</p>
                 )}
                 {errors.time && <span className='error'>{errors.time}</span>}
             </div>

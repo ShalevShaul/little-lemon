@@ -39,6 +39,20 @@
     padding-left: 50px;
 }
 
+.event-details .input-group .input-with-icon input.not-valid {
+    outline: none;
+    border-color: #ab2d2d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+
+    &:focus {
+        outline: none;
+        border-color: #ab2d2d;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+    }
+}
+
 .event-details .input-group label {
     display: block;
     margin-bottom: 12px;
@@ -97,6 +111,20 @@
     transition: all 0.3s ease;
     min-height: 80px;
     justify-content: center;
+}
+
+.event-details .event-option.not-valid {
+    outline: none;
+    border-color: #ab2d2d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+
+    &:focus {
+        outline: none;
+        border-color: #ab2d2d;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+    }
 }
 
 .event-details .event-option:hover {

@@ -69,6 +69,7 @@ function EventDetails() {
                 <div className='input-with-icon'>
                     <span className='input-icon'>👥</span>
                     <input
+                        className={errors.guests && 'not-valid'}
                         type="number"
                         id='guests'
                         value={formData.guests || ''}
@@ -92,7 +93,7 @@ function EventDetails() {
                             <button
                                 key={index}
                                 type="button"
-                                className={`event-option ${isSelected ? 'selected' : ''}`}
+                                className={`event-option ${isSelected ? 'selected' : ''} ${errors.event && 'not-valid'}`}
                                 onClick={() => handleEventSelect(eventOption)}
                             >
                                 <span className='event-emoji'>{eventOption.split(' ')[0]}</span>

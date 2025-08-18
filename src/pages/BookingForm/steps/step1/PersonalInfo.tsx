@@ -54,11 +54,14 @@ function PersonalInfo() {
                 <div className='input-with-icon'>
                     <span className='input-icon'>👤</span>
                     <input
+                        className={errors.fullName && 'not-valid'}
                         id='fullname'
                         value={formData.fullName}
                         onChange={(e) => handleFieldChange('fullName', e.target.value)}
                         onBlur={(e) => validateField('fullname', e.target.value)}
                         placeholder='Full Name'
+                        required
+                        minLength={2}
                     />
                 </div>
                 {errors.fullName && <span className='error'>{errors.fullName}</span>}
@@ -69,12 +72,16 @@ function PersonalInfo() {
                 <div className='input-with-icon'>
                     <span className='input-icon'>📞</span>
                     <input
+                        className={errors.phone && 'not-valid'}
                         type="tel"
+                        // make it numbers only
                         id='phone'
                         value={formData.phone}
                         onChange={(e) => handleFieldChange('phone', e.target.value)}
                         onBlur={(e) => validateField('phone', e.target.value)}
                         placeholder='Phone Number'
+                        required
+                        minLength={10}
                     />
                 </div>
                 {errors.phone && <span className='error'>{errors.phone}</span>}

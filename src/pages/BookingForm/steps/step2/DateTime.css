@@ -39,6 +39,22 @@
     box-sizing: border-box;
 }
 
+.date-time .input-group .not-valid,
+.time-grid button.not-valid,
+.date-time .select-date-first.not-valid {
+    outline: none;
+    border-color: #ab2d2d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+
+    &:focus {
+        outline: none;
+        border-color: #ab2d2d;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+    }
+}
+
 .date-time .input-group input:focus {
     outline: none;
     border-color: #F4CE14;

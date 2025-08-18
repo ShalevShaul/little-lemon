@@ -46,9 +46,22 @@
     box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
 }
 
+.personal-info .input-group .not-valid {
+    outline: none;
+    border-color: #ab2d2d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+
+    &:focus {
+        outline: none;
+        border-color: #ab2d2d;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+    }
+}
+
 .personal-info .input-group input::placeholder {
     color: #999;
-    font-style: italic;
 }
 
 .personal-info .input-with-icon {
@@ -67,11 +80,12 @@
 }
 
 .personal-info .input-with-icon input {
-    padding-left: 50px; /* מקום לאייקון */
+    padding-left: 50px;
+    /* מקום לאייקון */
 }
 
 /* אייקון משתנה צבע בפוקוס */
-.personal-info .input-with-icon input:focus + .input-icon {
+.personal-info .input-with-icon input:focus+.input-icon {
     color: #F4CE14;
 }
 
