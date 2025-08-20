@@ -1,29 +1,48 @@
 .buttonComponent {
-    background-color: #f4ce14;
+    background: linear-gradient(135deg, #f4ce14, #e6ba00);
+    color: #495e57;
     border: none;
-    border-radius: 16px;
-    box-shadow: 4px 8px 8px #00000040;
-    color: #000;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 40px;
-    margin-top: 25px;
-    padding: 35px;
-    transition: .2s;
-
-    &:hover {
-        transform: scale(1.075);
-    }
-
-    &:active {
-        background-color: #d7b610;
-    }
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(244, 206, 20, 0.4);
 }
 
-@media screen and (max-width: 768px) {
+.buttonComponent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.buttonComponent:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(244, 206, 20, 0.4);
+    background: linear-gradient(135deg, #e6ba00, #d4a400);
+}
+
+.buttonComponent:hover::before {
+    left: 100%;
+}
+
+.buttonComponent:active {
+    transform: translateY(0) scale(1.01);
+}
+
+@media (max-width: 768px) {
     .buttonComponent {
-        width: 100%;
-        font-size: 22px;
+        font-size: 14px !important;
+        padding: 18px 24px !important;
     }
 }

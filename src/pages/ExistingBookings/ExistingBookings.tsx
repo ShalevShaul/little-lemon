@@ -1,9 +1,91 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import BookingCard from '../../components/BookingCard/BookingCard';
+import Button from '../../components/Button/Button';
+import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
+import { useBooking } from '../../context/BookingContext';
+import type { Booking } from '../../types/booking';
 import './ExistingBookings.css';
 
 function ExistingBookings() {
+    const navigate = useNavigate();
+    const { getPastBookings, getUpcomingBookings, deleteBooking } = useBooking();
+    const pastBookings = getPastBookings();
+    const upcomingBookings = getUpcomingBookings();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+
+    const goToReserve = () => {
+        navigate('/reserve-a-table');
+        window.scroll({ top: 0 });
+        setTimeout(() =>
+            document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth' })
+            , 100);
+    };
+
+    const handleCancelClick = (booking: Booking) => {
+        setSelectedBooking(booking);
+        setIsModalOpen(true);
+    };
+
+    const handleConfirmCancel = (bookingId: string) => {
+        deleteBooking(bookingId);
+        setIsModalOpen(false);
+        setSelectedBooking(null);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedBooking(null);
+    };
+
     return (
-        <div>ExistingBookings</div>
-    )
+        <section className='existing-bookings'>
+            {upcomingBookings.length > 0 ?
+                <>
+                    <h1>Upcoming Bookings</h1>
+                    <div className='bookings-grid'>
+                        {upcomingBookings?.map(b =>
+                            <BookingCard
+                                key={b.id}
+                                {...b}
+                                onCancel={() => handleCancelClick(b)}
+                            />
+                        )}
+                    </div>
+                </>
+                :
+                <div className='no-bookings'>
+                    <h1>No Upcoming Bookings</h1>
+                    <p>📅 No reservations yet ? Let's fix that !</p>
+                    <Button paddingX={25} paddingY={25} text='Reserve A Table' onClick={goToReserve} />
+                </div>
+            }
+
+            {pastBookings.length > 0 &&
+                <>
+                    <h1>Past Bookings</h1>
+                    <div className='bookings-grid'>
+                        {pastBookings?.map(b =>
+                            <BookingCard
+                                key={b.id}
+                                {...b}
+                                onCancel={() => handleCancelClick(b)}
+                            />
+                        )}
+                    </div>
+                </>
+            }
+
+            <DeleteBookingModal
+                isOpen={isModalOpen}
+                booking={selectedBooking}
+                onClose={handleCloseModal}
+                onConfirm={handleConfirmCancel}
+            />
+        </section>
+    );
 }
 
 export default ExistingBookings;

@@ -1,0 +1,108 @@
+.existing-bookings {
+    padding: 24px 10%;
+}
+
+.existing-bookings h1 {
+    color: #495e57;
+    font-size: x-large;
+}
+
+.bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    scroll-margin-top: 72px;
+}
+
+@media screen and (max-width: 768px) {
+    .bookings-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.no-bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f9fa 100%);
+    border-radius: 24px;
+    box-shadow:
+        0 10px 40px rgba(73, 94, 87, 0.08),
+        0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.no-bookings::before,
+.no-bookings::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #f4ce14, #495e57, #f4ce14);
+    background-size: 200% 100%;
+}
+
+.no-bookings::before {
+    top: 0;
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.no-bookings::after {
+    bottom: 0;
+    animation: shimmer 2.75s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.no-bookings h1 {
+    color: #495e57;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.no-bookings p {
+    font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .no-bookings {
+        margin: 20px;
+        padding: 40px 20px;
+        max-width: 90%;
+    }
+
+    .no-bookings h1 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .no-bookings> :nth-child(2) {
+        font-size: 16px;
+        margin-bottom: 24px;
+        padding: 12px 16px;
+    }
+
+    .no-bookings button {
+        font-size: 14px;
+        min-width: 180px;
+    }
+}

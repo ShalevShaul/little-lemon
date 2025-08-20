@@ -16,6 +16,7 @@ function BookingConfirmation() {
 
     const goHome = () => {
         navigate('/home');
+        window.scrollTo({ top: 0 });
     }
 
     const goToReserve = () => {

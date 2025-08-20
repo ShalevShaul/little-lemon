@@ -12,7 +12,8 @@ function PageHeader() {
     const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname;
-    const { bookings } = useBooking();
+    const { bookings, getUpcomingBookings } = useBooking();
+    const upcomingBookings = getUpcomingBookings();
 
     useEffect(() => {
         [homeHeader, reserveHeader, bookingsHeader].forEach((src) => {
@@ -48,8 +49,10 @@ function PageHeader() {
             <span>✓ Instant confirmation</span>
             <span>✓ Table guaranteed for 2 hours</span>
         </p>
-        btnText = "Let's start"
-        btnAction = () => document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth' });
+        btnText = upcomingBookings.length < 2 ? "Let's start" : '';
+        btnAction = () => {
+            document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     } else if (path.includes('bookings')) {
         title = 'Your Reservations';
         image = bookingsHeader;

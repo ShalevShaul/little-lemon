@@ -2,105 +2,138 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { Booking } from '../types/booking';
 
 const ALL_HOURS = [
-   '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
-   '21:00', '21:30', '22:00', '22:30', '23:00'
+    '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
+    '21:00', '21:30', '22:00', '22:30', '23:00'
 ];
 
 const generateId = (): string => {
-   if (typeof crypto !== 'undefined' && crypto.randomUUID) {
-       return crypto.randomUUID();
-   }
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
 
-   return `booking-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
+    return `booking-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
 };
 
 interface BookingContextType {
-   bookings: Booking[];
-   addBooking: (booking: Omit<Booking, 'id'>) => void;
-   deleteBooking: (id: string) => void;
-   getAvailableHours: (date: string) => string[];
-   getBookingsByDate: (date: string) => Booking[];
+    bookings: Booking[];
+    addBooking: (booking: Omit<Booking, 'id'>) => void;
+    deleteBooking: (id: string) => void;
+    getAvailableHours: (date: string) => string[];
+    getBookingsByDate: (date: string) => Booking[];
+    getSortedByDateBookings: () => Booking[];
+    getPastBookings: () => Booking[];
+    getUpcomingBookings: () => Booking[];
 }
 
 const BookingContext = createContext<BookingContextType | undefined>(undefined);
 
 interface BookingProviderProps {
-   children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) => {
-   const [bookings, setBookings] = useState<Booking[]>([]);
-   const [isLoaded, setIsLoaded] = useState(false);
+    const [bookings, setBookings] = useState<Booking[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-   useEffect(() => {
-       const savedBookings = localStorage.getItem('littleLemonBookings');
-       if (savedBookings) {
-           try {
-               const parsedBookings = JSON.parse(savedBookings);
-               setBookings(parsedBookings);
-               console.log('📖 Loaded bookings:', parsedBookings.length);
-           } catch (error) {
-               console.error('Error loading bookings from localStorage:', error);
-               setBookings([]);
-           }
-       }
-       setIsLoaded(true);
-   }, []);
+    useEffect(() => {
+        const savedBookings = localStorage.getItem('littleLemonBookings');
+        if (savedBookings) {
+            try {
+                const parsedBookings = JSON.parse(savedBookings);
+                setBookings(parsedBookings);
+                console.log('📖 Loaded bookings:', parsedBookings.length);
+            } catch (error) {
+                console.error('Error loading bookings from localStorage:', error);
+                setBookings([]);
+            }
+        }
+        setIsLoaded(true);
+    }, []);
 
-   useEffect(() => {
-       if (isLoaded) {
-           console.log('💾 Saving bookings:', bookings.length);
-           localStorage.setItem('littleLemonBookings', JSON.stringify(bookings));
-       }
-   }, [bookings, isLoaded]);
+    useEffect(() => {
+        if (isLoaded) {
+            console.log('💾 Saving bookings:', bookings.length);
+            localStorage.setItem('littleLemonBookings', JSON.stringify(bookings));
+        }
+    }, [bookings, isLoaded]);
 
-   const addBooking = (bookingData: Omit<Booking, 'id'>) => {
-       const newBooking: Booking = {
-           ...bookingData,
-           id: generateId()
-       };
+    const addBooking = (bookingData: Omit<Booking, 'id'>) => {
+        const newBooking: Booking = {
+            ...bookingData,
+            id: generateId()
+        };
 
-       setBookings(prevBookings => [...prevBookings, newBooking]);
-   };
+        setBookings(prevBookings => [...prevBookings, newBooking]);
+    };
 
-   const deleteBooking = (id: string) => {
-       setBookings(prevBookings => prevBookings.filter(booking => booking.id !== id));
-   };
+    const deleteBooking = (id: string) => {
+        setBookings(prevBookings => prevBookings.filter(booking => booking.id !== id));
+    };
 
-   const getBookingsByDate = (date: string): Booking[] => {
-       return bookings.filter(booking => booking.date === date);
-   };
+    const getBookingsByDate = (date: string): Booking[] => {
+        return bookings.filter(booking => booking.date === date);
+    };
 
-   const getAvailableHours = (date: string): string[] => {
-       if (!date) return ALL_HOURS;
+    const getAvailableHours = (date: string): string[] => {
+        if (!date) return ALL_HOURS;
 
-       const bookingsOnDate = getBookingsByDate(date);
-       const bookedHours = bookingsOnDate.map(booking => booking.time);
+        const bookingsOnDate = getBookingsByDate(date);
+        const bookedHours = bookingsOnDate.map(booking => booking.time);
 
-       return ALL_HOURS.filter(hour => !bookedHours.includes(hour));
-   };
+        return ALL_HOURS.filter(hour => !bookedHours.includes(hour));
+    };
 
-   const value: BookingContextType = {
-       bookings,
-       addBooking,
-       deleteBooking,
-       getAvailableHours,
-       getBookingsByDate
-   };
+    const getSortedByDateBookings = (): Booking[] => {
+        const sorted = [...bookings].sort((a, b) => {
+            const dateComparison = Number(new Date(a.date)) - Number(new Date(b.date));
+            if (dateComparison === 0) {
+                return a.time.localeCompare(b.time);
+            }
+            return dateComparison;
+        });
+        return sorted;
+    };
 
-   return (
-       <BookingContext.Provider value={value}>
-           {children}
-       </BookingContext.Provider>
-   );
+    const getPastBookings = (): Booking[] => {
+        const sorted = getSortedByDateBookings();
+        return sorted.filter(booking => {
+            const bookingDateTime = new Date(`${booking.date} ${booking.time}`);
+            return bookingDateTime < new Date();
+        });
+    }
+
+    const getUpcomingBookings = (): Booking[] => {
+        const sorted = getSortedByDateBookings();
+        return sorted.filter(booking => {
+            const bookingDateTime = new Date(`${booking.date} ${booking.time}`);
+            return bookingDateTime >= new Date();
+        });
+    }
+
+    const value: BookingContextType = {
+        bookings,
+        addBooking,
+        deleteBooking,
+        getAvailableHours,
+        getBookingsByDate,
+        getSortedByDateBookings,
+        getPastBookings,
+        getUpcomingBookings
+    };
+
+    return (
+        <BookingContext.Provider value={value}>
+            {children}
+        </BookingContext.Provider>
+    );
 };
 
 export const useBooking = (): BookingContextType => {
-   const context = useContext(BookingContext);
-   if (context === undefined) {
-       throw new Error('useBooking must be used within a BookingProvider');
-   }
-   return context;
+    const context = useContext(BookingContext);
+    if (context === undefined) {
+        throw new Error('useBooking must be used within a BookingProvider');
+    }
+    return context;
 };
 
 export { ALL_HOURS };
