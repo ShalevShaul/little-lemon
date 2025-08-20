@@ -103,6 +103,7 @@
 @media (max-width: 768px) {
     .specials-section {
         padding: 3rem 10% 3rem 10%;
+        position: relative;
     }
 
     .specials-section .container {
@@ -131,5 +132,10 @@
 
     .specials-section .container .specials-grid .special-card .card-content .card-header .price {
         font-size: 1.2rem;
+    }
+
+    .leaf-decoration {
+        position: absolute;
+        top: 1%;
     }
 }

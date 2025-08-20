@@ -7,6 +7,7 @@ import { useBooking } from '../../context/BookingContext';
 import type React from 'react';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
+import arrowDownIcon from '../../assets/icons/arrow-down.webp';
 
 function PageHeader() {
     const navigate = useNavigate();
@@ -71,6 +72,8 @@ function PageHeader() {
             </section>
             <img src={image} alt={`${path} header`} className='header-img' loading='lazy' />
             <div className="header-lemon-decoration">🍋</div>
+
+            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down glow' />
         </header>
     )
 }
