@@ -46,6 +46,18 @@ function PersonalInfo() {
         }
     };
 
+    const handleTelInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const hasInvalidChars = /[^0-9]/.test(e.target.value);
+
+        if (hasInvalidChars) {
+            setErrors(prev => ({ ...prev, phone: '* You can insert numbers only' }));
+        } else {
+            setErrors(prev => ({ ...prev, phone: '' }));
+        }
+
+        e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    };
+
     return (
         <section className='personal-info'>
             <h2>Personal Information</h2>
@@ -75,12 +87,13 @@ function PersonalInfo() {
                     <input
                         className={errors.phone && 'not-valid'}
                         type="tel"
-                        // make it numbers only
+                        onInput={handleTelInputChange}
                         id='phone'
                         value={formData.phone}
                         onChange={(e) => handleFieldChange('phone', e.target.value)}
                         onBlur={(e) => validateField('phone', e.target.value)}
                         placeholder='Phone Number'
+
                         required
                         minLength={10}
                     />

@@ -37,14 +37,7 @@ function Summary() {
 
         try {
             addBooking(formData);
-
-            // הצג הודעת הצלחה או נווט לדף הבא
-            // alert('Booking confirmed successfully!');
             navigate('/confirmed', { state: formData })
-
-            // אפשר לאפס את הטופס או לנווט למקום אחר
-            // resetForm();
-
         } catch (error) {
             console.error('Error confirming booking:', error);
             alert('Error confirming booking. Please try again.');

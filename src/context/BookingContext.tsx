@@ -80,7 +80,16 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
         const bookingsOnDate = getBookingsByDate(date);
         const bookedHours = bookingsOnDate.map(booking => booking.time);
 
-        return ALL_HOURS.filter(hour => !bookedHours.includes(hour));
+        let availableHours = ALL_HOURS.filter(hour => !bookedHours.includes(hour));
+
+        // אם זה היום, סנן שעות שעברו
+        const today = new Date().toISOString().split('T')[0];
+        if (date === today) {
+            const now = new Date().toTimeString().slice(0, 5); // HH:MM format
+            availableHours = availableHours.filter(hour => hour > now);
+        }
+
+        return availableHours;
     };
 
     const getSortedByDateBookings = (): Booking[] => {
