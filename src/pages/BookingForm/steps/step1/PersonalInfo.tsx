@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './PersonalInfo.css';
+import Button from '../../../../components/Button/Button';
 
 function PersonalInfo() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
@@ -87,7 +88,7 @@ function PersonalInfo() {
                 {errors.phone && <span className='error'>{errors.phone}</span>}
             </div>
 
-            <button onClick={validateAndNext}>Next Step</button>
+            <Button paddingX={15} paddingY={15} text='Next Step' onClick={validateAndNext} />
         </section>
     )
 }

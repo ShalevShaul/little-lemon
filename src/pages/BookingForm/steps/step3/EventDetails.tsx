@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './EventDetails.css';
+import Button from '../../../../components/Button/Button';
 
 const EVENT_OPTIONS = [
     '🎂 Birthday', '💍 Anniversary', '💼 Business Meeting', '👨‍👩‍👧‍👦 Family Celebration',
@@ -109,9 +110,7 @@ function EventDetails() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <button onClick={validateAndNext} className='next-btn'>
-                    Review Booking →
-                </button>
+                <Button onClick={validateAndNext} text='Review Booking →' paddingX={60} paddingY={15} />
             </div>
         </section>
     );

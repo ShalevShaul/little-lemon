@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './DateTime.css';
+import Button from '../../../../components/Button/Button';
 
 function DateTime() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
@@ -109,9 +110,7 @@ function DateTime() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <button onClick={validateAndNext} className='next-btn'>
-                    Next Step →
-                </button>
+                <Button onClick={validateAndNext} paddingX={88} paddingY={15} text='Next Step →' />
             </div>
         </section>
     );

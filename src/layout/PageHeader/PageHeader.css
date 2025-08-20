@@ -164,10 +164,6 @@
     }
 }
 
-.arrow-down.pulse {
-    animation: pulse 2s infinite;
-}
-
 @keyframes pulse {
     0% {
         transform: translateX(-50%) scale(1);

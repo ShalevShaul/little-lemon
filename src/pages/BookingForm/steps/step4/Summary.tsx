@@ -3,6 +3,7 @@ import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './Summary.css';
 import { useNavigate } from 'react-router';
+import Button from '../../../../components/Button/Button';
 
 function Summary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
@@ -39,7 +40,7 @@ function Summary() {
 
             // הצג הודעת הצלחה או נווט לדף הבא
             // alert('Booking confirmed successfully!');
-            navigate('/confirmed', {state: formData})
+            navigate('/confirmed', { state: formData })
 
             // אפשר לאפס את הטופס או לנווט למקום אחר
             // resetForm();
@@ -113,14 +114,8 @@ function Summary() {
                 <button onClick={goBack} className='back-btn'>
                     ← Edit Details
                 </button>
-                <button
-                    type="button"
-                    onClick={handleConfirmBooking}
-                    className='confirm-btn'
-                    disabled={isSubmitting}
-                >
-                    {isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'}
-                </button>
+                <Button onClick={handleConfirmBooking} paddingX={15} paddingY={15}
+                    text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
             </div>
         </section>
     );
