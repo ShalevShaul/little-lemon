@@ -40,7 +40,7 @@ function BookingCard(props: BookingCardProps) {
             <div className="booking-card-content">
                 <div className="booking-details">
                     {details.map(d =>
-                        <div className='detail-row'>
+                        <div className='detail-row' key={d.label}>
                             <span className='detail-label'>{d.icon} {d.label} :</span>
                             <span className='detail-value'>{d.value}</span>
                         </div>
