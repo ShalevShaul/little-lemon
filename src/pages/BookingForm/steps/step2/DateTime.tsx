@@ -65,7 +65,7 @@ function DateTime() {
     };
 
     return (
-        <section className='date-time'>
+        <section className='date-time-section'>
             <h2>Select Date & Time</h2>
 
             <div className='input-group'>

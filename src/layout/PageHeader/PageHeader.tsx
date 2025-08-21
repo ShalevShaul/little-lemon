@@ -73,7 +73,7 @@ function PageHeader() {
             <img src={image} alt={`${path} header`} className='header-img' loading='lazy' />
             <div className="header-lemon-decoration">🍋</div>
 
-            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down glow' />
+            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down' />
         </header>
     )
 }

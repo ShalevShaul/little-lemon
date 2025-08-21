@@ -155,7 +155,7 @@
         justify-content: space-around;
     }
 
-    .booking-confirmed .confirmed-header .date-time {
+    .booking-confirmed .confirmed-header .dateAndTime {
         font-size: 18px;
     }
 

@@ -66,8 +66,8 @@
 }
 
 
-.container .custom-swiper-button-prev,
-.container .custom-swiper-button-next {
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
     width: 50px;
     height: 50px;
     background: rgba(244, 207, 20, 0.7);
@@ -80,23 +80,22 @@
     transition: all 0.3s ease;
 }
 
-.container .custom-swiper-button-prev img,
-.container .custom-swiper-button-next img {
+.custom-swiper-button-prev img,
+.custom-swiper-button-next img {
     width: 100%;
     height: 100%;
 }
 
-.container .custom-swiper-button-prev:hover,
-.container .custom-swiper-button-next:hover {
+.custom-swiper-button-prev:hover,
+.custom-swiper-button-next:hover {
     background: #f4ce14;
     transform: scale(1.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.container .custom-swiper-button-prev:active,
-.container .custom-swiper-button-next:active {
+.custom-swiper-button-prev:active,
+.custom-swiper-button-next:active {
     background: #e9e9e9;
     transform: scale(1.05);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-

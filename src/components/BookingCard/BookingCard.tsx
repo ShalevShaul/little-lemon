@@ -11,6 +11,24 @@ function BookingCard(props: BookingCardProps) {
         return date.toLocaleDateString();
     };
 
+    const ICONS = {
+        date: '📅',
+        time: '🕐',
+        guests: '👥',
+        fullName: '👤',
+        phone: '📞',
+        event: '🍽️'
+    };
+
+    const details = [
+        { icon: ICONS.date, label: 'Date', value: formatDate(props.date) },
+        { icon: ICONS.time, label: 'Time', value: props.time },
+        { icon: ICONS.guests, label: 'Guests', value: props.guests },
+        { icon: ICONS.fullName, label: 'Name', value: props.fullName },
+        { icon: ICONS.phone, label: 'Phone Number', value: props.phone },
+        { icon: ICONS.event, label: 'Event', value: props.event },
+    ];
+
     return (
         <div className='booking-card'>
             <div className="booking-card-header">
@@ -21,30 +39,12 @@ function BookingCard(props: BookingCardProps) {
 
             <div className="booking-card-content">
                 <div className="booking-details">
-                    <div className="detail-row">
-                        <span className="detail-label">📅 Date:</span>
-                        <span className="detail-value">{formatDate(props.date)}</span>
-                    </div>
-                    <div className="detail-row">
-                        <span className="detail-label">🕐 Time:</span>
-                        <span className="detail-value">{props.time}</span>
-                    </div>
-                    <div className="detail-row">
-                        <span className="detail-label">👥 Guests:</span>
-                        <span className="detail-value">{props.guests}</span>
-                    </div>
-                    <div className="detail-row">
-                        <span className="detail-label">👤 Name:</span>
-                        <span className="detail-value">{props.fullName}</span>
-                    </div>
-                    <div className="detail-row">
-                        <span className="detail-label">📞 Phone Number:</span>
-                        <span className="detail-value">{props.phone}</span>
-                    </div>
-                    <div className="detail-row">
-                        <span className="detail-label">🍽️ Event :</span>
-                        <span className="detail-value">{props.event}</span>
-                    </div>
+                    {details.map(d =>
+                        <div className='detail-row'>
+                            <span className='detail-label'>{d.icon} {d.label} :</span>
+                            <span className='detail-value'>{d.value}</span>
+                        </div>
+                    )}
                 </div>
             </div>
 

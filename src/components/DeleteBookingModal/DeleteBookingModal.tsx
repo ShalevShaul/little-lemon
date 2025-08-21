@@ -9,9 +9,7 @@ interface DeleteBookingModalProps {
     onConfirm: (bookingId: string) => void;
 }
 
-if (typeof window !== 'undefined' && document.getElementById('root')) {
-    Modal.setAppElement('#root');
-}
+Modal.setAppElement('#root');
 
 function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBookingModalProps) {
     const handleConfirm = () => {

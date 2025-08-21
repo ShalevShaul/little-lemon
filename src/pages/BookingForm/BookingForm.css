@@ -131,36 +131,7 @@
     width: 75%;
 }
 
-@media (max-width: 768px) {
-    .booking-form {
-        padding: 20px 10px;
-    }
-
-    .booking-form .progress-indicator {
-        padding: 20px 15px;
-        margin-bottom: 20px;
-    }
-
-    .booking-form .progress-indicator::before,
-    .booking-form .progress-indicator::after {
-        left: 15px;
-        right: 15px;
-    }
-
-    .booking-form .step-number {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    .booking-form .step-title {
-        font-size: 0.8rem;
-    }
-
-    .booking-form .progress-step.active .step-number {
-        transform: scale(1.05);
-    }
-}
+@media (max-width: 768px) {}
 
 @media (max-width: 480px) {
     .booking-form .step-title {
@@ -400,8 +371,54 @@
     transform: translateY(0) scale(1.01);
 }
 
+/* Animation for entrance */
+.max-bookings-content {
+    animation: slideInFromTop 0.6s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .booking-form {
+        padding: 20px 10px;
+    }
+
+    .booking-form .progress-indicator {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+
+    .booking-form .progress-indicator::before,
+    .booking-form .progress-indicator::after {
+        left: 15px;
+        right: 15px;
+    }
+
+    .booking-form .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .booking-form .step-title {
+        font-size: 0.8rem;
+    }
+
+    .booking-form .progress-step.active .step-number {
+        transform: scale(1.05);
+    }
+
     .max-bookings {
         padding: 20px 10px;
         min-height: 50vh;
@@ -453,22 +470,5 @@
     .view-bookings-btn {
         font-size: 14px;
         padding: 12px 24px;
-    }
-}
-
-/* Animation for entrance */
-.max-bookings-content {
-    animation: slideInFromTop 0.6s ease-out;
-}
-
-@keyframes slideInFromTop {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

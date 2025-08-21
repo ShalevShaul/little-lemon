@@ -21,7 +21,7 @@ function Nav() {
     return (
         <nav>
             <a href={'http://localhost:5173/home'}>
-                <img className='nav-logo' src={logo} alt='litlle lemon nav logo' />
+                <img className='nav-logo' src={logo} alt='little lemon nav logo' />
             </a>
             <div className="menu">
                 <ul>

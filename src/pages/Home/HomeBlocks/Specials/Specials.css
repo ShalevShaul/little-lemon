@@ -11,26 +11,26 @@
     padding: 50px 0;
 }
 
-.specials-section .container .section-header {
+.specials-section .section-header {
     text-align: center;
     margin-bottom: 3rem;
 }
 
-.specials-section .container .section-header h2 {
+.specials-section .section-header h2 {
     font-size: 2.5rem;
     color: #333;
     margin: 0;
     font-weight: bold;
 }
 
-.specials-section .container .specials-grid {
+.specials-section .specials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     height: 100%;
 }
 
-.specials-section .container .specials-grid .special-card {
+.specials-section .special-card {
     background: white;
     border-radius: 16px;
     overflow: hidden;
@@ -38,52 +38,52 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.specials-section .container .specials-grid .special-card:hover {
+.specials-section .special-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.specials-section .container .specials-grid .special-card .card-image {
+.specials-section .card-image {
     height: 200px;
     overflow: hidden;
 }
 
-.specials-section .container .specials-grid .special-card .card-image img {
+.specials-section .card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.specials-section .container .specials-grid .special-card:hover .card-image img {
+.specials-section .special-card:hover .card-image img {
     transform: scale(1.05);
 }
 
-.specials-section .container .specials-grid .special-card .card-content {
+.specials-section .card-content {
     padding: 1.5rem;
 }
 
-.specials-section .container .specials-grid .special-card .card-content .card-header {
+.specials-section .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.specials-section .container .specials-grid .special-card .card-content .card-header h3 {
+.specials-section .card-header h3 {
     font-size: 1.5rem;
     color: #333;
     margin: 0;
     font-weight: 600;
 }
 
-.specials-section .container .specials-grid .special-card .card-content .card-header .price {
+.specials-section .card-header .price {
     font-size: 1.3rem;
     font-weight: bold;
     color: #495e57;
 }
 
-.specials-section .container .specials-grid .special-card .card-content .description {
+.specials-section .description {
     color: #666;
     line-height: 1.6;
     margin: 0;
@@ -102,7 +102,7 @@
 
 @media (max-width: 768px) {
     .specials-section {
-        padding: 3rem 10% 3rem 10%;
+        padding: 3rem 10%;
         position: relative;
     }
 
@@ -110,32 +110,31 @@
         padding: 0 1rem;
     }
 
-    .specials-section .container .section-header h2 {
+    .specials-section .section-header h2 {
         font-size: 2rem;
         text-align: center;
     }
 
-    .specials-section .container .specials-grid {
+    .specials-section .specials-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    .specials-section .container .specials-grid .special-card .card-content .card-header {
+    .specials-section .card-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
     }
 
-    .specials-section .container .specials-grid .special-card .card-content .card-header h3 {
+    .specials-section .card-header h3 {
         font-size: 1.3rem;
     }
 
-    .specials-section .container .specials-grid .special-card .card-content .card-header .price {
+    .specials-section .card-header .price {
         font-size: 1.2rem;
     }
 
     .leaf-decoration {
-        position: absolute;
         top: 1%;
     }
 }

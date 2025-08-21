@@ -21,7 +21,7 @@ export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ childr
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState<FormData>({
         fullName: '',
-        phone: 0,
+        phone: '',
         date: '',
         time: '',
         guests: 0,
@@ -38,7 +38,7 @@ export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ childr
     const resetForm = () => {
         setFormData({
             fullName: '',
-            phone: 0,
+            phone: '',
             date: '',
             time: '',
             guests: 0,

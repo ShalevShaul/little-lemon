@@ -1,4 +1,4 @@
-.date-time {
+.date-time-section {
     max-width: 500px;
     margin: 0 auto;
     padding: 40px 30px;
@@ -8,7 +8,7 @@
     animation: stepAdvanced 0.3s ease-out;
 }
 
-.date-time h2 {
+.date-time-section h2 {
     color: #495E57;
     font-size: 2rem;
     font-weight: 700;
@@ -16,11 +16,11 @@
     text-align: center;
 }
 
-.date-time .input-group {
+.date-time-section .input-group {
     margin-bottom: 30px;
 }
 
-.date-time .input-group label {
+.date-time-section .input-group label {
     display: block;
     margin-bottom: 12px;
     font-weight: 600;
@@ -28,7 +28,7 @@
     font-size: 1.1rem;
 }
 
-.date-time .input-group input {
+.date-time-section .input-group input {
     width: 100%;
     padding: 16px;
     border: 2px solid #E8E8E8;
@@ -39,9 +39,9 @@
     box-sizing: border-box;
 }
 
-.date-time .input-group .not-valid,
+.date-time-section .input-group .not-valid,
 .time-grid button.not-valid,
-.date-time .select-date-first.not-valid {
+.date-time-section .select-date-first.not-valid {
     outline: none;
     border-color: #ab2d2d;
     background: white;
@@ -55,18 +55,18 @@
     }
 }
 
-.date-time .input-group input:focus {
+.date-time-section .input-group input:focus {
     outline: none;
     border-color: #F4CE14;
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
 }
 
-.date-time .time-selection {
+.date-time-section .time-selection {
     margin-bottom: 30px;
 }
 
-.date-time .time-selection>label {
+.date-time-section .time-selection>label {
     display: block;
     margin-bottom: 16px;
     font-weight: 600;
@@ -74,14 +74,14 @@
     font-size: 1.1rem;
 }
 
-.date-time .time-grid {
+.date-time-section .time-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: 12px;
     margin-top: 16px;
 }
 
-.date-time .time-slot {
+.date-time-section .time-slot {
     padding: 14px 8px;
     border: 2px solid #E8E8E8;
     border-radius: 12px;
@@ -94,34 +94,34 @@
     text-align: center;
 }
 
-.date-time .time-slot:hover {
+.date-time-section .time-slot:hover {
     border-color: #F4CE14;
     background: #FFFEF0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.2);
 }
 
-.date-time .time-slot.selected {
+.date-time-section .time-slot.selected {
     border-color: #F4CE14;
     background: #F4CE14;
     color: #495E57;
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
 }
 
-.date-time .time-slot:disabled {
+.date-time-section .time-slot:disabled {
     background: #F0F0F0;
     color: #999;
     cursor: not-allowed;
     border-color: #DDD;
 }
 
-.date-time .time-slot:disabled:hover {
+.date-time-section .time-slot:disabled:hover {
     transform: none;
     box-shadow: none;
 }
 
-.date-time .no-times,
-.date-time .select-date-first {
+.date-time-section .no-times,
+.date-time-section .select-date-first {
     text-align: center;
     color: #666;
     font-style: italic;
@@ -132,14 +132,14 @@
     margin-top: 16px;
 }
 
-.date-time .button-group {
+.date-time-section .button-group {
     display: flex;
     justify-content: space-between;
     gap: 16px;
     margin-top: 30px;
 }
 
-.date-time .back-btn {
+.date-time-section .back-btn {
     flex: 1;
     padding: 16px 24px;
     background: #E8E8E8;
@@ -152,13 +152,13 @@
     transition: all 0.3s ease;
 }
 
-.date-time .back-btn:hover {
+.date-time-section .back-btn:hover {
     background: #D0D0D0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.date-time .next-btn {
+.date-time-section .next-btn {
     flex: 2;
     padding: 16px 24px;
     background: #F4CE14;
@@ -173,13 +173,13 @@
     letter-spacing: 0.5px;
 }
 
-.date-time .next-btn:hover {
+.date-time-section .next-btn:hover {
     background: #E6BC0A;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
 }
 
-.date-time .error {
+.date-time-section .error {
     color: #D73502;
     font-size: 0.9rem;
     margin-top: 8px;
@@ -189,26 +189,26 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .date-time {
+    .date-time-section {
         margin: 20px;
         padding: 30px 20px;
     }
 
-    .date-time h2 {
+    .date-time-section h2 {
         font-size: 1.6rem;
     }
 
-    .date-time .time-grid {
+    .date-time-section .time-grid {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 10px;
     }
 
-    .date-time .button-group {
+    .date-time-section .button-group {
         flex-direction: column;
     }
 
-    .date-time .back-btn,
-    .date-time .next-btn {
+    .date-time-section .back-btn,
+    .date-time-section .next-btn {
         flex: none;
     }
 }
