@@ -5,10 +5,11 @@
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    animation: headerEnter 0.8s ease-out;
 }
 
 .PageHeader .hero {
-    margin: 7% auto 0 auto;
+    margin: 8% auto 0 auto;
     flex: 3;
 }
 
@@ -19,6 +20,8 @@
     margin: 0;
     margin-bottom: 20px;
     padding-top: 40px;
+    animation: titleEnter 0.7s ease-out 0.2s forwards;
+    opacity: 0;
 }
 
 .PageHeader .hero .header-subtitle {
@@ -26,6 +29,8 @@
     font-size: 32px;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
+    animation: subtitleEnter 0.7s ease-out 0.4s forwards;
+    opacity: 0;
 }
 
 .PageHeader .hero .description>span {
@@ -33,6 +38,13 @@
     font-size: 18px;
     color: white;
     margin-bottom: 10px;
+    animation: contentEnter 0.7s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.PageHeader .hero button {
+    animation: contentEnter 0.7s ease-out 0.6s forwards;
+    opacity: 0;
 }
 
 .PageHeader .header-img {
@@ -42,8 +54,10 @@
     margin: auto;
     border-radius: 16px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.25);
-    transition: 0.2s;
+    transition: transform 0.2s ease;
     flex: 2;
+    animation: imageEnterFromRight 0.8s ease-out 0.3s forwards;
+    opacity: 0;
 }
 
 .PageHeader .header-img:hover {
@@ -55,31 +69,170 @@
     top: 15%;
     left: 0;
     font-size: 6rem;
-    opacity: 0.1;
-    animation: float 3s ease-in-out infinite;
+    opacity: 0;
     z-index: 1;
+    /* animation: lemonBounceOnly 0.8s ease-out 0.8s forwards; */
+    animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
 }
 
+.arrow-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #f4ce14;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    animation: arrowEnterAndFloat 1s ease-out 1s forwards, arrowFloatContinuous 1.5s 2s infinite;
+    opacity: 0;
+}
+
+.arrow-down:hover {
+    transform: translateX(-50%) scale(1.2);
+    color: #e6ba00;
+    filter: drop-shadow(0 4px 8px rgba(244, 206, 20, 0.4));
+}
+
+@keyframes headerEnter {
+    0% {
+        opacity: 0.2;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes subtitleEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageEnterFromRight {
+    0% {
+        opacity: 0;
+        margin-right: -30px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+
+@keyframes lemonBounceOnly {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-10deg);
+    }
+
+    60% {
+        opacity: 0.1;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    100% {
+        opacity: 0.1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes arrowEnterAndFloat {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes floatContinuous {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes arrowFloatContinuous {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
 
 @media screen and (max-width: 768px) {
     .PageHeader {
         flex-direction: column;
+        height: calc(100dvh - 88px);
     }
 
     .PageHeader .hero {
         margin: 0;
     }
 
+    .PageHeader .hero .description {
+        display: none;
+    }
+
     .PageHeader .header-img {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 120px;
         object-fit: cover;
-        max-height: 350px;
+        max-height: 200px;
     }
 
     .PageHeader .hero button {
         font-size: 18px;
         padding: 25px;
+        margin-top: 24px;
     }
 
     .arrow-down {
@@ -101,10 +254,6 @@
         font-size: 8dvw;
     }
 
-    .PageHeader .hero .description>span {
-        font-size: 5dvw;
-    }
-
     .PageHeader .hero button {
         font-size: 16px;
         padding: 20px;
@@ -114,48 +263,17 @@
     .PageHeader .header-img {
         height: 150px;
         object-fit: cover;
-        margin-bottom: 20px;
         border-radius: 16px;
     }
 
     .header-lemon-decoration {
         position: absolute;
-        top: 20%;
+        top: 30%;
         left: 70%;
         font-size: 20dvw;
-        opacity: 0.1;
-        animation: float 3s ease-in-out infinite;
+        opacity: 0;
         z-index: 1;
-    }
-}
-
-.arrow-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) scale(5);
-    font-size: 24px;
-    color: #f4ce14;
-    cursor: default;
-    z-index: 10;
-    transition: all 0.3s ease;
-    animation: float 1.5s infinite;
-}
-
-.arrow-down:hover {
-    transform: translateX(-50%) scale(1.2);
-    color: #e6ba00;
-    filter: drop-shadow(0 4px 8px rgba(244, 206, 20, 0.4));
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateX(-50%) translateY(0);
-    }
-
-    50% {
-        transform: translateX(-50%) translateY(-10px);
+        /* animation: lemonBounceOnly 0.8s ease-out 0.8s forwards; */
+        animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
     }
 }

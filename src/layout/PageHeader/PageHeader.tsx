@@ -13,7 +13,7 @@ function PageHeader() {
     const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname;
-    const { bookings, getUpcomingBookings } = useBooking();
+    const { getUpcomingBookings } = useBooking();
     const upcomingBookings = getUpcomingBookings();
 
     useEffect(() => {
@@ -22,6 +22,11 @@ function PageHeader() {
             img.src = src;
         });
     }, []);
+
+    const pageHeight = window.innerHeight;
+    const scrollDown = () => {
+        window.scroll({ top: pageHeight, behavior: 'smooth' })
+    }
 
     let title: string = '';
     let subtitle: string | React.ReactNode = '';
@@ -58,12 +63,12 @@ function PageHeader() {
         title = 'Your Reservations';
         image = bookingsHeader;
         subtitle = 'Manage your upcoming dining reservations';
-        description = <p className='description'><span>{bookings.length} active reservations</span></p>
+        description = <p className='description'><span>{upcomingBookings.length} Upcoming Reservation{upcomingBookings.length > 1 && 's'}</span></p>
         btnText = '';
     }
 
     return (
-        <header className='PageHeader' style={{ display: `${path.includes('confirmed') ? 'none' : 'flex'}` }}>
+        <header key={path} className='PageHeader' style={{ display: `${path.includes('confirmed') ? 'none' : 'flex'}` }}>
             <section className='hero'>
                 <h1 className='header-title'>{title}</h1>
                 <h2 className='header-subtitle'>{subtitle}</h2>
@@ -73,7 +78,7 @@ function PageHeader() {
             <img src={image} alt={`${path} header`} className='header-img' loading='lazy' />
             <div className="header-lemon-decoration">🍋</div>
 
-            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down' />
+            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down' onClick={scrollDown} />
         </header>
     )
 }
