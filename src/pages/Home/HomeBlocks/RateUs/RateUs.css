@@ -1,0 +1,207 @@
+.rate-us {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
+    animation: stepAdvanced 0.3s ease;
+    position: relative;
+}
+
+.rate-us h1 {
+    color: #495E57;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.rate-us form button {
+    width: 100%;
+}
+
+.rate-us .input-group {
+    margin-bottom: 40px;
+}
+
+.rate-us .input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495E57;
+    font-size: 1rem;
+}
+
+.rate-us .input-group :is(input, textarea) {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid #E8E8E8;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+    box-sizing: border-box;
+}
+
+.rate-us .input-group :is(input, textarea):focus {
+    outline: none;
+    border-color: #F4CE14;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
+}
+
+.rate-us .input-group .not-valid {
+    outline: none;
+    border-color: #ab2d2d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+
+    &:focus {
+        outline: none;
+        border-color: #ab2d2d;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
+    }
+}
+
+.rate-us .input-group input::placeholder {
+    color: #999;
+}
+
+.rate-us .input-with-icon {
+    position: relative;
+    display: block;
+}
+
+.rate-us .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.rate-us .input-with-icon input {
+    padding-left: 50px;
+}
+
+.rate-us .error {
+    color: #D73502;
+    font-size: 0.9rem;
+    margin-top: 6px;
+    display: block;
+    font-weight: 500;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 60px;
+    border-radius: 6px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: 15px 0;
+    margin: 10px 0;
+}
+
+/* Chrome/Safari/Edge - The line */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Chrome/Safari/Edge - The button */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -8px;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+/* Firefox - The line */
+input[type="range"]::-moz-range-track {
+    height: 12px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    border: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Firefox - The button */
+input[type="range"]::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #45a049;
+    transform: scale(1.1);
+}
+
+textarea {
+    width: 100%;
+    height: 50px;
+    resize: vertical;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+.rate-us .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: auto;
+    margin: 0;
+    background: unset;
+    border: unset;
+}
+
+.rate-us .close-modal .cancel-icon {
+    width: 35px;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rate-us {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .rate-us h2 {
+        font-size: 1.6rem;
+    }
+}

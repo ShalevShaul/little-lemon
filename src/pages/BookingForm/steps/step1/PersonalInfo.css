@@ -81,12 +81,6 @@
 
 .personal-info .input-with-icon input {
     padding-left: 50px;
-    /* מקום לאייקון */
-}
-
-/* אייקון משתנה צבע בפוקוס */
-.personal-info .input-with-icon input:focus+.input-icon {
-    color: #F4CE14;
 }
 
 .personal-info .error {
