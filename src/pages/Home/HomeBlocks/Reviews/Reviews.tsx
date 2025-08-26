@@ -17,7 +17,7 @@ interface Review {
     date: string;
 }
 
-const reviews: Review[] = [
+const initialReviews: Review[] = [
     {
         id: '1',
         name: 'Sarah Johnson',
@@ -61,8 +61,40 @@ const renderStars = (rating: number) => {
 
 Modal.setAppElement('#root');
 
+const modalStyles = {
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        zIndex: 1000
+    },
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        border: 'none',
+        borderRadius: '16px',
+        padding: '0',
+        maxWidth: '600px',
+        width: '90%',
+        maxHeight: '90vh',
+        overflow: 'hidden'
+    }
+};
+
 function Reviews() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [reviews, setReviews] = useState<Review[]>(initialReviews);
+
+    useEffect(() => {
+        const storageReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
+        if (storageReviews.length > 0) {
+            setReviews([...initialReviews, ...storageReviews]);
+        } else {
+            setReviews(initialReviews);
+        }
+    }, []);
 
     useEffect(() => {
         if (isModalOpen) {
@@ -83,26 +115,19 @@ function Reviews() {
         setIsModalOpen(prev => !prev);
     }
 
-    const modalStyles = {
-        overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            zIndex: 1000
-        },
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            border: 'none',
-            borderRadius: '16px',
-            padding: '0',
-            maxWidth: '600px',
-            width: '90%',
-            maxHeight: '90vh',
-            overflow: 'hidden'
-        }
+    const addNewReview = (newReview: Review) => {
+        const reviewWithId = {
+            ...newReview,
+            id: Date.now().toString(),
+            date: new Date().toISOString().split('T')[0]
+        };
+
+        setReviews(prev => [...prev, reviewWithId]);
+
+        const existingReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
+        const updatedReviews = [...existingReviews, reviewWithId];
+        localStorage.setItem('storageReviews', JSON.stringify(updatedReviews));
+
     };
 
     return (
@@ -187,6 +212,7 @@ function Reviews() {
             >
                 <RateUs
                     openCloseModal={handleOpenCloseModal}
+                    onAddReview={addNewReview}
                 />
             </Modal>
         </>

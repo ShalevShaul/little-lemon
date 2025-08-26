@@ -20,6 +20,21 @@ function BookingForm() {
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
 
     useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+        }
+
+        return () => {
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+        };
+    }, [isModalOpen]);
+
+    useEffect(() => {
         return () => resetForm();
     }, []);
 

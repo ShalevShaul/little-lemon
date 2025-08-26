@@ -12,15 +12,16 @@ interface Review {
 }
 
 interface RateUsProps {
-    openCloseModal: () => void,
+    openCloseModal: () => void;
+    onAddReview: (review: Review) => void;
 }
 
 function RateUs(props: RateUsProps) {
     const { register, formState: { errors }, handleSubmit, watch } = useForm<Review>();
 
-    const submitRating = (review: Review) => {0
-        review.date = new Date().toISOString().split('T')[0];
-        console.log(review);
+    const submitRating = (review: Review) => {
+        props.onAddReview(review);
+        props.openCloseModal();
     }
 
     return (
@@ -45,7 +46,7 @@ function RateUs(props: RateUsProps) {
                 </div>
 
                 <div className='input-group'>
-                    <label htmlFor="fullname">Reting : {watch('rating') || 1}/5</label>
+                    <label htmlFor="fullname">Rating : {watch('rating') || 1}/5</label>
                     <div className='input-with-icon'>
                         <span className='input-icon'>⭐</span>
                         <input
@@ -73,7 +74,7 @@ function RateUs(props: RateUsProps) {
                             {...register('comment', {
                                 required: 'Comment is required',
                                 minLength: { value: 10, message: 'Comment must be at least 10 keys' },
-                                max: { value: 150, message: 'Maximum 100 keys' }
+                                max: { value: 150, message: 'Maximum 150 keys' }
                             })}
                             className={errors.comment ? 'not-valid' : ''}
                             id='comment'
