@@ -61,7 +61,11 @@ function RateUs(props: RateUsProps) {
                             step={1}
                             min={1}
                             max={5}
-                            defaultValue={1}
+                            defaultValue={5}
+                            onChange={(e) => {
+                                const percentage = ((Number(e.target.value) - 1) / 4) * 100;
+                                e.target.style.setProperty('--value', percentage + '%');
+                            }}
                         />
                         {errors.rating && <span className='error'>* {errors.rating.message}</span>}
                     </div>
