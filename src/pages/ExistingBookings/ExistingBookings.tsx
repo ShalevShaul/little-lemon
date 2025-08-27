@@ -78,7 +78,7 @@ function ExistingBookings() {
                 </div>
             }
 
-            {pastBookings.length > 0 &&
+            {pastBookings.length > 0 ?
                 <>
                     <h1>Past Bookings</h1>
                     <div className='bookings-grid'>
@@ -86,11 +86,14 @@ function ExistingBookings() {
                             <BookingCard
                                 key={b.id}
                                 {...b}
+                                position={'past'}
                                 onCancel={() => handleCancelClick(b)}
                             />
                         )}
                     </div>
                 </>
+                :
+                <h1>No Past Bookings</h1>
             }
 
             <DeleteBookingModal

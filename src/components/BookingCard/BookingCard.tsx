@@ -3,6 +3,7 @@ import './BookingCard.css';
 
 interface BookingCardProps extends Booking {
     onCancel?: () => void;
+    position?: 'past' | 'upcoming';
 }
 
 function BookingCard(props: BookingCardProps) {
@@ -48,7 +49,7 @@ function BookingCard(props: BookingCardProps) {
                 </div>
             </div>
 
-            <div className="booking-card-actions">
+            <div className="booking-card-actions" style={{ display: props.position === 'past' ? 'none' : 'flex'}}>
                 <button className="cancel-btn" onClick={props.onCancel}>
                     ❌ Cancel Order
                 </button>
