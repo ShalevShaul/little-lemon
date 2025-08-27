@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import './RateUs.css';
 import Button from '../../../../components/Button/Button';
-import cancelIcon from '../../../../assets/icons/remove-button.png'
+import cancelIcon from '../../../../assets/icons/remove-button.webp'
 
 interface Review {
     id: string;
