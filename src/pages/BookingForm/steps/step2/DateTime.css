@@ -9,7 +9,7 @@
 }
 
 .date-time-section h2 {
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 30px;
@@ -24,7 +24,7 @@
     display: block;
     margin-bottom: 12px;
     font-weight: 600;
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 1.1rem;
 }
 
@@ -43,13 +43,13 @@
 .time-grid button.not-valid,
 .date-time-section .select-date-first.not-valid {
     outline: none;
-    border-color: #ab2d2d;
+    border-color: var(--red-600);
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
 
     &:focus {
         outline: none;
-        border-color: #ab2d2d;
+        border-color: var(--red-600);
         background: white;
         box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
     }
@@ -57,7 +57,7 @@
 
 .date-time-section .input-group input:focus {
     outline: none;
-    border-color: #F4CE14;
+    border-color: var(--secondary-500);
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
 }
@@ -70,7 +70,7 @@
     display: block;
     margin-bottom: 16px;
     font-weight: 600;
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 1.1rem;
 }
 
@@ -90,21 +90,21 @@
     transition: all 0.3s ease;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #495E57;
+    color: var(--primary-500);
     text-align: center;
 }
 
 .date-time-section .time-slot:hover {
-    border-color: #F4CE14;
+    border-color: var(--secondary-500);
     background: #FFFEF0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.2);
 }
 
 .date-time-section .time-slot.selected {
-    border-color: #F4CE14;
-    background: #F4CE14;
-    color: #495E57;
+    border-color: var(--secondary-500);
+    background: var(--secondary-500);
+    color: var(--primary-500);
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
 }
 
@@ -143,7 +143,7 @@
     flex: 1;
     padding: 16px 24px;
     background: #E8E8E8;
-    color: #495E57;
+    color: var(--primary-500);
     border: none;
     border-radius: 12px;
     font-size: 1rem;
@@ -158,29 +158,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.date-time-section .next-btn {
-    flex: 2;
-    padding: 16px 24px;
-    background: #F4CE14;
-    color: #495E57;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.date-time-section .next-btn:hover {
-    background: #E6BC0A;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
-}
-
 .date-time-section .error {
-    color: #D73502;
+    color: var(--red-500);
     font-size: 0.9rem;
     margin-top: 8px;
     display: block;

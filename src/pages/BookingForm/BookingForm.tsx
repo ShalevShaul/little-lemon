@@ -9,6 +9,7 @@ import { useBooking } from '../../context/BookingContext';
 import { useNavigate } from 'react-router';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import type { Booking } from '../../types/booking';
+import Button from '../../components/Button/Button';
 
 function BookingForm() {
     const { currentStep, resetForm } = useBookingForm();
@@ -142,12 +143,13 @@ function BookingForm() {
                         </div>
 
                         <div className='max-bookings-actions'>
-                            <button
+                            <Button text='View All Bookings' onClick={goToBookings} paddingX={25} paddingY={15} />
+                            {/* <button
                                 className='view-bookings-btn'
                                 onClick={goToBookings}
                             >
                                 View All Bookings
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>

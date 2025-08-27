@@ -9,7 +9,7 @@
 }
 
 .personal-info h2 {
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 2rem;
     font-weight: 700;
     margin-top: 8px;
@@ -24,7 +24,7 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 1rem;
 }
 
@@ -41,20 +41,20 @@
 
 .personal-info .input-group input:focus {
     outline: none;
-    border-color: #F4CE14;
+    border-color: var(--secondary-500);
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.1);
 }
 
 .personal-info .input-group .not-valid {
     outline: none;
-    border-color: #ab2d2d;
+    border-color: var(--red-600);
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
 
     &:focus {
         outline: none;
-        border-color: #ab2d2d;
+        border-color: var(--red-600);
         background: white;
         box-shadow: 0 0 0 3px rgba(244, 20, 20, 0.1);
     }
@@ -74,7 +74,6 @@
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
     z-index: 1;
     pointer-events: none;
 }
@@ -84,7 +83,7 @@
 }
 
 .personal-info .error {
-    color: #D73502;
+    color: var(--red-500);
     font-size: 0.9rem;
     margin-top: 6px;
     display: block;
@@ -93,28 +92,6 @@
 
 .personal-info button {
     width: 100%;
-    padding: 16px 32px;
-    background: #F4CE14;
-    color: #495E57;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.personal-info button:hover {
-    background: #E6BC0A;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
-}
-
-.personal-info button:active {
-    transform: translateY(0);
 }
 
 /* Responsive */

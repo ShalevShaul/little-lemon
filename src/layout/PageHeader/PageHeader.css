@@ -1,5 +1,5 @@
 .PageHeader {
-    background-color: #4a5e57;
+    background-color: var(--primary-500);
     padding: 0 10%;
     min-height: calc(100dvh - 88px);
     display: flex;
@@ -14,7 +14,7 @@
 }
 
 .PageHeader .hero .header-title {
-    color: #F4CE14;
+    color: var(--secondary-500);
     font-size: 52px;
     font-family: 'Times New Roman', Times, serif;
     margin: 0;
@@ -71,7 +71,6 @@
     font-size: 6rem;
     opacity: 0;
     z-index: 1;
-    /* animation: lemonBounceOnly 0.8s ease-out 0.8s forwards; */
     animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
 }
 
@@ -81,7 +80,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
-    color: #f4ce14;
+    color: var(--secondary-500);
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
@@ -91,7 +90,7 @@
 
 .arrow-down:hover {
     transform: translateX(-50%) scale(1.2);
-    color: #e6ba00;
+    color: var(--secondary-600);
     filter: drop-shadow(0 4px 8px rgba(244, 206, 20, 0.4));
 }
 
@@ -273,7 +272,6 @@
         font-size: 20dvw;
         opacity: 0;
         z-index: 1;
-        /* animation: lemonBounceOnly 0.8s ease-out 0.8s forwards; */
         animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
     }
 }

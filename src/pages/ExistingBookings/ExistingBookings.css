@@ -3,7 +3,7 @@
 }
 
 .existing-bookings h1 {
-    color: #495e57;
+    color: var(--primary-500);
     font-size: x-large;
 }
 
@@ -40,7 +40,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #f4ce14, #495e57, #f4ce14);
+    background: linear-gradient(90deg, var(--secondary-500), var(--primary-500), var(--secondary-500));
     background-size: 200% 100%;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .no-bookings h1 {
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 28px;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -78,7 +78,7 @@
 
 .diff-line {
     content: "";
-    border: 1px solid rgba(75, 94, 87, 0.75);
+    border: 1px solid var(--primary-400);
 }
 
 /* Mobile responsive */

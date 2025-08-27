@@ -9,7 +9,7 @@
 }
 
 .Summary h2 {
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 30px;
@@ -32,7 +32,7 @@
 }
 
 .Summary .summary-header h3 {
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 1.4rem;
     font-weight: 700;
     margin: 0;
@@ -56,13 +56,13 @@
 }
 
 .Summary .detail-row:hover {
-    border-color: #F4CE14;
+    border-color: var(--secondary-500);
     box-shadow: 0 2px 8px rgba(244, 206, 20, 0.1);
 }
 
 .Summary .detail-label {
     font-weight: 600;
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -71,7 +71,7 @@
 
 .Summary .detail-value {
     font-weight: 500;
-    color: #333;
+    color: var(--gray-500);
     font-size: 1rem;
     text-align: right;
 }
@@ -86,13 +86,13 @@
 
 .Summary .summary-note p {
     margin: 0;
-    color: #495E57;
+    color: var(--primary-500);
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
 .Summary .summary-note strong {
-    color: #495E57;
+    color: var(--primary-500);
     font-weight: 700;
 }
 
@@ -107,7 +107,7 @@
     flex: 1;
     padding: 16px 24px;
     background: #E8E8E8;
-    color: #495E57;
+    color: var(--primary-500);
     border: none;
     border-radius: 12px;
     font-size: 1rem;
@@ -120,14 +120,6 @@
     background: #D0D0D0;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.Summary .error {
-    color: #D73502;
-    font-size: 0.9rem;
-    margin-top: 8px;
-    display: block;
-    font-weight: 500;
 }
 
 /* Responsive */

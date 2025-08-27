@@ -3,7 +3,7 @@ nav {
     justify-content: start;
     align-items: center;
     padding: 0 10%;
-    border-bottom: 1px solid #26302d;
+    border-bottom: 1px solid var(--primary-700);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
     height: 88px;
     position: relative;
@@ -36,12 +36,12 @@ nav ul li {
 }
 
 nav ul li:hover {
-    filter: drop-shadow(0px 0px 6px #26302d);
+    filter: drop-shadow(0px 0px 6px var(--primary-700));
 }
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--primary-700);
 }
 
 nav :is(.mobile-menu, .hamburger) {
@@ -55,9 +55,9 @@ nav .menu .selected::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #4b5e57;
+    background-color: var(--primary-500);
     animation: borderExpand 0.3s ease;
-    filter: drop-shadow(2px 2px 4px #4b5e57);
+    filter: drop-shadow(2px 2px 4px var(--primary-500));
 }
 
 @keyframes borderExpand {
@@ -139,7 +139,7 @@ nav .menu .selected::after {
         justify-content: space-between;
         position: relative;
         top: 0;
-        background-color: #ffffff;
+        background-color: white;
         z-index: 999999;
         padding: 0 3%;
     }
@@ -201,7 +201,7 @@ nav .menu .selected::after {
         display: block !important;
         position: absolute;
         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        border-left: 1px solid #4b5e57;
+        border-left: 1px solid var(--primary-500);
         width: 60%;
         height: 100vh;
         top: 0;
@@ -236,7 +236,7 @@ nav .menu .selected::after {
     }
 
     nav .mobile-menu ul li {
-        background: linear-gradient(135deg, #4b5e57 0%, #3a4845 100%);
+        background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
         border-radius: 12px;
         font-size: 14px;
         letter-spacing: 1px;
@@ -288,8 +288,8 @@ nav .menu .selected::after {
         animation: slideOutStagger 0.3s ease-in forwards;
     }
 
-    nav .mobile-menu ul li:hover {
-        background: linear-gradient(135deg, #f4ce14 0%, #e6ba00 100%);
+    nav .mobile-menu ul li:active {
+        background: linear-gradient(135deg, var(--secondary-500) 0%, var(--secondary-600) 100%);
         transform: translateX(8px) scale(1.03);
         box-shadow: 0 8px 25px rgba(244, 206, 20, 0.4), 0 4px 10px rgba(244, 206, 20, 0.2);
     }
@@ -300,12 +300,12 @@ nav .menu .selected::after {
         padding: 18px 24px;
         color: white;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all 0.1s ease;
         font-weight: 500;
     }
 
     nav .mobile-menu ul li:hover a {
-        color: #4b5e57;
+        color: var(--primary-500);
         font-weight: 700;
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     }

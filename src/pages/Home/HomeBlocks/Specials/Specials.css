@@ -1,6 +1,6 @@
 .specials-section {
     padding: 0 10%;
-    background-color: #f8f9fa;
+    background-color: var(--dirty-white-bg);
     min-height: 100dvh;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
 
 .specials-section .section-header h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: var(--gray-500);
     margin: 0;
     font-weight: bold;
 }
@@ -72,7 +72,7 @@
 
 .specials-section .card-header h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: var(--gray-500);
     margin: 0;
     font-weight: 600;
 }
@@ -80,7 +80,7 @@
 .specials-section .card-header .price {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #495e57;
+    color: var(--primary-500);
 }
 
 .specials-section .description {

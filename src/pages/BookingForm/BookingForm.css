@@ -1,6 +1,6 @@
 .booking-form {
     min-height: 100vh;
-    background: linear-gradient(180deg, #4b5e57 0%, #212a26 100%);
+    background: linear-gradient(180deg, var(--primary-500) 0%, var(--primary-800) 100%);
     padding: 80px 40px;
     display: flex;
     align-items: center;
@@ -62,15 +62,15 @@
 }
 
 .booking-form .progress-step.completed .step-number {
-    background: #F4CE14;
-    border-color: #F4CE14;
-    color: #495E57;
+    background: var(--secondary-500);
+    border-color: var(--secondary-500);
+    color: var(--primary-500);
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
 }
 
 .booking-form .progress-step.active .step-number {
-    background: #495E57;
-    border-color: #495E57;
+    background: var(--primary-500);
+    border-color: var(--primary-500);
     color: white;
     box-shadow: 0 4px 12px rgba(73, 94, 87, 0.3);
     transform: scale(1.1);
@@ -86,12 +86,12 @@
 }
 
 .booking-form .progress-step.completed .step-title {
-    color: #F4CE14;
+    color: var(--secondary-500);
     font-weight: 700;
 }
 
 .booking-form .progress-step.active .step-title {
-    color: #495E57;
+    color: var(--primary-500);
     font-weight: 700;
 }
 
@@ -108,7 +108,7 @@
     top: 50%;
     left: 30px;
     height: 3px;
-    background: linear-gradient(90deg, #F4CE14 0%, #E6BC0A 100%);
+    background: linear-gradient(90deg, var(--secondary-500) 0%, var(--secondary-600) 100%);
     transform: translateY(-50%);
     z-index: 1;
     transition: width 0.5s ease;
@@ -190,7 +190,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #dc3545, #f4ce14, #dc3545);
+    background: linear-gradient(90deg, var(--red-500), var(--secondary-500), var(--red-500));
     background-size: 200% 100%;
     animation: warningShimmer 3s ease-in-out infinite;
 }
@@ -231,7 +231,7 @@
 }
 
 .max-bookings-content h2 {
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 28px;
     font-weight: 700;
     margin: 0 0 16px 0;
@@ -239,7 +239,7 @@
 }
 
 .max-bookings-content>p {
-    color: #6c757d;
+    color: var(--gray-300);
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 32px;
@@ -258,7 +258,7 @@
 }
 
 .current-bookings-preview h3 {
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 20px 0;
@@ -289,7 +289,7 @@
 
 .booking-date {
     font-weight: 600;
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 14px;
 }
 
@@ -300,7 +300,7 @@
 }
 
 .cancel-mini-btn {
-    background: linear-gradient(135deg, #dc3545, #c82333);
+    background: linear-gradient(135deg, var(--red-500), var(--red-600));
     color: white;
     border: none;
     padding: 8px 16px;
@@ -314,7 +314,7 @@
 }
 
 .cancel-mini-btn:hover {
-    background: linear-gradient(135deg, #c82333, #a71e2a);
+    background: linear-gradient(135deg, var(--red-600), var(--red-700));
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
@@ -326,49 +326,6 @@
 /* Actions */
 .max-bookings-actions {
     margin-top: 32px;
-}
-
-.view-bookings-btn {
-    background: linear-gradient(135deg, #f4ce14, #e6ba00);
-    color: #495e57;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(244, 206, 20, 0.3);
-    border: 2px solid rgba(244, 206, 20, 0.4);
-}
-
-.view-bookings-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.6s ease;
-}
-
-.view-bookings-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 30px rgba(244, 206, 20, 0.4);
-    background: linear-gradient(135deg, #e6ba00, #d4a400);
-}
-
-.view-bookings-btn:hover::before {
-    left: 100%;
-}
-
-.view-bookings-btn:active {
-    transform: translateY(0) scale(1.01);
 }
 
 /* Animation for entrance */

@@ -13,12 +13,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 24px 24px 0 24px;
-    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
 }
 
 .modal-header h2 {
     margin: 0;
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 24px;
     font-weight: 700;
 }
@@ -27,7 +26,7 @@
     background: none;
     border: none;
     font-size: 28px;
-    color: #6c757d;
+    color: var(--gray-300);
     cursor: pointer;
     padding: 0;
     width: 32px;
@@ -41,7 +40,7 @@
 
 .modal-close-btn:hover {
     background: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
+    color: var(--red-500);
 }
 
 .modal-body {
@@ -72,13 +71,13 @@
 
 .warning-text {
     font-size: 16px;
-    color: #6c757d;
+    color: var(--gray-300);
     margin-bottom: 24px;
     line-height: 1.5;
 }
 
 .booking-summary {
-    background: #f8f9fa;
+    background: var(--dirty-white-bg);
     border-radius: 8px;
     padding: 16px;
     margin: 16px 0;
@@ -86,7 +85,7 @@
 }
 
 .booking-info {
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 14px;
     line-height: 1.6;
     text-align: center;
@@ -97,7 +96,6 @@
     display: flex;
     gap: 12px;
     padding: 0 24px 24px 24px;
-    background: #f8f9fa;
 }
 
 .btn-cancel-action,
@@ -115,25 +113,25 @@
 }
 
 .btn-cancel-action {
-    background: linear-gradient(135deg, #6c757d, #5a6268);
+    background: linear-gradient(135deg, var(--gray-300), var(--gray-400));
     color: white;
-    border: 2px solid #6c757d;
+    border: 2px solid var(--gray-300);
 }
 
 .btn-cancel-action:hover {
-    background: linear-gradient(135deg, #5a6268, #495057);
+    background: linear-gradient(135deg, var(--gray-400), var(--gray-500));
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
 }
 
 .btn-confirm-delete {
-    background: linear-gradient(135deg, #dc3545, #c82333);
+    background: linear-gradient(135deg, var(--red-500), var(--red-600));
     color: white;
-    border: 2px solid #dc3545;
+    border: 2px solid var(--red-600);
 }
 
 .btn-confirm-delete:hover {
-    background: linear-gradient(135deg, #c82333, #a71e2a);
+    background: linear-gradient(135deg, var(--red-600), var(--red-700));
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
 }

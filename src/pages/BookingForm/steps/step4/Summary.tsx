@@ -40,7 +40,6 @@ function Summary() {
             navigate('/confirmed', { state: formData })
         } catch (error) {
             console.error('Error confirming booking:', error);
-            alert('Error confirming booking. Please try again.');
         } finally {
             setIsSubmitting(false);
         }

@@ -22,7 +22,7 @@
 
 .booking-card-header h3 {
     margin: 0;
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -44,20 +44,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 14px;
-    background: #f8f9fa;
+    background: var(--gray-bg);
     border-radius: 8px;
     border: 1px solid #e9ecef;
 }
 
 .detail-label {
     font-weight: 500;
-    color: #495e57;
+    color: var(--primary-500);
     font-size: 14px;
     min-width: 130px;
 }
 
 .detail-value {
-    color: #333;
+    color: var(--gray-500);
     font-size: 14px;
     font-weight: 500;
     text-align: right;
@@ -85,25 +85,14 @@
     gap: 6px;
 }
 
-.edit-btn {
-    background-color: #f4ce14;
-    color: #495e57;
-    border: 1px solid #e6ba00;
-}
-
-.edit-btn:hover {
-    background-color: #e6ba00;
-    transform: translateY(-1px);
-}
-
 .cancel-btn {
-    background-color: #dc3545;
+    background-color: var(--red-500);
     color: white;
-    border: 1px solid #c82333;
+    border: 1px solid var(--red-600);
 }
 
 .cancel-btn:hover {
-    background-color: #c82333;
+    background-color: var(--red-600);
     transform: translateY(-1px);
 }
 
