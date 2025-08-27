@@ -110,7 +110,7 @@ function DateTime() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <Button onClick={validateAndNext} paddingX={88} paddingY={15} text='Next Step →' />
+                <Button type='submit' onClick={validateAndNext} paddingX={88} paddingY={15} text='Next Step →' />
             </div>
         </section>
     );

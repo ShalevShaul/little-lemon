@@ -4,7 +4,7 @@ interface ButtonProps {
     paddingY: number,
     paddingX: number,
     text: string,
-    type?: string,
+    type?: 'submit' | 'button' | 'reset',
     onClick?: () => void
 }
 

@@ -8,6 +8,7 @@ import rightArrow from '../../../../assets/icons/right-arrow-icon.png'
 import RateUs from '../RateUs/RateUs';
 import { useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface Review {
     id: string;
@@ -128,6 +129,7 @@ function Reviews() {
         const updatedReviews = [...existingReviews, reviewWithId];
         localStorage.setItem('storageReviews', JSON.stringify(updatedReviews));
 
+        toast.success('Review added successfully! 🎉');
     };
 
     return (
@@ -215,6 +217,19 @@ function Reviews() {
                     onAddReview={addNewReview}
                 />
             </Modal>
+            <Toaster
+                position='bottom-center'
+                toastOptions={{
+                    duration: 4000,
+                    style: {
+                        background: '#4b5e57e7',
+                        color: '#fff',
+                        fontWeight: 'bolder',
+                        fontSize: '18px',
+                        padding: '15px',
+                    },
+                }}
+            />
         </>
     );
 }
