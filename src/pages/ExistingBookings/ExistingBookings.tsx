@@ -78,6 +78,8 @@ function ExistingBookings() {
                 </div>
             }
 
+            <div className='diff-line'></div>
+
             {pastBookings.length > 0 ?
                 <>
                     <h1>Past Bookings</h1>

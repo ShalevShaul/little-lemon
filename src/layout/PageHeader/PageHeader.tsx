@@ -63,7 +63,13 @@ function PageHeader() {
         title = 'Your Reservations';
         image = bookingsHeader;
         subtitle = 'Manage your upcoming dining reservations';
-        description = <p className='description'><span>{upcomingBookings.length} Upcoming Reservation{upcomingBookings.length > 1 && 's'}</span></p>
+        description = <p className='description'>
+            {upcomingBookings.length > 0 ?
+                <span>{upcomingBookings.length} Upcoming Reservation{upcomingBookings.length > 1 && 's'}</span>
+                :
+                <span>No Upcoming Reservations</span>
+            }
+        </p>
         btnText = '';
     }
 

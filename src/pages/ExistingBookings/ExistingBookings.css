@@ -76,6 +76,11 @@
     font-size: 16px;
 }
 
+.diff-line {
+    content: "";
+    border: 1px solid rgba(75, 94, 87, 0.75);
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .bookings-grid {
