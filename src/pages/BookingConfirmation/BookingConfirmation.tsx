@@ -64,7 +64,7 @@ function BookingConfirmation() {
                     </div>
                     <div className='oops-main'>
                         <p>Please make a new reservation.</p>
-                        <button onClick={goToReserve} aria-label="On Click navigate to table reservation page">Reserve a table</button>
+                        <Button text='Reserve a table' onClick={goToReserve} paddingX={35} paddingY={25} />
                     </div>
                 </>
             }
