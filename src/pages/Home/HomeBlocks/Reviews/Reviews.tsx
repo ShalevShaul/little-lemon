@@ -137,11 +137,13 @@ function Reviews() {
             <section className="reviews-section">
                 <div className="container">
                     <div className='reviews-section-header'>
-                        <h2>What Our Customers Say</h2>
-                        <Button paddingX={25} paddingY={0} text='Rate Us' onClick={handleOpenCloseModal} />
+                        <h2 className='animate-on-scroll fade-in-left'>What Our Customers Say</h2>
+                        <div className='animate-on-scroll fade-in-right delay-200'>
+                            <Button paddingX={25} paddingY={0} text='Rate Us' onClick={handleOpenCloseModal} />
+                        </div>
                     </div>
 
-                    <div className="reviews-swiper-container">
+                    <div className="reviews-swiper-container animate-on-scroll scale-in delay-400">
                         <Swiper
 
                             modules={[Navigation, Autoplay]}

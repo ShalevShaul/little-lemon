@@ -37,8 +37,8 @@ function Gallery() {
     return (
         <section className="gallery-section">
             <div className="container">
-                <h2>Experience Little Lemon</h2>
-                <div className="gallery-grid">
+                <h2 className='animate-on-scroll fade-in-up'>Experience Little Lemon</h2>
+                <div className="gallery-grid animate-on-scroll stagger-cards">
                     {galleryImages.map(image => (
                         <div key={image.id} className="gallery-item">
                             <img src={image.src} alt={image.alt} />
