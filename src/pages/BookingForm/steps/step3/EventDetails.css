@@ -3,15 +3,15 @@
     margin: 0 auto;
     padding: 40px 30px;
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
     animation: stepAdvanced 0.3s ease-out;
 }
 
 .event-details h2 {
     color: var(--primary-500);
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
     margin-bottom: 30px;
     text-align: center;
 }
@@ -30,7 +30,6 @@
     left: 16px;
     top: 45%;
     transform: translateY(-50%);
-    color: #999;
     z-index: 1;
     pointer-events: none;
 }
@@ -56,19 +55,19 @@
 .event-details .input-group label {
     display: block;
     margin-bottom: 12px;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     color: var(--primary-500);
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
 }
 
 .event-details .input-group input {
     width: 100%;
     padding: 16px;
     border: 2px solid #E8E8E8;
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
     transition: all 0.3s ease;
-    background: #FAFAFA;
+    background: var(--light-bg);
     box-sizing: border-box;
 }
 
@@ -86,9 +85,9 @@
 .event-details .event-selection>label {
     display: block;
     margin-bottom: 16px;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     color: var(--primary-500);
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
 }
 
 .event-details .event-grid {
@@ -105,8 +104,8 @@
     gap: 8px;
     padding: 16px 12px;
     border: 2px solid #E8E8E8;
-    border-radius: 12px;
-    background: #FAFAFA;
+    border-radius: var(--radius-xl);
+    background: var(--light-bg);
     cursor: pointer;
     transition: all 0.3s ease;
     min-height: 80px;
@@ -142,13 +141,13 @@
 }
 
 .event-details .event-emoji {
-    font-size: 1.8rem;
+    font-size: var(--text-3xl);
     line-height: 1;
 }
 
 .event-details .event-text {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: var(--text-base);
+    font-weight: var(--text-semibold);
     color: var(--primary-500);
     text-align: center;
     line-height: 1.2;
@@ -156,7 +155,7 @@
 
 .event-details .event-option.selected .event-text {
     color: var(--primary-500);
-    font-weight: 700;
+    font-weight: var(--font-bold);
 }
 
 .event-details .button-group {
@@ -172,25 +171,25 @@
     background: #E8E8E8;
     color: var(--primary-500);
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .event-details .back-btn:hover {
-    background: #D0D0D0;
+    background: var(--gray-200);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .event-details .error {
     color: var(--red-500);
-    font-size: 0.9rem;
+    font-size: var(--text-base);
     margin-top: 8px;
     display: block;
-    font-weight: 500;
+    font-weight: var(--font-medium);
 }
 
 /* Responsive */
@@ -201,7 +200,7 @@
     }
 
     .event-details h2 {
-        font-size: 1.6rem;
+        font-size: var(--text-2xl);
     }
 
     .event-details .event-grid {
@@ -215,11 +214,11 @@
     }
 
     .event-details .event-emoji {
-        font-size: 1.5rem;
+        font-size: var(--text-2xl);
     }
 
     .event-details .event-text {
-        font-size: 0.8rem;
+        font-size: var(--text-sm);
     }
 
     .event-details .button-group {

@@ -4,7 +4,7 @@
 
 .existing-bookings h1 {
     color: var(--primary-500);
-    font-size: x-large;
+    font-size: var(--text-2xl);
 }
 
 .bookings-grid {
@@ -23,7 +23,7 @@
     padding: 60px 20px;
     margin: 40px auto;
     background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f9fa 100%);
-    border-radius: 24px;
+    border-radius: var(--radius-3xl);
     box-shadow:
         0 10px 40px rgba(73, 94, 87, 0.08),
         0 4px 20px rgba(0, 0, 0, 0.04);
@@ -66,14 +66,14 @@
 
 .no-bookings h1 {
     color: var(--primary-500);
-    font-size: 28px;
-    font-weight: 700;
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
     letter-spacing: -0.5px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .no-bookings p {
-    font-size: 16px;
+    font-size: var(--text-base);
 }
 
 .diff-line {
@@ -94,18 +94,18 @@
     }
 
     .no-bookings h1 {
-        font-size: 24px;
+        font-size: var(--text-2xl);
         margin-bottom: 16px;
     }
 
     .no-bookings> :nth-child(2) {
-        font-size: 16px;
+        font-size: var(--text-base);
         margin-bottom: 24px;
         padding: 12px 16px;
     }
 
     .no-bookings button {
-        font-size: 14px;
+        font-size: var(--text-sm);
         min-width: 180px;
     }
 }

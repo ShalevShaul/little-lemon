@@ -1,7 +1,7 @@
 /* Reviews Section */
 .reviews-section {
     padding: 8% 10%;
-    background-color: #ffffff;
+    background-color: var(--light-bg);
 }
 
 .reviews-section .reviews-section-header {
@@ -15,7 +15,7 @@
 }
 
 .reviews-section h2 {
-    font-size: 2.5rem;
+    font-size: var(--text-4xl);
     text-align: center;
     color: var(--gray-500);
     margin-bottom: 3rem;
@@ -30,7 +30,7 @@
 .review-card {
     background: var(--dirty-white-bg);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     border-left: 4px solid var(--secondary-500);
     transition: 0.3s ease;
 }
@@ -49,16 +49,16 @@
 .reviewer-info h4 {
     margin: 0 0 0.25rem 0;
     color: var(--gray-500);
-    font-size: 1.1rem;
+    font-size: var(--text-xl);
 }
 
 .review-date {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     color: #666;
 }
 
 .rating {
-    font-size: 1.2rem;
+    font-size: var(--text-lg);
 }
 
 .review-comment {
@@ -81,7 +81,7 @@
     width: 50px;
     height: 50px;
     background: rgba(244, 207, 20, 0.7);
-    border-radius: 50%;
+    border-radius: var(--radius-50);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +120,7 @@
 
     .reviews-section-header h2 {
         text-align: center;
-        font-size: 26px;
+        font-size: var(--text-3xl);
     }
 
     .reviews-section-header button {

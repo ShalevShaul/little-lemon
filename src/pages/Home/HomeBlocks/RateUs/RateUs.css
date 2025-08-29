@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 40px 30px;
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
     animation: stepAdvanced 0.3s ease;
     position: relative;
@@ -11,8 +11,8 @@
 
 .rate-us h1 {
     color: var(--primary-500);
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
     margin-top: 8px;
     text-align: center;
 }
@@ -28,17 +28,17 @@
 .rate-us .input-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     color: var(--primary-500);
-    font-size: 1rem;
+    font-size: var(--text-base);
 }
 
 .rate-us .input-group :is(input, textarea) {
     width: 100%;
     padding: 16px;
     border: 2px solid #E8E8E8;
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
     transition: all 0.3s ease;
     background: #FAFAFA;
     box-sizing: border-box;
@@ -90,10 +90,10 @@
 
 .rate-us .error {
     color: var(--red-500);
-    font-size: 0.9rem;
+    font-size: var(--text-base);
     margin-top: 6px;
     display: block;
-    font-weight: 500;
+    font-weight: var(--font-medium);
     position: absolute;
     top: 100%;
     left: 0;
@@ -105,7 +105,7 @@ input[type="range"] {
     appearance: none;
     width: 100%;
     height: 60px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: transparent;
     outline: none;
     cursor: pointer;
@@ -116,7 +116,7 @@ input[type="range"] {
 /* Chrome/Safari/Edge - The line */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 12px;
-    border-radius: 6px;
+    border-radius: var(--radius-mds);
     background: #e0e0e0;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -127,7 +127,7 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: var(--radius-50);
     background: var(--green-300);
     cursor: pointer;
     border: 2px solid #fff;
@@ -143,7 +143,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 /* Firefox - The line */
 input[type="range"]::-moz-range-track {
     height: 12px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: #e0e0e0;
     border: none;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -153,7 +153,7 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-moz-range-thumb {
     width: 28px;
     height: 28px;
-    border-radius: 50%;
+    border-radius: var(--radius-50);
     background: var(--green-300);
     cursor: pointer;
     border: 2px solid #fff;
@@ -168,7 +168,7 @@ input[type="range"]::-moz-range-thumb:hover {
 /* Chrome/Safari/Edge - Line color */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 12px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
     background: linear-gradient(to right,
             var(--primary-500) 0%,
             var(--primary-500) var(--value, 100%),
@@ -181,14 +181,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-moz-range-progress {
     background-color: var(--primary-500);
     height: 12px;
-    border-radius: 6px;
+    border-radius: var(--radius-md);
 }
 
 textarea {
     width: 100%;
     height: 50px;
     resize: vertical;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     padding: 6px;
 }
 
@@ -218,9 +218,5 @@ textarea {
     .rate-us {
         margin: 20px;
         padding: 30px 20px;
-    }
-
-    .rate-us h2 {
-        font-size: 1.6rem;
     }
 }

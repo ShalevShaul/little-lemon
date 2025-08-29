@@ -23,8 +23,8 @@
 }
 
 .error-code {
-    font-size: 8rem;
-    font-weight: bold;
+    font-size: calc(var(--text-6xl) * 2);
+    font-weight: var(--font-bold);
     color: var(--secondary-500);
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin-bottom: 1rem;
@@ -32,13 +32,13 @@
 }
 
 .error-title {
-    font-size: 2.5rem;
+    font-size: var(--text-5xl);
     margin-bottom: 1rem;
     color: white;
 }
 
 .error-message {
-    font-size: 1.2rem;
+    font-size: var(--text-xl);
     margin-bottom: 2rem;
     line-height: 1.6;
     color: #e8e8e8;
@@ -56,10 +56,10 @@
 .booking-button {
     display: inline-block;
     padding: 12px 24px;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
     transition: all 0.3s ease;
     min-width: 160px;
 }
@@ -97,15 +97,15 @@
 
 .restaurant-info p {
     margin-bottom: 0.5rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
     color: #e8e8e8;
 }
 
 .phone-link {
     color: var(--secondary-500);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-xl);
     transition: color 0.3s ease;
 }
 
@@ -117,7 +117,7 @@
     position: absolute;
     top: 10%;
     right: 10%;
-    font-size: 6rem;
+    font-size: calc(var(--text-6xl) * 2);
     opacity: 0.1;
     animation: float 3s ease-in-out infinite;
     z-index: 1;
@@ -163,15 +163,15 @@
     }
 
     .error-code {
-        font-size: 6rem;
+        font-size: calc(var(--text-5xl) * 2);
     }
 
     .error-title {
-        font-size: 2rem;
+        font-size: var(--text-4xl);
     }
 
     .error-message {
-        font-size: 1.1rem;
+        font-size: var(--text-lg);
     }
 
     .error-actions {
@@ -186,8 +186,14 @@
     }
 
     .lemon-decoration {
-        font-size: 4rem;
+        font-size: calc(var(--text-5xl) * 2);
         top: 5%;
         right: 5%;
+    }
+}
+
+@media (max-width: 440px) {
+    .lemon-decoration {
+        font-size: calc(var(--text-4xl) * 2);
     }
 }

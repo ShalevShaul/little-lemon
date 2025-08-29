@@ -2,16 +2,16 @@
     background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
     color: var(--primary-500);
     padding: 14px 28px;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 700;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(244, 206, 20, 0.4);
+    border: 2px solid var(--secondary-500-50);
 }
 
 .buttonComponent::before {
@@ -27,7 +27,7 @@
 
 .buttonComponent:hover {
     transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 30px rgba(244, 206, 20, 0.4);
+    box-shadow: 0 10px 30px var(--secondary-500-50);
     background: linear-gradient(135deg, var(--secondary-600), var(--secondary-700));
 }
 
@@ -41,7 +41,7 @@
 
 @media (max-width: 768px) {
     .buttonComponent {
-        font-size: 14px !important;
+        font-size: var(--text-sm) !important;
         padding: 18px 24px !important;
     }
 }

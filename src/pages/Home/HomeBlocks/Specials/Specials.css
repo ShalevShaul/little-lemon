@@ -17,7 +17,7 @@
 }
 
 .specials-section .section-header h2 {
-    font-size: 2.5rem;
+    font-size: var(--text-4xl);
     color: var(--gray-500);
     margin: 0;
     font-weight: bold;
@@ -32,7 +32,7 @@
 
 .specials-section .special-card {
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: 0.3s ease, box-shadow 0.3s ease;
@@ -71,14 +71,14 @@
 }
 
 .specials-section .card-header h3 {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     color: var(--gray-500);
     margin: 0;
-    font-weight: 600;
+    font-weight: var(--font-semibold);
 }
 
 .specials-section .card-header .price {
-    font-size: 1.3rem;
+    font-size: var(--text-xl);
     font-weight: bold;
     color: var(--primary-500);
 }
@@ -87,14 +87,14 @@
     color: #666;
     line-height: 1.6;
     margin: 0;
-    font-size: 1rem;
+    font-size: var(--text-base);
 }
 
 .leaf-decoration {
     position: absolute;
     top: 110%;
     right: 2%;
-    font-size: 6rem;
+    font-size: calc(var(--text-5xl) * 2);
     opacity: 0.15;
     animation: float 4s ease-in-out infinite;
     z-index: 1;
@@ -111,7 +111,7 @@
     }
 
     .specials-section .section-header h2 {
-        font-size: 2rem;
+        font-size: var(--text-3xl);
         text-align: center;
     }
 
@@ -127,11 +127,11 @@
     }
 
     .specials-section .card-header h3 {
-        font-size: 1.3rem;
+        font-size: var(--text-xl);
     }
 
     .specials-section .card-header .price {
-        font-size: 1.2rem;
+        font-size: var(--text-xl);
     }
 
     .leaf-decoration {

@@ -3,22 +3,22 @@
     margin: 0 auto;
     padding: 40px 30px;
     background: white;
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     box-shadow: 0 4px 20px rgba(73, 94, 87, 0.1);
     animation: stepAdvanced 0.3s ease-out;
 }
 
 .Summary h2 {
     color: var(--primary-500);
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--text-4xl);
+    font-weight: var(--font-bold);
     margin-bottom: 30px;
     text-align: center;
 }
 
 .Summary .summary-card {
     background: #FAFAFA;
-    border-radius: 16px;
+    border-radius: var(--radius-2xl);
     padding: 24px;
     margin-bottom: 30px;
     border: 2px solid #F0F0F0;
@@ -33,8 +33,8 @@
 
 .Summary .summary-header h3 {
     color: var(--primary-500);
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
     margin: 0;
 }
 
@@ -50,7 +50,7 @@
     align-items: center;
     padding: 12px 16px;
     background: white;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     border: 1px solid #E8E8E8;
     transition: all 0.2s ease;
 }
@@ -61,18 +61,18 @@
 }
 
 .Summary .detail-label {
-    font-weight: 600;
+    font-weight: var(--font-semibold);
     color: var(--primary-500);
-    font-size: 1rem;
+    font-size: var(--text-base);
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .Summary .detail-value {
-    font-weight: 500;
+    font-weight: var(--font-medium);
     color: var(--gray-500);
-    font-size: 1rem;
+    font-size: var(--text-base);
     text-align: right;
 }
 
@@ -80,20 +80,20 @@
     margin-top: 20px;
     padding: 16px;
     background: #FFF9E6;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     border-left: 4px solid #F4CE14;
 }
 
 .Summary .summary-note p {
     margin: 0;
     color: var(--primary-500);
-    font-size: 0.9rem;
+    font-size: var(--text-base);
     line-height: 1.5;
 }
 
 .Summary .summary-note strong {
     color: var(--primary-500);
-    font-weight: 700;
+    font-weight: var(--font-bold);
 }
 
 .Summary .button-group {
@@ -109,15 +109,15 @@
     background: #E8E8E8;
     color: var(--primary-500);
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .Summary .back-btn:hover {
-    background: #D0D0D0;
+    background: var(--gray-200);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -130,7 +130,7 @@
     }
 
     .Summary h2 {
-        font-size: 1.6rem;
+        font-size: var(--text-2xl);
     }
 
     .Summary .summary-card {
@@ -146,8 +146,8 @@
 
     .Summary .detail-value {
         text-align: left;
-        font-weight: 600;
-        color: #495E57;
+        font-weight: var(--font-semibold);
+        color: var(--primary-500);
     }
 
     .Summary .button-group {
