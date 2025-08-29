@@ -17,7 +17,7 @@ interface RateUsProps {
 }
 
 function RateUs(props: RateUsProps) {
-    const { register, formState: { errors }, handleSubmit, watch } = useForm<Review>();
+    const { register, formState: { errors }, handleSubmit, watch, setValue } = useForm<Review>();
 
     const submitRating = (review: Review) => {
         props.onAddReview(review);
@@ -46,7 +46,7 @@ function RateUs(props: RateUsProps) {
                 </div>
 
                 <div className='input-group'>
-                    <label htmlFor="fullname">Rating : {watch('rating') || 1}/5</label>
+                    <label htmlFor="rating">Rating : {watch('rating') || 1}/5</label>
                     <div className='input-with-icon'>
                         <span className='input-icon'>⭐</span>
                         <input
@@ -63,8 +63,10 @@ function RateUs(props: RateUsProps) {
                             max={5}
                             defaultValue={5}
                             onChange={(e) => {
+                                const value:string = e.target.value;
                                 const percentage = ((Number(e.target.value) - 1) / 4) * 100;
                                 e.target.style.setProperty('--value', percentage + '%');
+                                setValue('rating', Number(value));
                             }}
                         />
                         {errors.rating && <span className='error'>* {errors.rating.message}</span>}
