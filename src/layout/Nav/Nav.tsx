@@ -22,11 +22,15 @@ function Nav() {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
+
         return () => {
-            document.body.style.overflow = 'unset';
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         };
     }, [isOpen]);
 
