@@ -1,21 +1,25 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import footerLogo from '../../assets/images/footer-logo.png';
+import { useCallback } from 'react';
 
 function Footer() {
     const navigate = useNavigate();
 
-    const navTo = (path: string) => {
-        navigate(`/${path}`);
+    const scrollToTop = useCallback(() => {
         window.scrollTo({ top: 0 });
-    }
+    }, []);
 
-    const goToHomeBlock = (selector: string) => {
+    const goToHomeBlock = useCallback((selector: string) => {
         navigate('/home');
         setTimeout(() => {
             document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
         }, 200)
-    }
+    }, [navigate]);
+
+    const handleSpecialsClick = useCallback(() => goToHomeBlock('section.specials-section'), []);
+    const handleReviewsClick = useCallback(() => goToHomeBlock('section.reviews-section'), []);
+    const handleAboutClick = useCallback(() => goToHomeBlock('section.about-section'), []);
 
     return (
         <footer>
@@ -24,12 +28,12 @@ function Footer() {
                 <li className='doormat-list'>
                     <span className='list-title'>Doormat<br /> Navigation</span>
                     <ul>
-                        <li><Link to={'/home'} onClick={() => navTo('home')}>Home</Link></li>
-                        <li><Link to={'/reserve-a-table'} onClick={() => navTo('reserve-a-table')}>Reserve a table</Link></li>
-                        <li><Link to={'/bookings'} onClick={() => navTo('bookings')}>Bookings</Link></li>
-                        <li><Link to={'/home'} onClick={() => goToHomeBlock('section.specials-section')}>Specials</Link></li>
-                        <li><Link to={'/home'} onClick={() => goToHomeBlock('section.reviews-section')}>Reviews</Link></li>
-                        <li><Link to={'/home'} onClick={() => goToHomeBlock('section.about-section')}>About</Link></li>
+                        <li><Link to={'/home'} onClick={scrollToTop}>Home</Link></li>
+                        <li><Link to={'/reserve-a-table'} onClick={scrollToTop}>Reserve a table</Link></li>
+                        <li><Link to={'/bookings'} onClick={scrollToTop}>Bookings</Link></li>
+                        <li><Link to={'/home'} onClick={handleSpecialsClick}>Specials</Link></li>
+                        <li><Link to={'/home'} onClick={handleReviewsClick}>Reviews</Link></li>
+                        <li><Link to={'/home'} onClick={handleAboutClick}>About</Link></li>
                     </ul>
                 </li>
 
