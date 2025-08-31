@@ -4,14 +4,14 @@ interface ButtonProps {
     paddingY: number,
     paddingX: number,
     text: string,
-    type?: 'submit' | 'button' | 'reset',
+    type?: HTMLButtonElement['type'],
     onClick?: () => void
 }
 
 function Button({ paddingY, paddingX, text, type, onClick }: ButtonProps) {
     return (
         <button
-            type={`${type ? 'submit' : 'button'}`}
+            type={type || 'button'}
             className='buttonComponent'
             style={{ padding: `${paddingY}px ${paddingX}px` }}
             onClick={onClick}
