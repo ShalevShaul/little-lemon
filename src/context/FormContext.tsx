@@ -19,14 +19,12 @@ const BookingFormContext = createContext<BookingFormContextType | undefined>(und
 
 export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ children }) => {
     const [currentStep, setCurrentStep] = useState(0);
-    const [formData, setFormData] = useState<FormData>({
-        fullName: '',
-        phone: '',
-        date: '',
-        time: '',
-        guests: 0,
-        event: ''
-    });
+
+    const INITIAL_FORM_DATA: FormData = {
+        fullName: '', phone: '', date: '', time: '', guests: 0, event: ''
+    };
+
+    const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
 
     const updateField = (field: keyof FormData, value: string | number) => {
         setFormData(prev => ({
@@ -36,14 +34,7 @@ export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ childr
     };
 
     const resetForm = () => {
-        setFormData({
-            fullName: '',
-            phone: '',
-            date: '',
-            time: '',
-            guests: 0,
-            event: ''
-        });
+        setFormData(INITIAL_FORM_DATA);
         setCurrentStep(0);
     };
 
