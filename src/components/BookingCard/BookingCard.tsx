@@ -1,24 +1,25 @@
+import React from 'react';
 import type { Booking } from '../../types/booking';
 import './BookingCard.css';
 
 interface BookingCardProps extends Booking {
-    onCancel?: () => void;
+    onCancel?: (booking: Booking) => void;
     position?: 'past' | 'upcoming';
 }
+
+const ICONS = {
+    date: '📅',
+    time: '🕐',
+    guests: '👥',
+    fullName: '👤',
+    phone: '📞',
+    event: '🍽️'
+};
 
 function BookingCard(props: BookingCardProps) {
     const formatDate = (dateString: string) => {
         const date = new Date(dateString);
         return date.toLocaleDateString();
-    };
-
-    const ICONS = {
-        date: '📅',
-        time: '🕐',
-        guests: '👥',
-        fullName: '👤',
-        phone: '📞',
-        event: '🍽️'
     };
 
     const details = [
@@ -29,6 +30,10 @@ function BookingCard(props: BookingCardProps) {
         { icon: ICONS.phone, label: 'Phone Number', value: props.phone },
         { icon: ICONS.event, label: 'Event', value: props.event },
     ];
+
+    const handleCancel = () => {
+        props.onCancel?.(props);
+    }
 
     return (
         <div className='booking-card'>
@@ -49,8 +54,8 @@ function BookingCard(props: BookingCardProps) {
                 </div>
             </div>
 
-            <div className="booking-card-actions" style={{ display: props.position === 'past' ? 'none' : 'flex'}}>
-                <button className="cancel-btn" onClick={props.onCancel}>
+            <div className={`booking-card-actions ${props.position === 'past' ? 'hidden' : ''}`}>
+                <button className="cancel-btn" onClick={handleCancel}>
                     ❌ Cancel Order
                 </button>
             </div>
@@ -59,4 +64,4 @@ function BookingCard(props: BookingCardProps) {
     );
 }
 
-export default BookingCard;
+export default React.memo(BookingCard);

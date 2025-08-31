@@ -68,6 +68,9 @@
     display: flex;
     gap: 12px;
 }
+.booking-card-actions.hidden {
+    display: none;
+}
 
 .edit-btn,
 .cancel-btn {

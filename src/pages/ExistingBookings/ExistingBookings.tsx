@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import BookingCard from '../../components/BookingCard/BookingCard';
 import Button from '../../components/Button/Button';
@@ -36,10 +36,10 @@ function ExistingBookings() {
             , 100);
     };
 
-    const handleCancelClick = (booking: Booking) => {
+    const handleCancelClick = useCallback((booking: Booking) => {
         setSelectedBooking(booking);
         setIsModalOpen(true);
-    };
+    }, []);
 
     const handleConfirmCancel = (bookingId: string) => {
         deleteBooking(bookingId);
@@ -62,7 +62,7 @@ function ExistingBookings() {
                             <BookingCard
                                 key={b.id}
                                 {...b}
-                                onCancel={() => handleCancelClick(b)}
+                                onCancel={handleCancelClick}
                             />
                         )}
                     </div>
@@ -86,7 +86,7 @@ function ExistingBookings() {
                                 key={b.id}
                                 {...b}
                                 position={'past'}
-                                onCancel={() => handleCancelClick(b)}
+                                onCancel={handleCancelClick}
                             />
                         )}
                     </div>
