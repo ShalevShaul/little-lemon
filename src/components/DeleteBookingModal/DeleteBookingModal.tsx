@@ -1,7 +1,6 @@
 import Modal from 'react-modal';
 import type { Booking } from '../../types/booking';
 import './DeleteBookingModal.css';
-import { useCallback } from 'react';
 
 interface DeleteBookingModalProps {
     isOpen: boolean;
@@ -35,12 +34,12 @@ const modalStyles = {
 };
 
 function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBookingModalProps) {
-    const handleConfirm = useCallback(() => {
+    const handleConfirm = () => {
         if (booking) {
             onConfirm(booking.id);
             onClose();
         }
-    }, [booking, onClose, onConfirm]);
+    };
 
     return (
         <Modal

@@ -1,25 +1,24 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
 import footerLogo from '../../assets/images/footer-logo.png';
-import { useCallback } from 'react';
 
 function Footer() {
     const navigate = useNavigate();
 
-    const scrollToTop = useCallback(() => {
+    const scrollToTop = () => {
         window.scrollTo({ top: 0 });
-    }, []);
+    };
 
-    const goToHomeBlock = useCallback((selector: string) => {
+    const goToHomeBlock = (selector: string) => {
         navigate('/home');
         setTimeout(() => {
             document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
         }, 200)
-    }, [navigate]);
+    }
 
-    const handleSpecialsClick = useCallback(() => goToHomeBlock('section.specials-section'), []);
-    const handleReviewsClick = useCallback(() => goToHomeBlock('section.reviews-section'), []);
-    const handleAboutClick = useCallback(() => goToHomeBlock('section.about-section'), []);
+    const handleSpecialsClick = () => goToHomeBlock('section.specials-section');
+    const handleReviewsClick = () => goToHomeBlock('section.reviews-section');
+    const handleAboutClick = () => goToHomeBlock('section.about-section');
 
     return (
         <footer>
