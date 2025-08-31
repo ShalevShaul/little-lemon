@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import type { Booking } from '../types/booking';
+import { useBookingStorage } from './useBookingStorage';
 
 const ALL_HOURS = [
     '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
@@ -19,6 +20,7 @@ interface BookingContextType {
     sortedBookings: Booking[];
     pastBookings: Booking[];
     upcomingBookings: Booking[];
+    isLoaded: boolean;
     addBooking: (booking: Omit<Booking, 'id'>) => void;
     deleteBooking: (id: string) => void;
     getAvailableHours: (date: string) => string[];
@@ -32,30 +34,7 @@ interface BookingProviderProps {
 }
 
 export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) => {
-    const [bookings, setBookings] = useState<Booking[]>([]);
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-        const savedBookings = localStorage.getItem('littleLemonBookings');
-        if (savedBookings) {
-            try {
-                const parsedBookings = JSON.parse(savedBookings);
-                setBookings(parsedBookings);
-                console.log('📖 Loaded bookings:', parsedBookings.length);
-            } catch (error) {
-                console.error('Error loading bookings from localStorage:', error);
-                setBookings([]);
-            }
-        }
-        setIsLoaded(true);
-    }, []);
-
-    useEffect(() => {
-        if (isLoaded) {
-            console.log('💾 Saving bookings:', bookings.length);
-            localStorage.setItem('littleLemonBookings', JSON.stringify(bookings));
-        }
-    }, [bookings, isLoaded]);
+    const { bookings, setBookings, isLoaded } = useBookingStorage();
 
     const sortedBookings = useMemo(() => {
         return [...bookings].sort((a, b) => {
@@ -136,6 +115,7 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
         sortedBookings,
         pastBookings,
         upcomingBookings,
+        isLoaded,
         addBooking,
         deleteBooking,
         getAvailableHours,
