@@ -67,6 +67,19 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
         })
     }, [bookings]);
 
+    const bookingsByDate = useMemo(() => {
+        const dateMap = new Map<string, Booking[]>();
+
+        for (const booking of bookings) {
+            if (!dateMap.has(booking.date)) {
+                dateMap.set(booking.date, []);
+            }
+            dateMap.get(booking.date)!.push(booking);
+        }
+
+        return dateMap;
+    }, [bookings]);
+
     const { pastBookings, upcomingBookings } = useMemo(() => {
         const now = new Date();
         const past: Booking[] = [];
@@ -98,7 +111,7 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
     };
 
     const getBookingsByDate = (date: string): Booking[] => {
-        return bookings.filter(booking => booking.date === date);
+        return bookingsByDate.get(date) || [];
     };
 
     const getAvailableHours = (date: string): string[] => {
