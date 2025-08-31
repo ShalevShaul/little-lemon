@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 import type { Booking } from '../../types/booking';
 import './DeleteBookingModal.css';
+import { useCallback } from 'react';
 
 interface DeleteBookingModalProps {
     isOpen: boolean;
@@ -11,35 +12,35 @@ interface DeleteBookingModalProps {
 
 Modal.setAppElement('#root');
 
+const modalStyles = {
+    overlay: {
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+        zIndex: 1000
+    },
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        border: 'none',
+        borderRadius: '16px',
+        padding: '0',
+        maxWidth: '450px',
+        width: '90%',
+        maxHeight: '70vh',
+        overflow: 'hidden'
+    }
+};
+
 function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBookingModalProps) {
-    const handleConfirm = () => {
+    const handleConfirm = useCallback(() => {
         if (booking) {
             onConfirm(booking.id);
             onClose();
         }
-    };
-
-    const modalStyles = {
-        overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.6)',
-            zIndex: 1000
-        },
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            border: 'none',
-            borderRadius: '16px',
-            padding: '0',
-            maxWidth: '450px',
-            width: '90%',
-            maxHeight: '70vh',
-            overflow: 'hidden'
-        }
-    };
+    }, [booking, onClose, onConfirm]);
 
     return (
         <Modal
