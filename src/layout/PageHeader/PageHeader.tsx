@@ -13,8 +13,7 @@ function PageHeader() {
     const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname;
-    const { getUpcomingBookings } = useBooking();
-    const upcomingBookings = getUpcomingBookings();
+    const { upcomingBookings } = useBooking();
 
     useEffect(() => {
         [homeHeader, reserveHeader, bookingsHeader].forEach((src) => {

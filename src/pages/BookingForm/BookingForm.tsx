@@ -13,8 +13,7 @@ import Button from '../../components/Button/Button';
 
 function BookingForm() {
     const { currentStep, resetForm } = useBookingForm();
-    const { getUpcomingBookings, deleteBooking } = useBooking();
-    const upComingBookings = getUpcomingBookings();
+    const { upcomingBookings, deleteBooking } = useBooking();
     const navigate = useNavigate();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -104,7 +103,7 @@ function BookingForm() {
 
     return (
         <div className='booking-form'>
-            {upComingBookings.length < 2 ?
+            {upcomingBookings.length < 2 ?
                 <div className='form-container'>
                     {renderProgressIndicator()}
                     <form onSubmit={(e) => e.preventDefault()}>
@@ -127,7 +126,7 @@ function BookingForm() {
                         <div className='current-bookings-preview'>
                             <h3>Your Current Bookings:</h3>
                             <div className='mini-booking-cards'>
-                                {upComingBookings.map(booking => (
+                                {upcomingBookings.map(booking => (
                                     <div key={booking.id} className='mini-booking-card'>
                                         <span className='booking-date'>{booking.date}</span>
                                         <span className='booking-time'>{booking.time}</span>
@@ -144,12 +143,6 @@ function BookingForm() {
 
                         <div className='max-bookings-actions'>
                             <Button text='View All Bookings' onClick={goToBookings} paddingX={25} paddingY={15} />
-                            {/* <button
-                                className='view-bookings-btn'
-                                onClick={goToBookings}
-                            >
-                                View All Bookings
-                            </button> */}
                         </div>
                     </div>
                 </div>

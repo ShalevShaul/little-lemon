@@ -9,10 +9,7 @@ import './ExistingBookings.css';
 
 function ExistingBookings() {
     const navigate = useNavigate();
-    const { getPastBookings, getUpcomingBookings, deleteBooking } = useBooking();
-    const pastBookings = getPastBookings();
-    const upcomingBookings = getUpcomingBookings();
-
+    const { pastBookings, upcomingBookings, deleteBooking } = useBooking();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
 

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import type { Booking } from '../types/booking';
 
 const ALL_HOURS = [
@@ -16,13 +16,13 @@ const generateId = (): string => {
 
 interface BookingContextType {
     bookings: Booking[];
+    sortedBookings: Booking[];
+    pastBookings: Booking[];
+    upcomingBookings: Booking[];
     addBooking: (booking: Omit<Booking, 'id'>) => void;
     deleteBooking: (id: string) => void;
     getAvailableHours: (date: string) => string[];
     getBookingsByDate: (date: string) => Booking[];
-    getSortedByDateBookings: () => Booking[];
-    getPastBookings: () => Booking[];
-    getUpcomingBookings: () => Booking[];
 }
 
 const BookingContext = createContext<BookingContextType | undefined>(undefined);
@@ -56,6 +56,33 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
             localStorage.setItem('littleLemonBookings', JSON.stringify(bookings));
         }
     }, [bookings, isLoaded]);
+
+    const sortedBookings = useMemo(() => {
+        return [...bookings].sort((a, b) => {
+            const dateComparison = Number(new Date(a.date)) - Number(new Date(b.date));
+            if (dateComparison === 0) {
+                return a.time.localeCompare(b.time);
+            }
+            return dateComparison;
+        })
+    }, [bookings]);
+
+    const { pastBookings, upcomingBookings } = useMemo(() => {
+        const now = new Date();
+        const past: Booking[] = [];
+        const upcoming: Booking[] = [];
+
+        for (const booking of sortedBookings) {
+            const bookingDateTime = new Date(`${booking.date} ${booking.time}`);
+            if (bookingDateTime < now) {
+                past.push(booking);
+            } else {
+                upcoming.push(booking);
+            }
+        }
+
+        return { pastBookings: past, upcomingBookings: upcoming };
+    }, [sortedBookings]);
 
     const addBooking = (bookingData: Omit<Booking, 'id'>) => {
         const newBooking: Booking = {
@@ -91,42 +118,15 @@ export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) =>
         return availableHours;
     };
 
-    const getSortedByDateBookings = (): Booking[] => {
-        const sorted = [...bookings].sort((a, b) => {
-            const dateComparison = Number(new Date(a.date)) - Number(new Date(b.date));
-            if (dateComparison === 0) {
-                return a.time.localeCompare(b.time);
-            }
-            return dateComparison;
-        });
-        return sorted;
-    };
-
-    const getPastBookings = (): Booking[] => {
-        const sorted = getSortedByDateBookings();
-        return sorted.filter(booking => {
-            const bookingDateTime = new Date(`${booking.date} ${booking.time}`);
-            return bookingDateTime < new Date();
-        });
-    }
-
-    const getUpcomingBookings = (): Booking[] => {
-        const sorted = getSortedByDateBookings();
-        return sorted.filter(booking => {
-            const bookingDateTime = new Date(`${booking.date} ${booking.time}`);
-            return bookingDateTime >= new Date();
-        });
-    }
-
     const value: BookingContextType = {
         bookings,
+        sortedBookings,
+        pastBookings,
+        upcomingBookings,
         addBooking,
         deleteBooking,
         getAvailableHours,
         getBookingsByDate,
-        getSortedByDateBookings,
-        getPastBookings,
-        getUpcomingBookings
     };
 
     return (
