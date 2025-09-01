@@ -1,6 +1,7 @@
 import Modal from 'react-modal';
 import type { Booking } from '../../types/booking';
 import './DeleteBookingModal.css';
+import React from 'react';
 
 interface DeleteBookingModalProps {
     isOpen: boolean;
@@ -97,4 +98,4 @@ function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBooki
     );
 }
 
-export default DeleteBookingModal;
+export default React.memo(DeleteBookingModal);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useBookingForm } from '../../context/FormContext';
 import './BookingForm.css';
 import PersonalInfo from './steps/step1/PersonalInfo';
@@ -10,6 +10,25 @@ import { useNavigate } from 'react-router';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import type { Booking } from '../../types/booking';
 import Button from '../../components/Button/Button';
+
+const steps = [
+    {
+        component: <PersonalInfo />,
+        title: 'Personal Information'
+    },
+    {
+        component: <DateTime />,
+        title: 'Date & Time'
+    },
+    {
+        component: <EventDetails />,
+        title: 'Event Details'
+    },
+    {
+        component: <Summary />,
+        title: 'Review Booking'
+    }
+];
 
 function BookingForm() {
     const { currentStep, resetForm } = useBookingForm();
@@ -38,48 +57,29 @@ function BookingForm() {
         return () => resetForm();
     }, []);
 
-    const steps = [
-        {
-            component: <PersonalInfo />,
-            title: 'Personal Information'
-        },
-        {
-            component: <DateTime />,
-            title: 'Date & Time'
-        },
-        {
-            component: <EventDetails />,
-            title: 'Event Details'
-        },
-        {
-            component: <Summary />,
-            title: 'Review Booking'
-        }
-    ];
-
-    const goToBookings = () => {
+    const goToBookings = useCallback(() => {
         navigate('/bookings');
         window.scroll({ top: 0 });
         setTimeout(() => {
             document.querySelector('div.bookings-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 200)
-    }
+    }, [navigate]);
 
-    const handleCancelClick = (booking: Booking) => {
+    const handleCancelClick = useCallback((booking: Booking) => {
         setSelectedBooking(booking);
         setIsModalOpen(true);
-    };
+    }, []);
 
-    const handleConfirmCancel = (bookingId: string) => {
+    const handleConfirmCancel = useCallback((bookingId: string) => {
         deleteBooking(bookingId);
         setIsModalOpen(false);
         setSelectedBooking(null);
-    };
+    }, [deleteBooking]);
 
-    const handleCloseModal = () => {
+    const handleCloseModal = useCallback(() => {
         setIsModalOpen(false);
         setSelectedBooking(null);
-    };
+    }, []);
 
     const renderProgressIndicator = () => {
         return (
