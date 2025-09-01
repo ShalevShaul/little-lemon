@@ -43,17 +43,10 @@ function EventDetails() {
         }
     };
 
-    const handleFieldChange = (field: keyof typeof formData, value: any) => {
+    const handleFieldChange = (field: keyof typeof formData, value: string | number) => {
         updateField(field, value);
         if (errors[field as keyof typeof errors]) {
             setErrors(prev => ({ ...prev, [field]: '' }));
-        }
-    };
-
-    const handleEventSelect = (event: string) => {
-        updateField('event', event);
-        if (errors.event) {
-            setErrors(prev => ({ ...prev, event: '' }));
         }
     };
 
@@ -95,7 +88,7 @@ function EventDetails() {
                                 key={index}
                                 type="button"
                                 className={`event-option ${isSelected ? 'selected' : ''} ${errors.event && 'not-valid'}`}
-                                onClick={() => handleEventSelect(eventOption)}
+                                onClick={() => handleFieldChange('event', eventOption)}
                             >
                                 <span className='event-emoji'>{eventOption.split(' ')[0]}</span>
                                 <span className='event-text'>{eventText}</span>
