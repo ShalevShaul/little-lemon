@@ -71,7 +71,7 @@ function PersonalInfo() {
                         id='fullname'
                         value={formData.fullName}
                         onChange={(e) => handleFieldChange('fullName', e.target.value)}
-                        onBlur={(e) => validateField('fullname', e.target.value)}
+                        onBlur={(e) => validateField('fullName', e.target.value)}
                         placeholder='Full Name'
                         required
                         minLength={2}
