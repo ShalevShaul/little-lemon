@@ -8,6 +8,10 @@
     animation: headerEnter 0.8s ease-out;
 }
 
+.PageHeader.confirmed {
+    display: none;
+}
+
 .PageHeader .hero {
     margin: 8% auto 0 auto;
     flex: 3;
@@ -97,12 +101,10 @@
 @keyframes headerEnter {
     0% {
         opacity: 0.2;
-        transform: translateY(-10px);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
