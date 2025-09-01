@@ -2,6 +2,7 @@ import './Specials.css';
 import greekSaladImg from '../../../../assets/images/greek-salad.webp';
 import bruschettaImg from '../../../../assets/images/bruschetta.webp';
 import lemonDessertImg from '../../../../assets/images/lemon-dessert.webp';
+import { useInView } from '../../../../hooks/useInView';
 
 interface SpecialDish {
     id: string;
@@ -36,14 +37,16 @@ const specialDishes: SpecialDish[] = [
 ];
 
 function Specials() {
+    const { ref, isVisible } = useInView();
+
     return (
-        <section className="specials-section">
+        <section ref={ref} className="specials-section">
             <div className="container">
-                <div className="section-header animate-on-scroll fade-in-up">
+                <div className={`section-header animate-on-scroll fade-in-up ${isVisible ? 'animated' : ''}`}>
                     <h2>This Week's Specials!</h2>
                 </div>
 
-                <div className="specials-grid animate-on-scroll stagger-cards">
+                <div className={`specials-grid animate-on-scroll stagger-cards ${isVisible ? 'animated' : ''}`}>
                     {specialDishes.map(dish => (
                         <div key={dish.id} className="special-card">
                             <div className="card-image">

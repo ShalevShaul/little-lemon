@@ -9,6 +9,7 @@ import RateUs from '../RateUs/RateUs';
 import { useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
+import { useInView } from '../../../../hooks/useInView';
 
 interface Review {
     id: string;
@@ -87,6 +88,7 @@ const modalStyles = {
 function Reviews() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [reviews, setReviews] = useState<Review[]>(initialReviews);
+    const { ref, isVisible } = useInView();
 
     useEffect(() => {
         const storageReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
@@ -134,16 +136,16 @@ function Reviews() {
 
     return (
         <>
-            <section className="reviews-section">
+            <section ref={ref} className="reviews-section">
                 <div className="container">
                     <div className='reviews-section-header'>
-                        <h2 className='animate-on-scroll fade-in-left'>What Our Customers Say</h2>
-                        <div className='animate-on-scroll fade-in-right delay-200'>
+                        <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
+                        <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
                             <Button paddingX={25} paddingY={0} text='Rate Us' onClick={handleOpenCloseModal} />
                         </div>
                     </div>
 
-                    <div className="reviews-swiper-container animate-on-scroll scale-in delay-400">
+                    <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
                         <Swiper
 
                             modules={[Navigation, Autoplay]}

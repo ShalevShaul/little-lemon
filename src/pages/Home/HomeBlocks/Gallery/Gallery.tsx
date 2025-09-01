@@ -3,6 +3,7 @@ import outdoor from '../../../../assets/images/restaurant.webp';
 import chef from '../../../../assets/images/restaurant chef B.webp';
 import table from '../../../../assets/images/little-lemon.webp';
 import inside from '../../../../assets/images/restaurant_inside.webp';
+import { useInView } from '../../../../hooks/useInView';
 
 interface GalleryImage {
     id: string;
@@ -34,11 +35,13 @@ const galleryImages: GalleryImage[] = [
 ];
 
 function Gallery() {
+    const { ref, isVisible } = useInView();
+
     return (
-        <section className="gallery-section">
+        <section ref={ref} className="gallery-section">
             <div className="container">
-                <h2 className='animate-on-scroll fade-in-up'>Experience Little Lemon</h2>
-                <div className="gallery-grid animate-on-scroll stagger-cards">
+                <h2 className={`animate-on-scroll fade-in-up ${isVisible ? 'animated' : ''}`}>Experience Little Lemon</h2>
+                <div className={`gallery-grid animate-on-scroll stagger-cards ${isVisible ? 'animated' : ''}`}>
                     {galleryImages.map(image => (
                         <div key={image.id} className="gallery-item">
                             <img src={image.src} alt={image.alt} />
