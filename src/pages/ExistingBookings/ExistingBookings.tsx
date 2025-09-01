@@ -41,16 +41,16 @@ function ExistingBookings() {
         setIsModalOpen(true);
     }, []);
 
-    const handleConfirmCancel = (bookingId: string) => {
+    const handleConfirmCancel = useCallback((bookingId: string) => {
         deleteBooking(bookingId);
         setIsModalOpen(false);
         setSelectedBooking(null);
-    };
+    }, [deleteBooking]);
 
-    const handleCloseModal = () => {
+    const handleCloseModal = useCallback(() => {
         setIsModalOpen(false);
         setSelectedBooking(null);
-    };
+    }, []);
 
     return (
         <section className='existing-bookings'>
