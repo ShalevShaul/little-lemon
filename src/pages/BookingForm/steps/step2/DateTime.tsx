@@ -12,7 +12,7 @@ function DateTime() {
     const availableHours = getAvailableHours(formData.date);
     const today = new Date().toISOString().split('T')[0];
 
-    const validateField = (field: string, value: string) => {
+    const validateField = (field: 'date' | 'time', value: string) => {
         let error = '';
 
         if (field === 'date') {
