@@ -6,7 +6,7 @@ import './Reviews.css';
 import leftArrow from '../../../../assets/icons/left-arrow-icon.webp'
 import rightArrow from '../../../../assets/icons/right-arrow-icon.webp'
 import RateUs from '../RateUs/RateUs';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
@@ -114,11 +114,11 @@ function Reviews() {
         };
     }, [isModalOpen]);
 
-    const handleOpenCloseModal = () => {
+    const handleOpenCloseModal = useCallback(() => {
         setIsModalOpen(prev => !prev);
-    }
+    }, []);
 
-    const addNewReview = (newReview: Review) => {
+    const addNewReview = useCallback((newReview: Review) => {
         const reviewWithId = {
             ...newReview,
             id: Date.now().toString(),
@@ -132,7 +132,7 @@ function Reviews() {
         localStorage.setItem('storageReviews', JSON.stringify(updatedReviews));
 
         toast.success('Review added successfully! 🎉');
-    };
+    }, []);
 
     return (
         <>
