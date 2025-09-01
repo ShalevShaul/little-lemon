@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import './RateUs.css';
 import Button from '../../../../components/Button/Button';
 import cancelIcon from '../../../../assets/icons/remove-button.webp'
+import { useEffect } from 'react';
 
 interface Review {
     id: string;
@@ -17,12 +18,22 @@ interface RateUsProps {
 }
 
 function RateUs(props: RateUsProps) {
-    const { register, formState: { errors }, handleSubmit, watch, setValue } = useForm<Review>();
+    const { register, formState: { errors }, handleSubmit, watch } = useForm<Review>();
 
     const submitRating = (review: Review) => {
         props.onAddReview(review);
         props.openCloseModal();
     }
+
+    const rating = watch('rating', 5);
+
+    useEffect(() => {
+        const slider = document.getElementById('rating');
+        if (slider) {
+            const percentage = ((rating - 1) / 4) * 100;
+            slider.style.setProperty('--value', percentage + '%');
+        }
+    }, [rating]);
 
     return (
         <div className='rate-us'>
@@ -46,7 +57,7 @@ function RateUs(props: RateUsProps) {
                 </div>
 
                 <div className='input-group'>
-                    <label htmlFor="rating">Rating : {watch('rating') || 1}/5</label>
+                    <label htmlFor="rating">Rating : {rating}/5</label>
                     <div className='input-with-icon'>
                         <span className='input-icon'>⭐</span>
                         <input
@@ -62,12 +73,6 @@ function RateUs(props: RateUsProps) {
                             min={1}
                             max={5}
                             defaultValue={5}
-                            onChange={(e) => {
-                                const value:string = e.target.value;
-                                const percentage = ((Number(e.target.value) - 1) / 4) * 100;
-                                e.target.style.setProperty('--value', percentage + '%');
-                                setValue('rating', Number(value));
-                            }}
                         />
                         {errors.rating && <span className='error'>* {errors.rating.message}</span>}
                     </div>
@@ -80,7 +85,7 @@ function RateUs(props: RateUsProps) {
                             {...register('comment', {
                                 required: 'Comment is required',
                                 minLength: { value: 10, message: 'Comment must be at least 10 keys' },
-                                max: { value: 150, message: 'Maximum 150 keys' }
+                                maxLength: { value: 150, message: 'Maximum 150 keys' }
                             })}
                             className={errors.comment ? 'not-valid' : ''}
                             id='comment'
