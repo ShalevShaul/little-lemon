@@ -33,10 +33,10 @@ interface BookingProviderProps {
     children: React.ReactNode;
 }
 
-export const BookingProvider: React.FC<BookingProviderProps> = ({ children }) => {
+export const BookingProvider = ({ children }: BookingProviderProps) => {
     const { bookings, setBookings, isLoaded } = useBookingStorage();
 
-    const sortedBookings = useMemo(() => {
+    const sortedBookings: Booking[] = useMemo(() => {
         return [...bookings].sort((a, b) => {
             const dateComparison = Number(new Date(a.date)) - Number(new Date(b.date));
             if (dateComparison === 0) {
@@ -136,5 +136,3 @@ export const useBooking = (): BookingContextType => {
     }
     return context;
 };
-
-export { ALL_HOURS };

@@ -18,11 +18,6 @@ const ICONS = {
 };
 
 function BookingCard(props: BookingCardProps) {
-    // const formatDate = (dateString: string) => {
-    //     const date = new Date(dateString);
-    //     return date.toLocaleDateString();
-    // };
-
     const details = [
         { icon: ICONS.date, label: 'Date', value: formatDate(props.date) },
         { icon: ICONS.time, label: 'Time', value: props.time },
