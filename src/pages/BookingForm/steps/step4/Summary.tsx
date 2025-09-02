@@ -4,6 +4,7 @@ import { useBooking } from '../../../../context/BookingContext';
 import './Summary.css';
 import { useNavigate } from 'react-router';
 import Button from '../../../../components/Button/Button';
+import Loader from '../../../../components/Loader/Loader';
 
 function Summary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
@@ -36,6 +37,8 @@ function Summary() {
         setIsSubmitting(true);
 
         try {
+            await new Promise(resolve => setTimeout(resolve, 3500));
+
             addBooking(formData);
             navigate('/confirmed', { state: formData })
         } catch (error) {
@@ -50,66 +53,72 @@ function Summary() {
     };
 
     return (
-        <section className='Summary'>
-            <h2>Review Your Booking</h2>
+        <>
+            {isSubmitting ?
+                <Loader />
+                :
+                <section className='Summary'>
+                    <h2>Review Your Booking</h2>
 
-            <div className='summary-card'>
-                <div className='summary-header'>
-                    <h3>Booking Summary</h3>
-                </div>
+                    <div className='summary-card'>
+                        <div className='summary-header'>
+                            <h3>Booking Summary</h3>
+                        </div>
 
-                <div className='summary-details'>
-                    <div className='detail-row'>
-                        <span className='detail-label'>👤 Name:</span>
-                        <span className='detail-value'>{formData.fullName}</span>
+                        <div className='summary-details'>
+                            <div className='detail-row'>
+                                <span className='detail-label'>👤 Name:</span>
+                                <span className='detail-value'>{formData.fullName}</span>
+                            </div>
+
+                            <div className='detail-row'>
+                                <span className='detail-label'>📞 Phone:</span>
+                                <span className='detail-value'>{formData.phone}</span>
+                            </div>
+
+                            <div className='detail-row'>
+                                <span className='detail-label'>📅 Date:</span>
+                                <span className='detail-value'>{formatDate(formData.date)}</span>
+                            </div>
+
+                            <div className='detail-row'>
+                                <span className='detail-label'>🕐 Time:</span>
+                                <span className='detail-value'>{formData.time}</span>
+                            </div>
+
+                            <div className='detail-row'>
+                                <span className='detail-label'>👥 Guests:</span>
+                                <span className='detail-value'>
+                                    {formData.guests} {formData.guests === 1 ? 'Guest' : 'Guests'}
+                                </span>
+                            </div>
+
+                            <div className='detail-row'>
+                                <span className='detail-label'>
+                                    {getEventEmoji(formData.event)} Event:
+                                </span>
+                                <span className='detail-value'>{formatEvent(formData.event)}</span>
+                            </div>
+                        </div>
+
+                        <div className='summary-note'>
+                            <p>
+                                <strong>Please note:</strong> Your table will be reserved for 2 hours.
+                                If you need to make any changes, please contact us directly.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className='detail-row'>
-                        <span className='detail-label'>📞 Phone:</span>
-                        <span className='detail-value'>{formData.phone}</span>
+                    <div className='button-group'>
+                        <button onClick={goBack} className='back-btn'>
+                            ← Edit Details
+                        </button>
+                        <Button onClick={handleConfirmBooking} paddingX={15} paddingY={15}
+                            text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
                     </div>
-
-                    <div className='detail-row'>
-                        <span className='detail-label'>📅 Date:</span>
-                        <span className='detail-value'>{formatDate(formData.date)}</span>
-                    </div>
-
-                    <div className='detail-row'>
-                        <span className='detail-label'>🕐 Time:</span>
-                        <span className='detail-value'>{formData.time}</span>
-                    </div>
-
-                    <div className='detail-row'>
-                        <span className='detail-label'>👥 Guests:</span>
-                        <span className='detail-value'>
-                            {formData.guests} {formData.guests === 1 ? 'Guest' : 'Guests'}
-                        </span>
-                    </div>
-
-                    <div className='detail-row'>
-                        <span className='detail-label'>
-                            {getEventEmoji(formData.event)} Event:
-                        </span>
-                        <span className='detail-value'>{formatEvent(formData.event)}</span>
-                    </div>
-                </div>
-
-                <div className='summary-note'>
-                    <p>
-                        <strong>Please note:</strong> Your table will be reserved for 2 hours.
-                        If you need to make any changes, please contact us directly.
-                    </p>
-                </div>
-            </div>
-
-            <div className='button-group'>
-                <button onClick={goBack} className='back-btn'>
-                    ← Edit Details
-                </button>
-                <Button onClick={handleConfirmBooking} paddingX={15} paddingY={15}
-                    text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
-            </div>
-        </section>
+                </section>
+            }
+        </>
     );
 }
 

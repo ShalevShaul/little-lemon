@@ -90,6 +90,7 @@ function Reviews() {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [reviews, setReviews] = useState<Review[]>(initialReviews);
     const { ref, isVisible } = useInView();
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     useEffect(() => {
         const storageReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
@@ -119,20 +120,31 @@ function Reviews() {
         setIsModalOpen(prev => !prev);
     }, []);
 
-    const addNewReview = useCallback((newReview: Review) => {
-        const reviewWithId = {
-            ...newReview,
-            id: Date.now().toString(),
-            date: new Date().toISOString().split('T')[0]
-        };
+    const addNewReview = useCallback(async (newReview: Review) => {
+        setIsSubmitting(true);
 
-        setReviews(prev => [...prev, reviewWithId]);
+        try {
+            await new Promise(resolve => setTimeout(resolve, 3500));
 
-        const existingReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
-        const updatedReviews = [...existingReviews, reviewWithId];
-        localStorage.setItem('storageReviews', JSON.stringify(updatedReviews));
+            const reviewWithId = {
+                ...newReview,
+                id: Date.now().toString(),
+                date: new Date().toISOString().split('T')[0]
+            };
 
-        toast.success('Review added successfully! 🎉');
+            setReviews(prev => [...prev, reviewWithId]);
+
+            const existingReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
+            const updatedReviews = [...existingReviews, reviewWithId];
+            localStorage.setItem('storageReviews', JSON.stringify(updatedReviews));
+
+            toast.success('Review added successfully! 🎉');
+        } catch (error) {
+            toast.error('Failed to add review. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+            setIsModalOpen(false);
+        }
     }, []);
 
     return (
@@ -209,13 +221,14 @@ function Reviews() {
             <Modal
                 isOpen={isModalOpen}
                 style={modalStyles}
-                shouldCloseOnOverlayClick={true}
-                shouldCloseOnEsc={true}
-                onRequestClose={handleOpenCloseModal}
+                shouldCloseOnOverlayClick={!isSubmitting}
+                shouldCloseOnEsc={!isSubmitting}
+                onRequestClose={isSubmitting ? undefined : handleOpenCloseModal}
             >
                 <RateUs
                     openCloseModal={handleOpenCloseModal}
                     onAddReview={addNewReview}
+                    isSubmitting={isSubmitting}
                 />
             </Modal>
             <Toaster
