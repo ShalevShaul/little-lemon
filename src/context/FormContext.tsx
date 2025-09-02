@@ -17,7 +17,7 @@ interface BookingFormProviderProps {
 
 const BookingFormContext = createContext<BookingFormContextType | undefined>(undefined);
 
-export const BookingFormProvider: React.FC<BookingFormProviderProps> = ({ children }) => {
+export const BookingFormProvider = ({ children }: BookingFormProviderProps) => {
     const [currentStep, setCurrentStep] = useState(0);
 
     const INITIAL_FORM_DATA: FormData = {
