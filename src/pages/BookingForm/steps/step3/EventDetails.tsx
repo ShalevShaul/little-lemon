@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './EventDetails.css';
 import Button from '../../../../components/Button/Button';
+import { validateField } from '../../../../utils/validationUtils';
 
 const EVENT_OPTIONS = [
     '🎂 Birthday', '💍 Anniversary', '💼 Business Meeting', '👨‍👩‍👧‍👦 Family Celebration',
@@ -12,31 +13,15 @@ function EventDetails() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
     const [errors, setErrors] = useState({ guests: '', event: '' });
 
-    const validateField = (field: string, value: string | number) => {
-        let error = '';
-
-        if (field === 'guests') {
-            const guestCount = Number(value);
-            if (!value || guestCount < 1) {
-                error = 'At least 1 guest is required';
-            } else if (guestCount > 12) {
-                error = 'Maximum 12 guests allowed';
-            }
-        }
-
-        if (field === 'event') {
-            if (!value) {
-                error = 'Please select an event type';
-            }
-        }
-
+    const isValid = (field: string, value: string | number) => {
+        let error = validateField(field, value);
         setErrors(prev => ({ ...prev, [field]: error }));
         return error === '';
     };
 
     const validateAndNext = () => {
-        const isGuestsValid = validateField('guests', formData.guests);
-        const isEventValid = validateField('event', formData.event);
+        const isGuestsValid = isValid('guests', formData.guests);
+        const isEventValid = isValid('event', formData.event);
 
         if (isGuestsValid && isEventValid) {
             setCurrentStep(currentStep + 1);
@@ -70,6 +55,7 @@ function EventDetails() {
                         min="1"
                         max="12"
                         onChange={(e) => handleFieldChange('guests', Number(e.target.value))}
+                        onBlur={(e) => isValid('guests', e.target.value)}
                         placeholder="Enter number of guests"
                     />
                 </div>

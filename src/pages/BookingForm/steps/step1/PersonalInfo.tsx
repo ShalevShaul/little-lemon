@@ -2,37 +2,21 @@ import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './PersonalInfo.css';
 import Button from '../../../../components/Button/Button';
+import { validateField } from '../../../../utils/validationUtils';
 
 function PersonalInfo() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
     const [errors, setErrors] = useState({ fullName: '', phone: '' });
 
-    const validateField = (field: string, value: string | number) => {
-        let error = '';
-
-        if (field === 'fullName') {
-            if (!value) {
-                error = '* Full name is required';
-            } else if (value.toString().length < 2) {
-                error = '* Name must be at least 2 characters';
-            }
-        }
-
-        if (field === 'phone') {
-            if (!value) {
-                error = '* Phone number is required';
-            } else if (value.toString().length < 10) {
-                error = '* Phone number must be at least 10 digits';
-            }
-        }
-
+    const isValid = (field: string, value: string | number) => {
+        let error = validateField(field, value);
         setErrors(prev => ({ ...prev, [field]: error }));
         return error === '';
     };
 
     const validateAndNext = () => {
-        const isFullNameValid = validateField('fullName', formData.fullName);
-        const isPhoneValid = validateField('phone', formData.phone);
+        const isFullNameValid = isValid('fullName', formData.fullName);
+        const isPhoneValid = isValid('phone', formData.phone);
 
         if (isFullNameValid && isPhoneValid) {
             setCurrentStep(currentStep + 1);
@@ -71,7 +55,7 @@ function PersonalInfo() {
                         id='fullname'
                         value={formData.fullName}
                         onChange={(e) => handleFieldChange('fullName', e.target.value)}
-                        onBlur={(e) => validateField('fullName', e.target.value)}
+                        onBlur={(e) => isValid('fullName', e.target.value)}
                         placeholder='Full Name'
                         required
                         minLength={2}
@@ -91,7 +75,7 @@ function PersonalInfo() {
                         id='phone'
                         value={formData.phone}
                         onChange={(e) => handleFieldChange('phone', e.target.value)}
-                        onBlur={(e) => validateField('phone', e.target.value)}
+                        onBlur={(e) => isValid('phone', e.target.value)}
                         placeholder='Phone Number'
 
                         required

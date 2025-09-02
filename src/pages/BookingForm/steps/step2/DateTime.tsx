@@ -3,6 +3,7 @@ import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './DateTime.css';
 import Button from '../../../../components/Button/Button';
+import { validateField } from '../../../../utils/validationUtils';
 
 function DateTime() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
@@ -12,30 +13,15 @@ function DateTime() {
     const availableHours = getAvailableHours(formData.date);
     const today = new Date().toISOString().split('T')[0];
 
-    const validateField = (field: 'date' | 'time', value: string) => {
-        let error = '';
-
-        if (field === 'date') {
-            if (!value) {
-                error = 'Date is required';
-            } else if (value < today) {
-                error = 'Past dates are not allowed';
-            }
-        }
-
-        if (field === 'time') {
-            if (!value) {
-                error = 'Time is required';
-            }
-        }
-
+    const isValid = (field: 'date' | 'time', value: string) => {
+        let error = validateField(field, value);
         setErrors(prev => ({ ...prev, [field]: error }));
         return error === '';
     };
 
     const validateAndNext = () => {
-        const isDateValid = validateField('date', formData.date);
-        const isTimeValid = validateField('time', formData.time);
+        const isDateValid = isValid('date', formData.date);
+        const isTimeValid = isValid('time', formData.time);
 
         if (isDateValid && isTimeValid) {
             setCurrentStep(currentStep + 1);
@@ -77,6 +63,7 @@ function DateTime() {
                     value={formData.date}
                     min={today}
                     onChange={(e) => handleDateChange(e.target.value)}
+                    onBlur={(e) => isValid('date', e.target.value)}
                 />
                 {errors.date && <span className='error'>{errors.date}</span>}
             </div>
