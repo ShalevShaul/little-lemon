@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Booking } from '../../types/booking';
 import './BookingCard.css';
+import { formatDate } from '../../utils/dateUtils';
 
 interface BookingCardProps extends Booking {
     onCancel?: (booking: Booking) => void;
@@ -17,10 +18,10 @@ const ICONS = {
 };
 
 function BookingCard(props: BookingCardProps) {
-    const formatDate = (dateString: string) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString();
-    };
+    // const formatDate = (dateString: string) => {
+    //     const date = new Date(dateString);
+    //     return date.toLocaleDateString();
+    // };
 
     const details = [
         { icon: ICONS.date, label: 'Date', value: formatDate(props.date) },

@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
+import { formatDate } from '../../../../utils/dateUtils';
 
 interface Review {
     id: string;
@@ -185,11 +186,7 @@ function Reviews() {
                                             <div className="reviewer-info">
                                                 <h4>{review.name}</h4>
                                                 <span className="review-date">
-                                                    {new Date(review.date).toLocaleDateString('en-US', {
-                                                        month: 'long',
-                                                        day: 'numeric',
-                                                        year: 'numeric'
-                                                    })}
+                                                    {formatDate(review.date)}
                                                 </span>
                                             </div>
                                             <div className="rating">
