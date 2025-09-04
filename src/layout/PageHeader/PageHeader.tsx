@@ -80,7 +80,8 @@ function PageHeader() {
     const config = getPageConfig();
 
     return (
-        <header key={path} className={`PageHeader ${path.includes('confirmed') ? 'confirmed' : ''}`}>
+        <header key={path} className={`PageHeader ${path.includes('confirmed') ? 'confirmed' : ''}`}
+        style={{height: `calc(${pageHeight}px - 88px)`}}>
             <section className='hero'>
                 <h1 className='header-title'>{config?.title}</h1>
                 <h2 className='header-subtitle'>{config?.subtitle}</h2>

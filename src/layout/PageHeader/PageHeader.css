@@ -1,7 +1,6 @@
 .PageHeader {
     background-color: var(--primary-500);
     padding: 0 10%;
-    min-height: calc(100dvh - 88px);
     display: flex;
     justify-content: space-between;
     gap: 15px;
@@ -252,7 +251,7 @@
     }
 
     .PageHeader .hero .header-subtitle {
-        font-size: 8dvw;
+        font-size: 6dvw;
     }
 
     .PageHeader .hero button {
