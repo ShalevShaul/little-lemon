@@ -5,23 +5,26 @@ import Footer from './layout/Footer/Footer'
 import Header from './layout/Header/Header'
 import Main from './layout/Main/Main'
 import { BookingFormProvider } from './context/FormContext'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 function App() {
   return (
-    <BookingProvider>
-      <BookingFormProvider>
+    <ErrorBoundary>
+      <BookingProvider>
+        <BookingFormProvider>
 
 
-        <BrowserRouter>
+          <BrowserRouter>
 
-          <Header />
-          <Main />
-          <Footer />
+            <Header />
+            <Main />
+            <Footer />
 
-        </BrowserRouter>
+          </BrowserRouter>
 
-      </BookingFormProvider>
-    </BookingProvider>
+        </BookingFormProvider>
+      </BookingProvider>
+    </ErrorBoundary>
   )
 }
 
