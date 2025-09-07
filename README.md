@@ -41,7 +41,7 @@
 
 ```bash
 # Clone and install
-git clone https://github.com/ShalevShaul/little-lemon-restaurant.git
+git clone https://github.com/ShalevShaul/little-lemon.git
 cd little-lemon-restaurant
 npm install
 
