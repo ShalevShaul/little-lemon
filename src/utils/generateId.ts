@@ -3,5 +3,5 @@ export const generateId = (): string => {
         return crypto.randomUUID();
     }
 
-    return `booking-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
+    return `${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
 };
