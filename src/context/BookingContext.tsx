@@ -1,19 +1,12 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import type { Booking } from '../types/booking';
 import { useBookingStorage } from '../hooks/useBookingStorage';
+import { generateId } from '../utils/generateId';
 
 const ALL_HOURS = [
     '18:00', '18:30', '19:00', '19:30', '20:00', '20:30',
     '21:00', '21:30', '22:00', '22:30', '23:00'
 ];
-
-const generateId = (): string => {
-    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
-        return crypto.randomUUID();
-    }
-
-    return `booking-${Date.now()}-${Math.floor(Math.random() * 1000000)}`;
-};
 
 interface BookingContextType {
     bookings: Booking[];

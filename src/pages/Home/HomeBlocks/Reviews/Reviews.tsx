@@ -11,6 +11,7 @@ import Button from '../../../../components/Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
 import { formatDate } from '../../../../utils/dateUtils';
+import { generateId } from '../../../../utils/generateId';
 
 interface Review {
     id: string;
@@ -128,7 +129,7 @@ function Reviews() {
 
             const reviewWithId = {
                 ...newReview,
-                id: Date.now().toString(),
+                id: generateId(),
                 date: new Date().toISOString().split('T')[0]
             };
 
