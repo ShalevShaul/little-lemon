@@ -106,7 +106,7 @@ function BookingForm() {
             {upcomingBookings.length < 2 ?
                 <div className='form-container'>
                     {renderProgressIndicator()}
-                    <form onSubmit={(e) => e.preventDefault()}>
+                    <form role='form' onSubmit={(e) => e.preventDefault()}>
                         <div className='form-content'>
                             <div key={currentStep} className='step-wrapper'>
                                 {steps[currentStep]?.component}
