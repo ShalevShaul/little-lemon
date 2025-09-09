@@ -9,5 +9,5 @@
     "noEmit": true,
     "types": ["node", "vitest/globals"]
   },
-  "include": ["vite.config.ts", "src/test/setup.ts"]
+  "include": ["vite.config.ts", "src/test/setup.ts", "vite-env.d.ts"]
 }
