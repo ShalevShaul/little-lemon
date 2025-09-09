@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .specials-section .container {
@@ -92,7 +93,7 @@
 
 .leaf-decoration {
     position: absolute;
-    top: 110%;
+    top: 10%;
     right: 2%;
     font-size: calc(var(--text-5xl) * 2);
     opacity: 0.15;
