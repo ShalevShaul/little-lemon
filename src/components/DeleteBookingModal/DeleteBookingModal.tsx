@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import type { Booking } from '../../types/booking';
 import './DeleteBookingModal.css';
 import React from 'react';
+import { formatDate } from '../../utils/dateUtils';
 
 interface DeleteBookingModalProps {
     isOpen: boolean;
@@ -71,7 +72,7 @@ function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBooki
                             <div className="booking-info">
                                 <strong>#{booking.id.slice(-6).toUpperCase()}</strong>
                                 <br />
-                                {booking.date} at {booking.time}
+                                {formatDate(booking.date)} at {booking.time}
                                 <br />
                                 {booking.guests} guests - {booking.event}
                             </div>
