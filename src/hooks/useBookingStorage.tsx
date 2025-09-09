@@ -17,7 +17,9 @@ export const useBookingStorage = () => {
                 setBookings([]);
             }
         }
-        setIsLoaded(true);
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 3500)
     }, []);
 
     useEffect(() => {

@@ -5,11 +5,12 @@ import Button from '../../components/Button/Button';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import { useBooking } from '../../context/BookingContext';
 import type { Booking } from '../../types/booking';
+import Loader from '../../components/Loader/Loader';
 import './ExistingBookings.css';
 
 function ExistingBookings() {
     const navigate = useNavigate();
-    const { pastBookings, upcomingBookings, deleteBooking } = useBooking();
+    const { pastBookings, upcomingBookings, deleteBooking, isLoaded } = useBooking();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
 
@@ -52,6 +53,7 @@ function ExistingBookings() {
         setSelectedBooking(null);
     }, []);
 
+    if (!isLoaded) return <Loader />
     return (
         <section className='existing-bookings'>
             {upcomingBookings.length > 0 ?
