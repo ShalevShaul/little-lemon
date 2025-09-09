@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import './Reviews.css';
-import leftArrow from '../../../../assets/icons/left-arrow-icon.webp'
-import rightArrow from '../../../../assets/icons/right-arrow-icon.webp'
+const leftArrow = 'src/assets/icons/left-arrow-icon.webp';
+const rightArrow = 'src/assets/icons/right-arrow-icon.webp';
 import RateUs from '../RateUs/RateUs';
 import { useCallback, useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';

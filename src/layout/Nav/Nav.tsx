@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Nav.css';
-import logo from '../../../src/assets/images/nav-logo.webp';
-import hamburger from '../../assets/icons/hamburger.webp';
-import closeIcon from '../../assets/icons/close.webp';
+const logo = 'src/assets/images/nav-logo.webp'
+const hamburger = 'src/assets/icons/hamburger.webp'
+const closeIcon = 'src/assets/icons/close.webp'
 import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
 

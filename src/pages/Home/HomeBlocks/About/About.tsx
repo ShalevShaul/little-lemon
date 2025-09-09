@@ -1,5 +1,5 @@
 import './About.css';
-import marioAndAdrian from '../../../../assets/images/MarioAndAdrian.webp'
+const marioAndAdrian = 'src/assets/images/MarioAndAdrian.webp';
 import { useInView } from '../../../../hooks/useInView';
 
 function About() {

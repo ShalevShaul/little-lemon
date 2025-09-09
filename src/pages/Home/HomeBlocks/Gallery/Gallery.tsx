@@ -1,8 +1,8 @@
 import './Gallery.css';
-import outdoor from '../../../../assets/images/restaurant.webp';
-import chef from '../../../../assets/images/restaurant chef B.webp';
-import table from '../../../../assets/images/little-lemon.webp';
-import inside from '../../../../assets/images/restaurant_inside.webp';
+const outdoor = 'src/assets/images/restaurant.webp';
+const chef = 'src/assets/images/restaurant chef B.webp';
+const table = 'src/assets/images/little-lemon.webp';
+const inside = 'src/assets/images/restaurant_inside.webp';
 import { useInView } from '../../../../hooks/useInView';
 
 interface GalleryImage {

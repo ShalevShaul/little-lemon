@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
-import footerLogo from '../../assets/images/footer-logo.png';
+const footerLogo = 'src/assets/images/footer-logo.webp';
 
 function Footer() {
     const navigate = useNavigate();

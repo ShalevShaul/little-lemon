@@ -1,7 +1,7 @@
 import './Specials.css';
-import greekSaladImg from '../../../../assets/images/greek-salad.webp';
-import bruschettaImg from '../../../../assets/images/bruschetta.webp';
-import lemonDessertImg from '../../../../assets/images/lemon-dessert.webp';
+const greekSaladImg = 'src/assets/images/greek-salad.webp';
+const bruschettaImg = 'src/assets/images/bruschetta.webp';
+const lemonDessertImg = 'src/assets/images/lemon-dessert.webp';
 import { useInView } from '../../../../hooks/useInView';
 
 interface SpecialDish {

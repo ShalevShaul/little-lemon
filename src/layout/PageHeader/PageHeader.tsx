@@ -1,12 +1,12 @@
 import { useLocation, useNavigate, type NavigateFunction } from 'react-router';
 import './PageHeader.css';
-import homeHeader from '../../assets/images/home-header.webp';
-import reserveHeader from '../../assets/images/reserve-header.webp';
-import bookingsHeader from '../../assets/images/bookings-header.webp';
+const homeHeader = 'src/assets/images/home-header.webp';
+const reserveHeader = 'src/assets/images/reserve-header.webp';
+const bookingsHeader = 'src/assets/images/bookings-header.webp';
+const arrowDownIcon = 'src/assets/icons/arrow-down.webp';
 import { useBooking } from '../../context/BookingContext';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
-import arrowDownIcon from '../../assets/icons/arrow-down.webp';
 import type { Booking } from '../../types/booking';
 
 function PageHeader() {
