@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import './RateUs.css';
 import Button from '../../../../components/Button/Button';
-import cancelIcon from '../../../../assets/icons/remove-button.webp'
+import cancelIcon from '../../../../assets/icons/remove-button.webp';
 import { useEffect } from 'react';
 import Loader from '../../../../components/Loader/Loader';
 
@@ -24,7 +24,6 @@ function RateUs(props: RateUsProps) {
 
     const submitRating = (review: Review) => {
         props.onAddReview(review);
-        // props.openCloseModal();
     }
 
     const rating = watch('rating', 5);
