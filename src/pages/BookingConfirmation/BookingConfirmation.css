@@ -8,7 +8,7 @@
 .booking-confirmed .confirmed-header {
     flex: 3;
     background: linear-gradient(#b8b8b8b7, var(--secondary-500-80)),
-        url('../../assets/images/confirmed.webp');
+        url('/images/confirmed.webp');
     background-size: cover;
     background-position: 60%;
     display: flex;

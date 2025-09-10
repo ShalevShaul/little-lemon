@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import './BookingConfirmation.css';
 import type { Booking } from '../../types/booking';
-const checkMark = 'src/assets/icons/checkmark.webp';
+const checkMark = '/icons/checkmark.webp';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
 

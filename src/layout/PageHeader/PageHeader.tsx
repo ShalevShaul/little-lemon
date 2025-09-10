@@ -1,9 +1,9 @@
 import { useLocation, useNavigate, type NavigateFunction } from 'react-router';
 import './PageHeader.css';
-const homeHeader = 'src/assets/images/home-header.webp';
-const reserveHeader = 'src/assets/images/reserve-header.webp';
-const bookingsHeader = 'src/assets/images/bookings-header.webp';
-const arrowDownIcon = 'src/assets/icons/arrow-down.webp';
+const homeHeader = '/images/home-header.webp';
+const reserveHeader = '/images/reserve-header.webp';
+const bookingsHeader = '/images/bookings-header.webp';
+const arrowDownIcon = '/icons/arrow-down.webp';
 import { useBooking } from '../../context/BookingContext';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
