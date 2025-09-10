@@ -14,7 +14,7 @@ function App() {
         <BookingFormProvider>
 
 
-          <BrowserRouter>
+          <BrowserRouter basename='/'>
 
             <Header />
             <Main />
