@@ -7,6 +7,15 @@
     animation: headerEnter 0.8s ease-out;
 }
 
+.home-header {
+    background: linear-gradient(#b8b8b8b7, black),
+        url('../../../public/images/restaurant.webp');
+        background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .PageHeader.confirmed {
     display: none;
 }
@@ -236,6 +245,10 @@
 @media screen and (max-width: 440px) {
     .PageHeader {
         flex-direction: column;
+    }
+
+    .PageHeader.home-header {
+        padding-top: 10%;
     }
 
     .PageHeader .hero .header-title {

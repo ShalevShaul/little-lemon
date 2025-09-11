@@ -32,7 +32,7 @@ function PageHeader() {
             title: 'Welcome to Little Lemon',
             subtitle: 'The best Mediterranean restaurant in the city',
             description: '',
-            image: homeHeader,
+            image: '',
             btnText: 'Reserve a table',
             btnAction: () => { navigate('/reserve-a-table'); window.scrollTo({ top: 0 }) }
         },
@@ -76,15 +76,18 @@ function PageHeader() {
     const config = getPageConfig();
 
     return (
-        <header key={path} className={`PageHeader ${path.includes('confirmed') ? 'confirmed' : ''}`}
-        style={{height: `calc(${pageHeight}px - 88px)`}}>
+        <header
+            key={path}
+            className={`PageHeader ${path.includes('confirmed') ? 'confirmed' : ''} ${path.includes('/home') && 'home-header'}`}
+            style={{ height: `calc(${pageHeight}px - 88px)` }}
+        >
             <section className='hero'>
                 <h1 className='header-title'>{config?.title}</h1>
                 <h2 className='header-subtitle'>{config?.subtitle}</h2>
                 <p className='description'>{config?.description}</p>
                 {config?.btnText && <Button paddingX={40} paddingY={40} text={config?.btnText} onClick={config?.btnAction} />}
             </section>
-            <img src={config?.image} alt={`${path} header`} className='header-img' loading='lazy' />
+            {config?.image && <img src={config?.image} alt={`${path} header`} className='header-img' loading='lazy' />}
             <div className="header-lemon-decoration">🍋</div>
 
             <span className='arrow-down' onClick={scrollDown}>
