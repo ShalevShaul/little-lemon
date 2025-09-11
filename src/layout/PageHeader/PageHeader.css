@@ -19,7 +19,6 @@
 .PageHeader .hero .header-title {
     color: var(--secondary-500);
     font-size: var(--text-5xl);
-    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     margin-bottom: 20px;
     padding-top: 40px;
@@ -30,7 +29,6 @@
 .PageHeader .hero .header-subtitle {
     color: #EDEFEE;
     font-size: var(--text-3xl);
-    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     animation: subtitleEnter 0.7s ease-out 0.4s forwards;
     opacity: 0;

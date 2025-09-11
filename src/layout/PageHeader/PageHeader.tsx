@@ -31,11 +31,7 @@ function PageHeader() {
         home: {
             title: 'Welcome to Little Lemon',
             subtitle: 'The best Mediterranean restaurant in the city',
-            description: <>
-                <span>📍 Address: 123 Main St, Chicago</span>
-                <span>📞 Phone: (123) 456-7890</span>
-                <span>🕒 Hours: Sun - Sat 6PM - 11PM</span>
-            </>,
+            description: '',
             image: homeHeader,
             btnText: 'Reserve a table',
             btnAction: () => { navigate('/reserve-a-table'); window.scrollTo({ top: 0 }) }
