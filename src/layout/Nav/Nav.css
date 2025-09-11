@@ -238,6 +238,7 @@ nav .menu .selected::after {
     nav .mobile-menu ul li {
         background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%);
         border-radius: 12px;
+        padding: 12px;
         font-size: var(--text-sm);
         letter-spacing: 1px;
         transition: all 0.3s ease;
@@ -302,6 +303,7 @@ nav .menu .selected::after {
         text-decoration: none;
         transition: all 0.1s ease;
         font-weight: var(--font-medium);
+        font-size: var(--text-base);
     }
 
     nav .mobile-menu ul li:hover a {

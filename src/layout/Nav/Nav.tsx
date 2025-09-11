@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Nav.css';
 const logo = '/images/nav-logo.webp'
-const hamburger = '/icons/hamburger.webp'
-const closeIcon = '/icons/close.webp'
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
 
@@ -53,23 +53,21 @@ function Nav() {
                 </div>
 
                 <button onClick={toggleMenu} className={`hamburger ${isOpen ? 'open' : 'close'}`}>
-                    <img
-                        src={isOpen ? closeIcon : hamburger}
-                        alt={isOpen ? 'close menu icon' : 'hamburger menu icon'}
-                        key={isOpen ? 'close' : 'hamburger'}
-                    />
+                    {!isOpen ?
+                        <MenuIcon fontSize='large' key={'hamburger'} /> :
+                        <CloseIcon fontSize='large' key={'close'} />}
                 </button>
 
                 <div className={`mobile-menu ${isOpen ? 'show' : ''}`}>
                     <ul>
                         <li onClick={() => { closeMenu(); scrollToTop(); }}>
-                            <Link to={'/home'}>🏠 Home</Link>
+                            <Link to={'/home'}>Home</Link>
                         </li>
                         <li onClick={() => { closeMenu(); scrollToTop(); }}>
-                            <Link to={'/reserve-a-table'}>📅 Reserve A Table</Link>
+                            <Link to={'/reserve-a-table'}>Reserve A Table</Link>
                         </li>
                         <li onClick={() => { closeMenu(); scrollToTop(); }}>
-                            <Link to={'/bookings'}>📋 Bookings</Link>
+                            <Link to={'/bookings'}>Bookings</Link>
                         </li>
                     </ul>
                 </div>
