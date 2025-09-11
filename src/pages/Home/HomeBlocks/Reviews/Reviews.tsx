@@ -5,6 +5,8 @@ import 'swiper/swiper-bundle.css';
 import './Reviews.css';
 const leftArrow = '/icons/left-arrow-icon.webp';
 const rightArrow = '/icons/right-arrow-icon.webp';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import RateUs from '../RateUs/RateUs';
 import { useCallback, useEffect, useState } from 'react';
 import Button from '../../../../components/Button/Button';
@@ -213,8 +215,8 @@ function Reviews() {
                         </Swiper>
 
                         <div className='navigation-buttons'>
-                            <img src={leftArrow} alt='left arrow icon' className="custom-swiper-button-prev" />
-                            <img src={rightArrow} alt='right arrow icon' className="custom-swiper-button-next" />
+                            <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
+                            <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
                         </div>
                     </div>
                 </div>
