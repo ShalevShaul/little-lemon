@@ -333,3 +333,7 @@
     color: #e3be39;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
+
+.hamburger-icon, .close-icon {
+    color: black;
+}

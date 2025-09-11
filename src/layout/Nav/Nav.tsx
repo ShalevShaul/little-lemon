@@ -54,8 +54,8 @@ function Nav() {
 
                 <button onClick={toggleMenu} className={`hamburger ${isOpen ? 'open' : 'close'}`}>
                     {!isOpen ?
-                        <MenuIcon fontSize='large' key={'hamburger'} /> :
-                        <CloseIcon fontSize='large' key={'close'} />}
+                        <MenuIcon className='hamburger-icon' fontSize='large' key={'hamburger'} /> :
+                        <CloseIcon className='close-icon' fontSize='large' key={'close'} />}
                 </button>
 
                 <div className={`mobile-menu ${isOpen ? 'show' : ''}`}>
