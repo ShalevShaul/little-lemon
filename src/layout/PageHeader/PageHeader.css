@@ -83,18 +83,12 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: var(--text-2xl);
-    color: var(--secondary-500);
+    color: white;
     cursor: pointer;
     z-index: 10;
     transition: all 0.3s ease;
     animation: arrowEnterAndFloat 1s ease-out 1s forwards, arrowFloatContinuous 1.5s 2s infinite;
     opacity: 0;
-}
-
-.arrow-down:hover {
-    transform: translateX(-50%) scale(1.2);
-    color: var(--secondary-600);
-    filter: drop-shadow(0 4px 8px rgba(244, 206, 20, 0.4));
 }
 
 @keyframes headerEnter {

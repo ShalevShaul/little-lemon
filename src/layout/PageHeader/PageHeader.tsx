@@ -3,7 +3,7 @@ import './PageHeader.css';
 const homeHeader = '/images/home-header.webp';
 const reserveHeader = '/images/reserve-header.webp';
 const bookingsHeader = '/images/bookings-header.webp';
-const arrowDownIcon = '/icons/arrow-down.webp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useBooking } from '../../context/BookingContext';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
@@ -91,7 +91,9 @@ function PageHeader() {
             <img src={config?.image} alt={`${path} header`} className='header-img' loading='lazy' />
             <div className="header-lemon-decoration">🍋</div>
 
-            <img src={arrowDownIcon} alt='arrow down icon' className='arrow-down' onClick={scrollDown} />
+            <span className='arrow-down' onClick={scrollDown}>
+                <KeyboardArrowDownIcon sx={{ fontSize: 60 }} />
+            </span>
         </header>
     )
 }
