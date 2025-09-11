@@ -209,10 +209,20 @@
     }
 }
 
+@supports (-webkit-touch-callout: none) {
+    .home-header {
+        background-attachment: scroll;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .PageHeader {
         flex-direction: column;
         height: calc(100dvh - 88px);
+    }
+
+    .PageHeader .home-header {
+        background-attachment: scroll;
     }
 
     .PageHeader .hero {
