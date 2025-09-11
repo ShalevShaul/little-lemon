@@ -74,7 +74,7 @@ function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBooki
                                 <br />
                                 {formatDate(booking.date)} at {booking.time}
                                 <br />
-                                {booking.guests} guests - {booking.event}
+                                {booking.guests} guests - {booking.event.text}
                             </div>
                         </div>
                     )}

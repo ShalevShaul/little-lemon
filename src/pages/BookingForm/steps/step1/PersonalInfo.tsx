@@ -3,6 +3,8 @@ import { useBookingForm } from '../../../../context/FormContext';
 import './PersonalInfo.css';
 import Button from '../../../../components/Button/Button';
 import { validateField } from '../../../../utils/validationUtils';
+import PersonIcon from '@mui/icons-material/Person';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 function PersonalInfo() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
@@ -49,7 +51,9 @@ function PersonalInfo() {
             <div className='input-group'>
                 <label htmlFor="fullname">Full Name:</label>
                 <div className='input-with-icon'>
-                    <span className='input-icon'>👤</span>
+                    <span className='input-icon'>
+                        <PersonIcon className='person-icon' />
+                    </span>
                     <input
                         className={errors.fullName && 'not-valid'}
                         id='fullname'
@@ -67,7 +71,9 @@ function PersonalInfo() {
             <div className='input-group'>
                 <label htmlFor='phone'>Phone Number:</label>
                 <div className='input-with-icon'>
-                    <span className='input-icon'>📞</span>
+                    <span className='input-icon'>
+                        <LocalPhoneIcon className='phone-icon' />
+                    </span>
                     <input
                         className={errors.phone && 'not-valid'}
                         type="tel"

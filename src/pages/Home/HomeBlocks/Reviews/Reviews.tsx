@@ -12,6 +12,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
 import { formatDate } from '../../../../utils/dateUtils';
 import { generateId } from '../../../../utils/generateId';
+import StarIcon from '@mui/icons-material/Star';
 
 interface Review {
     id: string;
@@ -60,7 +61,9 @@ const initialReviews: Review[] = [
 ];
 
 const renderStars = (rating: number) => {
-    return '⭐'.repeat(rating);
+    return Array.from({ length: rating }, (_, index) => (
+        <StarIcon className='star-icon' key={index} />
+    ));
 };
 
 Modal.setAppElement('#root');

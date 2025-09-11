@@ -5,6 +5,11 @@ import './Summary.css';
 import { useNavigate } from 'react-router';
 import Button from '../../../../components/Button/Button';
 import Loader from '../../../../components/Loader/Loader';
+import GroupIcon from '@mui/icons-material/Group';
+import PersonIcon from '@mui/icons-material/Person';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 function Summary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
@@ -23,24 +28,21 @@ function Summary() {
         });
     };
 
-    const formatEvent = (eventString: string) => {
-        if (!eventString) return '';
-        return eventString.split(' ').slice(1).join(' ');
-    };
-
-    const getEventEmoji = (eventString: string) => {
-        if (!eventString) return '';
-        return eventString.split(' ')[0];
-    };
-
     const handleConfirmBooking = async () => {
         setIsSubmitting(true);
 
         try {
             await new Promise(resolve => setTimeout(resolve, 3500));
 
+            const bookingDataForNavigation = {
+                ...formData,
+                event: {
+                    text: formData.event.text
+                }
+            };
+
             addBooking(formData);
-            navigate('/confirmed', { state: formData })
+            navigate('/confirmed', { state: bookingDataForNavigation });
         } catch (error) {
             console.error('Error confirming booking:', error);
         } finally {
@@ -67,27 +69,27 @@ function Summary() {
 
                         <div className='summary-details'>
                             <div className='detail-row'>
-                                <span className='detail-label'>👤 Name:</span>
+                                <span className='detail-label'><PersonIcon className='person-icon' /> Name:</span>
                                 <span className='detail-value'>{formData.fullName}</span>
                             </div>
 
                             <div className='detail-row'>
-                                <span className='detail-label'>📞 Phone:</span>
+                                <span className='detail-label'><LocalPhoneIcon className='phone-icon' /> Phone:</span>
                                 <span className='detail-value'>{formData.phone}</span>
                             </div>
 
                             <div className='detail-row'>
-                                <span className='detail-label'>📅 Date:</span>
+                                <span className='detail-label'><CalendarMonthIcon className='date-icon' /> Date:</span>
                                 <span className='detail-value'>{formatDate(formData.date)}</span>
                             </div>
 
                             <div className='detail-row'>
-                                <span className='detail-label'>🕐 Time:</span>
+                                <span className='detail-label'><AccessTimeIcon className='time-icon' /> Time:</span>
                                 <span className='detail-value'>{formData.time}</span>
                             </div>
 
                             <div className='detail-row'>
-                                <span className='detail-label'>👥 Guests:</span>
+                                <span className='detail-label'><GroupIcon className='group-icon' /> Guests:</span>
                                 <span className='detail-value'>
                                     {formData.guests} {formData.guests === 1 ? 'Guest' : 'Guests'}
                                 </span>
@@ -95,9 +97,9 @@ function Summary() {
 
                             <div className='detail-row'>
                                 <span className='detail-label'>
-                                    {getEventEmoji(formData.event)} Event:
+                                    {formData.event.icon} Event:
                                 </span>
-                                <span className='detail-value'>{formatEvent(formData.event)}</span>
+                                <span className='detail-value'>{formData.event.text}</span>
                             </div>
                         </div>
 

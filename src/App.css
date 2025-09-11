@@ -270,3 +270,66 @@
         }
     }
 }
+
+
+/* MUI icons design */
+.person-icon {
+    color: #4d3078;
+}
+
+.group-icon {
+    color: #472c70;
+}
+
+.phone-icon {
+    color: #f04a7c;
+}
+
+.time-icon {
+    color: skyblue;
+}
+
+.birthday-icon {
+    color: #e39d71;
+}
+
+.anniversary-icon {
+    color: #e91e1e;
+}
+
+.business-icon {
+    color: #7d4c5c;
+}
+
+.family-icon {
+    color: #cf59dc;
+}
+
+.date-icon {
+    color: #9C27B0;
+}
+
+.graduation-icon {
+    color: #49326e;
+}
+
+.engagement-icon {
+    color: #7dd8ff;
+}
+
+.baby-icon {
+    color: #ffd586;
+}
+
+.reunion-icon {
+    color: #d6a21d;
+}
+
+.other-icon {
+    color: #757575;
+}
+
+.star-icon {
+    color: #e3be39;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}

@@ -24,7 +24,7 @@ function BookingCard(props: BookingCardProps) {
         { icon: ICONS.guests, label: 'Guests', value: props.guests },
         { icon: ICONS.fullName, label: 'Name', value: props.fullName },
         { icon: ICONS.phone, label: 'Phone Number', value: props.phone },
-        { icon: ICONS.event, label: 'Event', value: props.event },
+        { icon: ICONS.event, label: 'Event', value: props.event.text },
     ];
 
     const handleCancel = () => {

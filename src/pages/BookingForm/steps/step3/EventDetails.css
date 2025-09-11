@@ -28,7 +28,7 @@
 .event-details .input-group .input-icon {
     position: absolute;
     left: 16px;
-    top: 45%;
+    top: 50%;
     transform: translateY(-50%);
     z-index: 1;
     pointer-events: none;
@@ -134,8 +134,8 @@
 }
 
 .event-details .event-option.selected {
-    border-color: var(--secondary-500);
-    background: var(--secondary-500);
+    border-color: var(--secondary-300);
+    background: var(--secondary-300);
     color: var(--primary-500);
     box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
 }

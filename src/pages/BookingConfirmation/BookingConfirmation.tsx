@@ -1,9 +1,11 @@
 import { useLocation, useNavigate } from 'react-router';
 import './BookingConfirmation.css';
 import type { Booking } from '../../types/booking';
-const checkMark = '/icons/checkmark.webp';
 import Button from '../../components/Button/Button';
 import { useEffect } from 'react';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import GroupIcon from '@mui/icons-material/Group';
 
 function BookingConfirmation() {
     const location = useLocation();
@@ -30,15 +32,19 @@ function BookingConfirmation() {
                     <div className='confirmed-header'>
                         <span className='dateAndTime'>{new Date(booking.date).toLocaleDateString('he-IL')} - {booking.time}</span>
                         <h1 className='title'>CONFIRMED!</h1>
-                        <img src={checkMark} alt='Booking confirmed successfully' width={100} />
+                        <CheckCircleOutlineIcon className='chek-circle' />
                         <p className='restaurant'>Little Lemon Restaurant</p>
                     </div>
                     <div className="confirmed-main">
                         <div className='details'>
                             <h2 className='full-name'>{booking.fullName}</h2>
-                            <h3 className='event'>{booking.event}</h3>
-                            <p className='date'>📅 {new Date(booking.date).toLocaleDateString('he-IL')} - {booking.time}</p>
-                            <p className='guests'>👥 {booking.guests} guests</p>
+                            <h3 className='event'>{booking.event.text}</h3>
+                            <p className='date'>
+                                <CalendarMonthIcon className='date-icon' /> {new Date(booking.date).toLocaleDateString('he-IL')} - {booking.time}
+                            </p>
+                            <p className='guests'>
+                                <GroupIcon className='group-icon' /> {booking.guests} guests
+                            </p>
                         </div>
                         <div className='additional'>
                             <h2>Additional information</h2>

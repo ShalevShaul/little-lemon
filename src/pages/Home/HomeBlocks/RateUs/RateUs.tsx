@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
 import './RateUs.css';
 import Button from '../../../../components/Button/Button';
-const cancelIcon = "/icons/remove-button.webp";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useEffect } from 'react';
 import Loader from '../../../../components/Loader/Loader';
+import PersonIcon from '@mui/icons-material/Person';
+import StarIcon from '@mui/icons-material/Star';
 
 interface Review {
     id: string;
@@ -47,7 +49,9 @@ function RateUs(props: RateUsProps) {
                         <div className='input-group'>
                             <label htmlFor="fullname">Full Name:</label>
                             <div className='input-with-icon'>
-                                <span className='input-icon'>👤</span>
+                                <span className='input-icon'>
+                                    <PersonIcon className='person-icon' />
+                                </span>
                                 <input
                                     {...register('name', {
                                         required: 'Name is required',
@@ -64,7 +68,9 @@ function RateUs(props: RateUsProps) {
                         <div className='input-group'>
                             <label htmlFor="rating">Rating : {rating}/5</label>
                             <div className='input-with-icon'>
-                                <span className='input-icon'>⭐</span>
+                                <span className='input-icon'>
+                                    <StarIcon className='star-icon' />
+                                </span>
                                 <input
                                     {...register('rating', {
                                         required: 'Rating is required',
@@ -107,7 +113,7 @@ function RateUs(props: RateUsProps) {
                         className='close-modal'
                         onClick={props.openCloseModal}
                     >
-                        <img className='cancel-icon' src={cancelIcon} alt='cancel icon' />
+                        <HighlightOffIcon className='cancel-icon' />
                     </button>
                 </>
             }

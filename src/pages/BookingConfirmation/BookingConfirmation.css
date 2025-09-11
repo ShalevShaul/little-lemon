@@ -39,7 +39,8 @@
     opacity: 0;
 }
 
-.booking-confirmed .confirmed-header img {
+.booking-confirmed .confirmed-header .chek-circle {
+    font-size: 250px;
     width: 250px;
     filter: drop-shadow(4px 4px 4px var(--black-50));
     animation: bounceIn 0.8s ease-out 0.6s forwards;
@@ -249,8 +250,8 @@
         font-size: var(--text-base);
     }
 
-    .booking-confirmed .confirmed-header img {
-        width: 150px;
+    .booking-confirmed .confirmed-header .chek-circle {
+        font-size: 150px;
     }
 
     .booking-confirmed .confirmed-main {

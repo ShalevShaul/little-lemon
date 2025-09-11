@@ -1,12 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
-import type { Booking } from '../types/booking';
+import type { Booking, Event } from '../types/booking';
 
 type FormData = Omit<Booking, 'id'>;
 
 interface BookingFormContextType {
     formData: FormData;
     currentStep: number;
-    updateField: (field: keyof FormData, value: string | number) => void;
+    updateField: (field: keyof FormData, value: string | number | Event) => void;
     setCurrentStep: (step: number) => void;
     resetForm: () => void;
 }
@@ -21,12 +21,12 @@ export const BookingFormProvider = ({ children }: BookingFormProviderProps) => {
     const [currentStep, setCurrentStep] = useState(0);
 
     const INITIAL_FORM_DATA: FormData = {
-        fullName: '', phone: '', date: '', time: '', guests: 0, event: ''
+        fullName: '', phone: '', date: '', time: '', guests: 0, event: { icon: '', text: '' }
     };
 
     const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
 
-    const updateField = (field: keyof FormData, value: string | number) => {
+    const updateField = (field: keyof FormData, value: string | number | Event) => {
         setFormData(prev => ({
             ...prev,
             [field]: value
