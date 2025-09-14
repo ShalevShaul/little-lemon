@@ -10,9 +10,26 @@
 .home-header {
     background: linear-gradient(#b8b8b8b7, black),
         url('/images/restaurant.webp');
+    background-position: center;
+}
+
+.reserve-header {
+    background: linear-gradient(#b8b8b8b7, black),
+        url('/images/reserved-table-header.webp');
+    background-position: start;
+}
+
+.bookings-header {
+    background: linear-gradient(#b8b8b8b7, black),
+    url('/images/bookings-restaurant-header.webp');
+    background-position: bottom;
+}
+
+.home-header,
+.reserve-header,
+.bookings-header {
     background-attachment: fixed;
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -221,10 +238,6 @@
         height: calc(100dvh - 88px);
     }
 
-    .PageHeader .home-header {
-        background-attachment: scroll;
-    }
-
     .PageHeader .hero {
         margin: 0;
     }
@@ -257,8 +270,8 @@
         flex-direction: column;
     }
 
-    .PageHeader.home-header {
-        padding-top: 10%;
+    .PageHeader .hero {
+        padding-top: 12%;
     }
 
     .PageHeader .hero .header-title {

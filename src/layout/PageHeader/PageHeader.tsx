@@ -32,7 +32,6 @@ function PageHeader() {
             title: 'Welcome to Little Lemon',
             subtitle: 'The best Mediterranean restaurant in the city',
             description: '',
-            image: '',
             btnText: 'Reserve a table',
             btnAction: () => { navigate('/reserve-a-table'); window.scrollTo({ top: 0 }) }
         },
@@ -44,7 +43,6 @@ function PageHeader() {
                 <span>✓ Instant confirmation</span>
                 <span>✓ Table guaranteed for 2 hours</span>
             </>,
-            image: reserveHeader,
             btnText: upcomingBookings.length < 2 ? "Let's start" : '',
             btnAction: () => { document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         },
@@ -58,7 +56,6 @@ function PageHeader() {
                     <span>No Upcoming Reservations</span>
                 }
             </>,
-            image: bookingsHeader,
             btnText: '',
             btnAction: () => { }
         }
@@ -78,7 +75,12 @@ function PageHeader() {
     return (
         <header
             key={path}
-            className={`PageHeader ${path.includes('confirmed') ? 'confirmed' : ''} ${path.includes('/home') && 'home-header'}`}
+            className={
+                `PageHeader ${path.includes('confirmed') ? 'confirmed' : ''}
+                ${path.includes('/home') && 'home-header'}
+                ${path.includes('/reserve') && 'reserve-header'}
+                ${path.includes('/bookings') && 'bookings-header'}`
+            }
             style={{ height: `calc(${pageHeight}px - 88px)` }}
         >
             <section className='hero'>
@@ -87,8 +89,6 @@ function PageHeader() {
                 <p className='description'>{config?.description}</p>
                 {config?.btnText && <Button paddingX={40} paddingY={40} text={config?.btnText} onClick={config?.btnAction} />}
             </section>
-            {config?.image && <img src={config?.image} alt={`${path} header`} className='header-img' loading='lazy' />}
-            <div className="header-lemon-decoration">🍋</div>
 
             <span className='arrow-down' onClick={scrollDown}>
                 <KeyboardArrowDownIcon sx={{ fontSize: 60 }} />
