@@ -77,9 +77,9 @@ function PageHeader() {
             key={path}
             className={
                 `PageHeader ${path.includes('confirmed') ? 'confirmed' : ''}
-                ${path.includes('/home') && 'home-header'}
-                ${path.includes('/reserve') && 'reserve-header'}
-                ${path.includes('/bookings') && 'bookings-header'}`
+                ${path.includes('/home') ? 'home-header' : ''}
+                ${path.includes('/reserve') ? 'reserve-header' : ''}
+                ${path.includes('/bookings') ? 'bookings-header' : ''}`
             }
             style={{ height: `calc(${pageHeight}px - 88px)` }}
         >
