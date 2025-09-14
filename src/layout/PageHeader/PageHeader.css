@@ -91,16 +91,6 @@
     transform: scale(1.05);
 }
 
-.header-lemon-decoration {
-    position: absolute;
-    top: 15%;
-    left: 0;
-    font-size: calc(var(--text-5xl) * 2);
-    opacity: 0;
-    z-index: 1;
-    animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
-}
-
 .arrow-down {
     position: absolute;
     bottom: 20px;
@@ -170,23 +160,6 @@
     100% {
         opacity: 1;
         margin-right: 0;
-    }
-}
-
-@keyframes lemonBounceOnly {
-    0% {
-        opacity: 0;
-        transform: scale(0.8) rotate(-10deg);
-    }
-
-    60% {
-        opacity: 0.1;
-        transform: scale(1.1) rotate(5deg);
-    }
-
-    100% {
-        opacity: 0.1;
-        transform: scale(1) rotate(0deg);
     }
 }
 
@@ -292,15 +265,5 @@
         height: 150px;
         object-fit: cover;
         border-radius: var(--radius-2xl);
-    }
-
-    .header-lemon-decoration {
-        position: absolute;
-        top: 30%;
-        left: 70%;
-        font-size: 20dvw;
-        opacity: 0;
-        z-index: 1;
-        animation: lemonBounceOnly 0.8s ease-out 0.8s forwards, floatContinuous 3s ease-in-out 1.6s infinite;
     }
 }
