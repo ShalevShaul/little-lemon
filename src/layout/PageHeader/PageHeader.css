@@ -215,7 +215,7 @@
         margin: 0;
     }
 
-    .PageHeader .hero .description {
+    .PageHeader.reserve-header .hero .description {
         display: none;
     }
 
