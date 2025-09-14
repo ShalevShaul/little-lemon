@@ -199,7 +199,7 @@ nav .menu .selected::after {
     nav .mobile-menu {
         display: block !important;
         position: absolute;
-        background: linear-gradient(180deg, white, var(--secondary-500-40));
+        background: linear-gradient(180deg, white, var(--primary-500-50));
         background-color: white;
         border-left: 1px solid var(--primary-500);
         width: 50%;
@@ -212,7 +212,6 @@ nav .menu .selected::after {
         transform: translateX(20px) scale(0.95);
         transition: all 0.3s ease;
         overflow: hidden;
-        backdrop-filter: blur(10px);
     }
 
     nav .mobile-menu.show {
