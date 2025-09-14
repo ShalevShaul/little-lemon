@@ -227,7 +227,7 @@
 }
 
 @supports (-webkit-touch-callout: none) {
-    .home-header {
+    .home-header, .reserve-header, .bookings-header {
         background-attachment: scroll;
     }
 }
