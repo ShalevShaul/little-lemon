@@ -15,7 +15,7 @@
 .reserve-header {
     background: linear-gradient(#b8b8b8b7, black),
         url('/images/reserved-table-header.webp');
-    background-position: center;
+    background-position: start;
 }
 
 .bookings-header {
@@ -240,6 +240,10 @@
 @media screen and (max-width: 440px) {
     .PageHeader {
         flex-direction: column;
+    }
+
+    .PageHeader.reserve-header {
+        background-position: center;
     }
 
     .PageHeader .hero {
