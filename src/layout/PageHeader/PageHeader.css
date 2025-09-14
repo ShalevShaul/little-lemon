@@ -15,7 +15,7 @@
 .reserve-header {
     background: linear-gradient(#b8b8b8b7, black),
         url('/images/reserved-table-header.webp');
-    background-position: start;
+    background-position: center;
 }
 
 .bookings-header {
