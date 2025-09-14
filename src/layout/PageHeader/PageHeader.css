@@ -9,7 +9,7 @@
 
 .home-header {
     background: linear-gradient(#b8b8b8b7, black),
-        url('../../../public/images/restaurant.webp');
+        url('/images/restaurant.webp');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
