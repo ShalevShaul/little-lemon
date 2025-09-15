@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useBookingForm } from '../../../../context/FormContext';
+import { useBookingForm } from '../../../../contexts/FormContext';
 import './EventDetails.css';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';

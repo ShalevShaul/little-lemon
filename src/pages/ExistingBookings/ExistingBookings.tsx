@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import BookingCard from '../../components/BookingCard/BookingCard';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
-import { useBooking } from '../../context/BookingContext';
+import { useBooking } from '../../contexts/BookingContext';
 import type { Booking } from '../../types/booking';
 import Loader from '../../components/Loader/Loader';
 import './ExistingBookings.css';

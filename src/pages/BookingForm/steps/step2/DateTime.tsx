@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useBookingForm } from '../../../../context/FormContext';
-import { useBooking } from '../../../../context/BookingContext';
+import { useBookingForm } from '../../../../contexts/FormContext';
+import { useBooking } from '../../../../contexts/BookingContext';
 import './DateTime.css';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';

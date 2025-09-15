@@ -4,7 +4,7 @@ const homeHeader = '/images/home-header.webp';
 const reserveHeader = '/images/reserve-header.webp';
 const bookingsHeader = '/images/bookings-header.webp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useBooking } from '../../context/BookingContext';
+import { useBooking } from '../../contexts/BookingContext';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useEffect } from 'react';
 import type { Booking } from '../../types/booking';
