@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import './Nav.css';
+import './AppNav.css';
 const logo = '/images/nav-logo.webp'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
 
-function Nav() {
+function AppNav() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const location = useLocation();
     const path = location.pathname;
@@ -78,4 +78,4 @@ function Nav() {
     )
 }
 
-export default Nav;
+export default AppNav;
