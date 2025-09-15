@@ -1,3 +1,17 @@
+.global-loader-overlay {
+    height: 100vh;
+    width: 100dvw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black-70);
+    font-family: 'Arial, sans-serif';
+    z-index: 99999999999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .glass::after {
     content: '';
     position: absolute;
@@ -14,18 +28,18 @@
 }
 
 .glass::before {
-   content: '';
-   position: absolute;
-   top: 25%;
-   right: -8px;
-   width: 6px;
-   height: 8px;
-   background: #ffeb3b;
-   border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
-   opacity: 0;
-   animation: dropSplash2 0.9s ease-out;
-   animation-delay: 2.25s;
-   transform: scaleX(-1) rotate(45deg);
+    content: '';
+    position: absolute;
+    top: 25%;
+    right: -8px;
+    width: 6px;
+    height: 8px;
+    background: #ffeb3b;
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    opacity: 0;
+    animation: dropSplash2 0.9s ease-out;
+    animation-delay: 2.25s;
+    transform: scaleX(-1) rotate(45deg);
 }
 
 .loader-container {
@@ -107,6 +121,7 @@
     background: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
     animation: bubbleUp 2s linear infinite;
+    opacity: 0;
 }
 
 .bubble-1 {
@@ -185,7 +200,7 @@
 
 .loading-text {
     font-size: 18px;
-    color: #2d5016;
+    color: var(--primary-100);
     margin: 0;
     font-weight: bold;
     animation: pulse 2s ease-in-out infinite;

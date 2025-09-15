@@ -8,12 +8,15 @@ import type { Booking } from '../../types/booking';
 import Loader from '../../components/Loader/Loader';
 import './ExistingBookings.css';
 import BookingsSection from '../../components/BookingsSection/BookingsSection';
+import toast from 'react-hot-toast';
+import { useLoader } from '../../contexts/LoaderContext';
 
 function ExistingBookings() {
     const navigate = useNavigate();
     const { pastBookings, upcomingBookings, deleteBooking, isLoaded } = useBooking();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+    const { setLoaderOn, setLoaderOff } = useLoader();
 
     const goToReserve = () => {
         navigate('/reserve-a-table');
@@ -23,10 +26,20 @@ function ExistingBookings() {
             , 100);
     };
 
-    const handleConfirmCancel = useCallback((bookingId: string) => {
-        deleteBooking(bookingId);
-        setIsModalOpen(false);
-        setSelectedBooking(null);
+    const handleConfirmCancel = useCallback(async (bookingId: string) => {
+        setLoaderOn();
+        try {
+            await new Promise(resolve => setTimeout(resolve, 3500));
+
+            deleteBooking(bookingId);
+            setIsModalOpen(false);
+            setSelectedBooking(null);
+        } catch (error) {
+            toast.error('Failed to delete booking.');
+            console.log('Failed to delete booking', error);
+        } finally {
+            setLoaderOff();
+        }
     }, [deleteBooking]);
 
     const handleCloseModal = useCallback(() => {
@@ -34,7 +47,19 @@ function ExistingBookings() {
         setSelectedBooking(null);
     }, []);
 
-    if (!isLoaded) return <Loader />
+    useEffect(() => {
+        console.log('isLoaded changed:', isLoaded);
+        if (!isLoaded) {
+            console.log('Setting loader ON');
+            setLoaderOn();
+        } else {
+            console.log('Setting loader OFF');
+            setLoaderOff();
+        }
+
+        return () => setLoaderOff();
+    }, [isLoaded]);
+
     return (
         <section className='existing-bookings'>
             {upcomingBookings.length > 0 ?

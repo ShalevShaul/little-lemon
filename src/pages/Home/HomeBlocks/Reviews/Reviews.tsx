@@ -163,7 +163,6 @@ function Reviews() {
 
                     <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
                         <Swiper
-
                             modules={[Navigation, Autoplay]}
                             spaceBetween={30}
                             slidesPerView={2}

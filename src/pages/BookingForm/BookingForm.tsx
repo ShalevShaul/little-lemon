@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import type { Booking } from '../../types/booking';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import toast from 'react-hot-toast';
+import { useLoader } from '../../contexts/LoaderContext';
 
 const steps = [
     {
@@ -34,9 +36,9 @@ function BookingForm() {
     const { currentStep, resetForm } = useBookingForm();
     const { upcomingBookings, deleteBooking } = useBooking();
     const navigate = useNavigate();
-
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+    const { setLoaderOn, setLoaderOff } = useLoader();
 
     useEffect(() => {
         return () => resetForm();
@@ -55,10 +57,20 @@ function BookingForm() {
         setIsModalOpen(true);
     }, []);
 
-    const handleConfirmCancel = useCallback((bookingId: string) => {
-        deleteBooking(bookingId);
-        setIsModalOpen(false);
-        setSelectedBooking(null);
+    const handleConfirmCancel = useCallback(async (bookingId: string) => {
+        setLoaderOn();
+        try {
+            await new Promise(resolve => setTimeout(resolve, 3500));
+
+            deleteBooking(bookingId);
+            setIsModalOpen(false);
+            setSelectedBooking(null);
+        } catch (error) {
+            toast.error('Fialed to delete booking.');
+            console.log('Failed to delete booking', error);
+        } finally {
+            setLoaderOff();
+        }
     }, [deleteBooking]);
 
     const handleCloseModal = useCallback(() => {

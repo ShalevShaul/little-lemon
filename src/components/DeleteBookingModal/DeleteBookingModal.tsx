@@ -39,7 +39,6 @@ function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBooki
     const handleConfirm = () => {
         if (booking) {
             onConfirm(booking.id);
-            onClose();
         }
     };
 

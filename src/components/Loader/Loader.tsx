@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Loader.css';
 
 const Loader: React.FC = () => {
+    useEffect(() => {
+        document.documentElement.setAttribute('data-no-scroll', 'true');
+
+        return () => {
+            document.documentElement.removeAttribute('data-no-scroll');
+        }
+    }, [])
+
     return (
-        <div style={{
-            height: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#f8faf7',
-            fontFamily: 'Arial, sans-serif'
-        }}>
+        <div className='global-loader-overlay'>
             <div className="loader-container">
                 <div className="glass">
                     <div className='glass-top'></div>

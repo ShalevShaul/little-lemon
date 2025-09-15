@@ -6,24 +6,27 @@ import AppHeader from './layout/AppHeader/AppHeader'
 import AppMain from './layout/AppMain/AppMain'
 import { BookingFormProvider } from './contexts/FormContext'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+import { LoaderProvider } from './contexts/LoaderContext'
 
 function App() {
   return (
     <ErrorBoundary>
-      <BookingProvider>
-        <BookingFormProvider>
+      <LoaderProvider>
+        <BookingProvider>
+          <BookingFormProvider>
 
 
-          <BrowserRouter basename='/'>
+            <BrowserRouter basename='/'>
 
-            <AppHeader />
-            <AppMain />
-            <AppFooter />
+              <AppHeader />
+              <AppMain />
+              <AppFooter />
 
-          </BrowserRouter>
+            </BrowserRouter>
 
-        </BookingFormProvider>
-      </BookingProvider>
+          </BookingFormProvider>
+        </BookingProvider>
+      </LoaderProvider>
     </ErrorBoundary>
   )
 }

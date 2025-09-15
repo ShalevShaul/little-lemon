@@ -12,3 +12,7 @@ body {
 html[data-no-scroll="true"] {
     overflow: hidden !important;
 }
+
+html[data-no-scroll="true"] body {
+    overflow: hidden !important;
+}
