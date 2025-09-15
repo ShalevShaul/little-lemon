@@ -1,7 +1,7 @@
 import Nav from '../Nav/Nav';
-import './Header.css';
+import './AppHeader.css';
 
-function Header() {
+function AppHeader() {
     return (
         <header>
             <Nav />
@@ -9,4 +9,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default AppHeader;
