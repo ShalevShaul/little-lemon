@@ -3,7 +3,7 @@ import './App.css'
 import { BookingProvider } from './context/BookingContext'
 import AppFooter from './layout/AppFooter/AppFooter'
 import AppHeader from './layout/AppHeader/AppHeader'
-import Main from './layout/Main/Main'
+import AppMain from './layout/AppMain/AppMain'
 import { BookingFormProvider } from './context/FormContext'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
@@ -17,7 +17,7 @@ function App() {
           <BrowserRouter basename='/'>
 
             <AppHeader />
-            <Main />
+            <AppMain />
             <AppFooter />
 
           </BrowserRouter>
