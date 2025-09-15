@@ -4,7 +4,7 @@ import './BookingForm.css';
 import PersonalInfo from './steps/step1/PersonalInfo';
 import DateTime from './steps/step2/DateTime';
 import EventDetails from './steps/step3/EventDetails';
-import Summary from './steps/step4/Summary';
+import BookingSummary from './steps/step4/BookingSummary';
 import { useBooking } from '../../context/BookingContext';
 import { useNavigate } from 'react-router';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
@@ -25,7 +25,7 @@ const steps = [
         title: 'Event Details'
     },
     {
-        component: <Summary />,
+        component: <BookingSummary />,
         title: 'Review Booking'
     }
 ];

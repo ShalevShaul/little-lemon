@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
-import './Summary.css';
+import './BookingSummary.css';
 import { useNavigate } from 'react-router';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import Loader from '../../../../components/Loader/Loader';
@@ -11,7 +11,7 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-function Summary() {
+function BookingSummary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
     const { addBooking } = useBooking();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -124,4 +124,4 @@ function Summary() {
     );
 }
 
-export default Summary;
+export default BookingSummary;
