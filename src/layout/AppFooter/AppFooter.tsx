@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './Footer.css';
+import './AppFooter.css';
 const footerLogo = '/images/footer-logo.webp';
 
-function Footer() {
+function AppFooter() {
     const navigate = useNavigate();
 
     const scrollToTop = () => {
@@ -57,4 +57,4 @@ function Footer() {
     )
 }
 
-export default Footer;
+export default AppFooter;
