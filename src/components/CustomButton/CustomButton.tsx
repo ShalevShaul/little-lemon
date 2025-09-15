@@ -1,12 +1,12 @@
-import './Button.css';
+import './CustomButton.css';
 
-interface ButtonProps {
+interface CustomButtonProps {
     text: string,
     type?: HTMLButtonElement['type'],
     onClick?: () => void
 }
 
-function Button({ text, type, onClick }: ButtonProps) {
+function CustomButton({ text, type, onClick }: CustomButtonProps) {
     return (
         <button
             type={type || 'button'}
@@ -19,4 +19,4 @@ function Button({ text, type, onClick }: ButtonProps) {
     )
 }
 
-export default Button;
+export default CustomButton;

@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './RateUs.css';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useEffect } from 'react';
 import Loader from '../../../../components/Loader/Loader';
@@ -107,7 +107,7 @@ function RateUs(props: RateUsProps) {
                             </div>
                         </div>
 
-                        <Button text='Submit Rating' type='submit' />
+                        <CustomButton text='Submit Rating' type='submit' />
                     </form>
                     <button
                         className='close-modal'

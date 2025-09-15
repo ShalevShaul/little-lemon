@@ -9,7 +9,7 @@ import { useBooking } from '../../context/BookingContext';
 import { useNavigate } from 'react-router';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import type { Booking } from '../../types/booking';
-import Button from '../../components/Button/Button';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const steps = [
     {
@@ -127,7 +127,7 @@ function BookingForm() {
                         </div>
 
                         <div className='max-bookings-actions'>
-                            <Button text='View All Bookings' onClick={goToBookings} paddingX={25} paddingY={15} />
+                            <CustomButton text='View All Bookings' onClick={goToBookings} />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './EventDetails.css';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 import GroupIcon from '@mui/icons-material/Group';
 import CakeIcon from '@mui/icons-material/Cake';
@@ -110,7 +110,7 @@ function EventDetails() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <Button type='submit' onClick={validateAndNext} text='Review Booking →' />
+                <CustomButton type='submit' onClick={validateAndNext} text='Review Booking →' />
             </div>
         </section>
     );

@@ -7,7 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import RateUs from '../RateUs/RateUs';
 import { useCallback, useEffect, useState } from 'react';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import toast, { Toaster } from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
 import { formatDate } from '../../../../utils/dateUtils';
@@ -157,7 +157,7 @@ function Reviews() {
                     <div className='reviews-section-header'>
                         <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
                         <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
-                            <Button text='Rate Us' onClick={handleOpenCloseModal} />
+                            <CustomButton text='Rate Us' onClick={handleOpenCloseModal} />
                         </div>
                     </div>
 

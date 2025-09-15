@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import BookingCard from '../../components/BookingCard/BookingCard';
-import Button from '../../components/Button/Button';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import { useBooking } from '../../context/BookingContext';
 import type { Booking } from '../../types/booking';
@@ -58,7 +58,7 @@ function ExistingBookings() {
                 <div className='no-bookings'>
                     <h1>No Upcoming Bookings</h1>
                     <p>📅 No reservations yet ? Let's fix that !</p>
-                    <Button text='Reserve A Table' onClick={goToReserve} />
+                    <CustomButton text='Reserve A Table' onClick={goToReserve} />
                 </div>
             }
 

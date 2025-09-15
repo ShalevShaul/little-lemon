@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import './PersonalInfo.css';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
@@ -91,7 +91,7 @@ function PersonalInfo() {
                 {errors.phone && <span className='error'>{errors.phone}</span>}
             </div>
 
-            <Button type='submit' text='Next Step' onClick={validateAndNext} />
+            <CustomButton type='submit' text='Next Step' onClick={validateAndNext} />
         </section>
     )
 }

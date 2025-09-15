@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './DateTime.css';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 
 function DateTime() {
@@ -97,7 +97,7 @@ function DateTime() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <Button type='submit' onClick={validateAndNext} text='Next Step →' />
+                <CustomButton type='submit' onClick={validateAndNext} text='Next Step →' />
             </div>
         </section>
     );

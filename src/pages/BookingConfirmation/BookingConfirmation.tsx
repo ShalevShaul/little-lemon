@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import './BookingConfirmation.css';
 import type { Booking } from '../../types/booking';
-import Button from '../../components/Button/Button';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import { useEffect } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
@@ -59,7 +59,7 @@ function BookingConfirmation() {
                                 </li>
                             </ul>
                         </div>
-                        <Button text='Home Page' onClick={goHome} />
+                        <CustomButton text='Home Page' onClick={goHome} />
                     </div>
                 </section>
 
@@ -71,7 +71,7 @@ function BookingConfirmation() {
                     </div>
                     <div className='oops-main'>
                         <p>Please make a new reservation.</p>
-                        <Button text='Reserve a table' onClick={goToReserve} />
+                        <CustomButton text='Reserve a table' onClick={goToReserve} />
                     </div>
                 </>
             }

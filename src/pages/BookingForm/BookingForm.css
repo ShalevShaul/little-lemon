@@ -328,6 +328,11 @@
     margin-top: 32px;
 }
 
+.max-bookings-actions button {
+    width: 100%;
+    padding: var(--space-5);
+}
+
 /* Animation for entrance */
 .max-bookings-content {
     animation: slideInFromTop 0.6s ease-out;

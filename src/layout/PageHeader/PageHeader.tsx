@@ -5,7 +5,7 @@ const reserveHeader = '/images/reserve-header.webp';
 const bookingsHeader = '/images/bookings-header.webp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useBooking } from '../../context/BookingContext';
-import Button from '../../components/Button/Button';
+import CustomButton from '../../components/CustomButton/CustomButton';
 import { useEffect } from 'react';
 import type { Booking } from '../../types/booking';
 
@@ -87,7 +87,7 @@ function PageHeader() {
                 <h1 className='header-title'>{config?.title}</h1>
                 <h2 className='header-subtitle'>{config?.subtitle}</h2>
                 <p className='description'>{config?.description}</p>
-                {config?.btnText && <Button text={config?.btnText} onClick={config?.btnAction} />}
+                {config?.btnText && <CustomButton text={config?.btnText} onClick={config?.btnAction} />}
             </section>
 
             <span className='arrow-down' onClick={scrollDown}>

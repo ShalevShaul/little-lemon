@@ -3,7 +3,7 @@ import { useBookingForm } from '../../../../context/FormContext';
 import { useBooking } from '../../../../context/BookingContext';
 import './Summary.css';
 import { useNavigate } from 'react-router';
-import Button from '../../../../components/Button/Button';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 import Loader from '../../../../components/Loader/Loader';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
@@ -115,7 +115,7 @@ function Summary() {
                         <button onClick={goBack} className='back-btn'>
                             ← Edit Details
                         </button>
-                        <Button onClick={handleConfirmBooking}
+                        <CustomButton onClick={handleConfirmBooking}
                             text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
                     </div>
                 </section>
