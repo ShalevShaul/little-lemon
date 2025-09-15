@@ -7,6 +7,7 @@ import { useBooking } from '../../context/BookingContext';
 import type { Booking } from '../../types/booking';
 import Loader from '../../components/Loader/Loader';
 import './ExistingBookings.css';
+import BookingsSection from '../../components/BookingsSection/BookingsSection';
 
 function ExistingBookings() {
     const navigate = useNavigate();
@@ -21,11 +22,6 @@ function ExistingBookings() {
             document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth' })
             , 100);
     };
-
-    const handleCancelClick = useCallback((booking: Booking) => {
-        setSelectedBooking(booking);
-        setIsModalOpen(true);
-    }, []);
 
     const handleConfirmCancel = useCallback((bookingId: string) => {
         deleteBooking(bookingId);
@@ -43,16 +39,13 @@ function ExistingBookings() {
         <section className='existing-bookings'>
             {upcomingBookings.length > 0 ?
                 <>
-                    <h1>Upcoming Bookings</h1>
-                    <div className='bookings-grid'>
-                        {upcomingBookings?.map(b =>
-                            <BookingCard
-                                key={b.id}
-                                {...b}
-                                onCancel={handleCancelClick}
-                            />
-                        )}
-                    </div>
+                    <BookingsSection
+                        title='Upcoming Bookings'
+                        bookings={upcomingBookings}
+                        position='upcoming'
+                        setSelectedBooking={setSelectedBooking}
+                        setIsModalOpen={setIsModalOpen}
+                    />
                 </>
                 :
                 <div className='no-bookings'>
@@ -66,17 +59,13 @@ function ExistingBookings() {
 
             {pastBookings.length > 0 ?
                 <>
-                    <h1>Past Bookings</h1>
-                    <div className='bookings-grid'>
-                        {pastBookings?.map(b =>
-                            <BookingCard
-                                key={b.id}
-                                {...b}
-                                position={'past'}
-                                onCancel={handleCancelClick}
-                            />
-                        )}
-                    </div>
+                    <BookingsSection
+                        title='Past Bookings'
+                        bookings={pastBookings}
+                        position='past'
+                        setSelectedBooking={setSelectedBooking}
+                        setIsModalOpen={setIsModalOpen}
+                    />
                 </>
                 :
                 <h1>No Past Bookings</h1>
