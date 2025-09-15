@@ -66,10 +66,6 @@ function BookingSummary() {
         return () => setLoaderOff();
     }, [isSubmitting]);
 
-    useEffect(() => {
-        document.querySelector('form')?.scrollIntoView({ behavior: 'smooth', block:'end' });
-    }, []);
-
     return (
         <section className='Summary'>
             <h2>Review Your Booking</h2>

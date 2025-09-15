@@ -78,6 +78,10 @@ function BookingForm() {
         setSelectedBooking(null);
     }, []);
 
+    useEffect(() => {
+        document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, [currentStep]);
+
     const renderProgressIndicator = () => {
         return (
             <div className='progress-indicator' data-step={currentStep}>
