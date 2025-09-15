@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import type { Booking } from '../../types/booking';
 import './DeleteBookingModal.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { formatDate } from '../../utils/dateUtils';
 
 interface DeleteBookingModalProps {
@@ -42,6 +42,18 @@ function DeleteBookingModal({ isOpen, booking, onClose, onConfirm }: DeleteBooki
             onClose();
         }
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.documentElement.setAttribute('data-no-scroll', 'true');
+        } else {
+            document.documentElement.removeAttribute('data-no-scroll');
+        }
+
+        return () => {
+            document.documentElement.removeAttribute('data-no-scroll');
+        };
+    }, [isOpen]);
 
     return (
         <Modal
