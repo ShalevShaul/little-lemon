@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 import Loader from '../components/Loader/Loader';
 
 interface LoaderContextType {
-    setLoaderOn: () => void;
+    setLoaderOn: (text?: string) => void;
     setLoaderOff: () => void;
 }
 
@@ -14,9 +14,11 @@ const LoaderContext = createContext<LoaderContextType | undefined>(undefined);
 
 export const LoaderProvider = ({ children }: LoaderContextProviderProps) => {
     const [isLoaderOn, setIsLoaderOn] = useState<boolean>(false)
+    const [text, setText] = useState<string>('');
 
-    const setLoaderOn = () => {
+    const setLoaderOn = (customText: string = 'Little Lemon') => {
         setIsLoaderOn(true);
+        setText(customText);
     }
 
     const setLoaderOff = () => {
@@ -31,7 +33,7 @@ export const LoaderProvider = ({ children }: LoaderContextProviderProps) => {
     return (
         <LoaderContext.Provider value={value}>
             {children}
-            {isLoaderOn && <Loader />}
+            {isLoaderOn && <Loader text={text} />}
         </LoaderContext.Provider>
     )
 }

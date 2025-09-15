@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
 import './Loader.css';
 
-const Loader: React.FC = () => {
+interface LoaderProps {
+    text: string;
+}
+
+const Loader: React.FC<LoaderProps> = ({ text }) => {
     useEffect(() => {
         document.documentElement.setAttribute('data-no-scroll', 'true');
 
@@ -26,7 +30,7 @@ const Loader: React.FC = () => {
                     </div>
                 </div>
                 <div className="lemon-slice"></div>
-                <p className="loading-text">Little Lemon</p>
+                <p className="loading-text">{text}</p>
             </div>
         </div>
     );

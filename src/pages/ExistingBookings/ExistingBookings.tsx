@@ -27,7 +27,7 @@ function ExistingBookings() {
     };
 
     const handleConfirmCancel = useCallback(async (bookingId: string) => {
-        setLoaderOn();
+        setLoaderOn('Canceling your booking...');
         try {
             await new Promise(resolve => setTimeout(resolve, 3500));
 
@@ -48,12 +48,9 @@ function ExistingBookings() {
     }, []);
 
     useEffect(() => {
-        console.log('isLoaded changed:', isLoaded);
         if (!isLoaded) {
-            console.log('Setting loader ON');
-            setLoaderOn();
+            setLoaderOn('Loading your bookings...');
         } else {
-            console.log('Setting loader OFF');
             setLoaderOff();
         }
 

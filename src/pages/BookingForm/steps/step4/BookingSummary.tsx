@@ -58,7 +58,7 @@ function BookingSummary() {
 
     useEffect(() => {
         if (isSubmitting) {
-            setLoaderOn();
+            setLoaderOn('Creating your booking...');
         } else {
             setLoaderOff();
         }

@@ -58,7 +58,7 @@ function BookingForm() {
     }, []);
 
     const handleConfirmCancel = useCallback(async (bookingId: string) => {
-        setLoaderOn();
+        setLoaderOn('Canceling your booking...');
         try {
             await new Promise(resolve => setTimeout(resolve, 3500));
 

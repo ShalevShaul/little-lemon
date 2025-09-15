@@ -42,7 +42,7 @@ function RateUs(props: RateUsProps) {
 
     useEffect(() => {
         if (props.isSubmitting) {
-            setLoaderOn();
+            setLoaderOn('Submitting your review...');
         } else {
             setLoaderOff();
         }

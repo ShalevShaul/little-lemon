@@ -5,7 +5,6 @@
     align-items: center;
     justify-content: center;
     background: var(--black-70);
-    font-family: 'Arial, sans-serif';
     z-index: 99999999999999999;
     position: fixed;
     top: 0;
@@ -58,6 +57,7 @@
     overflow: visible;
     margin: 0 auto 20px;
     z-index: 5;
+    filter: drop-shadow(2px 2px 4px black);
 }
 
 .glass-top {
@@ -167,6 +167,7 @@
     position: relative;
     margin: 0 auto 15px;
     border: 2px solid #ffeb3b;
+    filter: drop-shadow(2px 2px 12px black);
 }
 
 .lemon-slice::before {
@@ -204,6 +205,7 @@
     margin: 0;
     font-weight: bold;
     animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px black);
 }
 
 @keyframes fillUpOnce {
