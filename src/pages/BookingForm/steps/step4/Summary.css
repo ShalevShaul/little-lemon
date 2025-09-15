@@ -96,32 +96,6 @@
     font-weight: var(--font-bold);
 }
 
-.Summary .button-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.Summary .back-btn {
-    flex: 1;
-    padding: 16px 24px;
-    background: #E8E8E8;
-    color: var(--primary-500);
-    border: none;
-    border-radius: var(--radius-xl);
-    font-size: var(--text-base);
-    font-weight: var(--font-semibold);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.Summary .back-btn:hover {
-    background: var(--gray-200);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .Summary {
@@ -148,14 +122,5 @@
         text-align: left;
         font-weight: var(--font-semibold);
         color: var(--primary-500);
-    }
-
-    .Summary .button-group {
-        flex-direction: column;
-    }
-
-    .Summary .back-btn,
-    .Summary .confirm-btn {
-        flex: none;
     }
 }

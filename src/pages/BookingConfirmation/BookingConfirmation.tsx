@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GroupIcon from '@mui/icons-material/Group';
+import { formatDate } from '../../utils/dateUtils';
 
 function BookingConfirmation() {
     const location = useLocation();
@@ -30,7 +31,7 @@ function BookingConfirmation() {
             {booking ?
                 <section className='booking-confirmed'>
                     <div className='confirmed-header'>
-                        <span className='dateAndTime'>{new Date(booking.date).toLocaleDateString('he-IL')} - {booking.time}</span>
+                        <span className='dateAndTime'>{formatDate(booking.date)} - {booking.time}</span>
                         <h1 className='title'>CONFIRMED!</h1>
                         <CheckCircleOutlineIcon className='chek-circle' />
                         <p className='restaurant'>Little Lemon Restaurant</p>
@@ -40,7 +41,7 @@ function BookingConfirmation() {
                             <h2 className='full-name'>{booking.fullName}</h2>
                             <h3 className='event'>{booking.event.text}</h3>
                             <p className='date'>
-                                <CalendarMonthIcon className='date-icon' /> {new Date(booking.date).toLocaleDateString('he-IL')} - {booking.time}
+                                <CalendarMonthIcon className='date-icon' /> {formatDate(booking.date)} - {booking.time}
                             </p>
                             <p className='guests'>
                                 <GroupIcon className='group-icon' /> {booking.guests} guests
@@ -58,7 +59,7 @@ function BookingConfirmation() {
                                 </li>
                             </ul>
                         </div>
-                        <Button paddingX={25} paddingY={20} text='🏠 Home Page' onClick={goHome} />
+                        <Button text='Home Page' onClick={goHome} />
                     </div>
                 </section>
 
@@ -70,7 +71,7 @@ function BookingConfirmation() {
                     </div>
                     <div className='oops-main'>
                         <p>Please make a new reservation.</p>
-                        <Button text='Reserve a table' onClick={goToReserve} paddingX={35} paddingY={25} />
+                        <Button text='Reserve a table' onClick={goToReserve} />
                     </div>
                 </>
             }

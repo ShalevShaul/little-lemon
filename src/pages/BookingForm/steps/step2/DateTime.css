@@ -120,32 +120,6 @@
     margin-top: 16px;
 }
 
-.date-time-section .button-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 30px;
-}
-
-.date-time-section .back-btn {
-    flex: 1;
-    padding: 16px 24px;
-    background: #E8E8E8;
-    color: var(--primary-500);
-    border: none;
-    border-radius: var(--radius-xl);
-    font-size: var(--text-base);
-    font-weight: var(--font-s);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.date-time-section .back-btn:hover {
-    background: var(--gray-200);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--black-10);
-}
-
 .date-time-section .error {
     color: var(--red-500);
     font-size: var(--text-sm);
@@ -168,14 +142,5 @@
     .date-time-section .time-grid {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
         gap: 10px;
-    }
-
-    .date-time-section .button-group {
-        flex-direction: column;
-    }
-
-    .date-time-section .back-btn,
-    .date-time-section .next-btn {
-        flex: none;
     }
 }

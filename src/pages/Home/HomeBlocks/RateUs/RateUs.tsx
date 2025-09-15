@@ -107,7 +107,7 @@ function RateUs(props: RateUsProps) {
                             </div>
                         </div>
 
-                        <Button paddingX={0} paddingY={20} text='Submit Rating' type='submit' />
+                        <Button text='Submit Rating' type='submit' />
                     </form>
                     <button
                         className='close-modal'

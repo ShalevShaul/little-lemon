@@ -12,6 +12,7 @@
 
 .reviews-section .reviews-section-header button {
     height: 70px;
+    padding: var(--space-6);
 }
 
 .reviews-section h2 {

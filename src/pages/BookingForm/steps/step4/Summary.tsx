@@ -115,7 +115,7 @@ function Summary() {
                         <button onClick={goBack} className='back-btn'>
                             ← Edit Details
                         </button>
-                        <Button onClick={handleConfirmBooking} paddingX={15} paddingY={15}
+                        <Button onClick={handleConfirmBooking}
                             text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
                     </div>
                 </section>

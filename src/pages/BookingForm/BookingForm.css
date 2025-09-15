@@ -429,3 +429,52 @@
         padding: 12px 24px;
     }
 }
+
+
+/* Steps button-group */
+form .button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+form .button-group button {
+    padding: var(--space-4);
+}
+
+form .button-group :nth-child(1) {
+    flex: 2;
+}
+form .button-group :nth-child(2) {
+    flex: 3;
+}
+
+form .back-btn {
+    flex: 1;
+    padding: 16px 24px;
+    background: #E8E8E8;
+    color: var(--primary-500);
+    border: none;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form .back-btn:hover {
+    background: var(--gray-200);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    form .button-group {
+        flex-direction: row;
+    }
+
+    form .button-group button {
+        flex: none;
+    }
+}

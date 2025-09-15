@@ -157,7 +157,7 @@ function Reviews() {
                     <div className='reviews-section-header'>
                         <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
                         <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
-                            <Button paddingX={25} paddingY={0} text='Rate Us' onClick={handleOpenCloseModal} />
+                            <Button text='Rate Us' onClick={handleOpenCloseModal} />
                         </div>
                     </div>
 

@@ -110,7 +110,7 @@ function EventDetails() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <Button type='submit' onClick={validateAndNext} text='Review Booking →' paddingX={60} paddingY={15} />
+                <Button type='submit' onClick={validateAndNext} text='Review Booking →' />
             </div>
         </section>
     );

@@ -1,7 +1,7 @@
 .buttonComponent {
     background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
     color: var(--primary-500);
-    padding: 14px 28px;
+    padding: var(--space-10);
     border-radius: var(--radius-xl);
     font-size: var(--text-lg);
     font-weight: var(--font-bold);

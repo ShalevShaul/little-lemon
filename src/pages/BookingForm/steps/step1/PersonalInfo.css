@@ -92,6 +92,7 @@
 
 .personal-info button {
     width: 100%;
+    padding: var(--space-4);
 }
 
 /* Responsive */

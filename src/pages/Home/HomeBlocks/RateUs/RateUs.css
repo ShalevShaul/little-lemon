@@ -113,6 +113,10 @@ input[type="range"] {
     margin: 10px 0;
 }
 
+.rate-us form button {
+    padding: var(--space-5);
+}
+
 /* Chrome/Safari/Edge - The line */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 12px;
