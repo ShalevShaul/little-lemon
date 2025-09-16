@@ -48,6 +48,7 @@ function DateTime() {
 
     const goBack = () => {
         setCurrentStep(currentStep - 1);
+        document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     return (

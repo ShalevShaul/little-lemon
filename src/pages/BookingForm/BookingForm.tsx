@@ -79,7 +79,9 @@ function BookingForm() {
     }, []);
 
     useEffect(() => {
-        document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (currentStep > 0) {
+            document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }, [currentStep]);
 
     const renderProgressIndicator = () => {
