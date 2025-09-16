@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import BookingCard from '../../components/BookingCard/BookingCard';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import { useBooking } from '../../contexts/BookingContext';
 import type { Booking } from '../../types/booking';
-import Loader from '../../components/Loader/Loader';
 import './ExistingBookings.css';
 import BookingsSection from '../../components/BookingsSection/BookingsSection';
 import toast from 'react-hot-toast';
 import { useLoader } from '../../contexts/LoaderContext';
+import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader';
 
 function ExistingBookings() {
     const navigate = useNavigate();
@@ -47,58 +46,52 @@ function ExistingBookings() {
         setSelectedBooking(null);
     }, []);
 
-    useEffect(() => {
-        if (!isLoaded) {
-            setLoaderOn('Loading your bookings...');
-        } else {
-            setLoaderOff();
-        }
-
-        return () => setLoaderOff();
-    }, [isLoaded]);
-
     return (
         <section className='existing-bookings'>
-            {upcomingBookings.length > 0 ?
+            {!isLoaded ? <SkeletonLoader count={2} /> :
                 <>
-                    <BookingsSection
-                        title='Upcoming Bookings'
-                        bookings={upcomingBookings}
-                        position='upcoming'
-                        setSelectedBooking={setSelectedBooking}
-                        setIsModalOpen={setIsModalOpen}
+                    {upcomingBookings.length > 0 ?
+                        <>
+                            <BookingsSection
+                                title='Upcoming Bookings'
+                                bookings={upcomingBookings}
+                                position='upcoming'
+                                setSelectedBooking={setSelectedBooking}
+                                setIsModalOpen={setIsModalOpen}
+                            />
+                        </>
+                        :
+                        <div className='no-bookings'>
+                            <h1>No Upcoming Bookings</h1>
+                            <p>📅 No reservations yet ? Let's fix that !</p>
+                            <CustomButton text='Reserve A Table' onClick={goToReserve} />
+                        </div>}
+
+
+                    <div className='diff-line'></div>
+
+                    {pastBookings.length > 0 ?
+                        <>
+                            <BookingsSection
+                                title='Past Bookings'
+                                bookings={pastBookings}
+                                position='past'
+                                setSelectedBooking={setSelectedBooking}
+                                setIsModalOpen={setIsModalOpen}
+                            />
+                        </>
+                        :
+                        <h1>No Past Bookings</h1>
+                    }
+
+                    <DeleteBookingModal
+                        isOpen={isModalOpen}
+                        booking={selectedBooking}
+                        onClose={handleCloseModal}
+                        onConfirm={handleConfirmCancel}
                     />
                 </>
-                :
-                <div className='no-bookings'>
-                    <h1>No Upcoming Bookings</h1>
-                    <p>📅 No reservations yet ? Let's fix that !</p>
-                    <CustomButton text='Reserve A Table' onClick={goToReserve} />
-                </div>
             }
-
-            <div className='diff-line'></div>
-
-            {pastBookings.length > 0 ?
-                <>
-                    <BookingsSection
-                        title='Past Bookings'
-                        bookings={pastBookings}
-                        position='past'
-                        setSelectedBooking={setSelectedBooking}
-                        setIsModalOpen={setIsModalOpen}
-                    />
-                </>
-                :
-                <h1>No Past Bookings</h1>
-            }
-
-            <DeleteBookingModal
-                isOpen={isModalOpen}
-                booking={selectedBooking}
-                onClose={handleCloseModal}
-                onConfirm={handleConfirmCancel}
-            />
         </section>
     );
 }
