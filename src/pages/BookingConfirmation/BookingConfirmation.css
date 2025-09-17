@@ -168,6 +168,19 @@
     padding: var(--space-8) var(--space-6);
 }
 
+.booking-confirmed .group-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    align-items: start;
+}
+
+.booking-confirmed .group-buttons>button {
+    width: 80%;
+}
+
 @keyframes slideInFromLeft {
     0% {
         opacity: 0;
@@ -226,6 +239,13 @@
 }
 
 /* Responsive */
+@media (max-width: 1000px) {
+    .booking-confirmed .group-buttons>button {
+        width: 100%;
+        height: 64px;
+    }
+}
+
 @media (max-width: 768px) {
     .booking-confirmed {
         padding: 0;

@@ -7,11 +7,13 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GroupIcon from '@mui/icons-material/Group';
 import { formatDate } from '../../utils/dateUtils';
+import { AddToCalendar } from '../../components/AddToCalendar/AddToCalendar';
 
 function BookingConfirmation() {
     const location = useLocation();
     const booking: Booking = location.state;
     const navigate = useNavigate();
+    const startDate = new Date(`${booking.date}T${booking.time}`);
 
     useEffect(() => {
         window.scroll({ top: 0 })
@@ -51,15 +53,27 @@ function BookingConfirmation() {
                             <h2>Additional information</h2>
                             <ul>
                                 <li>
-                                    Your reservation has been successfully confirmed! <br />
-                                </li>
-                                <br />
-                                <li>
                                     In case of changes or cancellation, please contact us 24 hours in advance.
                                 </li>
                             </ul>
                         </div>
-                        <CustomButton text='Home Page' onClick={goHome} />
+                        <div className='group-buttons'>
+                            <CustomButton text='Home Page' color='secondary' onClick={goHome} />
+                            <AddToCalendar
+                                title='Little Lemon Restaurant 🍋'
+                                description={`Your table is reserved for 2 hours.
+
+                                        📍 123 Main Street, Chicago
+                                        📞 123-456-7890
+                                        📧 littlelemon@example.com
+                                        ⚠️ Cancellation: 24 hours advance notice required
+
+                                        Thank you for choosing Little Lemon!`}
+                                location='Chicago'
+                                startDate={startDate}
+                                endDate={new Date(startDate.getTime() + (2 * 60 * 60 * 1000))}
+                            />
+                        </div>
                     </div>
                 </section>
 
@@ -71,7 +85,7 @@ function BookingConfirmation() {
                     </div>
                     <div className='oops-main'>
                         <p>Please make a new reservation.</p>
-                        <CustomButton text='Reserve a table' onClick={goToReserve} />
+                        <CustomButton color='secondary' text='Reserve a table' onClick={goToReserve} />
                     </div>
                 </>
             }
