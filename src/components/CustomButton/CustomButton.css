@@ -1,4 +1,5 @@
-.buttonComponent {
+/* secondary */
+.buttonComponent.secondary {
     background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
     color: var(--primary-500);
     padding: var(--space-10);
@@ -14,7 +15,7 @@
     border: 2px solid var(--secondary-500-50);
 }
 
-.buttonComponent::before {
+.buttonComponent.secondary::before {
     content: '';
     position: absolute;
     top: 0;
@@ -25,17 +26,59 @@
     transition: left 0.6s ease;
 }
 
-.buttonComponent:hover {
+.buttonComponent.secondary:hover {
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 10px 30px var(--secondary-500-50);
     background: linear-gradient(135deg, var(--secondary-600), var(--secondary-700));
 }
 
-.buttonComponent:hover::before {
+.buttonComponent.secondary:hover::before {
     left: 100%;
 }
 
-.buttonComponent:active {
+.buttonComponent.secondary:active {
+    transform: translateY(0) scale(1.01);
+}
+
+/* primary */
+.buttonComponent.primary {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    color: var(--secondary-500);
+    padding: var(--space-10);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-500-50);
+}
+
+.buttonComponent.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.buttonComponent.primary:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 30px var(--primary-500-50);
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+}
+
+.buttonComponent.primary:hover::before {
+    left: 100%;
+}
+
+.buttonComponent.primary:active {
     transform: translateY(0) scale(1.01);
 }
 
