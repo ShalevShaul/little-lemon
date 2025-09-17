@@ -83,7 +83,7 @@ const loadGoogleIdentityServices = (): Promise<void> => {
 // Get access token
 const getAccessToken = (): Promise<string | null> => {
     return new Promise((resolve) => {
-        const clientId = (import.meta as any).env.VITE_GOOGLE_CLIENT_ID;
+        const clientId = (import.meta as any).env.VITE_GOOGLE_CLIENT_ID || process.env.VITE_GOOGLE_CLIENT_ID;
 
         console.log('🔍 Client ID when creating token client:', clientId);
         console.log('🔍 Full import.meta.env:', (import.meta as any).env);
