@@ -61,14 +61,7 @@ function BookingConfirmation() {
                             <CustomButton text='Home Page' color='secondary' onClick={goHome} />
                             <AddToCalendar
                                 title='Little Lemon Restaurant 🍋'
-                                description={`Your table is reserved for 2 hours.
-
-                                        📍 123 Main Street, Chicago
-                                        📞 123-456-7890
-                                        📧 littlelemon@example.com
-                                        ⚠️ Cancellation: 24 hours advance notice required
-
-                                        Thank you for choosing Little Lemon!`}
+                                description='Your table is reserved for 2 hours. 📍 123 Main Street, Chicago 📞 123-456-7890 📧 littlelemon@example.com ⚠️ Cancellation: 24 hours advance notice required. Thank you for choosing Little Lemon!'
                                 location='Chicago'
                                 startDate={startDate}
                                 endDate={new Date(startDate.getTime() + (2 * 60 * 60 * 1000))}
