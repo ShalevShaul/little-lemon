@@ -3,11 +3,12 @@ import './CustomButton.css';
 interface CustomButtonProps {
     text: string,
     color: 'primary' | 'secondary',
+    disabled?: boolean;
     type?: HTMLButtonElement['type'],
     onClick?: () => void
 }
 
-function CustomButton({ text, type, color, onClick }: CustomButtonProps) {
+function CustomButton({ text, type, color, disabled, onClick }: CustomButtonProps) {
     return (
         <button
             type={type || 'button'}
@@ -16,6 +17,7 @@ function CustomButton({ text, type, color, onClick }: CustomButtonProps) {
             ${color === 'primary' ? 'primary' : ''}
             ${color === 'secondary' ? 'secondary' : ''}`}
             onClick={onClick}
+            disabled={disabled}
         >
             {text}
         </button>
