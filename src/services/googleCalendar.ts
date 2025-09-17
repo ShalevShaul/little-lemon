@@ -14,7 +14,7 @@ export const addToGoogleCalendar = async (
 
     if (isMobile) {
         console.log('Mobile device detected - creating ICS file');
-        createICSFile(title, startDate, endDate, description, location);
+        openGoogleCalendarManually(title, startDate, endDate, description, location);
         return true;
     }
 
@@ -39,7 +39,6 @@ export const addToGoogleCalendar = async (
             return true;
         } else {
             console.log('❌ Failed to create event');
-            createICSFile(title, startDate, endDate, description, location);
             return false;
         }
 
@@ -163,7 +162,7 @@ const createCalendarEvent = async (
     }
 };
 
-// Backup - open Google Calendar manually (for desktop errors)
+// Backup - open Google Calendar manually
 const openGoogleCalendarManually = (
     title: string,
     startDate: Date,
@@ -187,44 +186,4 @@ const openGoogleCalendarManually = (
 
     const url = `https://calendar.google.com/calendar/render?${params.toString()}`;
     window.open(url, '_blank', 'width=600,height=600');
-};
-
-// Create ICS file for download (mobile devices and fallback)
-const createICSFile = (
-    title: string,
-    startDate: Date,
-    endDate: Date,
-    description?: string,
-    location?: string
-): void => {
-    console.log('Creating ICS file for download...');
-
-    const formatDate = (date: Date) => {
-        return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    };
-
-    const icsContent = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODNAME:Little Lemon Restaurant',
-        'BEGIN:VEVENT',
-        `SUMMARY:${title}`,
-        `DTSTART:${formatDate(startDate)}`,
-        `DTEND:${formatDate(endDate)}`,
-        `DESCRIPTION:${description || ''}`,
-        `LOCATION:${location || ''}`,
-        `UID:${Date.now()}@littlelemon.com`,
-        'END:VEVENT',
-        'END:VCALENDAR'
-    ].join('\r\n');
-
-    const blob = new Blob([icsContent], { type: 'text/calendar' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${title.replace(/[^a-z0-9]/gi, '_')}.ics`;
-    a.click();
-
-    URL.revokeObjectURL(url);
 };
