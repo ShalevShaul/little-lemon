@@ -13,39 +13,33 @@ export const addToGoogleCalendar = async (
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     if (isMobile) {
-        console.log('Mobile device detected - creating ICS file');
+        console.log('Mobile device detected - opening manual calendar');
         openGoogleCalendarManually(title, startDate, endDate, description, location);
         return true;
     }
 
     try {
+        console.log('Desktop detected - trying Google API');
+
         // Load Google Identity Services
         await loadGoogleIdentityServices();
-        console.log('✅ Google Identity Services loaded');
 
         // Get access token
         const token = await getAccessToken();
         if (!token) {
-            console.log('❌ Failed to get access token');
             return false;
         }
-        console.log('✅ Access token received');
 
         // Create event
         const success = await createCalendarEvent(title, startDate, endDate, token, description, location);
-
         if (success) {
-            console.log('✅ Event created successfully!');
             return true;
         } else {
-            console.log('❌ Failed to create event');
             return false;
         }
 
     } catch (error) {
-        console.error('❌ Error:', error);
-
-        // Backup open Google Calendar manually
+        console.error('❌ Error :', error);
         openGoogleCalendarManually(title, startDate, endDate, description, location);
         return false;
     }
