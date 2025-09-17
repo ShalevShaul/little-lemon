@@ -8,7 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import RateUs from '../RateUs/RateUs';
 import { useCallback, useEffect, useState } from 'react';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useInView } from '../../../../hooks/useInView';
 import { formatDate } from '../../../../utils/dateUtils';
 import { generateId } from '../../../../utils/generateId';
@@ -155,7 +155,7 @@ function Reviews() {
                     <div className='reviews-section-header'>
                         <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
                         <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
-                            <CustomButton text='Rate Us' onClick={handleOpenCloseModal} />
+                            <CustomButton color='secondary' text='Rate Us' onClick={handleOpenCloseModal} />
                         </div>
                     </div>
 
@@ -231,19 +231,6 @@ function Reviews() {
                     isSubmitting={isSubmitting}
                 />
             </Modal>
-            <Toaster
-                position='bottom-center'
-                toastOptions={{
-                    duration: 4000,
-                    style: {
-                        background: '#4b5e57e7',
-                        color: '#fff',
-                        fontWeight: 'bolder',
-                        fontSize: '18px',
-                        padding: '15px',
-                    },
-                }}
-            />
         </>
     );
 }

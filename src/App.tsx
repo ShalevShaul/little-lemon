@@ -7,6 +7,7 @@ import AppMain from './layout/AppMain/AppMain'
 import { BookingFormProvider } from './contexts/FormContext'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import { LoaderProvider } from './contexts/LoaderContext'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
@@ -21,6 +22,19 @@ function App() {
               <AppHeader />
               <AppMain />
               <AppFooter />
+              <Toaster
+                position='bottom-center'
+                toastOptions={{
+                    duration: 4000,
+                    style: {
+                        background: '#4b5e57e7',
+                        color: '#fff',
+                        fontWeight: 'bolder',
+                        fontSize: '18px',
+                        padding: '15px',
+                    },
+                }}
+            />
 
             </BrowserRouter>
 
