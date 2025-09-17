@@ -115,7 +115,7 @@ function RateUs(props: RateUsProps) {
                     </div>
                 </div>
 
-                <CustomButton text='Submit Rating' type='submit' />
+                <CustomButton color='secondary' text='Submit Rating' type='submit' />
             </form>
             <button
                 className='close-modal'
