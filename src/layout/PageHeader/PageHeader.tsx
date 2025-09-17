@@ -87,7 +87,7 @@ function PageHeader() {
                 <h1 className='header-title'>{config?.title}</h1>
                 <h2 className='header-subtitle'>{config?.subtitle}</h2>
                 <p className='description'>{config?.description}</p>
-                {config?.btnText && <CustomButton text={config?.btnText} onClick={config?.btnAction} />}
+                {config?.btnText && <CustomButton color='secondary' text={config?.btnText} onClick={config?.btnAction} />}
             </section>
 
             <span className='arrow-down' onClick={scrollDown}>

@@ -91,7 +91,7 @@ function PersonalInfo() {
                 {errors.phone && <span className='error'>{errors.phone}</span>}
             </div>
 
-            <CustomButton type='submit' text='Next Step' onClick={validateAndNext} />
+            <CustomButton color='secondary' type='submit' text='Next Step' onClick={validateAndNext} />
         </section>
     )
 }

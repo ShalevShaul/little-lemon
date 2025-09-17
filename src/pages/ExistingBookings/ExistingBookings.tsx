@@ -64,7 +64,7 @@ function ExistingBookings() {
                         <div className='no-bookings'>
                             <h1>No Upcoming Bookings</h1>
                             <p>📅 No reservations yet ? Let's fix that !</p>
-                            <CustomButton text='Reserve A Table' onClick={goToReserve} />
+                            <CustomButton  color='secondary' text='Reserve A Table' onClick={goToReserve} />
                         </div>}
 
 

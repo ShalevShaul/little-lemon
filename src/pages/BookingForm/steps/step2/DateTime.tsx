@@ -98,7 +98,7 @@ function DateTime() {
                 <button type="button" onClick={goBack} className='back-btn'>
                     ← Back
                 </button>
-                <CustomButton type='submit' onClick={validateAndNext} text='Next Step →' />
+                <CustomButton color='secondary' type='submit' onClick={validateAndNext} text='Next Step →' />
             </div>
         </section>
     );

@@ -145,7 +145,7 @@ function BookingForm() {
                         </div>
 
                         <div className='max-bookings-actions'>
-                            <CustomButton text='View All Bookings' onClick={goToBookings} />
+                            <CustomButton color='secondary' text='View All Bookings' onClick={goToBookings} />
                         </div>
                     </div>
                 </div>

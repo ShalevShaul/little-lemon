@@ -114,7 +114,7 @@ input[type="range"] {
 }
 
 .rate-us form button {
-    padding: var(--space-5);
+    padding: var(--space-5) !important;
 }
 
 /* Chrome/Safari/Edge - The line */

@@ -123,7 +123,7 @@ function BookingSummary() {
                 <button onClick={goBack} className='back-btn'>
                     ← Edit Details
                 </button>
-                <CustomButton onClick={handleConfirmBooking}
+                <CustomButton color='secondary' onClick={handleConfirmBooking}
                     text={isSubmitting ? 'Confirming...' : 'Confirm Booking ✓'} />
             </div>
         </section>
