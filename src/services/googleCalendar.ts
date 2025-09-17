@@ -7,6 +7,9 @@ export const addToGoogleCalendar = async (
     description?: string,
     location?: string
 ): Promise<boolean> => {
+    console.log('🔍 Environment check:');
+    console.log('Client ID exists:', !!(import.meta as any).env.VITE_GOOGLE_CLIENT_ID);
+    console.log('Client ID preview:', (import.meta as any).env.VITE_GOOGLE_CLIENT_ID?.substring(0, 20) + '...');
 
     console.log('=== Starting Google Identity Services ===');
 
@@ -80,8 +83,19 @@ const loadGoogleIdentityServices = (): Promise<void> => {
 // Get access token
 const getAccessToken = (): Promise<string | null> => {
     return new Promise((resolve) => {
+        const clientId = (import.meta as any).env.VITE_GOOGLE_CLIENT_ID;
+
+        console.log('🔍 Client ID when creating token client:', clientId);
+        console.log('🔍 Full import.meta.env:', (import.meta as any).env);
+
+        if (!clientId) {
+            console.error('❌ No client ID available!');
+            resolve(null);
+            return;
+        }
+
         const client = (window as any).google.accounts.oauth2.initTokenClient({
-            client_id: (import.meta as any).env.VITE_GOOGLE_CLIENT_ID,
+            client_id: clientId,
             scope: 'https://www.googleapis.com/auth/calendar.events',
             callback: (response: any) => {
                 if (response.access_token) {
