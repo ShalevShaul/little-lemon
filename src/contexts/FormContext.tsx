@@ -21,7 +21,7 @@ export const BookingFormProvider = ({ children }: BookingFormProviderProps) => {
     const [currentStep, setCurrentStep] = useState(0);
 
     const INITIAL_FORM_DATA: FormData = {
-        fullName: '', phone: '', date: '', time: '', guests: 0, event: { icon: '', text: '' }
+        fullName: '', phone: '', email: '', date: '', time: '', guests: 0, event: { icon: '', text: '' }
     };
 
     const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);

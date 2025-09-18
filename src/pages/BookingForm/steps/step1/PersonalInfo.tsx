@@ -5,10 +5,11 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 function PersonalInfo() {
     const { formData, updateField, currentStep, setCurrentStep } = useBookingForm();
-    const [errors, setErrors] = useState({ fullName: '', phone: '' });
+    const [errors, setErrors] = useState({ fullName: '', phone: '', email: '' });
 
     const isValid = (field: string, value: string | number) => {
         let error = validateField(field, value);
@@ -19,8 +20,9 @@ function PersonalInfo() {
     const validateAndNext = () => {
         const isFullNameValid = isValid('fullName', formData.fullName);
         const isPhoneValid = isValid('phone', formData.phone);
+        const isEmailValid = isValid('email', formData.email);
 
-        if (isFullNameValid && isPhoneValid) {
+        if (isFullNameValid && isPhoneValid && isEmailValid) {
             setCurrentStep(currentStep + 1);
         }
     };
@@ -89,6 +91,26 @@ function PersonalInfo() {
                     />
                 </div>
                 {errors.phone && <span className='error'>{errors.phone}</span>}
+            </div>
+
+            <div className='input-group'>
+                <label htmlFor='email'>Email:</label>
+                <div className='input-with-icon'>
+                    <span className='input-icon'>
+                        <AlternateEmailIcon className='email-icon' />
+                    </span>
+                    <input
+                        className={errors.email && 'not-valid'}
+                        type="email"
+                        id='email'
+                        value={formData.email}
+                        onChange={(e) => handleFieldChange('email', e.target.value)}
+                        onBlur={(e) => isValid('email', e.target.value)}
+                        placeholder='Email'
+                        required
+                    />
+                </div>
+                {errors.email && <span className='error'>{errors.email}</span>}
             </div>
 
             <CustomButton color='secondary' type='submit' text='Next Step' onClick={validateAndNext} />

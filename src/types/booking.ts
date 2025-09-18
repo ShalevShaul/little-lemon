@@ -8,6 +8,7 @@ export interface Event {
 export interface Booking {
     id: string,
     phone: string,
+    email: string,
     fullName: string,
     date: string,
     time: string,

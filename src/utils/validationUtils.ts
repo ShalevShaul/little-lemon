@@ -9,6 +9,15 @@ export const validateField = (field: string, value: string | number): string => 
     if (value.toString().length < 10) return '* Phone number must be at least 10 digits';
   }
 
+  if (field === 'email') {
+    if (!value) return '* Email is required';
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (typeof (value) === 'string' && !emailRegex.test(value)) {
+      return '* Please enter a valid email address';
+    }
+  }
+
   if (field === 'date') {
     if (!value) return '* Date is required';
     const today = new Date().toISOString().split('T')[0];

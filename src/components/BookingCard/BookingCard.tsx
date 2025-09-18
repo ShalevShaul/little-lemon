@@ -14,6 +14,7 @@ const ICONS = {
     guests: '👥',
     fullName: '👤',
     phone: '📞',
+    email: '📧',
     event: '🍽️'
 };
 
@@ -24,6 +25,7 @@ function BookingCard(props: BookingCardProps) {
         { icon: ICONS.guests, label: 'Guests', value: props.guests },
         { icon: ICONS.fullName, label: 'Name', value: props.fullName },
         { icon: ICONS.phone, label: 'Phone Number', value: props.phone },
+        { icon: ICONS.email, label: 'Email', value: props.email },
         { icon: ICONS.event, label: 'Event', value: props.event.text },
     ];
 

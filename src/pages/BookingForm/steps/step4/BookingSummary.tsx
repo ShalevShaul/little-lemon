@@ -4,13 +4,14 @@ import { useBooking } from '../../../../contexts/BookingContext';
 import './BookingSummary.css';
 import { useNavigate } from 'react-router';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
-import Loader from '../../../../components/Loader/Loader';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useLoader } from '../../../../contexts/LoaderContext';
+
 
 function BookingSummary() {
     const { formData, currentStep, setCurrentStep } = useBookingForm();
@@ -84,6 +85,11 @@ function BookingSummary() {
                     <div className='detail-row'>
                         <span className='detail-label'><LocalPhoneIcon className='phone-icon' /> Phone:</span>
                         <span className='detail-value'>{formData.phone}</span>
+                    </div>
+
+                    <div className='detail-row'>
+                        <span className='detail-label'><AlternateEmailIcon className='email-icon' /> Email:</span>
+                        <span className='detail-value'>{formData.email}</span>
                     </div>
 
                     <div className='detail-row'>
