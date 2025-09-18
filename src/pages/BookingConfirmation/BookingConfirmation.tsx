@@ -8,6 +8,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GroupIcon from '@mui/icons-material/Group';
 import { formatDate } from '../../utils/dateUtils';
 import { AddToCalendar } from '../../components/AddToCalendar/AddToCalendar';
+import { sendEmail } from '../../services/googleCalendar';
 
 function BookingConfirmation() {
     const location = useLocation();
@@ -15,9 +16,22 @@ function BookingConfirmation() {
     const navigate = useNavigate();
     const startDate = new Date(`${booking.date}T${booking.time}`);
 
+    const sendEmailAsync = async () => {
+        try {
+            await sendEmail(booking.email, booking.fullName, booking.date, booking.time);
+            console.log('✅ Email sent');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        sendEmailAsync();
+    }, [])
+
     useEffect(() => {
         window.scroll({ top: 0 })
-    }, [])
+    }, []);
 
     const goHome = () => {
         navigate('/home');
@@ -60,6 +74,8 @@ function BookingConfirmation() {
                         <div className='group-buttons'>
                             <CustomButton text='Home Page' color='secondary' onClick={goHome} />
                             <AddToCalendar
+                                userName={booking.fullName}
+                                userEmail={booking.email}
                                 title='Little Lemon Restaurant 🍋'
                                 description='Your table is reserved for 2 hours. 📍 123 Main Street, Chicago 📞 123-456-7890 📧 littlelemon@example.com ⚠️ Cancellation: 24 hours advance notice required. Thank you for choosing Little Lemon!'
                                 location='Chicago'

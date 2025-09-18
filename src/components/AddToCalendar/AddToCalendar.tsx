@@ -9,6 +9,8 @@ interface AddToCalendarProps {
     title: string;
     startDate: Date;
     endDate: Date;
+    userEmail: string,
+    userName: string,
     description?: string;
     location?: string;
 }
@@ -17,12 +19,19 @@ export const AddToCalendar: React.FC<AddToCalendarProps> = ({
     title,
     startDate,
     endDate,
+    userEmail,
+    userName,
     description,
     location
 }) => {
     const [isLoading, setIsLoading] = useState(false);
     const { setLoaderOn, setLoaderOff } = useLoader();
     const [isSuccess, setIsSuccess] = useState(false);
+
+    useEffect(() => {
+        console.log(userEmail);
+        console.log(userName);
+    }, []);
 
     const handleAddToCalendar = async () => {
         setIsLoading(true);
@@ -32,6 +41,8 @@ export const AddToCalendar: React.FC<AddToCalendarProps> = ({
                 title,
                 startDate,
                 endDate,
+                userEmail,
+                userName,
                 description,
                 location
             );

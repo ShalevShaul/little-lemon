@@ -1,9 +1,13 @@
+import emailjs from '@emailjs/browser';
+
 let isGoogleLoaded = false;
 
 export const addToGoogleCalendar = async (
     title: string,
     startDate: Date,
     endDate: Date,
+    userEmail: string,
+    userName: string,
     description?: string,
     location?: string
 ): Promise<boolean> => {
@@ -186,4 +190,37 @@ const openGoogleCalendarManually = (
 
     const url = `https://calendar.google.com/calendar/render?${params.toString()}`;
     window.open(url, '_blank', 'width=600,height=600');
+};
+
+
+// send mail
+export const sendEmail = async (userEmail: string, userName: string, startDate: string, startTime: string): Promise<boolean> => {
+    try {
+        const publicKey = (import.meta as any).env.VITE_EMAILJS_PUBLIC_KEY;
+        if (publicKey) {
+            emailjs.init(publicKey);
+        }
+
+        const templateParams = {
+            email: userEmail,
+            to_name: userName,
+            event_start_date: startDate,
+            event_start_time: startTime,
+            event_location: 'Little lemon restaurant, Chicago',
+            event_description: 'Your table is reserved for 2 hours. 📍 123 Main Street, Chicago 📞 123-456-7890 📧 littlelemon@example.com ⚠️ Cancellation: 24 hours advance notice required. Thank you for choosing Little Lemon!',
+            from_name: 'Little Lemon Restaurant',
+            current_year: new Date().getFullYear()
+        };
+
+        await emailjs.send(
+            (import.meta as any).env.VITE_EMAILJS_SERVICE_ID,
+            (import.meta as any).env.VITE_EMAILJS_TEMPLATE_ID,
+            templateParams
+        );
+
+        return true;
+    } catch (error) {
+        console.error('Email failed:', error);
+        return false;
+    }
 };
