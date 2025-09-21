@@ -3,10 +3,9 @@ import './RateUs.css';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useEffect } from 'react';
-import Loader from '../../../../components/Loader/Loader';
 import PersonIcon from '@mui/icons-material/Person';
 import StarIcon from '@mui/icons-material/Star';
-import { useLoader } from '../../../../contexts/LoaderContext';
+import { useModal } from '../../../../contexts/ModalContext';
 
 interface Review {
     id: string;
@@ -17,14 +16,12 @@ interface Review {
 }
 
 interface RateUsProps {
-    openCloseModal: () => void;
     onAddReview: (review: Review) => void;
-    isSubmitting: boolean;
 }
 
 function RateUs(props: RateUsProps) {
     const { register, formState: { errors }, handleSubmit, watch } = useForm<Review>();
-    const { setLoaderOn, setLoaderOff } = useLoader();
+    const { closeModal } = useModal();
 
     const submitRating = (review: Review) => {
         props.onAddReview(review);
@@ -39,16 +36,6 @@ function RateUs(props: RateUsProps) {
             slider.style.setProperty('--value', percentage + '%');
         }
     }, [rating]);
-
-    useEffect(() => {
-        if (props.isSubmitting) {
-            setLoaderOn('Submitting your review...');
-        } else {
-            setLoaderOff();
-        }
-
-        return () => setLoaderOff();
-    }, [props.isSubmitting]);
 
     return (
         <div className='rate-us'>
@@ -119,7 +106,7 @@ function RateUs(props: RateUsProps) {
             </form>
             <button
                 className='close-modal'
-                onClick={props.openCloseModal}
+                onClick={closeModal}
             >
                 <HighlightOffIcon className='cancel-icon' />
             </button>

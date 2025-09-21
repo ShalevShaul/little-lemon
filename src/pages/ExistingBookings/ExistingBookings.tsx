@@ -9,6 +9,7 @@ import BookingsSection from '../../components/BookingsSection/BookingsSection';
 import toast from 'react-hot-toast';
 import { useLoader } from '../../contexts/LoaderContext';
 import SkeletonLoader from '../../components/SkeletonLoader/SkeletonLoader';
+import { useModal } from '../../contexts/ModalContext';
 
 function ExistingBookings() {
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ function ExistingBookings() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
     const { setLoaderOn, setLoaderOff } = useLoader();
+    const { openModal, closeModal } = useModal();
 
     const goToReserve = () => {
         navigate('/reserve-a-table');
@@ -46,6 +48,22 @@ function ExistingBookings() {
         setSelectedBooking(null);
     }, []);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            openModal(
+                <DeleteBookingModal
+                    booking={selectedBooking}
+                    onClose={handleCloseModal}
+                    onConfirm={handleConfirmCancel}
+                />
+            );
+        } else {
+            closeModal();
+        }
+
+        return () => closeModal();
+    }, [isModalOpen]);
+
     return (
         <section className='existing-bookings'>
             {!isLoaded ? <SkeletonLoader count={2} /> :
@@ -64,7 +82,7 @@ function ExistingBookings() {
                         <div className='no-bookings'>
                             <h1>No Upcoming Bookings</h1>
                             <p>📅 No reservations yet ? Let's fix that !</p>
-                            <CustomButton  color='secondary' text='Reserve A Table' onClick={goToReserve} />
+                            <CustomButton color='secondary' text='Reserve A Table' onClick={goToReserve} />
                         </div>}
 
 
@@ -83,13 +101,6 @@ function ExistingBookings() {
                         :
                         <h1>No Past Bookings</h1>
                     }
-
-                    <DeleteBookingModal
-                        isOpen={isModalOpen}
-                        booking={selectedBooking}
-                        onClose={handleCloseModal}
-                        onConfirm={handleConfirmCancel}
-                    />
                 </>
             }
         </section>

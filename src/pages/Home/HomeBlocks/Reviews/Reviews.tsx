@@ -1,17 +1,18 @@
-import Modal from 'react-modal';
+import { useCallback, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
+import toast from 'react-hot-toast';
 import 'swiper/swiper-bundle.css';
 import './Reviews.css';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import RateUs from '../RateUs/RateUs';
-import { useCallback, useEffect, useState } from 'react';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
-import toast from 'react-hot-toast';
+import RateUs from '../RateUs/RateUs';
+import { useLoader } from '../../../../contexts/LoaderContext';
+import { useModal } from '../../../../contexts/ModalContext';
 import { useInView } from '../../../../hooks/useInView';
 import { formatDate } from '../../../../utils/dateUtils';
 import { generateId } from '../../../../utils/generateId';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import StarIcon from '@mui/icons-material/Star';
 
 interface Review {
@@ -66,35 +67,12 @@ const renderStars = (rating: number) => {
     ));
 };
 
-Modal.setAppElement('#root');
-
-const modalStyles = {
-    overlay: {
-        backgroundColor: 'rgba(0, 0, 0, 0.6)',
-        zIndex: 1000
-    },
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        border: 'none',
-        borderRadius: '16px',
-        padding: '0',
-        maxWidth: '600px',
-        width: '90%',
-        maxHeight: '90vh',
-        overflow: 'hidden'
-    }
-};
-
 function Reviews() {
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [reviews, setReviews] = useState<Review[]>(initialReviews);
     const { ref, isVisible } = useInView();
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const { openModal, closeModal } = useModal();
+    const { setLoaderOff, setLoaderOn } = useLoader();
 
     useEffect(() => {
         const storageReviews: Review[] = JSON.parse(localStorage.getItem('storageReviews') || '[]');
@@ -106,19 +84,21 @@ function Reviews() {
     }, []);
 
     useEffect(() => {
-        if (isModalOpen) {
-            document.documentElement.setAttribute('data-no-scroll', 'true');
+        if (isSubmitting) {
+            setLoaderOn('Submitting your review...');
         } else {
-            document.documentElement.removeAttribute('data-no-scroll');
+            setLoaderOff();
         }
 
-        return () => {
-            document.documentElement.removeAttribute('data-no-scroll');
-        };
-    }, [isModalOpen]);
+        return () => setLoaderOff();
+    }, [isSubmitting]);
 
-    const handleOpenCloseModal = useCallback(() => {
-        setIsModalOpen(prev => !prev);
+    const handleOpenModal = useCallback(() => {
+        openModal(
+            <RateUs
+                onAddReview={addNewReview}
+            />
+        );
     }, []);
 
     const addNewReview = useCallback(async (newReview: Review) => {
@@ -144,94 +124,79 @@ function Reviews() {
             toast.error('Failed to add review. Please try again.');
         } finally {
             setIsSubmitting(false);
-            setIsModalOpen(false);
+            closeModal();
         }
     }, []);
 
     return (
-        <>
-            <section ref={ref} className="reviews-section">
-                <div className="container">
-                    <div className='reviews-section-header'>
-                        <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
-                        <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
-                            <CustomButton color='secondary' text='Rate Us' onClick={handleOpenCloseModal} />
-                        </div>
-                    </div>
-
-                    <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
-                        <Swiper
-                            modules={[Navigation, Autoplay]}
-                            spaceBetween={30}
-                            slidesPerView={2}
-                            navigation={{
-                                nextEl: '.custom-swiper-button-next',
-                                prevEl: '.custom-swiper-button-prev',
-                            }}
-                            autoplay={{
-                                delay: 2000,
-                                disableOnInteraction: false,
-                                pauseOnMouseEnter: true,
-                            }}
-                            loop={true}
-                            speed={600}
-                            grabCursor={true}
-                            breakpoints={{
-                                320: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 20,
-                                },
-                                768: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 25,
-                                },
-                                1024: {
-                                    slidesPerView: 1,
-                                    spaceBetween: 30,
-                                },
-                            }}
-                        >
-                            {reviews.map(review => (
-                                <SwiperSlide key={review.id}>
-                                    <div className="review-card">
-                                        <div className="review-header">
-                                            <div className="reviewer-info">
-                                                <h4>{review.name}</h4>
-                                                <span className="review-date">
-                                                    {formatDate(review.date)}
-                                                </span>
-                                            </div>
-                                            <div className="rating">
-                                                {renderStars(review.rating)}
-                                            </div>
-                                        </div>
-                                        <p className="review-comment">"{review.comment}"</p>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-
-                        <div className='navigation-buttons'>
-                            <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
-                            <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
-                        </div>
+        <section ref={ref} className="reviews-section">
+            <div className="container">
+                <div className='reviews-section-header'>
+                    <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
+                    <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
+                        <CustomButton color='secondary' text='Rate Us' onClick={handleOpenModal} />
                     </div>
                 </div>
-            </section>
-            <Modal
-                isOpen={isModalOpen}
-                style={modalStyles}
-                shouldCloseOnOverlayClick={!isSubmitting}
-                shouldCloseOnEsc={!isSubmitting}
-                onRequestClose={isSubmitting ? undefined : handleOpenCloseModal}
-            >
-                <RateUs
-                    openCloseModal={handleOpenCloseModal}
-                    onAddReview={addNewReview}
-                    isSubmitting={isSubmitting}
-                />
-            </Modal>
-        </>
+
+                <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
+                    <Swiper
+                        modules={[Navigation, Autoplay]}
+                        spaceBetween={30}
+                        slidesPerView={2}
+                        navigation={{
+                            nextEl: '.custom-swiper-button-next',
+                            prevEl: '.custom-swiper-button-prev',
+                        }}
+                        autoplay={{
+                            delay: 2000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        }}
+                        loop={true}
+                        speed={600}
+                        grabCursor={true}
+                        breakpoints={{
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 25,
+                            },
+                            1024: {
+                                slidesPerView: 1,
+                                spaceBetween: 30,
+                            },
+                        }}
+                    >
+                        {reviews.map(review => (
+                            <SwiperSlide key={review.id}>
+                                <div className="review-card">
+                                    <div className="review-header">
+                                        <div className="reviewer-info">
+                                            <h4>{review.name}</h4>
+                                            <span className="review-date">
+                                                {formatDate(review.date)}
+                                            </span>
+                                        </div>
+                                        <div className="rating">
+                                            {renderStars(review.rating)}
+                                        </div>
+                                    </div>
+                                    <p className="review-comment">"{review.comment}"</p>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    <div className='navigation-buttons'>
+                        <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
+                        <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 

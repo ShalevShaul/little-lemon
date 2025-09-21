@@ -12,6 +12,7 @@ import type { Booking } from '../../types/booking';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import toast from 'react-hot-toast';
 import { useLoader } from '../../contexts/LoaderContext';
+import { useModal } from '../../contexts/ModalContext';
 
 const steps = [
     {
@@ -36,9 +37,8 @@ function BookingForm() {
     const { currentStep, resetForm } = useBookingForm();
     const { upcomingBookings, deleteBooking } = useBooking();
     const navigate = useNavigate();
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
     const { setLoaderOn, setLoaderOff } = useLoader();
+    const { openModal, closeModal } = useModal()
 
     useEffect(() => {
         return () => resetForm();
@@ -52,37 +52,37 @@ function BookingForm() {
         }, 200)
     }, [navigate]);
 
-    const handleCancelClick = useCallback((booking: Booking) => {
-        setSelectedBooking(booking);
-        setIsModalOpen(true);
-    }, []);
-
     const handleConfirmCancel = useCallback(async (bookingId: string) => {
         setLoaderOn('Canceling your booking...');
         try {
             await new Promise(resolve => setTimeout(resolve, 3500));
-
             deleteBooking(bookingId);
-            setIsModalOpen(false);
-            setSelectedBooking(null);
+            toast.success('Booking deleted successfully!');
         } catch (error) {
             toast.error('Fialed to delete booking.');
             console.log('Failed to delete booking', error);
         } finally {
             setLoaderOff();
+            closeModal();
         }
     }, [deleteBooking]);
-
-    const handleCloseModal = useCallback(() => {
-        setIsModalOpen(false);
-        setSelectedBooking(null);
-    }, []);
 
     useEffect(() => {
         if (currentStep > 0) {
             document.querySelector('div.progress-indicator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }, [currentStep]);
+
+
+    const handleCancelClick = useCallback((booking: Booking) => {
+        openModal(
+            <DeleteBookingModal
+                booking={booking}
+                onConfirm={handleConfirmCancel}
+                onClose={closeModal}
+            />
+        );
+    }, []);
 
     const renderProgressIndicator = () => {
         return (
@@ -150,13 +150,6 @@ function BookingForm() {
                     </div>
                 </div>
             }
-
-            <DeleteBookingModal
-                isOpen={isModalOpen}
-                booking={selectedBooking}
-                onClose={handleCloseModal}
-                onConfirm={handleConfirmCancel}
-            />
         </div>
     );
 }
