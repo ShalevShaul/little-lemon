@@ -1,0 +1,196 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+/* Delete Booking Modal Styles */
+.delete-booking-modal {
+    @include flex-column;
+    background: $white;
+    border-radius: $radius-2xl;
+    box-shadow: 0 20px 60px $black-30;
+    animation: modalSlideIn 0.3s ease-out;
+    overflow: hidden;
+
+    .modal-header {
+        @include flex-between;
+        padding: $space-6 $space-6 0 $space-6;
+
+        @include tablet {
+            padding: $space-5 $space-5 0 $space-5;
+        }
+
+        h2 {
+            margin: 0;
+            color: $color-primary;
+            font-size: $text-2xl;
+            font-weight: $font-bold;
+
+            @include tablet {
+                font-size: $text-xl;
+            }
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            font-size: $text-3xl;
+            color: $gray-300;
+            cursor: pointer;
+            padding: 0;
+            width: $space-8;
+            height: $space-8;
+            @include flex-center;
+            border-radius: $radius-50;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: rgba($red-600, 0.1);
+                color: $red-500;
+            }
+        }
+    }
+
+    .modal-body {
+        padding: $space-6;
+        text-align: center;
+        flex: 1;
+
+        @include tablet {
+            padding: $space-5;
+        }
+
+        .warning-icon {
+            font-size: $text-5xl;
+            margin-bottom: $space-4;
+            animation: pulse 2s infinite;
+
+            @include tablet {
+                font-size: $text-4xl;
+                margin-bottom: $space-3;
+            }
+        }
+
+        .warning-text {
+            font-size: $text-base;
+            color: $gray-300;
+            margin-bottom: $space-6;
+            line-height: 1.5;
+
+            @include tablet {
+                font-size: $text-base;
+                margin-bottom: $space-5;
+            }
+        }
+
+        .booking-summary {
+            background: $dirty-white-bg;
+            border-radius: $radius-lg;
+            padding: $space-4;
+            margin: $space-4 0;
+            border: 1px solid $black-10;
+
+            @include tablet {
+                padding: $space-3;
+                margin: $space-3 0;
+            }
+
+            .booking-info {
+                color: $color-primary;
+                font-size: $text-sm;
+                line-height: 1.6;
+                text-align: center;
+
+                @include tablet {
+                    font-size: $text-base;
+                }
+            }
+        }
+    }
+
+    .modal-footer {
+        flex-shrink: 0;
+        display: flex;
+        gap: $space-4;
+        padding: 0 $space-6 $space-6 $space-6;
+
+        @include tablet {
+            flex-direction: column;
+            padding: 0 $space-5 $space-5 $space-5;
+            gap: $space-5 / 2;
+        }
+
+        .btn-cancel-action,
+        .btn-confirm-delete {
+            flex: 1;
+            padding: $space-4 $space-5;
+            border: none;
+            border-radius: $radius-xl;
+            font-size: $text-base;
+            font-weight: $font-semibold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: $space-1 / 8;
+
+            @include tablet {
+                font-size: $text-base;
+                padding: $space-3 $space-4;
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        .btn-cancel-action {
+            background: linear-gradient(135deg, $gray-300, $gray-400);
+            color: $white;
+            border: 2px solid $gray-400;
+
+            &:hover {
+                background: linear-gradient(135deg, $gray-400, $gray-500);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba($gray-300, 0.302);
+            }
+        }
+
+        .btn-confirm-delete {
+            background: linear-gradient(135deg, $red-500, $red-600);
+            color: $white;
+            border: 2px solid $red-600;
+
+            &:hover {
+                background: linear-gradient(135deg, $red-600, $red-700);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba($red-700, 0.4);
+            }
+        }
+    }
+}
+
+
+// keyframes
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

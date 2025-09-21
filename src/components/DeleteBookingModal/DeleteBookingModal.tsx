@@ -1,5 +1,5 @@
 import type { Booking } from '../../types/booking';
-import './DeleteBookingModal.css';
+import './DeleteBookingModal.scss';
 import React from 'react';
 import { formatDate } from '../../utils/dateUtils';
 

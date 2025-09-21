@@ -1,4 +1,4 @@
-import './CustomButton.css';
+import './CustomButton.scss';
 
 interface CustomButtonProps {
     text: string,

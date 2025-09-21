@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Booking } from '../../types/booking';
-import './BookingCard.css';
+import './BookingCard.scss';
 import { formatDate } from '../../utils/dateUtils';
 
 interface BookingCardProps extends Booking {

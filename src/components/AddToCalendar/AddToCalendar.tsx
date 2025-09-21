@@ -1,4 +1,3 @@
-import './AddToCalendar.css';
 import React, { useEffect, useState } from 'react';
 import { addToGoogleCalendar } from '../../services/googleCalendar';
 import { useLoader } from '../../contexts/LoaderContext';

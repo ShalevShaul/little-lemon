@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './CustomModal.css';
+import './CustomModal.scss';
 
 interface CustomModalProps {
     children: React.ReactNode;

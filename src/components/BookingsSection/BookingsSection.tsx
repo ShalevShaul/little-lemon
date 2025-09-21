@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import BookingCard from '../BookingCard/BookingCard';
-import './BookingsSection.css';
 import { Booking } from '../../types/booking';
 
 interface BookingsSectionProps {
