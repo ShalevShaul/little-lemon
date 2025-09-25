@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Loader.css';
+import './Loader.scss';
 
 interface LoaderProps {
     text: string;
