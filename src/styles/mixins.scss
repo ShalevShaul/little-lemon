@@ -10,6 +10,12 @@
     align-items: center;
 }
 
+@mixin flex-around {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -20,6 +26,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@mixin flex-start-center {
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 @mixin tablet {

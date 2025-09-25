@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './AppNav.css';
+import './AppNav.scss';
 const logo = '/images/nav-logo.webp'
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
