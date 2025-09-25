@@ -1,0 +1,166 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.date-time-section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: $space-10 $space-8;
+    background: $white;
+    border-radius: $radius-2xl;
+    box-shadow: 0 4px 20px $primary-500-10;
+    animation: stepAdvanced 0.3s ease-out;
+
+    h2 {
+        color: $primary-500;
+        font-size: $text-4xl;
+        font-weight: $font-bold;
+        margin-bottom: $space-8;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: $space-8;
+
+        label {
+            display: block;
+            margin-bottom: $space-3;
+            font-weight: $font-semibold;
+            color: $primary-500;
+            font-size: $text-lg;
+        }
+
+        input {
+            width: 100%;
+            padding: $space-4;
+            border: 2px solid $gray-200;
+            border-radius: $radius-xl;
+            font-size: $text-base;
+            transition: all 0.3s ease;
+            background: $light-bg;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                border-color: $secondary-500;
+                background: $white;
+                box-shadow: 0 0 0 3px $secondary-500-10;
+            }
+        }
+
+        .not-valid {
+            outline: none;
+            border-color: $red-600;
+            background: $white;
+            box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+
+            &:focus {
+                outline: none;
+                border-color: $red-600;
+                background: $white;
+                box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+            }
+        }
+    }
+
+    .time-selection {
+        margin-bottom: $space-8;
+
+        >label {
+            display: block;
+            margin-bottom: $space-4;
+            font-weight: $font-semibold;
+            color: $primary-500;
+            font-size: $text-lg;
+        }
+    }
+
+    .time-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: $space-3;
+        margin-top: $space-4;
+
+        button.not-valid {
+            outline: none;
+            border-color: $red-600;
+            background: $white;
+            box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+
+            &:focus {
+                outline: none;
+                border-color: $red-600;
+                background: $white;
+                box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+            }
+        }
+    }
+
+    .time-slot {
+        padding: $space-3 $space-2;
+        border: 2px solid $gray-200;
+        border-radius: $radius-xl;
+        background: $light-bg;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: $text-base;
+        font-weight: $font-semibold;
+        color: $primary-500;
+        text-align: center;
+
+        &:hover {
+            border-color: $secondary-500;
+            background: $white-90;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px $secondary-500-20;
+        }
+
+        &.selected {
+            border-color: $secondary-500;
+            background: $secondary-500;
+            color: $primary-500;
+            box-shadow: 0 4px 12px $secondary-500-30;
+        }
+    }
+
+    .no-times,
+    .select-date-first {
+        text-align: center;
+        color: $gray-400;
+        font-style: italic;
+        padding: $space-6;
+        background: $light-bg;
+        border-radius: $radius-xl;
+        border: 2px dashed $gray-300;
+        margin-top: $space-4;
+
+        &.not-valid {
+            outline: none;
+            border-color: $red-600;
+            background: $white;
+            box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+        }
+    }
+
+    .error {
+        color: $red-500;
+        font-size: $text-sm;
+        margin-top: $space-2;
+        display: block;
+        font-weight: $font-medium;
+    }
+
+    // Responsive
+    @include tablet {
+        margin: $space-5;
+        padding: $space-8 $space-5;
+
+        h2 {
+            font-size: $text-2xl;
+        }
+
+        .time-grid {
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: $space-2;
+        }
+    }
+}

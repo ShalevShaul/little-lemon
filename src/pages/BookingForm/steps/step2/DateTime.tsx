@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../contexts/FormContext';
 import { useBooking } from '../../../../contexts/BookingContext';
-import './DateTime.css';
+import './DateTime.scss';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 
