@@ -1,0 +1,108 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.personal-info {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: $space-10 $space-8;
+    background: $white;
+    border-radius: $radius-2xl;
+    box-shadow: 0 $space-1 $space-5 $black-10;
+    animation: stepAdvanced 0.3s ease;
+
+    h2 {
+        color: $primary-500;
+        font-size: $text-4xl;
+        font-weight: $font-bold;
+        margin-top: $space-2;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: $space-6;
+
+        label {
+            display: block;
+            margin-bottom: $space-2;
+            font-weight: $font-semibold;
+            color: $primary-500;
+            font-size: $text-base;
+        }
+
+        input {
+            width: 100%;
+            padding: $space-4;
+            border: 2px solid $black-10;
+            border-radius: $radius-xl;
+            font-size: $text-base;
+            transition: all 0.3s ease;
+            background: $light-bg;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                border-color: $secondary-500;
+                background: $white;
+                box-shadow: 0 0 0 3px $secondary-500-10;
+            }
+
+            &::placeholder {
+                color: $gray-300;
+            }
+        }
+
+        .not-valid {
+            outline: none;
+            border-color: $red-600;
+            background: $white;
+            box-shadow: 0 0 0 3px rgba($red-600, 0.1);
+
+            &:focus {
+                outline: none;
+                border-color: $red-600;
+                background: $white;
+                box-shadow: 0 0 0 3px rgba($red-600, 0.1);
+            }
+        }
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: block;
+
+        input {
+            padding-left: $space-12;
+        }
+    }
+
+    .input-icon {
+        position: absolute;
+        left: $space-4;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .error {
+        color: $red-500;
+        font-size: $text-sm;
+        margin-top: 6px;
+        display: block;
+        font-weight: $font-medium;
+    }
+
+    button {
+        width: 100%;
+        padding: $space-4;
+    }
+
+    @include tablet {
+        margin: $space-5;
+        padding: $space-8 $space-5;
+
+        h2 {
+            font-size: $text-2xl;
+        }
+    }
+}

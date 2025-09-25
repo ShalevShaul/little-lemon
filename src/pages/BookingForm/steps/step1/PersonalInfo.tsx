@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../contexts/FormContext';
-import './PersonalInfo.css';
+import './PersonalInfo.scss';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 import PersonIcon from '@mui/icons-material/Person';
