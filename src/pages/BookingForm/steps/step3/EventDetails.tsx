@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useBookingForm } from '../../../../contexts/FormContext';
-import './EventDetails.css';
+import './EventDetails.scss';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import { validateField } from '../../../../utils/validationUtils';
 import GroupIcon from '@mui/icons-material/Group';
