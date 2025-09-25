@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, type NavigateFunction } from 'react-router';
-import './PageHeader.css';
+import './PageHeader.scss';
 const homeHeader = '/images/home-header.webp';
 const reserveHeader = '/images/reserve-header.webp';
 const bookingsHeader = '/images/bookings-header.webp';

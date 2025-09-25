@@ -1,0 +1,267 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.PageHeader {
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    gap: $space-4;
+    animation: headerEnter 0.8s ease-out;
+
+    &.confirmed {
+        display: none;
+    }
+
+    .hero {
+        margin: 8% auto 0 auto;
+        flex: 3;
+
+        .header-title {
+            color: $secondary-500;
+            font-size: $text-5xl;
+            margin: 0 0 $space-5 0;
+            padding-top: $space-10;
+            animation: titleEnter 0.7s ease-out 0.2s forwards;
+            opacity: 0;
+            text-shadow: 4px 4px 16px $black-70;
+        }
+
+        .header-subtitle {
+            color: #EDEFEE;
+            font-size: $text-3xl;
+            margin: 0;
+            animation: subtitleEnter 0.7s ease-out 0.4s forwards;
+            opacity: 0;
+            text-shadow: 4px 4px 16px $black-70;
+        }
+
+        .description>span {
+            display: block;
+            font-size: $text-lg;
+            color: $white;
+            margin-bottom: $space-2;
+            animation: contentEnter 0.7s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        button {
+            padding: $space-10;
+            animation: contentEnter 0.7s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+    }
+
+    .header-img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        margin: auto;
+        border-radius: $radius-2xl;
+        box-shadow: 4px 8px 8px rgba($black, 0.25);
+        transition: transform 0.2s ease;
+        flex: 2;
+        animation: imageEnterFromRight 0.8s ease-out 0.3s forwards;
+        opacity: 0;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    @include tablet {
+        flex-direction: column;
+        height: calc($height-screen - 88px);
+
+        .hero {
+            margin: 0;
+
+            button {
+                font-size: $text-lg;
+                padding: $space-6;
+                margin-top: $space-6;
+            }
+        }
+
+        .header-img {
+            width: 100%;
+            margin-bottom: $space-32;
+            object-fit: cover;
+            max-height: 200px;
+        }
+
+        &.reserve-header .hero .description {
+            display: none;
+        }
+    }
+
+    @include mobile {
+        flex-direction: column;
+
+        &.reserve-header {
+            background-position: center;
+        }
+
+        .hero {
+            padding-top: 12%;
+
+            .header-title {
+                font-size: 10dvw;
+            }
+
+            .header-subtitle {
+                font-size: 6dvw;
+            }
+
+            button {
+                font-size: $text-base;
+                padding: $space-5;
+                width: 100%;
+            }
+        }
+
+        .header-img {
+            height: 150px;
+            object-fit: cover;
+            border-radius: $radius-2xl;
+        }
+    }
+}
+
+// Background variants - separate from main class for better organization
+.home-header,
+.reserve-header,
+.bookings-header {
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.home-header {
+    background: linear-gradient(rgba($gray-400, 0.7), $black),
+        url('/images/restaurant.webp');
+    background-position: center;
+}
+
+.reserve-header {
+    background: linear-gradient(rgba($gray-400, 0.7), $black),
+        url('/images/reserved-table-header.webp');
+    background-position: start;
+}
+
+.bookings-header {
+    background: linear-gradient(rgba($gray-400, 0.7), $black),
+        url('/images/bookings-restaurant-header.webp');
+    background-position: bottom;
+}
+
+.arrow-down {
+    position: absolute;
+    bottom: $space-5;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: $text-2xl;
+    color: $white;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    animation: arrowEnterAndFloat 1s ease-out 1s forwards, arrowFloatContinuous 1.5s 2s infinite;
+    opacity: 0;
+
+    @include tablet {
+        bottom: $space-4;
+        font-size: $text-xl;
+    }
+}
+
+// iOS Safari parallax fix
+@supports (-webkit-touch-callout: none) {
+
+    .home-header,
+    .reserve-header,
+    .bookings-header {
+        background-attachment: scroll;
+    }
+}
+
+/* Animations */
+@keyframes headerEnter {
+    0% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes titleEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes subtitleEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentEnter {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes imageEnterFromRight {
+    0% {
+        opacity: 0;
+        margin-right: -30px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+
+@keyframes arrowEnterAndFloat {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes arrowFloatContinuous {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
