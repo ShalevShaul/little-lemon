@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router';
 import PageHeader from '../PageHeader/PageHeader';
-import './AppMain.css';
 import Home from '../../pages/Home/Home';
 import BookingForm from '../../pages/BookingForm/BookingForm';
 import ExistingBookings from '../../pages/ExistingBookings/ExistingBookings';
