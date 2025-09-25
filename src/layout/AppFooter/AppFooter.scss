@@ -1,0 +1,60 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+footer {
+    margin-top: $space-12;
+    padding: 0 10%;
+    margin-bottom: $space-5;
+
+    ul {
+        padding: 0;
+        margin-top: $space-4;
+        line-height: $space-6;
+
+        @include mobile {
+            margin-top: $space-2;
+        }
+
+        li {
+            list-style-type: none;
+            font-size: $text-base;
+
+            a {
+                text-decoration: none;
+                color: $black;
+
+                @include tablet {
+                    font-size: $text-sm;
+                }
+            }
+
+            span.list-title {
+                cursor: default;
+                color: $gray-300;
+            }
+        }
+    }
+
+    .footer-nav {
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: $space-10;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+
+        img {
+            width: 120px;
+
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+}
