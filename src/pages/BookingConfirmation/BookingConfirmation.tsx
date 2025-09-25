@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router';
-import './BookingConfirmation.css';
+import './BookingConfirmation.scss';
 import type { Booking } from '../../types/booking';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useEffect } from 'react';

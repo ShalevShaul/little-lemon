@@ -1,0 +1,312 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.booking-confirmed {
+    display: flex;
+    margin: 0;
+    padding: 0 12%;
+    min-height: calc($height-viewport - 88px);
+
+    .confirmed-header {
+        flex: 3;
+        background: linear-gradient(rgba($gray-400, 0.7), $secondary-500-80),
+            url('/images/confirmed.webp');
+        background-size: cover;
+        background-position: 60%;
+        @include flex-column-center;
+        row-gap: 5%;
+        color: $white;
+        text-align: center;
+        padding: $space-8;
+        animation: slideInFromLeft 0.8s ease-out;
+
+        .dateAndTime {
+            font-size: 2dvw;
+            font-weight: bolder;
+            text-shadow: 4px 4px 4px $black-50;
+            animation: fadeInUp 0.7s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .title {
+            font-size: 3dvw;
+            font-weight: $font-bold;
+            text-shadow: 4px 4px 4px $black-50;
+            margin: 0;
+            animation: bounceIn 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        .chek-circle {
+            font-size: 250px;
+            width: 250px;
+            filter: drop-shadow(4px 4px 4px $black-50);
+            animation: bounceIn 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        .restaurant {
+            font-size: 1.5dvw;
+            font-weight: $font-extrabold;
+            text-shadow: 4px 4px 4px $black-50;
+            animation: fadeInUp 0.7s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+    }
+
+    .confirmed-main {
+        flex: 2;
+        background-color: $white;
+        padding: 0 $space-8;
+        @include flex-column;
+        align-items: start;
+        justify-content: space-around;
+        margin: 0;
+        animation: slideInFromRight 0.8s ease-out 0.3s forwards;
+        opacity: 0;
+
+        .details {
+            max-width: 400px;
+            width: 100%;
+
+            .full-name {
+                font-size: $text-5xl;
+                color: $gray-500;
+                margin-bottom: $space-4;
+                font-weight: $font-bold;
+                animation: fadeInUp 0.7s ease-out 0.6s forwards;
+                opacity: 0;
+            }
+
+            .event {
+                font-size: $text-2xl;
+                color: $gray-400;
+                margin-bottom: $space-8;
+                font-weight: $font-light;
+                animation: fadeInUp 0.7s ease-out 0.7s forwards;
+                opacity: 0;
+            }
+
+            .date,
+            .guests {
+                display: block;
+                font-size: $text-xl;
+                color: $gray-400;
+                margin-bottom: $space-4;
+                padding: $space-3 0;
+                border-bottom: 1px solid $gray-50;
+                opacity: 0;
+            }
+
+            .date {
+                animation: fadeInUp 0.7s ease-out 0.8s forwards;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            .guests {
+                animation: fadeInUp 0.7s ease-out 0.9s forwards;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .additional {
+            animation: fadeInUp 0.7s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        button {
+            animation: bounceIn 0.7s ease-out 1.2s forwards;
+            opacity: 0;
+            padding: $space-6 $space-8;
+        }
+
+        .group-buttons {
+            width: 100%;
+            @include flex-column-center;
+            align-items: start;
+            gap: $space-1;
+
+            &>button {
+                width: 80%;
+            }
+        }
+    }
+
+    @include tablet {
+        padding: 0;
+        flex-direction: column;
+        min-height: auto;
+
+        .confirmed-header,
+        .confirmed-main {
+            flex: none;
+        }
+
+        .confirmed-header {
+            min-height: 300px;
+            justify-content: space-around;
+
+            .dateAndTime {
+                font-size: $text-lg;
+            }
+
+            .title {
+                font-size: $text-4xl;
+            }
+
+            .restaurant {
+                font-size: $text-base;
+            }
+
+            .chek-circle {
+                font-size: 150px;
+            }
+        }
+
+        .confirmed-main {
+            padding: 0 12%;
+            text-align: center;
+
+            button {
+                margin: auto;
+            }
+
+            .details {
+                .full-name {
+                    font-size: $text-3xl;
+                }
+            }
+        }
+    }
+}
+
+.oops-header {
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    min-height: 200px;
+    font-size: $text-2xl;
+    background-color: $primary-500;
+    padding-top: 72px;
+    animation: fadeInUp 0.8s ease-out;
+
+    h1 {
+        width: 100%;
+        margin: 0;
+        animation: fadeInUp 0.7s ease-out 0.2s forwards;
+        opacity: 0;
+    }
+
+    p {
+        width: 100%;
+        animation: fadeInUp 0.7s ease-out 0.4s forwards;
+        opacity: 0;
+    }
+
+    @include tablet {
+        h1 {
+            font-size: $text-3xl;
+        }
+
+        p {
+            font-size: $text-lg;
+        }
+    }
+
+    @include mobile {
+        button {
+            width: 90%;
+        }
+    }
+}
+
+
+
+.oops-main {
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+
+    p {
+        font-size: $text-2xl;
+        font-weight: $font-bold;
+        animation: fadeInUp 0.7s ease-out 0.6s forwards;
+        opacity: 0;
+    }
+
+    button {
+        padding: $space-8 $space-6;
+    }
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .booking-confirmed .group-buttons>button {
+        width: 100%;
+        height: $space-16;
+    }
+}
