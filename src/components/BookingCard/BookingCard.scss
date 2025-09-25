@@ -31,7 +31,7 @@
             color: $color-primary;
             font-size: $text-lg;
             font-weight: $font-semibold;
-            letter-spacing: $space-1 / 8;
+            letter-spacing: calc($space-1 / 8);
 
             @include tablet {
                 font-size: $text-base;
@@ -98,7 +98,7 @@
         .cancel-btn {
             @include flex-center;
             flex: 1;
-            gap: $space-3 / 2;
+            gap: calc($space-3 / 2);
             padding: $space-3 $space-4;
             background-color: $red-500;
             color: $white;
