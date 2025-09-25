@@ -1,6 +1,4 @@
-import type { ReactNode } from 'react';
-import React, { useEffect, useState } from 'react';
-import './SkeletonLoader.css';
+import './SkeletonLoader.scss';
 
 interface SkeletonLoaderProps {
     count?: number;
