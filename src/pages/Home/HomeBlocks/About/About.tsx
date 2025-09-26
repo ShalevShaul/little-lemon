@@ -1,4 +1,4 @@
-import './About.css';
+import './About.scss';
 const marioAndAdrian = '/images/MarioAndAdrian.webp';
 import { useInView } from '../../../../hooks/useInView';
 
