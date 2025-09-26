@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useBookingForm } from '../../contexts/FormContext';
-import './BookingForm.css';
+import './BookingForm.scss';
 import PersonalInfo from './steps/step1/PersonalInfo';
 import DateTime from './steps/step2/DateTime';
 import EventDetails from './steps/step3/EventDetails';
