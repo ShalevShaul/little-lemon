@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useBookingForm } from '../../../../contexts/FormContext';
 import { useBooking } from '../../../../contexts/BookingContext';
-import './BookingSummary.css';
+import './BookingSummary.scss';
 import { useNavigate } from 'react-router';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';

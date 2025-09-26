@@ -1,0 +1,123 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.Summary {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: $space-10;
+    background: $white;
+    border-radius: $radius-2xl;
+    box-shadow: 0 $space-1 $space-5 $primary-500-10;
+    animation: stepAdvanced 0.3s ease-out;
+
+    h2 {
+        color: $primary-500;
+        font-size: $text-4xl;
+        font-weight: $font-bold;
+        margin-bottom: $space-8;
+        text-align: center;
+    }
+
+    .summary-card {
+        background: $gray-50;
+        border-radius: $radius-2xl;
+        padding: $space-6;
+        margin-bottom: $space-8;
+        border: 2px solid $gray-100;
+
+        .summary-header {
+            margin-bottom: $space-6;
+            text-align: center;
+            padding-bottom: $space-4;
+            border-bottom: 2px solid $gray-100;
+
+            h3 {
+                color: $primary-500;
+                font-size: $text-2xl;
+                font-weight: $font-bold;
+                margin: 0;
+            }
+        }
+
+        .summary-details {
+            @include flex-column;
+            gap: $space-4;
+
+            .detail-row {
+                @include flex-between;
+                padding: $space-3 $space-4;
+                background: $white;
+                border-radius: $radius-xl;
+                border: 1px solid $gray-150;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    border-color: $secondary-500;
+                    box-shadow: 0 $space-1 $space-2 $secondary-500-10;
+                }
+
+                .detail-label {
+                    font-weight: $font-semibold;
+                    color: $primary-500;
+                    font-size: $text-base;
+                    display: flex;
+                    align-items: center;
+                    gap: $space-2;
+                }
+
+                .detail-value {
+                    font-weight: $font-medium;
+                    color: $gray-500;
+                    font-size: $text-base;
+                    text-align: right;
+                }
+            }
+        }
+
+        .summary-note {
+            margin-top: $space-5;
+            padding: $space-4;
+            background: $secondary-500-10;
+            border-radius: $radius-xl;
+            border-left: $space-1 solid $color-secondary;
+
+            p {
+                margin: 0;
+                color: $primary-500;
+                font-size: $text-base;
+                line-height: 1.5;
+
+                strong {
+                    color: $primary-500;
+                    font-weight: $font-bold;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        margin: $space-5;
+        padding: $space-8 $space-5;
+
+        h2 {
+            font-size: $text-2xl;
+        }
+
+        .summary-card {
+            padding: $space-5;
+        }
+
+        .detail-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: $space-2;
+            text-align: left;
+        }
+
+        .detail-value {
+            text-align: left;
+            font-weight: $font-semibold;
+            color: $primary-500;
+        }
+    }
+}
