@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 /* Delete Booking Modal Styles */
 .delete-booking-modal {
@@ -115,7 +115,7 @@
         @include tablet {
             flex-direction: column;
             padding: 0 $space-5 $space-5 $space-5;
-            gap: $space-5 / 2;
+            gap: calc($space-5 / 2);
         }
 
         .btn-cancel-action,
@@ -129,7 +129,7 @@
             cursor: pointer;
             transition: all 0.2s ease;
             text-transform: uppercase;
-            letter-spacing: $space-1 / 8;
+            letter-spacing: calc($space-1 / 8);
 
             @include tablet {
                 font-size: $text-base;
