@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 .PageHeader {
     padding: 0 10%;
@@ -10,6 +10,22 @@
 
     &.confirmed {
         display: none;
+    }
+
+    &.home-header {
+        background: linear-gradient(rgba($gray-400, 0.7), $black),
+            url('/images/restaurant.webp') center fixed;
+    }
+
+    &.reserve-header {
+        background: linear-gradient(rgba($gray-400, 0.7), $black),
+            url('/images/reserved-table-header.webp') top fixed;
+        background-size: cover;
+    }
+
+    &.bookings-header {
+        background: linear-gradient(rgba($gray-400, 0.7), $black),
+            url('/images/bookings-restaurant-header.webp') bottom fixed;
     }
 
     .hero {
@@ -127,33 +143,6 @@
     }
 }
 
-// Background variants - separate from main class for better organization
-.home-header,
-.reserve-header,
-.bookings-header {
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.home-header {
-    background: linear-gradient(rgba($gray-400, 0.7), $black),
-        url('/images/restaurant.webp');
-    background-position: center;
-}
-
-.reserve-header {
-    background: linear-gradient(rgba($gray-400, 0.7), $black),
-        url('/images/reserved-table-header.webp');
-    background-position: start;
-}
-
-.bookings-header {
-    background: linear-gradient(rgba($gray-400, 0.7), $black),
-        url('/images/bookings-restaurant-header.webp');
-    background-position: bottom;
-}
-
 .arrow-down {
     position: absolute;
     bottom: $space-5;
@@ -175,11 +164,13 @@
 
 // iOS Safari parallax fix
 @supports (-webkit-touch-callout: none) {
+    .PageHeader {
 
-    .home-header,
-    .reserve-header,
-    .bookings-header {
-        background-attachment: scroll;
+        &.home-header,
+        &.reserve-header,
+        &.bookings-header {
+            background-attachment: scroll;
+        }
     }
 }
 
