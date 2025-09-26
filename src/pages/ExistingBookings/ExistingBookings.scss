@@ -1,0 +1,114 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
+
+.existing-bookings {
+    padding: $space-6 10%;
+
+    h1 {
+        color: $primary-500;
+        font-size: $text-2xl;
+    }
+
+    .bookings-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $space-4;
+        scroll-margin-top: 72px;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .no-bookings {
+        @include flex-column-center;
+        text-align: center;
+        padding: $space-12 $space-5;
+        margin: $space-10 auto;
+        background: linear-gradient(135deg, $gray-50 0%, $white 50%, $gray-50 100%);
+        border-radius: $radius-3xl;
+        box-shadow:
+            0 10px 40px $primary-500-10,
+            0 4px 20px rgba($black, 0.04);
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        position: relative;
+        overflow: hidden;
+
+        @include tablet {
+            margin: $space-5;
+            padding: $space-10 $space-5;
+            max-width: 90%;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, $secondary-500, $primary-500, $secondary-500);
+            background-size: 200% 100%;
+        }
+
+        &::before {
+            top: 0;
+            animation: shimmer 2.5s ease-in-out infinite;
+        }
+
+        &::after {
+            bottom: 0;
+            animation: shimmer 2.75s ease-in-out infinite;
+        }
+
+        h1 {
+            color: $primary-500;
+            font-size: $text-3xl;
+            font-weight: $font-bold;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba($black, 0.05);
+
+            @include tablet {
+                font-size: $text-2xl;
+                margin-bottom: $space-4;
+            }
+        }
+
+        p {
+            font-size: $text-base;
+
+            @include tablet {
+                font-size: $text-base;
+                margin-bottom: $space-6;
+                padding: $space-3 $space-4;
+            }
+        }
+
+        button {
+            padding: $space-8;
+
+            @include tablet {
+                font-size: $text-sm;
+                min-width: 180px;
+            }
+        }
+    }
+
+    .diff-line {
+        content: "";
+        border: 1px solid $primary-400;
+    }
+}
+
+
+/* Animations */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}

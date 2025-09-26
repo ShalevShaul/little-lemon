@@ -4,7 +4,7 @@ import CustomButton from '../../components/CustomButton/CustomButton';
 import DeleteBookingModal from '../../components/DeleteBookingModal/DeleteBookingModal';
 import { useBooking } from '../../contexts/BookingContext';
 import type { Booking } from '../../types/booking';
-import './ExistingBookings.css';
+import './ExistingBookings.scss';
 import BookingsSection from '../../components/BookingsSection/BookingsSection';
 import toast from 'react-hot-toast';
 import { useLoader } from '../../contexts/LoaderContext';
