@@ -1,4 +1,4 @@
-import './Gallery.css';
+import './Gallery.scss';
 const outdoor = '/images/restaurant.webp';
 const chef = '/images/restaurant chef B.webp';
 const table = '/images/little-lemon.webp';
