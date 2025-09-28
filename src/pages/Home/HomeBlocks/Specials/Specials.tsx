@@ -1,4 +1,4 @@
-import './Specials.css';
+import './Specials.scss';
 const greekSaladImg = '/images/greek-salad.webp';
 const bruschettaImg = '/images/bruschetta.webp';
 const lemonDessertImg = '/images/lemon-dessert.webp';
@@ -42,7 +42,7 @@ function Specials() {
     return (
         <section ref={ref} className="specials-section">
             <div className="container">
-                <div className={`section-header animate-on-scroll fade-in-up ${isVisible ? 'animated' : ''}`}>
+                <div className={`specials-header animate-on-scroll fade-in-up ${isVisible ? 'animated' : ''}`}>
                     <h2>This Week's Specials!</h2>
                 </div>
 
