@@ -3,29 +3,29 @@
 
 .gallery-section {
    padding: 0 10%;
-   background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-800) 100%);
+   background: linear-gradient(135deg, $primary-500 0%, $primary-800 100%);
 
    h2 {
       padding: 5% 0;
       margin: 0;
-      font-size: var(--text-4xl);
+      font-size: $text-4xl;
       text-align: center;
-      color: white;
-      margin-bottom: 3rem;
+      color: $white;
+      margin-bottom: $space-12;
    }
 
    .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
+      gap: $space-6;
       padding-bottom: 5%;
 
       .gallery-item {
          position: relative;
          height: 250px;
-         border-radius: var(--radius-xl);
+         border-radius: $radius-xl;
          overflow: hidden;
-         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+         box-shadow: 0 4px 12px $black-30;
          transition: transform 0.3s ease;
 
          &:hover {
@@ -50,7 +50,7 @@
 
       @include mobile {
          grid-template-columns: 1fr;
-         padding-bottom: 24px;
+         padding-bottom: $space-6;
       }
    }
 }
