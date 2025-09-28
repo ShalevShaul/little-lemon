@@ -1,5 +1,13 @@
 html {
     overflow-x: hidden;
+
+    &[data-no-scroll="true"] {
+        overflow: hidden !important;
+
+        body {
+            overflow: hidden !important;
+        }
+    }
 }
 
 body {
@@ -7,12 +15,4 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     overflow-x: hidden !important;
-}
-
-html[data-no-scroll="true"] {
-    overflow: hidden !important;
-}
-
-html[data-no-scroll="true"] body {
-    overflow: hidden !important;
 }
