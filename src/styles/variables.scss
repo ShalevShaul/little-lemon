@@ -186,3 +186,38 @@ $bg-primary: $white;
 $bg-secondary: $dirty-white-bg;
 $bg-tertiary: $cream-bg;
 $bg-dark: $gray-900;
+
+// ========== ICON COLORS FOR APP.SCSS ==========
+
+// Additional colors for icons that aren't in the main palette
+$purple-600: #4d3078;
+$purple-700: #472c70;
+$pink-500: #f04a7c;
+$blue-400: #60a5fa;
+$orange-400: #fb923c;
+$yellow-400: #facc15;
+$indigo-600: #4f46e5;
+$cyan-400: #22d3ee;
+$amber-500: #f59e0b;
+
+// Icon color map for easy maintenance
+$icon-colors: (
+  person: $purple-600,
+  group: $purple-700,
+  phone: $pink-500,
+  time: $blue-400,
+  birthday: $orange-400,
+  anniversary: $red-500,
+  business: #7d4c5c,
+  family: #cf59dc,
+  date: #9C27B0,
+  graduation: $indigo-600,
+  engagement: $cyan-400,
+  baby: #ffd586,
+  reunion: $amber-500,
+  other: $gray-300,
+  star: $secondary-600,
+  hamburger: $black,
+  close: $black,
+  email: $gray-400
+);
