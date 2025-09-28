@@ -1,0 +1,124 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.reviews-section {
+    padding: 8% 10%;
+    background-color: $light-bg;
+
+    .reviews-section-header {
+        @include flex-between;
+
+        h2 {
+            font-size: $text-4xl;
+            text-align: center;
+            color: $gray-500;
+            margin-bottom: $space-12;
+
+            @include tablet {
+                text-align: center;
+                font-size: $text-3xl;
+            }
+        }
+
+        button {
+            height: 70px;
+            padding: $space-6;
+
+            @include tablet {
+                width: 100%;
+                padding: $space-4;
+            }
+        }
+
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
+            gap: $space-4;
+            margin-bottom: $space-4;
+        }
+    }
+
+    .reviews-swiper-container {
+        .review-card {
+            background: $dirty-white-bg;
+            padding: $space-8;
+            border-radius: $radius-xl;
+            border-left: 4px solid $secondary-500;
+            transition: 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            .review-header {
+                @include flex-between-flex-start;
+                margin-bottom: $space-4;
+
+                h4 {
+                    margin: 0 0 0.25rem 0;
+                    color: $gray-500;
+                    font-size: $text-xl;
+                }
+
+                .review-date {
+                    font-size: $text-sm;
+                    color: $gray-300;
+                }
+
+                .rating {
+                    font-size: $text-lg;
+
+                    .star-icon {
+                        @include mobile {
+                            font-size: $space-4;
+                        }
+                    }
+                }
+            }
+
+            .review-comment {
+                color: $gray-500;
+                line-height: 1.6;
+                font-style: italic;
+                margin: 0;
+            }
+        }
+
+        .navigation-buttons {
+            @include flex-center;
+            gap: $space-5;
+            margin-top: $space-5;
+
+            .custom-swiper-button-prev,
+            .custom-swiper-button-next {
+                width: 50px;
+                height: 50px;
+                background: $secondary-500-80;
+                border-radius: $radius-50;
+                @include flex-center;
+                cursor: pointer;
+                box-shadow: 0 2px 8px $black-10;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: $secondary-500;
+                    transform: scale(1.2);
+                    box-shadow: 0 4px 12px $black-20;
+                }
+
+                &:active {
+                    background: $gray-100;
+                    box-shadow: 0 2px 6px $black-30;
+                }
+
+                @include tablet {
+                    &:not(:hover) {
+                        background: $secondary-500-80;
+                        transform: scale(1.2);
+                        box-shadow: 0 4px 12px $secondary-500-20;
+                    }
+                }
+            }
+        }
+    }
+}

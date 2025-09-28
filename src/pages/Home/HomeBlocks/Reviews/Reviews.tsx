@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import toast from 'react-hot-toast';
 import 'swiper/swiper-bundle.css';
-import './Reviews.css';
+import './Reviews.scss';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import RateUs from '../RateUs/RateUs';
 import { useLoader } from '../../../../contexts/LoaderContext';
@@ -130,7 +130,7 @@ function Reviews() {
 
     return (
         <section ref={ref} className="reviews-section">
-            <div className="container">
+            {/* <div className="container"> */}
                 <div className='reviews-section-header'>
                     <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
                     <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
@@ -195,7 +195,7 @@ function Reviews() {
                         <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     );
 }
