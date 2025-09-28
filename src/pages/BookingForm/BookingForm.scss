@@ -3,13 +3,68 @@
 
 .booking-form {
     min-height: $height-viewport;
-    background: linear-gradient(180deg, $primary-800 0%, $primary-400 100%);
+    background: linear-gradient(180deg, $black 10%, $primary-500 45%, $white 100%);
     padding: $space-20 $space-10;
     @include flex-center;
 
     .form-container {
         width: 100%;
         max-width: 600px;
+
+        form {
+            border-radius: 0 0 $radius-3xl $radius-3xl;
+            border: 6px solid $primary-500;
+            border-top: none;
+
+            .step-wrapper {
+                background-color: $white;
+            }
+
+            .button-group {
+                @include flex-between;
+                gap: $space-4;
+                margin-top: $space-8;
+
+                button {
+                    padding: $space-4;
+                }
+
+                :nth-child(1) {
+                    flex: 2;
+                }
+
+                :nth-child(2) {
+                    flex: 3;
+                }
+
+                @include tablet {
+                    flex-direction: row;
+
+                    button {
+                        flex: none;
+                    }
+                }
+            }
+
+            .back-btn {
+                flex: 1;
+                padding: $space-4 $space-6;
+                background: $gray-200;
+                color: $primary-500;
+                border: none;
+                border-radius: $radius-xl;
+                font-size: $text-base;
+                font-weight: $font-semibold;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: $gray-200;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px $black-10;
+                }
+            }
+        }
     }
 
     .progress-indicator {
@@ -20,6 +75,8 @@
         position: relative;
         scroll-margin: 64px;
         border-radius: $radius-3xl $radius-3xl 0 0;
+        border: 6px solid $primary-500;
+        border-bottom: none;
 
         &::before {
             content: '';
@@ -353,55 +410,6 @@
     @include tablet {
         padding: $space-5 $space-2;
         min-height: 50vh;
-    }
-}
-
-
-// Form button groups
-form {
-    .button-group {
-        @include flex-between;
-        gap: $space-4;
-        margin-top: $space-8;
-
-        button {
-            padding: $space-4;
-        }
-
-        :nth-child(1) {
-            flex: 2;
-        }
-
-        :nth-child(2) {
-            flex: 3;
-        }
-
-        @include tablet {
-            flex-direction: row;
-
-            button {
-                flex: none;
-            }
-        }
-    }
-
-    .back-btn {
-        flex: 1;
-        padding: $space-4 $space-6;
-        background: $gray-200;
-        color: $primary-500;
-        border: none;
-        border-radius: $radius-xl;
-        font-size: $text-base;
-        font-weight: $font-semibold;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: $gray-200;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px $black-10;
-        }
     }
 }
 
