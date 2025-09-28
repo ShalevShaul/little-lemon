@@ -2,8 +2,8 @@ import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react';
 import BookingForm from './BookingForm';
 import { describe, expect, test } from 'vitest';
-import { BookingProvider } from '../../context/BookingContext';
-import { BookingFormProvider } from '../../context/FormContext';
+import { BookingProvider } from '../../contexts/BookingContext';
+import { BookingFormProvider } from '../../contexts/FormContext';
 import { BrowserRouter } from 'react-router';
 import { userEvent } from '@testing-library/user-event';
 
