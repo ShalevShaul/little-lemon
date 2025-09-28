@@ -1,8 +1,7 @@
 # 🍋 Little Lemon Restaurant
-## A modern restaurant website with table reservations built with **React**, **TypeScript**, **Vite**, and **CSS**.
+## A modern restaurant website with table reservations built with **React**, **TypeScript**, **Vite**, and **SCSS**.
 
-
-<!-- ## 🚀 [Live Demo](https://shalevshaul.github.io/little-lemon/) -->
+## 🚀 [Live Demo](https://little-lemon-reserve.vercel.app/)
 
 ## 📱 Features
 
@@ -16,6 +15,7 @@
 
 - **Error Boundaries** - Graceful error handling
 - **Custom Hooks** - Reusable logic components
+- **SCSS Styling** - Modular styles with variables and nesting
 - **Form Validation** - Real-time validation with user feedback
 - **Local Storage** - Data persistence without backend
 - **Performance Optimized** - Memo, useCallback, useMemo
@@ -35,14 +35,14 @@
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Context-API](https://img.shields.io/badge/Context--Api-000000?style=for-the-badge&logo=react)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## 🏃‍♂️ Quick Start
 
 ```bash
 # Clone and install
 git clone https://github.com/ShalevShaul/little-lemon.git
-cd little-lemon-restaurant
+cd little-lemon
 npm install
 
 # Run development server
@@ -55,17 +55,17 @@ npm run dev
   <tr>
     <td width="33%" valign="top">
       <h3 align="center">🏠 Home Page</h3>
-      <img src="src/assets/images/HomePage.webp" width="100%" alt="Little lemon home page"/>
+      <img src="src/assets/images/home.webp" width="100%" alt="Little lemon home page"/>
     </td>
     <!--  -->
     <td width="33%" valign="top">
       <h3 align="center">📝 Reservation Page</h3>
-      <img src="src/assets/images/ReservePage.webp" width="100%" alt="Resreve a table page"/>
+      <img src="src/assets/images/reservation.webp" width="100%" alt="Resreve a table page"/>
     </td>
     <!--  -->
     <td width="33%" valign="top">
       <h3 align="center">🍽️ Bookings Page</h3>
-      <img src="src/assets/images/BookingsPage.webp" width="100%" alt="Existing bookings page"/>
+      <img src="src/assets/images/bookings.webp" width="100%" alt="Existing bookings page"/>
     </td>
   </tr>
 </table>
