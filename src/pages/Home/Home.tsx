@@ -1,4 +1,3 @@
-import './Home.css';
 import About from './HomeBlocks/About/About';
 import Gallery from './HomeBlocks/Gallery/Gallery';
 import Reviews from './HomeBlocks/Reviews/Reviews';
