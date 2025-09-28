@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import './RateUs.css';
+import './RateUs.scss';
 import CustomButton from '../../../../components/CustomButton/CustomButton';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useEffect } from 'react';

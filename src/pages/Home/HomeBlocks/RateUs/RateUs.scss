@@ -1,0 +1,215 @@
+@use '../../../../styles/variables.scss' as *;
+@use '../../../../styles/mixins.scss' as *;
+
+.rate-us {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: $space-10 $space-8;
+    background: $white;
+    border-radius: $radius-2xl;
+    box-shadow: 0 4px 20px $primary-500-10;
+    animation: stepAdvanced 0.3s ease;
+    position: relative;
+
+    h1 {
+        color: $primary-500;
+        font-size: $text-4xl;
+        font-weight: $font-bold;
+        margin-top: $space-2;
+        text-align: center;
+    }
+
+    form button {
+        width: 100%;
+        padding: $space-5 !important;
+    }
+
+    .input-group {
+        margin-bottom: $space-10;
+
+        label {
+            display: block;
+            margin-bottom: $space-2;
+            font-weight: $font-semibold;
+            color: $primary-500;
+            font-size: $text-base;
+        }
+
+        :is(input, textarea) {
+            width: 100%;
+            padding: $space-4;
+            border: 2px solid $gray-200;
+            border-radius: $radius-xl;
+            font-size: $text-base;
+            transition: all 0.3s ease;
+            background: $light-bg;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: $gray-400;
+            }
+
+            &:focus {
+                outline: none;
+                border-color: $secondary-500;
+                background: $white;
+                box-shadow: 0 0 0 3px $secondary-500-10;
+            }
+        }
+
+        textarea {
+            width: 100%;
+            height: 50px;
+            resize: vertical;
+        }
+
+        .not-valid {
+            outline: none;
+            border-color: $red-600;
+            background: $white;
+            box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+
+            &:focus {
+                outline: none;
+                border-color: $red-600;
+                background: $white;
+                box-shadow: 0 0 0 3px rgba($red-500, 0.1);
+            }
+        }
+    }
+
+    .input-with-icon {
+        position: relative;
+        display: block;
+
+        .input-icon {
+            position: absolute;
+            left: $space-4;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $gray-400;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        input {
+            padding-left: 50px;
+        }
+
+        .error {
+            color: $red-500;
+            font-size: $text-base;
+            margin-top: $space-1;
+            display: block;
+            font-weight: $font-medium;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+        }
+    }
+
+    .close-modal {
+        position: absolute;
+        top: $space-5;
+        right: $space-4;
+        width: auto;
+        margin: 0;
+        background: unset;
+        border: unset;
+
+        .cancel-icon {
+            font-size: $space-10;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: 0.2s ease;
+
+            &:hover {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @include tablet {
+        margin: $space-5;
+        padding: $space-8 $space-5;
+    }
+}
+
+// Range input styling
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 60px;
+    border-radius: $radius-md;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: $space-4 0;
+    margin: $space-2 0;
+
+    // Chrome/Safari/Edge - The line
+    &::-webkit-slider-runnable-track {
+        height: 12px;
+        border-radius: $radius-md;
+        background: linear-gradient(to right,
+                $primary-500 0%,
+                $primary-500 var(--value, 100%),
+                $gray-200 var(--value, 100%),
+                $gray-200 100%);
+        box-shadow: inset 0 1px 3px $black-10;
+    }
+
+    // Chrome/Safari/Edge - The button
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 28px;
+        height: 28px;
+        border-radius: $radius-50;
+        background: $green-300;
+        cursor: pointer;
+        border: 2px solid $white;
+        box-shadow: 0 2px 4px $black-20;
+        margin-top: -8px;
+
+        &:hover {
+            background: $green-400;
+            transform: scale(1.1);
+        }
+    }
+
+    // Firefox - The line
+    &::-moz-range-track {
+        height: 12px;
+        border-radius: $radius-md;
+        background: $gray-200;
+        border: none;
+        box-shadow: inset 0 1px 3px $black-10;
+    }
+
+    // Firefox - The button
+    &::-moz-range-thumb {
+        width: 28px;
+        height: 28px;
+        border-radius: $radius-50;
+        background: $green-300;
+        cursor: pointer;
+        border: 2px solid $white;
+        box-shadow: 0 2px 4px $black-20;
+
+        &:hover {
+            background: $primary-500;
+            transform: scale(1.1);
+        }
+    }
+
+    // Firefox - Line color
+    &::-moz-range-progress {
+        background-color: $primary-500;
+        height: 12px;
+        border-radius: $radius-md;
+    }
+}
