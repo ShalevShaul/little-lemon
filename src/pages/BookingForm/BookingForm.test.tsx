@@ -1,23 +1,37 @@
 import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react';
 import BookingForm from './BookingForm';
-import { describe, expect, test } from 'vitest';
+import { beforeAll, describe, expect, test, vi } from 'vitest';
 import { BookingProvider } from '../../contexts/BookingContext';
 import { BookingFormProvider } from '../../contexts/FormContext';
 import { BrowserRouter } from 'react-router';
 import { userEvent } from '@testing-library/user-event';
+import { ModalProvider } from '../../contexts/ModalContext';
+import { LoaderProvider } from '../../contexts/LoaderContext';
+
+beforeAll(() => {
+    Element.prototype.scrollIntoView = vi.fn();
+});
+
+const renderBookingForm = () => {
+    return render(
+        <BrowserRouter>
+            <LoaderProvider>
+                <ModalProvider>
+                    <BookingProvider>
+                        <BookingFormProvider>
+                            <BookingForm />
+                        </BookingFormProvider>
+                    </BookingProvider>
+                </ModalProvider>
+            </LoaderProvider>
+        </BrowserRouter>
+    );
+};
 
 describe('BookingForm', () => {
     test('renders booking form', () => {
-        render(
-            <BrowserRouter>
-                <BookingProvider>
-                    <BookingFormProvider>
-                        <BookingForm />
-                    </BookingFormProvider>
-                </BookingProvider>
-            </BrowserRouter>
-        );
+        renderBookingForm();
 
         expect(screen.getByRole('form')).toBeInTheDocument();
     });
@@ -25,15 +39,7 @@ describe('BookingForm', () => {
     test('allows user to fill form fields', async () => {
         const user = userEvent.setup();
 
-        render(
-            <BrowserRouter>
-                <BookingProvider>
-                    <BookingFormProvider>
-                        <BookingForm />
-                    </BookingFormProvider>
-                </BookingProvider>
-            </BrowserRouter>
-        );
+        renderBookingForm();
 
         const nameInput = screen.getByLabelText(/Full Name/i);
         await user.type(nameInput, 'John Doe');
@@ -44,15 +50,7 @@ describe('BookingForm', () => {
     test('shows error for empty required fields', async () => {
         const user = userEvent.setup();
 
-        render(
-            <BrowserRouter>
-                <BookingProvider>
-                    <BookingFormProvider>
-                        <BookingForm />
-                    </BookingFormProvider>
-                </BookingProvider>
-            </BrowserRouter>
-        );
+        renderBookingForm();
 
         const submitButton = screen.getByText('Next Step');
         await user.click(submitButton);
@@ -64,15 +62,7 @@ describe('BookingForm', () => {
     test('prevents booking short phone number', async () => {
         const user = userEvent.setup();
 
-        render(
-            <BrowserRouter>
-                <BookingProvider>
-                    <BookingFormProvider>
-                        <BookingForm />
-                    </BookingFormProvider>
-                </BookingProvider>
-            </BrowserRouter>
-        );
+        renderBookingForm();
 
         const phoneInput = screen.getByLabelText(/phone/i);
         await user.type(phoneInput, '123456789');
@@ -85,18 +75,11 @@ describe('BookingForm', () => {
     test('submits form successfully with valid data', async () => {
         const user = userEvent.setup();
 
-        render(
-            <BrowserRouter>
-                <BookingProvider>
-                    <BookingFormProvider>
-                        <BookingForm />
-                    </BookingFormProvider>
-                </BookingProvider>
-            </BrowserRouter>
-        );
+        renderBookingForm();
 
         await user.type(screen.getByLabelText(/Full Name/i), 'John Doe');
         await user.type(screen.getByLabelText(/phone/i), '0123456789');
+        await user.type(screen.getByLabelText(/email/i), 'user@example.com');
         await user.click(screen.getByRole('button', { name: /Next Step/i }));
 
         await user.type(screen.getByLabelText(/Select Date/i), '2100-01-01');
