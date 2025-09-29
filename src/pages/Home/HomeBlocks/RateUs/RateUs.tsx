@@ -107,6 +107,7 @@ function RateUs(props: RateUsProps) {
             <button
                 className='close-modal'
                 onClick={closeModal}
+                data-testid='close-modal-button'
             >
                 <HighlightOffIcon className='cancel-icon' />
             </button>
