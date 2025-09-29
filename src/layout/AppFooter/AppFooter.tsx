@@ -23,7 +23,9 @@ function AppFooter() {
     return (
         <footer>
             <ul className='footer-nav'>
-                <img src={footerLogo} alt='liitle lemon footer logo' />
+                <li>
+                    <img src={footerLogo} alt='liitle lemon footer logo' />
+                </li>
                 <li className='doormat-list'>
                     <span className='list-title'>Doormat<br /> Navigation</span>
                     <ul>
