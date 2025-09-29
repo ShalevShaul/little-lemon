@@ -7,17 +7,10 @@ interface CustomModalProps {
 
 function CustomModal({ children }: CustomModalProps) {
     useEffect(() => {
-        const scrollY = window.scrollY;
+        document.documentElement.setAttribute('data-no-scroll', 'true');
 
-        document.documentElement.style.setProperty('--scroll-y', `-${scrollY}px`);
-        document.body.classList.add('no-scroll');
-
-        return () => {
-            document.body.classList.remove('no-scroll');
-            document.documentElement.style.removeProperty('--scroll-y');
-            window.scrollTo(0, scrollY);
-        }
-    }, []);
+        return () => document.documentElement.removeAttribute('data-no-scroll');
+    }, [])
 
     return (
         <div className='custom-modal'>
