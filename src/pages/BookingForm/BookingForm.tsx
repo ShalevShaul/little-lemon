@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useBookingForm } from '../../contexts/FormContext';
 import './BookingForm.scss';
 import PersonalInfo from './steps/step1/PersonalInfo';
