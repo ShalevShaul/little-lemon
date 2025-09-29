@@ -44,7 +44,7 @@ function Gallery() {
                 <div className={`gallery-grid animate-on-scroll stagger-cards ${isVisible ? 'animated' : ''}`}>
                     {galleryImages.map(image => (
                         <div key={image.id} className="gallery-item">
-                            <img src={image.src} alt={image.alt} />
+                            <img src={image.src} alt={image.alt} loading='lazy' />
                         </div>
                     ))}
                 </div>

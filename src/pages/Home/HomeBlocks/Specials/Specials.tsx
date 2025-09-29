@@ -50,7 +50,7 @@ function Specials() {
                     {specialDishes.map(dish => (
                         <div key={dish.id} className="special-card">
                             <div className="card-image">
-                                <img src={dish.image} alt={dish.name} />
+                                <img src={dish.image} alt={dish.name} loading='lazy' />
                             </div>
                             <div className="card-content">
                                 <div className="card-header">

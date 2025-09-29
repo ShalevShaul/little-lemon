@@ -38,7 +38,7 @@ function About() {
                         </div>
                     </div>
                     <div className={`about-image animate-on-scroll fade-in-right ${isVisible ? 'animated' : ''}`}>
-                        <img src={marioAndAdrian} alt="Mario and Adrian, founders of Little Lemon" />
+                        <img src={marioAndAdrian} alt="Mario and Adrian, founders of Little Lemon" loading='lazy' />
                     </div>
                 </div>
             </div>
