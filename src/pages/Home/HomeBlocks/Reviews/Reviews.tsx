@@ -174,7 +174,7 @@ function Reviews() {
                             <div className="review-card">
                                 <div className="review-header">
                                     <div className="reviewer-info">
-                                        <h4>{review.name}</h4>
+                                        <h3>{review.name}</h3>
                                         <span className="review-date">
                                             {formatDate(review.date)}
                                         </span>
