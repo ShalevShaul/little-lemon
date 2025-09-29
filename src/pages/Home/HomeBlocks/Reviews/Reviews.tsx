@@ -130,72 +130,70 @@ function Reviews() {
 
     return (
         <section ref={ref} className="reviews-section">
-            {/* <div className="container"> */}
-                <div className='reviews-section-header'>
-                    <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
-                    <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
-                        <CustomButton color='secondary' text='Rate Us' onClick={handleOpenModal} />
-                    </div>
+            <div className='reviews-section-header'>
+                <h2 className={`animate-on-scroll fade-in-left ${isVisible ? 'animated' : ''}`}>What Our Customers Say</h2>
+                <div className={`animate-on-scroll fade-in-right delay-200 ${isVisible ? 'animated' : ''}`}>
+                    <CustomButton color='secondary' text='Rate Us' onClick={handleOpenModal} />
                 </div>
+            </div>
 
-                <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
-                    <Swiper
-                        modules={[Navigation, Autoplay]}
-                        spaceBetween={30}
-                        slidesPerView={2}
-                        navigation={{
-                            nextEl: '.custom-swiper-button-next',
-                            prevEl: '.custom-swiper-button-prev',
-                        }}
-                        autoplay={{
-                            delay: 2000,
-                            disableOnInteraction: false,
-                            pauseOnMouseEnter: true,
-                        }}
-                        loop={true}
-                        speed={600}
-                        grabCursor={true}
-                        breakpoints={{
-                            320: {
-                                slidesPerView: 1,
-                                spaceBetween: 20,
-                            },
-                            768: {
-                                slidesPerView: 1,
-                                spaceBetween: 25,
-                            },
-                            1024: {
-                                slidesPerView: 1,
-                                spaceBetween: 30,
-                            },
-                        }}
-                    >
-                        {reviews.map(review => (
-                            <SwiperSlide key={review.id}>
-                                <div className="review-card">
-                                    <div className="review-header">
-                                        <div className="reviewer-info">
-                                            <h4>{review.name}</h4>
-                                            <span className="review-date">
-                                                {formatDate(review.date)}
-                                            </span>
-                                        </div>
-                                        <div className="rating">
-                                            {renderStars(review.rating)}
-                                        </div>
+            <div className={`reviews-swiper-container animate-on-scroll scale-in delay-400 ${isVisible ? 'animated' : ''}`}>
+                <Swiper
+                    modules={[Navigation, Autoplay]}
+                    spaceBetween={30}
+                    slidesPerView={2}
+                    navigation={{
+                        nextEl: '.custom-swiper-button-next',
+                        prevEl: '.custom-swiper-button-prev',
+                    }}
+                    autoplay={{
+                        delay: 2000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    }}
+                    loop={true}
+                    speed={600}
+                    grabCursor={true}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 25,
+                        },
+                        1024: {
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                        },
+                    }}
+                >
+                    {reviews.map(review => (
+                        <SwiperSlide key={review.id}>
+                            <div className="review-card">
+                                <div className="review-header">
+                                    <div className="reviewer-info">
+                                        <h4>{review.name}</h4>
+                                        <span className="review-date">
+                                            {formatDate(review.date)}
+                                        </span>
                                     </div>
-                                    <p className="review-comment">"{review.comment}"</p>
+                                    <div className="rating">
+                                        {renderStars(review.rating)}
+                                    </div>
                                 </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                <p className="review-comment">"{review.comment}"</p>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
 
-                    <div className='navigation-buttons'>
-                        <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
-                        <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
-                    </div>
+                <div className='navigation-buttons'>
+                    <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
+                    <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
                 </div>
-            {/* </div> */}
+            </div>
         </section>
     );
 }
