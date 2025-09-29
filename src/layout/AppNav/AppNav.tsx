@@ -49,7 +49,11 @@ function AppNav() {
                     </ul>
                 </div>
 
-                <button onClick={toggleMenu} className={`hamburger ${isOpen ? 'open' : 'close'}`}>
+                <button
+                    className={`hamburger ${isOpen ? 'open' : 'close'}`}
+                    aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                    onClick={toggleMenu}
+                >
                     {!isOpen ?
                         <MenuIcon className='hamburger-icon' fontSize='large' key={'hamburger'} /> :
                         <CloseIcon className='close-icon' fontSize='large' key={'close'} />}

@@ -23,6 +23,7 @@ function DeleteBookingModal({ booking, onConfirm, onClose }: DeleteBookingModalP
                 <button
                     className="modal-close-btn"
                     onClick={onClose}
+                    aria-label='Close modal'
                 >
                     ×
                 </button>

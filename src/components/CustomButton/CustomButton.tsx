@@ -6,9 +6,10 @@ interface CustomButtonProps {
     disabled?: boolean;
     type?: HTMLButtonElement['type'],
     onClick?: () => void
+    ariaLabel?: string;
 }
 
-function CustomButton({ text, type, color, disabled, onClick }: CustomButtonProps) {
+function CustomButton({ text, type, color, disabled, onClick, ariaLabel }: CustomButtonProps) {
     return (
         <button
             type={type || 'button'}
@@ -18,6 +19,7 @@ function CustomButton({ text, type, color, disabled, onClick }: CustomButtonProp
             ${color === 'secondary' ? 'secondary' : ''}`}
             onClick={onClick}
             disabled={disabled}
+            aria-label={ariaLabel || text}
         >
             {text}
         </button>

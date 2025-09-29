@@ -190,8 +190,20 @@ function Reviews() {
                 </Swiper>
 
                 <div className='navigation-buttons'>
-                    <span className="custom-swiper-button-prev"><ArrowBackIcon /></span>
-                    <span className="custom-swiper-button-next"><ArrowForwardIcon /></span>
+                    <span
+                        className="custom-swiper-button-prev"
+                        role="button"
+                        aria-label="Previous review"
+                    >
+                        <ArrowBackIcon />
+                    </span>
+                    <span
+                        className="custom-swiper-button-next"
+                        role="button"
+                        aria-label="Next review"
+                    >
+                        <ArrowForwardIcon />
+                    </span>
                 </div>
             </div>
         </section>
